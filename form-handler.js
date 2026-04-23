@@ -96,7 +96,26 @@ function submitScholarshipForm(){
   if(!/^[\d\s\+\-]{7,15}$/.test(f.parentPhone)){_showSchErr('Please enter a valid mobile number');return;}
   var btn=document.querySelector('.scholar-submit');
   if(btn){btn.disabled=true;btn.textContent='⏳ Submitting...';}
-  var payload=new URLSearchParams({sheetId:CONFIG.sheetId,sheetName:'scholarship',studentName:f.studentName,parentName:f.parentName,parentPhone:f.parentPhone,email:f.emailAddress,submittedAt:_ts(),formType:'scholarship'});
+ var payload = new URLSearchParams({
+    sheetId: CONFIG.sheetId,
+    sheetName: CONFIG.sheetName,
+
+    studentName: f.studentName,
+    parentName: f.parentName,
+    parentPhone: f.parentPhone,
+    email: f.emailAddress,
+
+    studentClass: 'Scholarship Test',
+    schoolName: 'Scholarship Test',
+    deviceAccess: 'Scholarship Test',
+    laptopAvailable: 'Scholarship Test',
+    priorKnowledge: 'Scholarship Test',
+    preferredBatch: 'Scholarship Test',
+    learningMode: 'Scholarship Test',
+
+    submittedAt: _ts(),
+    formType: 'scholarship'
+});
   fetch(_GAS_URL,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:payload.toString()})
     .then(function(r){return r.json();})
     .then(function(){_showSchModal(f.parentName,f.studentName);})
@@ -123,7 +142,7 @@ function submitDemoForm(){
   /* Auto-fill remaining sheet fields with "Demo Class" so admin can identify these leads */
   var payload=new URLSearchParams({
     sheetId:CONFIG.sheetId,
-    sheetName:'demo leads',
+    sheetName: CONFIG.sheetName,
     studentName:f.studentName,
     parentName:f.parentName,
     parentPhone:f.parentPhone,

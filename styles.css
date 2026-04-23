@@ -395,3 +395,194 @@ button{cursor:pointer;border:none;font-family:inherit}
 .fade-up-delay-1{transition-delay:.1s}
 .fade-up-delay-2{transition-delay:.2s}
 .fade-up-delay-3{transition-delay:.3s}
+
+/* ============================================================
+   STICKY MOBILE CTA
+============================================================ */
+.sticky-mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:linear-gradient(90deg,var(--blue-900),var(--blue-800));border-top:2px solid var(--yellow-400);padding:12px 16px;align-items:center;justify-content:space-between;gap:10px}
+.smc-text{color:rgba(255,255,255,.8);font-size:.78rem;font-weight:700;line-height:1.3}
+.smc-text strong{color:var(--yellow-400);display:block;font-size:.9rem}
+.smc-btns{display:flex;gap:8px;flex-shrink:0}
+.smc-btns a{display:inline-flex;align-items:center;gap:5px;padding:9px 14px;border-radius:100px;font-size:.8rem;font-weight:800;white-space:nowrap}
+.smc-demo{background:rgba(255,255,255,.12);color:var(--white);border:1px solid rgba(255,255,255,.25)}
+.smc-enroll{background:var(--yellow-400);color:var(--blue-900)}
+@media(max-width:768px){.sticky-mobile-cta{display:flex}.whatsapp-float{bottom:80px}}
+
+/* ============================================================
+   GAMING VS SKILLS — emotional parent section
+============================================================ */
+.gaming-section{padding:80px 0;background:linear-gradient(160deg,#0f2861 0%,#1a3a7a 50%,#112270 100%);position:relative;overflow:hidden}
+.gaming-section::before{content:'';position:absolute;top:-60px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(251,191,36,.06) 0%,transparent 70%);pointer-events:none}
+.gaming-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px;align-items:start}
+.gaming-col{border-radius:var(--radius-xl);padding:32px 28px}
+.gaming-col-bad{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25)}
+.gaming-col-good{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25)}
+.gaming-col-head{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.gaming-col-head .gch-icon{font-size:2.2rem}
+.gaming-col-head h3{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:800;color:var(--white)}
+.gaming-col-head span{font-size:.78rem;color:rgba(255,255,255,.55);display:block;margin-top:2px}
+.gaming-items{display:flex;flex-direction:column;gap:12px}
+.gi-item{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;font-weight:600;line-height:1.55}
+.gi-bad{color:rgba(255,255,255,.75)}
+.gi-bad .gi-dot{color:#f87171;flex-shrink:0;font-size:1.1rem;margin-top:1px}
+.gi-good{color:rgba(255,255,255,.85)}
+.gi-good .gi-dot{color:#34d399;flex-shrink:0;font-size:1.1rem;margin-top:1px}
+.gaming-cta-row{margin-top:44px;text-align:center}
+.gaming-cta-row p{color:rgba(255,255,255,.65);font-size:.95rem;margin-bottom:18px;line-height:1.7}
+@media(max-width:640px){.gaming-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   WEEKEND BATCH SECTION
+============================================================ */
+.weekend-section{padding:80px 0;background:var(--blue-50)}
+.weekend-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin-top:48px}
+.weekend-info{display:flex;flex-direction:column;gap:18px}
+.wi-card{background:var(--white);border-radius:var(--radius-md);padding:20px 22px;box-shadow:var(--shadow-sm);border-left:4px solid var(--blue-600);display:flex;align-items:flex-start;gap:14px}
+.wi-icon{font-size:1.8rem;flex-shrink:0}
+.wi-card h4{font-size:.95rem;font-weight:800;color:var(--blue-900);margin-bottom:4px}
+.wi-card p{font-size:.85rem;color:var(--gray-500);line-height:1.6}
+.weekend-batches{display:flex;flex-direction:column;gap:14px}
+.wb-badge{background:var(--white);border-radius:var(--radius-lg);padding:20px 24px;box-shadow:var(--shadow-md);border:1px solid var(--blue-100);display:flex;align-items:center;gap:16px}
+.wb-badge.wb-popular{border-color:var(--yellow-400);background:linear-gradient(135deg,#fffbeb,#fef9c3)}
+.wb-time{font-family:'Sora',sans-serif;font-size:1.5rem;font-weight:800;color:var(--blue-900);min-width:90px}
+.wb-details h4{font-size:.92rem;font-weight:800;color:var(--blue-900);margin-bottom:2px}
+.wb-details p{font-size:.8rem;color:var(--gray-500)}
+.wb-tag{margin-left:auto;background:var(--yellow-400);color:var(--blue-900);font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:100px;white-space:nowrap}
+@media(max-width:768px){.weekend-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   FOUNDER / WHO IS BEHIND SECTION
+============================================================ */
+.founder-section{padding:80px 0;background:var(--white)}
+.founder-card{max-width:860px;margin:48px auto 0;background:var(--blue-50);border-radius:var(--radius-xl);padding:44px 40px;display:grid;grid-template-columns:180px 1fr;gap:40px;align-items:start;border:1px solid var(--blue-100);box-shadow:var(--shadow-md)}
+.founder-avatar{width:160px;height:160px;border-radius:var(--radius-xl);background:linear-gradient(135deg,var(--blue-600),var(--blue-900));display:flex;align-items:center;justify-content:center;font-size:4rem;box-shadow:var(--shadow-blue);flex-shrink:0}
+.founder-bio h3{font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:var(--blue-900);margin-bottom:4px}
+.founder-bio .founder-title{font-size:.88rem;font-weight:700;color:var(--blue-600);margin-bottom:16px;display:block}
+.founder-bio p{font-size:.92rem;color:var(--gray-700);line-height:1.75;margin-bottom:18px}
+.founder-badges{display:flex;flex-wrap:wrap;gap:8px}
+.fb-badge{display:inline-flex;align-items:center;gap:5px;background:var(--white);color:var(--blue-800);font-size:.78rem;font-weight:700;padding:5px 12px;border-radius:100px;border:1px solid var(--blue-100);box-shadow:var(--shadow-sm)}
+@media(max-width:640px){.founder-card{grid-template-columns:1fr;text-align:center;padding:28px 22px}.founder-avatar{margin:0 auto}.founder-badges{justify-content:center}}
+
+/* ============================================================
+   CERTIFICATE PREVIEW
+============================================================ */
+.certificate-section{padding:80px 0;background:var(--blue-900);position:relative;overflow:hidden}
+.certificate-section::after{content:'';position:absolute;bottom:-80px;right:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(251,191,36,.07) 0%,transparent 70%);pointer-events:none}
+.cert-wrap{max-width:720px;margin:48px auto 0;text-align:center}
+.cert-mockup{background:linear-gradient(135deg,#fff9e6,#fffdf0);border:3px solid var(--yellow-400);border-radius:var(--radius-xl);padding:44px 40px;box-shadow:0 24px 64px rgba(0,0,0,.4);position:relative;overflow:hidden}
+.cert-mockup::before{content:'';position:absolute;inset:8px;border:1px solid rgba(251,191,36,.4);border-radius:calc(var(--radius-xl) - 4px);pointer-events:none}
+.cert-logo{font-size:3rem;margin-bottom:8px}
+.cert-org{font-family:'Sora',sans-serif;font-size:.85rem;font-weight:800;color:var(--blue-800);text-transform:uppercase;letter-spacing:.12em;margin-bottom:20px}
+.cert-title-text{font-family:'Sora',sans-serif;font-size:.8rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.cert-main-title{font-family:'Sora',sans-serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:800;color:var(--blue-900);margin-bottom:24px}
+.cert-presented{font-size:.85rem;color:var(--gray-500);margin-bottom:8px}
+.cert-name{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;color:var(--blue-700);border-bottom:2px solid var(--yellow-400);padding-bottom:6px;display:inline-block;margin-bottom:20px}
+.cert-course{font-size:.9rem;color:var(--gray-700);font-weight:600;margin-bottom:28px}
+.cert-footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px;padding-top:20px;border-top:1px solid rgba(251,191,36,.3)}
+.cert-date,.cert-sign{text-align:center;font-size:.78rem;color:var(--gray-500)}
+.cert-sign-line{width:100px;height:1px;background:var(--gray-300);margin:0 auto 6px}
+.cert-note{color:rgba(255,255,255,.6);font-size:.85rem;margin-top:22px;font-style:italic}
+@media(max-width:480px){.cert-mockup{padding:28px 18px}.cert-footer{flex-direction:column;gap:16px;align-items:center}}
+
+/* ============================================================
+   UPI PAYMENT SECTION
+============================================================ */
+.upi-section{padding:60px 0;background:linear-gradient(150deg,#112270 0%,var(--blue-800) 100%)}
+.upi-wrap{max-width:700px;margin:0 auto;text-align:center}
+.upi-header{color:rgba(255,255,255,.7);font-size:.9rem;margin-bottom:28px}
+.upi-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px}
+.upi-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:24px 20px;text-align:center}
+.upi-card.upi-card-highlight{background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.35)}
+.upi-card-icon{font-size:2rem;margin-bottom:10px}
+.upi-card h4{font-family:'Sora',sans-serif;font-size:1rem;font-weight:800;color:var(--white);margin-bottom:4px}
+.upi-card .upi-amt{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;color:var(--yellow-400);margin-bottom:4px}
+.upi-card p{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.5}
+.upi-id-box{background:rgba(255,255,255,.06);border:1px solid rgba(251,191,36,.28);border-radius:var(--radius-md);padding:18px 24px;margin-bottom:20px}
+.upi-id-label{font-size:.78rem;color:rgba(255,255,255,.5);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.upi-id-value{font-family:'Sora',sans-serif;font-size:1.25rem;font-weight:800;color:var(--yellow-400);letter-spacing:.04em}
+.upi-id-apps{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:12px}
+.upi-app{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);padding:4px 12px;border-radius:100px}
+.upi-note{font-size:.82rem;color:rgba(255,255,255,.45);margin-top:16px;line-height:1.6}
+@media(max-width:480px){.upi-cards{grid-template-columns:1fr}}
+
+/* ============================================================
+   REFUND POLICY SECTION
+============================================================ */
+.refund-section{padding:64px 0;background:var(--gray-100)}
+.refund-wrap{max-width:780px;margin:40px auto 0}
+.refund-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.refund-card{background:var(--white);border-radius:var(--radius-lg);padding:26px 22px;box-shadow:var(--shadow-sm);text-align:center;border-top:4px solid var(--blue-600)}
+.refund-card.refund-green{border-top-color:var(--green-500)}
+.refund-card.refund-yellow{border-top-color:var(--yellow-500)}
+.refund-card.refund-red{border-top-color:var(--red-500)}
+.refund-icon{font-size:2rem;margin-bottom:12px}
+.refund-card h4{font-size:.92rem;font-weight:800;color:var(--blue-900);margin-bottom:6px}
+.refund-card p{font-size:.82rem;color:var(--gray-500);line-height:1.6}
+.refund-footer-note{text-align:center;margin-top:22px;font-size:.85rem;color:var(--gray-500);font-style:italic}
+@media(max-width:640px){.refund-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   SCHOLARSHIP TEST SECTION
+============================================================ */
+.scholar-section{padding:80px 0;background:linear-gradient(135deg,#f0f9ff,var(--blue-50))}
+.scholar-wrap{max-width:680px;margin:48px auto 0;background:var(--white);border-radius:var(--radius-xl);padding:44px 40px;box-shadow:var(--shadow-lg);border:1px solid var(--blue-100)}
+.scholar-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
+.sch-badge{display:inline-flex;align-items:center;gap:5px;background:var(--blue-50);color:var(--blue-700);font-size:.78rem;font-weight:700;padding:5px 12px;border-radius:100px;border:1px solid var(--blue-100)}
+.scholar-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.scholar-form-grid .form-group input{background:var(--blue-50);border:1px solid var(--blue-100);color:var(--gray-900);border-radius:var(--radius-sm);padding:12px 16px;font-family:'Nunito',sans-serif;font-size:.92rem;transition:border .2s;outline:none}
+.scholar-form-grid .form-group input::placeholder{color:var(--gray-500)}
+.scholar-form-grid .form-group input:focus{border-color:var(--blue-600);background:var(--white)}
+.scholar-form-grid .form-group label{font-size:.85rem;font-weight:700;color:var(--blue-900);display:flex;flex-direction:column;gap:6px}
+.scholar-form-grid .full{grid-column:1/-1}
+.scholar-submit{width:100%;padding:16px;font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;background:var(--blue-600);color:var(--white);border-radius:100px;margin-top:8px;transition:all .25s;box-shadow:var(--shadow-blue);border:none;cursor:pointer}
+.scholar-submit:hover{background:var(--blue-700);transform:translateY(-2px)}
+.scholar-note{text-align:center;margin-top:12px;font-size:.8rem;color:var(--gray-500)}
+@media(max-width:600px){.scholar-wrap{padding:28px 20px}.scholar-form-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   IMPROVED PRICING CARDS (2-card vertical layout)
+============================================================ */
+.pricing-cards-wrap{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px;max-width:860px;margin-left:auto;margin-right:auto}
+.prc-card{background:rgba(255,255,255,.07);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-xl);padding:38px 32px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.prc-card:hover{transform:translateY(-4px);box-shadow:0 28px 72px rgba(0,0,0,.38)}
+.prc-card.prc-popular{border-color:rgba(251,191,36,.45);background:rgba(251,191,36,.07)}
+.prc-top-bar{position:absolute;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.15);border-radius:4px 4px 0 0}
+.prc-popular .prc-top-bar{background:linear-gradient(90deg,var(--yellow-500),var(--yellow-300),var(--yellow-500))}
+.prc-label{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:10px}
+.prc-popular .prc-label{color:var(--yellow-300)}
+.prc-popular-badge{display:inline-block;background:var(--yellow-400);color:var(--blue-900);font-size:.7rem;font-weight:800;padding:3px 10px;border-radius:100px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
+.prc-original{font-size:.85rem;color:rgba(255,255,255,.35);text-decoration:line-through;font-weight:600;margin-bottom:4px}
+.prc-price{font-family:'Sora',sans-serif;font-size:clamp(2.2rem,5vw,3rem);font-weight:800;color:var(--white);line-height:1;margin-bottom:4px}
+.prc-popular .prc-price{color:var(--yellow-400)}
+.prc-sublabel{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:20px;font-weight:600}
+.prc-divider{height:1px;background:rgba(255,255,255,.08);margin-bottom:20px}
+.prc-perks{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.prc-perk{display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(255,255,255,.8);font-weight:600}
+.prc-perk-icon{flex-shrink:0}
+.prc-cta{display:flex;width:100%;justify-content:center;align-items:center;padding:14px;border-radius:100px;font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .22s;text-align:center;border:none;text-decoration:none}
+.prc-cta-outline{background:transparent;color:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.25)}
+.prc-cta-outline:hover{border-color:rgba(255,255,255,.6);color:var(--white)}
+.prc-cta-yellow{background:var(--yellow-400);color:var(--blue-900)}
+.prc-cta-yellow:hover{background:var(--yellow-300);box-shadow:0 10px 28px rgba(251,191,36,.45)}
+.prc-deadline{font-size:.75rem;color:rgba(255,255,255,.35);text-align:center;margin-top:10px}
+.prc-popular .prc-deadline{color:rgba(251,191,36,.5)}
+@media(max-width:640px){.pricing-cards-wrap{grid-template-columns:1fr;max-width:420px}}
+
+/* ============================================================
+   DEMO CLASS SECTION
+============================================================ */
+.demo-section{background:linear-gradient(135deg,var(--blue-900) 0%,#0d3a6b 100%);padding:80px 0;position:relative;overflow:hidden}
+.demo-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.demo-wrap{background:rgba(255,255,255,.04);border:1px solid rgba(16,185,129,.25);border-radius:var(--radius-xl);padding:36px;max-width:860px;margin:36px auto 0;position:relative;z-index:1}
+.demo-perks{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;justify-content:center}
+.demo-perk-badge{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:#6ee7b7;font-size:.78rem;font-weight:800;padding:6px 14px;border-radius:100px;letter-spacing:.04em}
+.demo-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.demo-submit{width:100%;padding:16px;background:linear-gradient(135deg,#10b981,#059669);color:var(--white);font-family:'Sora',sans-serif;font-size:1rem;font-weight:800;border-radius:100px;border:none;cursor:pointer;transition:all .22s;letter-spacing:.02em;box-shadow:0 8px 24px rgba(16,185,129,.3)}
+.demo-submit:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(16,185,129,.45)}
+.demo-submit:disabled{opacity:.6;transform:none;cursor:not-allowed}
+.demo-note{text-align:center;font-size:.82rem;color:rgba(255,255,255,.45);margin-top:18px;font-weight:600}
+@media(max-width:640px){.demo-form-grid{grid-template-columns:1fr}}
+
+/* Admission form field error state */
+#admissionForm input.field-error,
+#admissionForm select.field-error{border:2px solid #ef4444 !important;box-shadow:0 0 0 3px rgba(239,68,68,.18) !important}

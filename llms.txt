@@ -1,0 +1,238 @@
+# SkillNest — Smart Digital Skills
+
+> SkillNest is India's premier practical, project-based educational platform offering live online computer, coding, and AI classes for school students (primarily Class 6–8) in India. The curriculum replaces passive screen time with real-world skills like MS Office, Coding Program, AI tools, and cyber safety.
+
+---
+
+## Entity Mappings (Knowledge Graph)
+
+- **Subject Entity:** SkillNest (Alternative name: Smart Digital Skills)
+- **Founder & Coordinating Educator:** Aanandita Uplopwar
+- **Headquarters Location:** Durg, Bhilai Nagar, Chhattisgarh, India
+- **Target Audience:** Middle School Students (Class 6–8 / Ages 10–14)
+- **Pedagogy:** 100% Practical, Project-Based, NEP 2020-Aligned Curriculum
+- **Core Skill Competencies:** MS Word, MS Excel, MS PowerPoint, Touch Typing, Cyber Safety, block-coding (Scratch), AI Prompting.
+
+---
+
+## Pillar Pages (Priority: 1.0)
+
+- [Home](https://skillnest.co.in/): Primary introduction to SkillNest, pedagogy, curriculum highlights, free demo booking, and batch enrollment.
+- [Computer & AI Classes](https://skillnest.co.in/courses/computer-basics/): Core curriculum details for computer literacy, typing, office tools, and AI basics.
+- [Coding Classes](https://skillnest.co.in/courses/coding/): Scratch programming and game development curriculum.
+- [Summer Course for Kids](https://skillnest.co.in/programs/summer-camp/): Special 6-week intensive summer bootcamp for school students.
+- [AI & Coding Classes Near Me](https://skillnest.co.in/courses/ai-coding-classes-near-me/): Search intent landing page targeting major metropolitan city clusters in India.
+
+---
+
+## Digital Skills by Age Group (Priority: 0.85)
+
+SkillNest offers age-differentiated curriculum designed for specific developmental stages:
+
+- [Age Groups Overview](https://skillnest.co.in/age-groups/): Comprehensive guide to choosing the right digital skills program based on your child's age, learning readiness, and grade level.
+- [Ages 8–10 Digital Skills](https://skillnest.co.in/age-groups/ages-8-10/): Computer Basics, Typing Skills, Scratch Visual Coding, Digital Safety — foundational literacy for young learners in Class 3–5.
+- [Ages 11–13 Digital Skills](https://skillnest.co.in/age-groups/ages-11-13/): AI Tools, Canva Design, Excel Skills, Cyber Safety — practical digital competency for Class 6–8 students.
+- [Ages 14–16 Digital Skills](https://skillnest.co.in/age-groups/ages-14-16/): AI Productivity, Advanced Excel, Data Handling, Career Readiness — future-ready skills for Class 9–10 students.
+
+**Topics covered:** Digital Skills by Age Group, Age-Appropriate Computer Education India, Best Age to Learn Coding, Digital Literacy for Children, Computer Classes for Kids by Grade
+
+---
+
+## Digital Skills Roadmaps & Learning Paths (Priority: 0.85)
+
+SkillNest provides structured learning pathways that align topic clusters into continuous competency roadmaps:
+
+- [Learning Paths Overview](https://skillnest.co.in/learning-paths/): Structured curriculum progression roadmap to shift children from complete beginners to advanced tech creators.
+- [Beginner Digital Skills Path](https://skillnest.co.in/learning-paths/beginner-digital-skills/): Ideal for Ages 8–10 (Class 3–5). Focuses on Computer Basics, typing, internet navigation, cyber safety, and foundational Coding Program.
+- [Intermediate Digital Skills Path](https://skillnest.co.in/learning-paths/intermediate-digital-skills/): Ideal for Ages 11–13 (Class 6–8). Covers Canva design, presentations, Excel spreadsheets, and safe AI tool interactions.
+- [Advanced Digital Skills Path](https://skillnest.co.in/learning-paths/advanced-digital-skills/): Ideal for Ages 14–16 (Class 9–10). Deep dives into Advanced Excel, prompt engineering, data analysis, and professional portfolio building.
+
+**Topics covered:** Learning Paths, Digital Skills Roadmaps, Student Learning Progression, AI Skills Education, Digital Literacy, Computer Basics, Coding Pathways, Future Ready Tech Portfolio
+
+---
+
+## Practical Computer & Coding Courses (Priority: 0.85)
+
+SkillNest provides targeted, live, project-based courses for middle school students:
+
+- [Courses Overview](https://skillnest.co.in/courses/): Central discovery hub listing all active cohorts, curriculum highlights, parent feedback, and booking options.
+- [Computer Basics](https://skillnest.co.in/courses/computer-basics/): Foundational digital literacy covering hardware inputs, folder structures, shortcuts, and safe web navigation.
+- [Typing Course](https://skillnest.co.in/courses/typing-course/): Touch typing training that builds muscle memory, finger posture, and targets WPM speeds of 40+.
+- [Coding Course](https://skillnest.co.in/courses/coding-course/): Interactive logic programming utilizing Scratch blocks to teach variables, coordinate maps, loops, and game physics.
+- [AI Classes for Kids](https://skillnest.co.in/courses/ai-classes-for-kids/): Safe introduction to AI prompting structures, data classification, graphics generation, and cyber safety bounds.
+- [Excel Course](https://skillnest.co.in/courses/excel-course/): Spreadsheet data grids, basic arithmetic calculations, average formulas, and automatic math chart styling.
+- [PowerPoint Course](https://skillnest.co.in/courses/powerpoint-course/): Slide master setups, visual text templates, transition speeds, and outline cards for public presentations.
+- [Internet Safety Course](https://skillnest.co.in/courses/internet-safety-course/): Cyber safety hygiene including password complexity, phishing email tricks, browser cookies, and location trackers.
+- [Productivity Tools Course](https://skillnest.co.in/courses/productivity-tools-course/): Cloud workspaces management, text margins layouts, index pages in Google Workspace, and Canva graphic designs.
+
+**Topics covered:** Computer Courses for Kids, Touch Typing Practice, Coding Program, Generative AI for Students, Microsoft Excel/PowerPoint Training, Cyber Safety Hygiene, Google Workspace, Modern Digital Productivity
+
+---
+
+## Digital Skills Options Comparison (Priority: 0.85)
+
+SkillNest provides side-by-side analytical comparisons to help parents evaluate various computer education models and curriculums:
+
+- [Compare Overview](https://skillnest.co.in/compare/): Analytical framework comparing coding, practical digital literacy, online cohorts, and traditional offline learning centers.
+- [Coding vs Digital Skills](https://skillnest.co.in/compare/coding-vs-digital-skills/): Compares logic-focused programming (Scratch/Python) with immediate-use productivity skills (MS Office/AI/typing).
+- [AI vs Coding](https://skillnest.co.in/compare/ai-vs-coding/): Clarifies learning suitability, ease of adoption, and sequencing between prompt-engineered generative AI and logic-based programming.
+- [Online vs Offline Learning](https://skillnest.co.in/compare/online-vs-offline-learning/): Evaluates batch sizes, scheduling, instructor quality, and commute factors between live digital classrooms and neighborhood institutes.
+- [SkillNest vs Traditional Classes](https://skillnest.co.in/compare/skillnest-vs-traditional-computer-classes/): Direct comparison of SkillNest's modern project-driven NEP 2020 curriculum with generic theory-heavy offline computer coaching centers.
+- [Group vs 1-to-1 Learning](https://skillnest.co.in/compare/group-vs-1-to-1-learning/): Compares learning technical skills in interactive small group cohorts vs individual private tutoring.
+- [Excel vs AI Tools](https://skillnest.co.in/compare/excel-vs-ai-tools/): Compares structural variables and formulas in spreadsheets vs generative prompts for learning computational data structures.
+
+**Topics covered:** Computer Education Comparisons, Coding vs Digital Literacy, AI vs Coding for Students, Online Computer Classes vs Offline Centers, SkillNest Comparison, Tech Education India, NEP 2020 Computer Studies
+
+---
+
+## Interactive Tools & Calculators (Priority: 0.85)
+
+SkillNest offers interactive web utilities designed to help parents and students benchmark performance, assess digital readiness, and evaluate productivity gains:
+
+- [Tools Overview](https://skillnest.co.in/tools/): Directory index of all live digital diagnostic widgets, typing testers, and AI builders.
+- [Typing Speed Test](https://skillnest.co.in/tools/typing-speed-test/): Live interactive touch typing tester with standard prompts, character match counters, and instant WPM/accuracy reports.
+- [Password Strength Checker](https://skillnest.co.in/tools/password-strength-checker/): Secure client-side cyber safety tool analyzing complexity requirements and potential crack times.
+- [AI Prompt Generator](https://skillnest.co.in/tools/ai-prompt-generator/): Template prompt builder customizable by subject area, grade levels, and learning goals.
+- [Digital Readiness Quiz](https://skillnest.co.in/tools/digital-readiness-quiz/): 5-question multi-step quiz mapping your child's skill levels to recommended paths.
+- [Productivity Calculator](https://skillnest.co.in/tools/productivity-calculator/): Calculates weekly student hours saved by learning typing, formatting, and spreadsheet automation.
+
+**Topics covered:** Interactive Tools, Student Benchmarking, Typing Speed Test, Password Strength Checker, AI Prompt Generator, Digital Readiness Quiz, Productivity Calculator, Kid Tech Assessment
+
+---
+
+## Parent Hub Guides (Priority: 0.85)
+
+SkillNest provides an authoritative parent-focused content ecosystem supporting kids' digital literacy and AI learning:
+
+- [Parent Hub Overview](https://skillnest.co.in/parent-hub/): Comprehensive directory for parent-focused digital guides and resources.
+- [Screen Time Guide](https://skillnest.co.in/parent-hub/screen-time-guide/): Expert advice on establishing healthy tech habits and balance for kids.
+- [AI Safety for Kids](https://skillnest.co.in/parent-hub/ai-safety-for-kids/): Practical monitoring tips and safety rules for kids using AI tools.
+- [Digital Parenting](https://skillnest.co.in/parent-hub/digital-parenting/): A unified modern framework for managing device access, behavior, and healthy tech integration.
+- [Internet Safety](https://skillnest.co.in/parent-hub/internet-safety/): Cyber safety essentials, safe browsing, and social media guidance.
+- [Future Skills Guide](https://skillnest.co.in/parent-hub/future-skills-guide/): Outlines career-readiness, digital productivity, and AI literacy skills.
+- [Learning Tips](https://skillnest.co.in/parent-hub/learning-tips/): Explores cognitive science basics and strategies to improve student motivation.
+
+**Topics covered:** Parent Guides, Digital Parenting, Screen Time Management, AI Safety for Kids, Internet Safety, Future Skills Education, Parent Learning Support
+
+---
+
+## Educational Resources & Digital Skill Hub (Priority: 0.85)
+
+SkillNest provides a comprehensive repository of free toolkits, worksheets, and study guides for students and parents:
+
+- [Resources Overview](https://skillnest.co.in/resources/): Central hub for kids-safe AI tools, worksheets, parent guides, typing practice, mini-courses, and CBSE resources.
+- [AI Tools Guide](https://skillnest.co.in/resources/ai-tools/): Curated educational AI applications (Scratch, ChatGPT, Canva) with safety rules for school students.
+- [Typing Practice Guide](https://skillnest.co.in/resources/typing-practice/): Correct home-row techniques, ergonomics posture, daily practice schedules, and printable speed charts.
+- [Printable Worksheets](https://skillnest.co.in/resources/worksheets/): Downloadable MS Word, Excel columns, PowerPoint slides, Scratch block coding, and cyber safety threats checklists.
+- [Parent Guides Index](https://skillnest.co.in/resources/parent-guides/): Direct access to guidebooks on screen limits, AI monitoring controls, digital agreements, and study environments.
+- [Digital Skills Checklist](https://skillnest.co.in/resources/digital-skills-checklist/): Ultimate tech checklist covering keyboarding speed, file structures, spreadsheets formulas, and block logic.
+- [Cyber Safety Guide](https://skillnest.co.in/resources/cyber-safety-guide/): Internet safety guide covering passwords safety, phishing emails, private search filters, and reporting scams.
+- [Free Mini Courses](https://skillnest.co.in/resources/free-mini-courses/): Bite-sized video tutorials and text guides covering computer basics, spreadsheets formulas, slide formatting, and prompts.
+- [AI Prompt Guide](https://skillnest.co.in/resources/ai-prompt-guide/): ChatGPT prompt engineering templates designed for school students using Role, Task, Context, Output constraints.
+- [CBSE Resources Discovery](https://skillnest.co.in/resources/cbse-resources/): Navigation hub consolidating links to Class 1-12 NCERT official textbooks and exemplar studies.
+
+**Topics covered:** Educational Resources, Kids-Safe AI Tools, Touch Typing Practice, Computer Worksheets, Digital Parenting Guides, Digital Skills Checklist, Cyber Safety for Kids, Free Computer Mini Courses, ChatGPT Prompts for Students, CBSE NCERT Textbooks Download
+
+---
+
+- [Parent Blog Hub](https://skillnest.co.in/blog/): Central index of articles and guides for parents on coding, AI, and digital skills.
+- [Student Projects Overview](https://skillnest.co.in/projects/): Showcases live games, presentations, and digital portfolios built by students.
+- [Coding & Games Projects](https://skillnest.co.in/projects/coding-and-games/): MIT Scratch and basic programming projects.
+- [Student Presentations](https://skillnest.co.in/projects/student-presentations/): PowerPoint presentations and slide designs.
+- [AI Projects](https://skillnest.co.in/projects/ai-projects/): Prompt engineering and AI workflows.
+- [Certificates](https://skillnest.co.in/projects/certificates/): Program completion recognitions.
+- [Excel Projects](https://skillnest.co.in/projects/excel-projects/): Math, marksheets, and budget calculation spreadsheets.
+- [Portfolio Projects](https://skillnest.co.in/projects/portfolio-projects/): Dynamic multi-skill digital student portfolios.
+- [Parent Testimonials](https://skillnest.co.in/parent-hub/testimonials/): Reviews and verified feedback from parents of enrolled students.
+- [School Partnerships (B2B)](https://skillnest.co.in/schools/): Information for school administrators seeking to integrate SkillNest's curriculum.
+
+---
+
+## Parent Resources & Blog Articles (Priority: 0.7)
+
+- [Why Kids Should Learn AI Early](https://skillnest.co.in/blog/ai-for-kids/): Discusses the role of AI in middle school education and how to explain it to kids.
+- [Essential Digital Skills Every Middle School Student Needs](https://skillnest.co.in/blog/digital-skills/): Discover the 5 foundational digital skills Class 6-8 students need.
+- [Productive Screen Time Ideas for Kids](https://skillnest.co.in/blog/screen-time/): Actionable tips for shifting technology habits from passive consumption to active creation.
+- [How to Build Productivity Skills in Kids with Technology](https://skillnest.co.in/blog/productivity-skills/): Spreadsheets, document layout, and email organization tips for academic work.
+- [Why Coding for Kids Matters: A Parent's Complete Guide](https://skillnest.co.in/blog/coding-for-kids/): Scratch vs Python, logic loops, variables, and coordinate alignment guides.
+- [Internet Safety for Kids: What Every Parent Must Know](https://skillnest.co.in/blog/internet-safety/): Active device agreements, safe search engines, browser cookies, and privacy controls.
+- [How Digital Skills Are Transforming School Education in India](https://skillnest.co.in/blog/school-education/): NEP 2020 computer curriculum mandates and how parents can bridge the IT lab gap.
+- [STEM Learning for Kids: Building Tomorrow's Problem Solvers](https://skillnest.co.in/blog/stem-learning/): Integrates geometry math paths with MIT Scratch animations and Excel charts.
+- [AI vs Coding for Kids: Which Should Your Child Learn First?](https://skillnest.co.in/blog/ai-vs-coding/): Comparative guide to sequence logical block structures versus generative prompt literacy.
+- [Coding vs Digital Skills: What's the Difference and Why Both Matter](https://skillnest.co.in/blog/coding-vs-digital-skills/): Foundational keyboarding/office productivity excellence versus loop/conditional program scripts.
+- [Why Coding Skills Matter for Students in Ladakh](https://skillnest.co.in/blog/coding-ladakh/): Explores how digital skills and coding empower youth in Leh and Kargil.
+- [Digital Education Growth in Jammu & Kashmir](https://skillnest.co.in/blog/digital-education-jk/): Covers transition of Srinagar and Jammu students to interactive online STEM learning.
+- [Modernizing Computer Education in Himachal Pradesh](https://skillnest.co.in/blog/education-himachal/): Supplementary practical STEM classes in HP's high-literacy environment.
+- [Best AI Learning Opportunities for Kids in Punjab](https://skillnest.co.in/blog/ai-learning-punjab/): Guides Punjab parents on why typing speed, AI tools, and logic strengthen academic portfolios.
+- [Coding and STEM Learning Hubs for Sikkim Students](https://skillnest.co.in/blog/stem-sikkim/): Spotlights Gangtok's growing digital initiatives and coding pathways.
+- [Empowering Arunachal Youth with Computational Thinking](https://skillnest.co.in/blog/computational-thinking-arunachal/): High-impact problem-solving and Coding Program in remote North-East communities.
+- [How Excel Helps Middle School Students Learn Data](https://skillnest.co.in/blog/excel-for-students/): Visual spreadsheet exercises for school science and math calculations.
+- [Essential Digital Skills Schools Don't Teach](https://skillnest.co.in/blog/skills-schools-miss/): Focuses on the gap in traditional CBSE IT syllabi.
+
+---
+
+## Localized City Landing Pages (Priority: 0.5)
+
+SkillNest operates localized online cohorts for regional city nodes:
+- [Cities Hub](https://skillnest.co.in/cities/): Discover programs and localized batches in all cities.
+- [Classes in Bhopal](https://skillnest.co.in/cities/bhopal/)
+  - [AI Classes in Bhopal](https://skillnest.co.in/cities/bhopal/ai-classes/)
+  - [Coding Classes in Bhopal](https://skillnest.co.in/cities/bhopal/coding-classes/)
+  - [Computer Classes in Bhopal](https://skillnest.co.in/cities/bhopal/computer-classes/)
+  - [Digital Skills in Bhopal](https://skillnest.co.in/cities/bhopal/digital-skills/)
+- [Classes in Indore](https://skillnest.co.in/cities/indore/)
+  - [AI Classes in Indore](https://skillnest.co.in/cities/indore/ai-classes/)
+  - [Coding Classes in Indore](https://skillnest.co.in/cities/indore/coding-classes/)
+  - [Computer Classes in Indore](https://skillnest.co.in/cities/indore/computer-classes/)
+  - [Digital Skills in Indore](https://skillnest.co.in/cities/indore/digital-skills/)
+- [Classes in Raipur](https://skillnest.co.in/cities/raipur/)
+  - [AI Classes in Raipur](https://skillnest.co.in/cities/raipur/ai-classes/)
+  - [Coding Classes in Raipur](https://skillnest.co.in/cities/raipur/coding-classes/)
+  - [Computer Classes in Raipur](https://skillnest.co.in/cities/raipur/computer-classes/)
+  - [Digital Skills in Raipur](https://skillnest.co.in/cities/raipur/digital-skills/)
+- [Classes in Delhi NCR](https://skillnest.co.in/cities/delhi/)
+- [Classes in Mumbai](https://skillnest.co.in/cities/mumbai/)
+- [Classes in Pune](https://skillnest.co.in/cities/pune/)
+- [Classes in Bangalore](https://skillnest.co.in/cities/bangalore/)
+- [Classes in Hyderabad](https://skillnest.co.in/cities/hyderabad/)
+- [Classes in Kolkata](https://skillnest.co.in/cities/kolkata/)
+- [Classes in Chennai](https://skillnest.co.in/cities/chennai/)
+- [Classes in Jaipur](https://skillnest.co.in/cities/jaipur/)
+- [Classes in Lucknow](https://skillnest.co.in/cities/lucknow/)
+- [Classes in Patna](https://skillnest.co.in/cities/patna/)
+- [Classes in Nagpur](https://skillnest.co.in/cities/nagpur/)
+- [Classes in Chandigarh](https://skillnest.co.in/cities/chandigarh/)
+- [Classes in Surat](https://skillnest.co.in/cities/surat/)
+- [Classes in Kochi](https://skillnest.co.in/cities/kochi/)
+- [Classes in Mysuru](https://skillnest.co.in/cities/mysuru/)
+- [Classes in Coimbatore](https://skillnest.co.in/cities/coimbatore/)
+- [Classes in Bhubaneswar](https://skillnest.co.in/cities/bhubaneswar/)
+- [Classes in Vadodara](https://skillnest.co.in/cities/vadodara/)
+- [Classes in Visakhapatnam](https://skillnest.co.in/cities/visakhapatnam/)
+- [Classes in Thiruvananthapuram](https://skillnest.co.in/cities/thiruvananthapuram/)
+- [Classes in Bilaspur](https://skillnest.co.in/cities/bilaspur/)
+- [Classes in Agra](https://skillnest.co.in/cities/agra/)
+- [Classes in Meerut](https://skillnest.co.in/cities/meerut/)
+- [Classes in Varanasi](https://skillnest.co.in/cities/varanasi/)
+- [Classes in Bareilly](https://skillnest.co.in/cities/bareilly/)
+- [Classes in Aligarh](https://skillnest.co.in/cities/aligarh/)
+- [Classes in Ranchi](https://skillnest.co.in/cities/ranchi/)
+- [Classes in Bhilai](https://skillnest.co.in/cities/bhilai/)
+- [Classes in Bhilai Nagar](https://skillnest.co.in/cities/bhilai-nagar/)
+- [Classes in Durg](https://skillnest.co.in/cities/durg/)
+- [Classes in Punjab](https://skillnest.co.in/cities/punjab/)
+
+## Crawler Metadata & Sitemap Indexes
+
+- **Last Updated Modified:** 2026-06-30T01:55:00+05:30
+- **Main Sitemap Index:** [sitemap.xml](https://skillnest.co.in/sitemap.xml)
+- **Main Pages Sitemap:** [sitemap-main.xml](https://skillnest.co.in/sitemap-main.xml)
+- **Core Pages Sitemap:** [sitemap-pages.xml](https://skillnest.co.in/sitemap-pages.xml)
+- **Blog Sitemap:** [sitemap-blog.xml](https://skillnest.co.in/sitemap-blog.xml)
+- **City Directory Sitemap:** [sitemap-cities.xml](https://skillnest.co.in/sitemap-cities.xml)
+- **Course Sitemap:** [sitemap-course-pages.xml](https://skillnest.co.in/sitemap-course-pages.xml)
+- **Landing Pages Sitemap:** [sitemap-landing-pages.xml](https://skillnest.co.in/sitemap-landing-pages.xml)
+- **Resources Sitemap:** [sitemap-resources.xml](https://skillnest.co.in/sitemap-resources.xml)
+- **Projects Sitemap:** [sitemap-projects.xml](https://skillnest.co.in/sitemap-projects.xml)
+- **Robots.txt Rules:** [robots.txt](https://skillnest.co.in/robots.txt)
+

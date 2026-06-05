@@ -1,0 +1,284 @@
+/* ============================================================
+   COLOR-DYNAMICS.CSS — Animation, Motion & Color Layer
+   OPTIMIZED: All animations now use only transform/opacity
+   Removed: box-shadow/filter keyframes (caused full repaints)
+   Preserved: gradient-flow, light-sweep (GPU composited)
+   ============================================================ */
+
+/* ============================================================
+   ANIMATION TIMING TOKENS
+============================================================ */
+:root {
+  --cd-cycle-dur:  7s;
+  --cd-flow-dur:   9s;
+  --cd-sweep-dur:  6s;    /* Slowed from 3.6s → reduces paint frequency */
+  --cd-bg-size:    400% 400%;
+
+  /* ── Site color palette ── */
+  --cd-blue:       #2563eb;
+  --cd-purple:     #7c3aed;
+  --cd-gold:       #fbbf24;
+  --cd-cyan:       #06b6d4;
+  --cd-green:      #10b981;
+  --cd-navy:       #0f2861;
+  --cd-navy-dark:  #080f1f;
+}
+
+/* ============================================================
+   REDUCED-MOTION
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .cd-glow, .cd-card, .cd-btn-shift, .cd-reflect,
+  .cd-hero-orb, .cd-light {
+    animation: none !important;
+    transition: opacity .3s ease !important;
+  }
+  .cd-reflect::after { display: none !important; }
+}
+
+/* ============================================================
+   1. KEYFRAMES — GPU-safe only (transform + opacity)
+============================================================ */
+
+/* Opacity pulse for glow effect — replaces box-shadow animation */
+@keyframes cd-glow-pulse {
+  0%,100% { opacity: 0.6; }
+  50%      { opacity: 1;   }
+}
+
+/* Background gradient flow — animates background-position (composited) */
+@keyframes gradient-flow {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* Light sweep across card face — transform only (composited) */
+@keyframes light-sweep {
+  0%   { transform: translateX(-130%) skewX(-12deg); opacity: 0;   }
+  10%  { opacity: .45; }
+  60%  { opacity: .28; }
+  100% { transform: translateX(220%)  skewX(-12deg); opacity: 0;   }
+}
+
+/* Button gradient shift — background-position (composited) */
+@keyframes btn-gradient-shift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* Gold badge glow pulse — opacity only (composited) */
+@keyframes cd-badge-glow {
+  0%,100% { opacity: 0.75; }
+  50%      { opacity: 1;    }
+}
+
+/* ============================================================
+   2. CD-GLOW — subtle opacity pulse on seats-badge / section-tag
+      Replaces expensive box-shadow color-cycle animation
+============================================================ */
+.cd-glow {
+  animation: cd-glow-pulse var(--cd-cycle-dur) ease-in-out infinite;
+}
+.cd-glow:hover {
+  animation-play-state: paused;
+}
+
+/* ============================================================
+   3. CD-CARD — light sheen sweep on hover-eligible cards
+      border-color cycle REMOVED (was animating border-color = repaint)
+      Replaced with: subtle pseudo-element opacity shimmer
+============================================================ */
+.cd-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Moving light sheen via pseudo-element transform (GPU composited) */
+.cd-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 45%; height: 100%;
+  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,.10) 50%, transparent 80%);
+  pointer-events: none;
+  border-radius: inherit;
+  animation: light-sweep var(--cd-sweep-dur) ease-in-out infinite;
+  animation-delay: var(--cd-stagger, 0s);
+  z-index: 3;
+}
+
+.cd-card:hover::after {
+  animation-play-state: paused;
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+
+/* ============================================================
+   4. CD-BTN-SHIFT — living gradient on CTA buttons
+      Uses background-position animation (GPU composited)
+============================================================ */
+.cd-btn-shift {
+  background-size: var(--cd-bg-size) !important;
+  animation: btn-gradient-shift var(--cd-flow-dur) ease infinite;
+  transition: transform .22s ease !important;
+}
+
+/* btn-primary: blue → purple gradient */
+.btn-primary.cd-btn-shift {
+  background: linear-gradient(135deg,
+    #2563eb 0%, #1e4ea0 25%, #7c3aed 50%, #2563eb 75%, #06b6d4 100%
+  ) !important;
+  background-size: var(--cd-bg-size) !important;
+}
+
+/* btn-yellow: gold → orange gradient */
+.btn-yellow.cd-btn-shift {
+  background: linear-gradient(135deg,
+    #fbbf24 0%, #f97316 25%, #fbbf24 50%, #fcd34d 75%, #fbbf24 100%
+  ) !important;
+  background-size: var(--cd-bg-size) !important;
+}
+
+/* Hover: 3D lift (transform only — composited) */
+.btn-primary.cd-btn-shift:hover {
+  transform: translateY(-4px) scale(1.03) !important;
+}
+.btn-yellow.cd-btn-shift:hover {
+  transform: translateY(-4px) scale(1.03) !important;
+}
+
+/* Press-down */
+.btn-primary.cd-btn-shift:active,
+.btn-yellow.cd-btn-shift:active,
+.btn-ghost.cd-btn-shift:active {
+  transform: translateY(2px) scale(.972) !important;
+  transition: transform .06s ease !important;
+}
+
+/* ============================================================
+   5. CD-HERO-ORB — animated gradient overlay in hero section
+============================================================ */
+.cd-hero-orb {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(135deg,
+    rgba(37,99,235,.18) 0%,
+    rgba(124,58,237,.14) 35%,
+    rgba(6,182,212,.10) 65%,
+    rgba(16,185,129,.08) 100%
+  );
+  background-size: var(--cd-bg-size);
+  animation: gradient-flow calc(var(--cd-flow-dur) * 1.6) ease infinite;
+  mix-blend-mode: screen;
+  border-radius: inherit;
+  opacity: .9;
+}
+
+/* ============================================================
+   6. CD-REFLECT — top-edge gradient + light sweep on premium cards
+============================================================ */
+.cd-reflect {
+  position: relative;
+  overflow: hidden;
+}
+.cd-reflect::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    var(--cd-blue), var(--cd-purple), var(--cd-gold), var(--cd-cyan), var(--cd-blue)
+  );
+  background-size: var(--cd-bg-size);
+  animation: gradient-flow calc(var(--cd-flow-dur) * .8) ease-in-out infinite;
+  z-index: 4;
+  opacity: .75;
+  border-radius: 4px 4px 0 0;
+}
+.cd-reflect::after {
+  content: '';
+  position: absolute;
+  top: -20%; left: -60%;
+  width: 40%; height: 160%;
+  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,.07) 50%, transparent 80%);
+  pointer-events: none;
+  animation: light-sweep calc(var(--cd-sweep-dur) * 1.4) ease-in-out infinite;
+  animation-delay: .8s;
+  z-index: 4;
+}
+
+/* ============================================================
+   7. URGENCY BAR — animated gradient overlay (composited)
+============================================================ */
+.urgency-bar {
+  position: relative;
+  overflow: hidden;
+}
+.urgency-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(251,191,36,.12) 30%,
+    rgba(249,115,22,.10) 60%,
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  animation: gradient-flow 5s ease infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   8. SECTION TITLE chromatic underline
+============================================================ */
+.cd-card .section-title::after,
+.cd-glow.section-title::after {
+  background: linear-gradient(90deg,
+    var(--cd-blue), var(--cd-cyan), var(--cd-gold), var(--cd-purple), var(--cd-blue)
+  );
+  background-size: 300%;
+  animation: gradient-flow 4s ease infinite;
+}
+
+/* ============================================================
+   9. HIGHLIGHTS — number gradient text (background-clip = composited)
+============================================================ */
+.hl-card.cd-card .hl-value {
+  background: linear-gradient(135deg, var(--cd-gold), #f97316, var(--cd-gold));
+  background-size: 300%;
+  animation: gradient-flow 4s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================================
+   10. FLOAT CARDS — subtle opacity pulse
+============================================================ */
+.float-card.cd-glow {
+  animation: cd-glow-pulse calc(var(--cd-cycle-dur) * 1.2) ease-in-out infinite;
+}
+
+/* ============================================================
+   11. MOBILE — simplified, minimal animations
+============================================================ */
+@media (max-width: 768px) {
+  .cd-card::after         { display: none !important; }
+  .cd-reflect::after      { display: none !important; }
+  .cd-hero-orb            { animation: none !important; opacity: .6; }
+  .cd-btn-shift           { animation-duration: 18s !important; }
+  .cd-card                { animation: none !important; }
+  .cd-glow                { animation: cd-badge-glow 3.5s ease-in-out infinite !important; }
+}
+
+/* ============================================================
+   12. STAGGER HELPERS
+   JS sets: card.style.setProperty('--cd-stagger', i * .55 + 's')
+============================================================ */

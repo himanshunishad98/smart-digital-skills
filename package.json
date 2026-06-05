@@ -1,0 +1,47 @@
+{
+  "name": "skillnest---ide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate:cities:phase1": "node scripts/generate-phase1-cities.js",
+    "generate:cities:phase2": "node scripts/generate-phase2-cities.js",
+    "generate:cities:phase3": "node scripts/generate-phase3-cities.js",
+    "generate:cities:phase4": "node scripts/generate-phase4-cities.js",
+    "generate:cities": "node scripts/generate-cities.js",
+    "generate:courses": "node scripts/generate-course-city-pages.js",
+    "generate:programs": "node scripts/generate-programs.js",
+    "generate:local": "node scripts/generate-local-seo-pages.js",
+    "generate:all": "node scripts/generate-courses.js && node scripts/generate-programs.js && node scripts/generate-compare.js && node scripts/generate-projects.js && node scripts/generate-resources.js && node scripts/generate-cities.js && node scripts/inject-bidirectional-projects-links.js && node scripts/fix-internal-linking.js && node scripts/update-schemas-from-config.js && node scripts/fix-config-placeholders.js && node scripts/apply-config-tags.js && node scripts/restructure-pages.js && node scripts/fix-fallback-script-paths.js && node scripts/fix-og-completeness.js && node scripts/clean-inline-css.js && node scripts/cleanup-deleted-pages.js",
+    "optimize:critical-css": "node scripts/inject-critical-css.js",
+    "optimize:head": "node scripts/fix-head-structure.js",
+    "optimize:schemas": "node scripts/inject-schemas.js",
+    "optimize:images": "node scripts/fix-image-alt.js",
+    "optimize:pt-banner": "node scripts/inject-personality-banner.js",
+    "optimize:cleanup": "node scripts/cleanup-comments.js && node scripts/cleanup-duplicates.js && node scripts/remove-empty-lines.js",
+    "optimize:all": "npm run optimize:critical-css && npm run optimize:head && npm run optimize:schemas && node scripts/inject-geo-signals.js && npm run optimize:images && npm run optimize:pt-banner && npm run optimize:cleanup && node scripts/post-process.js",
+    "validate": "node scripts/validate-and-repair.js",
+    "verify": "node scripts/verify-seo-delivery.js",
+    "verify:seo": "node scripts/verify-seo.js",
+    "verify:schema": "node scripts/verify-schema.js",
+    "verify:accessibility": "node scripts/verify-accessibility.js",
+    "verify:headings": "node scripts/verify-headings.js",
+    "verify:tracking": "node scripts/verify-tracking-compliance.js",
+    "verify:all": "npm run verify:seo && npm run verify:schema && npm run verify:accessibility && npm run verify:headings && npm run verify:tracking",
+    "build:js": "node scripts/bundle-js.js",
+    "build:css": "node scripts/bundle-css.js",
+    "build": "npm run build:css && npm run build:js && npm run generate:all && npm run optimize:all && npm run validate && npm run verify && npm run verify:all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cheerio": "^1.2.0"
+  },
+  "dependencies": {
+    "firebase": "^12.14.0",
+    "firebase-admin": "^13.10.0"
+  }
+}

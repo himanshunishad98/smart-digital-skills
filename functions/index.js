@@ -1,0 +1,250 @@
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+const nodemailer = require("nodemailer");
+
+admin.initializeApp();
+
+/**
+ * Helper to execute fetch requests using Node's native fetch (available in Node 18+)
+ */
+async function sendHttpRequest(url, options = {}) {
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP Error ${response.status}: ${errorText}`);
+  }
+  return response.json();
+}
+
+/**
+ * Formats lead fields into a human-readable Telegram alert message
+ */
+function formatTelegramMessage(lead, leadId) {
+  const dateStr = lead.createdAt ? new Date(lead.createdAt.toDate()).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) : new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+  
+  let msg = `🚀 *New Lead Registered!*\n\n`;
+  msg += `*Lead Type:* ${lead.type ? lead.type.toUpperCase() : "N/A"}\n`;
+  msg += `*Status:* ${lead.status || "new"}\n`;
+  msg += `*Date/Time:* ${dateStr}\n`;
+  msg += `*Source Page:* ${lead.sourcePage || "/"}\n`;
+  msg += `*Lead ID:* \`${leadId}\`\n\n`;
+
+  msg += `👤 *Contact Information*\n`;
+  if (lead.studentName) msg += `*Student:* ${lead.studentName}\n`;
+  if (lead.parentName) msg += `*Parent:* ${lead.parentName}\n`;
+  if (lead.phone) msg += `*Phone:* ${lead.phone}\n`;
+  if (lead.email) msg += `*Email:* ${lead.email}\n\n`;
+
+  if (lead.formData && Object.keys(lead.formData).length > 0) {
+    msg += `📝 *Additional Fields*\n`;
+    for (const key in lead.formData) {
+      if (Object.prototype.hasOwnProperty.call(lead.formData, key)) {
+        // Exclude fields already displayed in contact info
+        const displayKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+        msg += `*${displayKey}:* ${lead.formData[key]}\n`;
+      }
+    }
+  }
+
+  return msg;
+}
+
+/**
+ * Sends a notification via Telegram Bot API
+ */
+async function sendTelegramNotification(lead, leadId) {
+  const botToken = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  if (!botToken || !chatId) {
+    console.warn("Telegram configurations missing. Skipping Telegram notification.");
+    return;
+  }
+
+  const messageText = formatTelegramMessage(lead, leadId);
+  const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+  let attempt = 0;
+  const maxAttempts = 3;
+  let success = false;
+
+  while (attempt < maxAttempts && !success) {
+    try {
+      await sendHttpRequest(telegramUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: messageText,
+          parse_mode: "Markdown",
+          disable_web_page_preview: true
+        })
+      });
+      success = true;
+      console.log(`Telegram alert sent successfully for lead: ${leadId}`);
+    } catch (err) {
+      attempt++;
+      console.error(`Telegram attempt ${attempt} failed:`, err.message);
+      if (attempt < maxAttempts) {
+        await new Promise((r) => setTimeout(r, 2000 * attempt));
+      }
+    }
+  }
+}
+
+/**
+ * Sends an email notification using configured email provider (Resend, SendGrid, or SMTP)
+ */
+async function sendEmailNotification(lead, leadId) {
+  const provider = (process.env.EMAIL_PROVIDER || "smtp").toLowerCase();
+  const toEmail = process.env.EMAIL_TO || "admin@skillnest.co.in";
+  const fromEmail = process.env.EMAIL_FROM || "alerts@skillnest.co.in";
+
+  const emailSubject = `SkillNest Lead Alert: New ${lead.type || "lead"} - ${lead.studentName || lead.parentName || ""}`;
+  
+  // Format HTML Email Body
+  let emailHtml = `
+    <h2>🚀 New Lead Details</h2>
+    <p><strong>Lead ID:</strong> ${leadId}</p>
+    <p><strong>Lead Type:</strong> ${lead.type ? lead.type.toUpperCase() : "N/A"}</p>
+    <p><strong>Source Page:</strong> ${lead.sourcePage || "/"}</p>
+    <hr/>
+    <h3>👤 Contact Details</h3>
+    <ul>
+      <li><strong>Student Name:</strong> ${lead.studentName || "N/A"}</li>
+      <li><strong>Parent Name:</strong> ${lead.parentName || "N/A"}</li>
+      <li><strong>Phone Number:</strong> ${lead.phone || "N/A"}</li>
+      <li><strong>Email:</strong> ${lead.email || "N/A"}</li>
+    </ul>
+    <hr/>
+    <h3>📝 All Form Data</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th>Field</th>
+          <th>Submitted Value</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  if (lead.formData) {
+    for (const key in lead.formData) {
+      if (Object.prototype.hasOwnProperty.call(lead.formData, key)) {
+        emailHtml += `
+          <tr>
+            <td><strong>${key}</strong></td>
+            <td>${lead.formData[key]}</td>
+          </tr>
+        `;
+      }
+    }
+  }
+
+  emailHtml += `
+      </tbody>
+    </table>
+    <br/>
+    <p><em>This is an automated alert generated by SkillNest Cloud triggers.</em></p>
+  `;
+
+  let attempt = 0;
+  const maxAttempts = 3;
+  let success = false;
+
+  while (attempt < maxAttempts && !success) {
+    try {
+      if (provider === "resend") {
+        const apiKey = process.env.RESEND_API_KEY;
+        if (!apiKey) throw new Error("RESEND_API_KEY is not defined.");
+        
+        await sendHttpRequest("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({
+            from: fromEmail,
+            to: [toEmail],
+            subject: emailSubject,
+            html: emailHtml
+          })
+        });
+      } else if (provider === "sendgrid") {
+        const apiKey = process.env.SENDGRID_API_KEY;
+        if (!apiKey) throw new Error("SENDGRID_API_KEY is not defined.");
+
+        await sendHttpRequest("https://api.sendgrid.com/v3/mail/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({
+            personalizations: [{ to: [{ email: toEmail }] }],
+            from: { email: fromEmail },
+            subject: emailSubject,
+            content: [{ type: "text/html", value: emailHtml }]
+          })
+        });
+      } else {
+        // Fallback to SMTP
+        const host = process.env.SMTP_HOST;
+        const port = parseInt(process.env.SMTP_PORT || "587", 10);
+        const user = process.env.SMTP_USER;
+        const pass = process.env.SMTP_PASS;
+
+        if (!host || !user || !pass) {
+          throw new Error("SMTP credentials/configurations are missing.");
+        }
+
+        const transporter = nodemailer.createTransport({
+          host: host,
+          port: port,
+          secure: port === 465,
+          auth: { user, pass }
+        });
+
+        await transporter.sendMail({
+          from: fromEmail,
+          to: toEmail,
+          subject: emailSubject,
+          html: emailHtml
+        });
+      }
+
+      success = true;
+      console.log(`Email alert sent successfully using provider: ${provider} for lead: ${leadId}`);
+    } catch (err) {
+      attempt++;
+      console.error(`Email attempt ${attempt} failed for provider ${provider}:`, err.message);
+      if (attempt < maxAttempts) {
+        await new Promise((r) => setTimeout(r, 2000 * attempt));
+      }
+    }
+  }
+}
+
+/**
+ * Triggered on creation of document under the 'leads' collection
+ */
+exports.onLeadCreated = functions.firestore
+  .document("leads/{leadId}")
+  .onCreate(async (snapshot, context) => {
+    const leadId = context.params.leadId;
+    const lead = snapshot.data();
+
+    if (!lead) {
+      console.error(`No lead details present in document: ${leadId}`);
+      return;
+    }
+
+    console.log(`Processing new lead triggers for ID: ${leadId}, Type: ${lead.type}`);
+
+    // Trigger Notifications Concurrently
+    await Promise.allSettled([
+      sendTelegramNotification(lead, leadId),
+      sendEmailNotification(lead, leadId)
+    ]);
+  });

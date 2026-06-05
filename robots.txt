@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap index - Googlebot follows this to discover all sub-sitemaps
+Sitemap: https://skillnest.co.in/sitemap.xml

@@ -1,0 +1,11 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /leads/{leadId} {
+      allow create: if request.appCheck != null;
+      allow read, update, delete: if false;
+    }
+  }
+}

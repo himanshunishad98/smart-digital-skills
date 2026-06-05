@@ -1,0 +1,125 @@
+/* ==========================================================================
+   ABOUT.CSS — Styling specific to the SkillNest About Section.
+   Extends global styles without duplicating design tokens or base classes.
+   ========================================================================== */
+
+/* 1. Mentor Profiles & Badges */
+.mentor-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.mentor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.mentor-expertise-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.mentor-tag {
+  background: var(--blue-50);
+  color: var(--blue-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid var(--blue-100);
+}
+
+/* 2. Success Stories & Timeline */
+.story-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px 0;
+}
+.story-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--blue-100);
+  transform: translateX(-50%);
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  width: 14px;
+  height: 14px;
+  background: var(--yellow-400);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: var(--shadow-sm);
+}
+.timeline-item.left::after {
+  right: -7px;
+}
+.timeline-item.right::after {
+  left: -7px;
+}
+@media (max-width: 768px) {
+  .story-timeline::before {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    text-align: left !important;
+    padding-left: 45px;
+    padding-right: 15px;
+  }
+  .timeline-item::after {
+    left: 13px !important;
+  }
+}
+
+/* 3. Culture & Benefits */
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.culture-card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+.culture-card:hover {
+  border-color: var(--blue-200);
+  transform: translateY(-2px);
+}
+
+/* 4. Careers Form Wrap */
+.careers-form-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 40px;
+}
+@media (max-width: 576px) {
+  .careers-form-card {
+    padding: 24px 16px;
+  }
+}

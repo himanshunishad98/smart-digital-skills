@@ -1,0 +1,474 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/admission.html",
+        "destination": "/programs/admission/",
+        "type": 301
+      },
+      {
+        "source": "/demo.html",
+        "destination": "/contact/demo/",
+        "type": 301
+      },
+      {
+        "source": "/scholarship.html",
+        "destination": "/programs/scholarship/",
+        "type": 301
+      },
+      {
+        "source": "/founder.html",
+        "destination": "/about/founder.html",
+        "type": 301
+      },
+      {
+        "source": "/parent-testimonials.html",
+        "destination": "/parent-hub/testimonials/",
+        "type": 301
+      },
+      {
+        "source": "/student-projects.html",
+        "destination": "/projects/",
+        "type": 301
+      },
+      {
+        "source": "/refund-policy.html",
+        "destination": "/legal/refund-policy/",
+        "type": 301
+      },
+      {
+        "source": "/b2b-schools.html",
+        "destination": "/schools/",
+        "type": 301
+      },
+      {
+        "source": "/coding-classes.html",
+        "destination": "/courses/coding/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes.html",
+        "destination": "/courses/computer-basics/",
+        "type": 301
+      },
+      {
+        "source": "/summer-course-for-kids.html",
+        "destination": "/programs/summer-camp/",
+        "type": 301
+      },
+      {
+        "source": "/blog.html",
+        "destination": "/blog/",
+        "type": 301
+      },
+      {
+        "source": "/blog-ai-for-kids.html",
+        "destination": "/blog/ai-for-kids/",
+        "type": 301
+      },
+      {
+        "source": "/blog-ai-learning-punjab.html",
+        "destination": "/blog/ai-learning-punjab/",
+        "type": 301
+      },
+      {
+        "source": "/blog-coding-ladakh.html",
+        "destination": "/blog/coding-ladakh/",
+        "type": 301
+      },
+      {
+        "source": "/blog-computational-thinking-arunachal.html",
+        "destination": "/blog/computational-thinking-arunachal/",
+        "type": 301
+      },
+      {
+        "source": "/blog-digital-education-jk.html",
+        "destination": "/blog/digital-education-jk/",
+        "type": 301
+      },
+      {
+        "source": "/blog-education-himachal.html",
+        "destination": "/blog/education-himachal/",
+        "type": 301
+      },
+      {
+        "source": "/blog-excel-for-students.html",
+        "destination": "/blog/excel-for-students/",
+        "type": 301
+      },
+      {
+        "source": "/blog-screen-time.html",
+        "destination": "/blog/screen-time/",
+        "type": 301
+      },
+      {
+        "source": "/blog-skills-schools-miss.html",
+        "destination": "/blog/skills-schools-miss/",
+        "type": 301
+      },
+      {
+        "source": "/blog-stem-sikkim.html",
+        "destination": "/blog/stem-sikkim/",
+        "type": 301
+      },
+      {
+        "source": "/seo-ai-classes-for-school-students.html",
+        "destination": "/courses/ai-classes-for-school-students/",
+        "type": 301
+      },
+      {
+        "source": "/seo-coding-classes-for-kids-india.html",
+        "destination": "/courses/coding-classes-for-kids-india/",
+        "type": 301
+      },
+      {
+        "source": "/seo-computer-classes-for-teenagers.html",
+        "destination": "/courses/computer-classes-for-teenagers/",
+        "type": 301
+      },
+      {
+        "source": "/seo-digital-skills-classes-for-kids.html",
+        "destination": "/courses/digital-skills-classes-for-kids/",
+        "type": 301
+      },
+      {
+        "source": "/Personality%20Test/pt-index.html",
+        "destination": "/tools/personality-test/",
+        "type": 301
+      },
+      {
+        "source": "/Personality%20Test/pt-register.html",
+        "destination": "/tools/personality-test/register/",
+        "type": 301
+      },
+      {
+        "source": "/Personality%20Test/pt-assessment.html",
+        "destination": "/tools/personality-test/assessment/",
+        "type": 301
+      },
+      {
+        "source": "/Personality%20Test/pt-result.html",
+        "destination": "/tools/personality-test/result/",
+        "type": 301
+      },
+      {
+        "source": "/Personality Test/pt-index.html",
+        "destination": "/tools/personality-test/",
+        "type": 301
+      },
+      {
+        "source": "/Personality Test/pt-register.html",
+        "destination": "/tools/personality-test/register/",
+        "type": 301
+      },
+      {
+        "source": "/Personality Test/pt-assessment.html",
+        "destination": "/tools/personality-test/assessment/",
+        "type": 301
+      },
+      {
+        "source": "/Personality Test/pt-result.html",
+        "destination": "/tools/personality-test/result/",
+        "type": 301
+      },
+      {
+        "source": "/ai-classes-for-students.html",
+        "destination": "/courses/ai-classes-for-students/",
+        "type": 301
+      },
+      {
+        "source": "/ai-coding-classes-near-me.html",
+        "destination": "/courses/ai-coding-classes-near-me/",
+        "type": 301
+      },
+      {
+        "source": "/ai-classes-chennai.html",
+        "destination": "/cities/chennai/ai-classes/",
+        "type": 301
+      },
+      {
+        "source": "/coding-classes-hyderabad.html",
+        "destination": "/cities/hyderabad/coding-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-bangalore.html",
+        "destination": "/cities/bangalore/computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-bhopal.html",
+        "destination": "/cities/bhopal/computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-delhi.html",
+        "destination": "/cities/delhi/computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-indore.html",
+        "destination": "/cities/indore/computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-mumbai.html",
+        "destination": "/cities/mumbai/computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-pune.html",
+        "destination": "/cities/pune/computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/digital-skills-kolkata.html",
+        "destination": "/cities/kolkata/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/ai-classes-in-bhilai.html",
+        "destination": "/cities/bhilai/ai-classes/",
+        "type": 301
+      },
+      {
+        "source": "/ai-classes-in-bhilai-nagar.html",
+        "destination": "/cities/bhilai-nagar/ai-classes/",
+        "type": 301
+      },
+      {
+        "source": "/ai-classes-in-durg.html",
+        "destination": "/cities/durg/ai-classes/",
+        "type": 301
+      },
+      {
+        "source": "/ai-classes-in-raipur.html",
+        "destination": "/cities/raipur/ai-classes/",
+        "type": 301
+      },
+      {
+        "source": "/coding-classes-in-bhilai.html",
+        "destination": "/cities/bhilai/coding-classes/",
+        "type": 301
+      },
+      {
+        "source": "/coding-classes-in-bhilai-nagar.html",
+        "destination": "/cities/bhilai-nagar/coding-classes/",
+        "type": 301
+      },
+      {
+        "source": "/coding-classes-in-durg.html",
+        "destination": "/cities/durg/coding-classes/",
+        "type": 301
+      },
+      {
+        "source": "/coding-classes-in-raipur.html",
+        "destination": "/cities/raipur/coding-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-in-bhilai.html",
+        "destination": "/cities/bhilai/computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-in-bhilai-nagar.html",
+        "destination": "/cities/bhilai-nagar/computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-in-durg.html",
+        "destination": "/cities/durg/computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-in-raipur.html",
+        "destination": "/cities/raipur/computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-for-kids-in-bhilai.html",
+        "destination": "/cities/bhilai/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-for-kids-in-bhilai-nagar.html",
+        "destination": "/cities/bhilai-nagar/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-for-kids-in-durg.html",
+        "destination": "/cities/durg/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/computer-classes-for-kids-in-raipur.html",
+        "destination": "/cities/raipur/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/programs/typing-productivity/",
+        "destination": "/courses/computer-classes-for-teenagers/",
+        "type": 301
+      },
+      {
+        "source": "/programs/smart-internet-skills/",
+        "destination": "/courses/computer-classes-for-teenagers/",
+        "type": 301
+      },
+      {
+        "source": "/programs/canva-design/",
+        "destination": "/courses/digital-skills-classes-for-kids/",
+        "type": 301
+      },
+      {
+        "source": "/programs/presentation-skills/",
+        "destination": "/courses/digital-skills-classes-for-kids/",
+        "type": 301
+      },
+      {
+        "source": "/courses/coding-course/",
+        "destination": "/courses/coding/index.html",
+        "type": 301
+      },
+      {
+        "source": "/courses/cyber-safety-course/",
+        "destination": "/courses/internet-safety-course/",
+        "type": 301
+      },
+      {
+        "source": "/courses/ai-tools-for-students/",
+        "destination": "/courses/ai-classes-for-students/",
+        "type": 301
+      },
+      {
+        "source": "/courses/digital-skills-program/",
+        "destination": "/courses/digital-skills-classes-for-kids/",
+        "type": 301
+      },
+      {
+        "source": "/courses/summer-course/",
+        "destination": "/programs/summer-camp/",
+        "type": 301
+      },
+      {
+        "source": "/courses/stem-program/",
+        "destination": "/courses/coding/",
+        "type": 301
+      },
+      {
+        "source": "/resources/templates/",
+        "destination": "/resources/cbse-resources/ncert-books/",
+        "type": 301
+      },
+      {
+        "source": "/compare/ai-vs-coding-for-kids/",
+        "destination": "/compare/ai-vs-coding/",
+        "type": 301
+      },
+      {
+        "source": "/compare/online-vs-offline-computer-classes/",
+        "destination": "/compare/online-vs-offline-learning/",
+        "type": 301
+      },
+      {
+        "source": "/courses/computer/",
+        "destination": "/courses/computer-basics/",
+        "type": 301
+      },
+      {
+        "source": "/programs/scratch-coding/",
+        "destination": "/programs/coding/",
+        "type": 301
+      },
+      {
+        "source": "/compare/skillnest-vs-traditional-classes/",
+        "destination": "/compare/skillnest-vs-traditional-computer-classes/",
+        "type": 301
+      },
+      {
+        "source": "/cities/bhilai-nagar/computer-classes-for-kids/",
+        "destination": "/cities/bhilai-nagar/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/cities/bhilai-nagar/computer-classes-for-kids/index.html",
+        "destination": "/cities/bhilai-nagar/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/cities/bhopal/ai-classes/",
+        "destination": "/cities/bhopal/",
+        "type": 301
+      },
+      {
+        "source": "/cities/bhopal/ai-classes/index.html",
+        "destination": "/cities/bhopal/",
+        "type": 301
+      },
+      {
+        "source": "/cities/durg/computer-classes-for-kids/",
+        "destination": "/cities/durg/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/cities/durg/computer-classes-for-kids/index.html",
+        "destination": "/cities/durg/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/cities/indore/computer-classes/",
+        "destination": "/cities/indore/",
+        "type": 301
+      },
+      {
+        "source": "/cities/indore/computer-classes/index.html",
+        "destination": "/cities/indore/",
+        "type": 301
+      },
+      {
+        "source": "/cities/raipur/computer-classes-for-kids/",
+        "destination": "/cities/raipur/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/cities/raipur/computer-classes-for-kids/index.html",
+        "destination": "/cities/raipur/digital-skills/",
+        "type": 301
+      },
+      {
+        "source": "/courses/coding-course/index.html",
+        "destination": "/courses/coding/index.html",
+        "type": 301
+      }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ]
+    }
+  ]
+}

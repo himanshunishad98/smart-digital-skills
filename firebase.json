@@ -125,22 +125,42 @@
       },
       {
         "source": "/seo-ai-classes-for-school-students.html",
-        "destination": "/courses/ai-classes-for-school-students/",
+        "destination": "/courses/ai-classes-for-students/",
         "type": 301
       },
       {
         "source": "/seo-coding-classes-for-kids-india.html",
-        "destination": "/courses/coding-classes-for-kids-india/",
+        "destination": "/courses/coding/",
         "type": 301
       },
       {
         "source": "/seo-computer-classes-for-teenagers.html",
-        "destination": "/courses/computer-classes-for-teenagers/",
+        "destination": "/courses/computer-basics/",
         "type": 301
       },
       {
         "source": "/seo-digital-skills-classes-for-kids.html",
-        "destination": "/courses/digital-skills-classes-for-kids/",
+        "destination": "/programs/digital-skills-foundation/",
+        "type": 301
+      },
+      {
+        "source": "/courses/ai-classes-for-school-students/",
+        "destination": "/courses/ai-classes-for-students/",
+        "type": 301
+      },
+      {
+        "source": "/courses/coding-classes-for-kids-india/",
+        "destination": "/courses/coding/",
+        "type": 301
+      },
+      {
+        "source": "/courses/computer-classes-for-teenagers/",
+        "destination": "/courses/computer-basics/",
+        "type": 301
+      },
+      {
+        "source": "/courses/digital-skills-classes-for-kids/",
+        "destination": "/programs/digital-skills-foundation/",
         "type": 301
       },
       {
@@ -320,22 +340,22 @@
       },
       {
         "source": "/programs/typing-productivity/",
-        "destination": "/courses/computer-classes-for-teenagers/",
+        "destination": "/courses/computer-basics/",
         "type": 301
       },
       {
         "source": "/programs/smart-internet-skills/",
-        "destination": "/courses/computer-classes-for-teenagers/",
+        "destination": "/courses/computer-basics/",
         "type": 301
       },
       {
         "source": "/programs/canva-design/",
-        "destination": "/courses/digital-skills-classes-for-kids/",
+        "destination": "/programs/digital-skills-foundation/",
         "type": 301
       },
       {
         "source": "/programs/presentation-skills/",
-        "destination": "/courses/digital-skills-classes-for-kids/",
+        "destination": "/programs/digital-skills-foundation/",
         "type": 301
       },
       {
@@ -355,7 +375,7 @@
       },
       {
         "source": "/courses/digital-skills-program/",
-        "destination": "/courses/digital-skills-classes-for-kids/",
+        "destination": "/programs/digital-skills-foundation/",
         "type": 301
       },
       {

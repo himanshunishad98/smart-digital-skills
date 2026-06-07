@@ -195,7 +195,7 @@
       },
       {
         "source": "/ai-classes-chennai.html",
-        "destination": "/cities/chennai/ai-classes/",
+        "destination": "/cities/chennai/",
         "type": 301
       },
       {
@@ -205,7 +205,7 @@
       },
       {
         "source": "/computer-classes-bangalore.html",
-        "destination": "/cities/bangalore/computer-classes/",
+        "destination": "/cities/bangalore/",
         "type": 301
       },
       {
@@ -215,7 +215,7 @@
       },
       {
         "source": "/computer-classes-delhi.html",
-        "destination": "/cities/delhi/computer-classes/",
+        "destination": "/cities/delhi/",
         "type": 301
       },
       {
@@ -225,17 +225,17 @@
       },
       {
         "source": "/computer-classes-mumbai.html",
-        "destination": "/cities/mumbai/computer-classes/",
+        "destination": "/cities/mumbai/",
         "type": 301
       },
       {
         "source": "/computer-classes-pune.html",
-        "destination": "/cities/pune/computer-classes/",
+        "destination": "/cities/pune/",
         "type": 301
       },
       {
         "source": "/digital-skills-kolkata.html",
-        "destination": "/cities/kolkata/digital-skills/",
+        "destination": "/cities/kolkata/",
         "type": 301
       },
       {
@@ -451,6 +451,71 @@
       {
         "source": "/courses/coding-course/index.html",
         "destination": "/courses/coding/index.html",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-1.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-2.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-3.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-4.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-5.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-6.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-7.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-8.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-9.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-10.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-11.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/class-12.html",
+        "destination": "/resources/",
+        "type": 301
+      },
+      {
+        "source": "/resources/ncert-books.html",
+        "destination": "/resources/cbse-resources/",
         "type": 301
       }
     ]

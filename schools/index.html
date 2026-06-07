@@ -1,5 +1,39 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8">
+<html lang="en"><head>
+<meta charset="utf-8">
+<link href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFlNGVhMCIvPjxyZWN0IHg9IjYiIHk9IjkiIHdpZHRoPSIxMyIgaGVpZ2h0PSI5IiByeD0iMS41IiBmaWxsPSJub25lIiBzdHJva2U9IiNmYmJmMjQiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjkiIHkxPSIxOCIgeDI9IjE2IiB5Mj0iMTgiIHN0cm9rZT0iI2ZiYmYyNCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSI1IiBoZWlnaHQ9IjEuNSIgcng9Ii43NSIgZmlsbD0iI2ZiYmYyNCIvPjxjaXJjbGUgY3g9IjIzIiBjeT0iMTEiIHI9IjQiIGZpbGw9IiNmYmJmMjQiLz48dGV4dCB4PSIyMyIgeT0iMTQuNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMwZjI4NjEiPkFJPC90ZXh0Pjwvc3ZnPg==" rel="icon" type="image/svg+xml">
+<style>:root{--blue-900:#0f2861;--blue-800:#1a3a7a;--blue-700:#1e4ea0;--blue-600:#2563eb;--blue-400:#60a5fa;--blue-300:#93c5fd;--blue-100:#dbeafe;--blue-50:#eff6ff;--yellow-500:#f59e0b;--yellow-400:#fbbf24;--yellow-300:#fcd34d;--yellow-100:#fef9c3;--green-500:#10b981;--red-500:#ef4444;--red-300:#fca5a5;--gray-900:#111827;--gray-700:#374151;--gray-500:#6b7280;--gray-300:#d1d5db;--gray-100:#f3f4f6;--white:#ffffff;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;--shadow-sm:0 2px 8px rgba(0,0,0,.06);--shadow-md:0 6px 24px rgba(0,0,0,.10);--shadow-lg:0 16px 48px rgba(0,0,0,.14);--shadow-blue:0 8px 32px rgba(37,99,235,.25)}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:16px}body{font-family:'Nunito',sans-serif;color:var(--gray-900);background:var(--white);overflow-x:hidden}h1,h2,h3,h4,h5{font-family:'Sora',sans-serif;line-height:1.2}img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}button{cursor:pointer;border:none;font-family:inherit}.container{max-width:1180px;margin:0 auto;padding:0 20px}.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--blue-600);color:var(--white);font-weight:800;font-size:1rem;padding:14px 28px;border-radius:100px;box-shadow:var(--shadow-blue);transition:all .22s ease;white-space:nowrap;position:relative;overflow:hidden}.btn-yellow{display:inline-flex;align-items:center;gap:8px;background:var(--yellow-400);color:var(--blue-900);font-weight:800;font-size:1rem;padding:14px 28px;border-radius:100px;transition:all .22s ease;white-space:nowrap;position:relative;overflow:hidden}.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--blue-600);font-weight:800;font-size:1rem;padding:13px 27px;border-radius:100px;border:2px solid var(--blue-600);transition:all .22s ease}.announcement-bar{background:linear-gradient(90deg,var(--blue-900),var(--blue-700));color:var(--white);text-align:center;padding:10px 20px;font-size:.85rem;font-weight:700;letter-spacing:.02em;position:relative;overflow:hidden}.announcement-bar span{color:var(--yellow-300);margin:0 8px}.header{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,255,.96);border-bottom:1px solid var(--gray-100);padding:12px 0;transition:box-shadow .3s}.header .container{max-width:100% !important;width:100% !important;padding:0 24px !important}.header-inner{display:flex;align-items:center;justify-content:flex-start;gap:16px}.logo{display:flex;align-items:center;gap:10px;text-decoration:none;border-radius:12px;padding:4px 8px 4px 4px;margin:-4px -8px -4px -4px;transition:background .2s ease}.logo:hover{background:rgba(37,99,235,.07)}.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--blue-600),var(--blue-800));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}.logo-text{font-family:'Sora',sans-serif;font-weight:800;font-size:.95rem;color:var(--blue-900);line-height:1.2}.logo-text small{display:block;font-family:'Nunito',sans-serif;font-weight:600;font-size:.72rem;color:var(--gray-500)}.nav-cta{display:flex;align-items:center;gap:10px;margin-left:auto}.seats-badge{background:var(--red-500);color:var(--white);font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:100px;animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}.hero{position:relative;background:linear-gradient(135deg,var(--blue-900) 0%,var(--blue-700) 60%,var(--blue-600) 100%);overflow:hidden;padding:80px 0 60px}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1}.hero-badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:.78rem;font-weight:800;letter-spacing:.05em}.badge-open{background:rgba(16,185,129,.2);color:#6ee7b7;border:1px solid rgba(16,185,129,.3)}.badge-limited{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}.badge-class{background:rgba(251,191,36,.15);color:var(--yellow-300);border:1px solid rgba(251,191,36,.3)}.hero h1{font-size:clamp(1.8rem,4vw,3rem);color:var(--white);font-weight:800;line-height:1.15;margin-bottom:16px}.hero h1 .highlight{color:var(--yellow-400)}.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.82);line-height:1.75;margin-bottom:28px}.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}.hero-stats{display:flex;flex-wrap:wrap;gap:20px}.hero-stat{display:flex;align-items:center;gap:10px}.hero-stat-icon{width:38px;height:38px;background:rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}.hero-stat-text strong{display:block;color:var(--white);font-size:.95rem;font-weight:700}.hero-stat-text span{color:rgba(255,255,255,.6);font-size:.78rem}.hero-visual{position:relative;display:flex;justify-content:center}.hero-card-stack{position:relative;width:360px;max-width:100%;filter:drop-shadow(0 32px 56px rgba(37,99,235,.28))}.hero-main-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius-xl);padding:30px;color:var(--white)}.hero-main-card .card-title{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:8px}.course-list{display:flex;flex-direction:column;gap:10px}.course-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,255,255,.08);border-radius:var(--radius-sm);font-size:.88rem;font-weight:600}.course-item .ci-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}.float-card{position:absolute;background:var(--white);border-radius:var(--radius-md);padding:12px 16px;box-shadow:var(--shadow-lg);font-size:.82rem;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--gray-700)}.float-card-1{top:-20px;right:-20px;animation:float1 3s ease-in-out infinite}@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}.section-tag{display:inline-flex;align-items:center;gap:6px;background:var(--yellow-100);color:var(--yellow-500);font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:14px}.section-tag .dot{width:8px;height:8px;background:var(--yellow-400);border-radius:50%;display:inline-block}.section-title{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:var(--blue-900);margin-bottom:12px;position:relative;display:inline-block}.section-title span{color:var(--blue-600)}.text-center{text-align:center}.fade-up{opacity:0;transform:translateY(28px)}@media(max-width:768px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero-badge-row{justify-content:center}.hero-ctas{justify-content:center}.hero-stats{justify-content:center}.hero-visual{display:none}.nav-cta{display:none!important}.hero{padding:50px 0 70px}.container{padding:0 16px}h1{font-size:clamp(1.8rem,6vw,2.4rem)!important;line-height:1.2!important}body{overflow-x:hidden;padding-bottom:70px}}@media(max-width:480px){.hero-ctas{flex-direction:column;align-items:center}}#ptBanner.pt-banner{background:linear-gradient(135deg,#0f2861 0%,#1a3a7a 45%,#1e4ea0 100%);padding:64px 0;position:relative;overflow:hidden;box-sizing:border-box}#ptBanner.pt-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 75% 50%,rgba(124,58,237,.22) 0%,transparent 60%),radial-gradient(ellipse at 10% 80%,rgba(37,99,235,.15) 0%,transparent 50%);pointer-events:none}#ptBanner .pt-inner{max-width:1180px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;z-index:1;box-sizing:border-box}#ptBanner .pt-content{display:flex;flex-direction:column;gap:16px}#ptBanner .pt-badge-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}#ptBanner .pt-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.3);color:#fcd34d;font-size:.7rem;font-weight:800;padding:4px 11px;border-radius:100px;text-transform:uppercase;letter-spacing:.07em}#ptBanner .pt-tag-new{background:rgba(124,58,237,.2);border-color:rgba(124,58,237,.35);color:#c4b5fd}#ptBanner .pt-dot{width:7px;height:7px;background:#fbbf24;border-radius:50%;display:inline-block;animation:navBadgePulse 2s ease-in-out infinite;transform:none}#ptBanner .pt-title{font-family:"Sora",sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;color:#fff;margin:0;line-height:1.2}#ptBanner .pt-hl{color:#fbbf24}#ptBanner .pt-sub{font-size:.9rem;color:rgba(255,255,255,.7);margin:0;line-height:1.7;max-width:480px}#ptBanner .pt-chips{display:flex;flex-wrap:wrap;gap:7px}#ptBanner .pt-chip{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.8);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:4px 11px;border-radius:100px}#ptBanner .pt-cta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:4px}#ptBanner .pt-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#0f2861;font-family:"Sora",sans-serif;font-weight:800;font-size:1rem;padding:14px 28px;border-radius:100px;text-decoration:none;white-space:nowrap;box-shadow:0 8px 28px rgba(251,191,36,.4);transition:transform .22s ease,box-shadow .22s ease}#ptBanner .pt-cta:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 40px rgba(251,191,36,.55)}#ptBanner .pt-note{font-size:.78rem;color:rgba(255,255,255,.45);font-weight:600}#ptBanner .pt-cards{display:flex;flex-direction:column;gap:14px}#ptBanner .pt-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;transition:background .2s,transform .2s}#ptBanner .pt-card:hover{background:rgba(255,255,255,.12);transform:translateX(4px)}#ptBanner .pt-card-icon{font-size:1.6rem;flex-shrink:0;line-height:1}#ptBanner .pt-card-title{font-family:"Sora",sans-serif;font-size:.9rem;font-weight:800;color:#fff;margin-bottom:4px}#ptBanner .pt-card-desc{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.55}@keyframes navBadgePulse{0%,100%{opacity:1;transform:translateX(-50%) scale(1)}50%{opacity:0.75;transform:translateX(-50%) scale(1.08)}}@media (max-width:1024px){#ptBanner .pt-inner{gap:32px}}@media (max-width:768px){#ptBanner.pt-banner{padding:48px 0}#ptBanner .pt-inner{grid-template-columns:1fr;gap:28px}#ptBanner .pt-sub{max-width:100%}#ptBanner .pt-cta-row{flex-direction:column;align-items:flex-start}#ptBanner .pt-cta{width:100%;justify-content:center}#ptBanner .pt-cards{flex-direction:row;flex-wrap:wrap}#ptBanner .pt-card{flex:1 1 calc(50% - 7px);min-width:140px}}@media (max-width:480px){#ptBanner.pt-banner{padding:36px 0}#ptBanner .pt-cards{flex-direction:column}#ptBanner .pt-card{flex:none;width:100%}#ptBanner .pt-title{font-size:1.4rem}}</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1356797499656239');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1356797499656239&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-ML9QWMMH');</script>
+<!-- End Google Tag Manager -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["EducationalOrganization","LocalBusiness"],"@id":"https://skillnest.co.in/#organization","name":"SkillNest","alternateName":"Smart Digital Skills","url":"https://skillnest.co.in","logo":{"@type":"ImageObject","url":"https://skillnest.co.in/assets/skillnest-logo.png","width":200,"height":60},"description":"SkillNest is India's premier online digital skills and AI program for Class 6–8 students. The 6-week live curriculum covers computer basics, MS Office, cyber safety, Coding Program, and practical AI tools taught by expert instructors.","foundingDate":"2023","numberOfEmployees":{"@type":"QuantitativeValue","value":10},"areaServed":{"@type":"Country","name":"India"},"audience":{"@type":"EducationalAudience","educationalRole":"student","audienceType":"Middle School Students (Class 6–8)"},"contactPoint":{"@type":"ContactPoint","contactType":"customer support","availableLanguage":["English","Hindi"],"contactOption":"TollFree"},"sameAs":["https://www.youtube.com/@SkillNestIndia","https://www.instagram.com/skillnest.india"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"247","bestRating":"5","worstRating":"1"}}</script>
+</head><body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ML9QWMMH"
+height="0" width="0" class="ref-style-508puf"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>School Partnerships | Smart Digital Skills</title>
 <meta name="description" content="Partner with Smart Digital Skills to bring cutting-edge digital literacy, coding, and AI curriculum to your school. Turnkey B2B program for Classes 6–8.">
@@ -7,11 +41,10 @@
 <meta name="robots" content="index, follow">
 <meta name="author" content="SkillNest — Smart Digital Skills">
 <meta name="theme-color" content="#1e40af">
-<link href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFlNGVhMCIvPjxyZWN0IHg9IjYiIHk9IjkiIHdpZHRoPSIxMyIgaGVpZ2h0PSI5IiByeD0iMS41IiBmaWxsPSJub25lIiBzdHJva2U9IiNmYmJmMjQiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjkiIHkxPSIxOCIgeDI9IjE2IiB5Mj0iMTgiIHN0cm9rZT0iI2ZiYmYyNCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSI1IiBoZWlnaHQ9IjEuNSIgcng9Ii43NSIgZmlsbD0iI2ZiYmYyNCIvPjxjaXJjbGUgY3g9IjIzIiBjeT0iMTEiIHI9IjQiIGZpbGw9IiNmYmJmMjQiLz48dGV4dCB4PSIyMyIgeT0iMTQuNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMwZjI4NjEiPkFJPC90ZXh0Pjwvc3ZnPg==" rel="icon" type="image/svg+xml">
+
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/font-0.woff2" crossorigin="">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/font-1.woff2" crossorigin="">
 <link rel="preload" as="style" href="../assets/css/bundle.min.css" onload="this.onload=null;this.rel='stylesheet'">
-<style>:root{--blue-900:#0f2861;--blue-800:#1a3a7a;--blue-700:#1e4ea0;--blue-600:#2563eb;--blue-400:#60a5fa;--blue-300:#93c5fd;--blue-100:#dbeafe;--blue-50:#eff6ff;--yellow-500:#f59e0b;--yellow-400:#fbbf24;--yellow-300:#fcd34d;--yellow-100:#fef9c3;--green-500:#10b981;--red-500:#ef4444;--red-300:#fca5a5;--gray-900:#111827;--gray-700:#374151;--gray-500:#6b7280;--gray-300:#d1d5db;--gray-100:#f3f4f6;--white:#ffffff;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;--shadow-sm:0 2px 8px rgba(0,0,0,.06);--shadow-md:0 6px 24px rgba(0,0,0,.10);--shadow-lg:0 16px 48px rgba(0,0,0,.14);--shadow-blue:0 8px 32px rgba(37,99,235,.25)}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:16px}body{font-family:'Nunito',sans-serif;color:var(--gray-900);background:var(--white);overflow-x:hidden}h1,h2,h3,h4,h5{font-family:'Sora',sans-serif;line-height:1.2}img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}button{cursor:pointer;border:none;font-family:inherit}.container{max-width:1180px;margin:0 auto;padding:0 20px}.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--blue-600);color:var(--white);font-weight:800;font-size:1rem;padding:14px 28px;border-radius:100px;box-shadow:var(--shadow-blue);transition:all .22s ease;white-space:nowrap;position:relative;overflow:hidden}.btn-yellow{display:inline-flex;align-items:center;gap:8px;background:var(--yellow-400);color:var(--blue-900);font-weight:800;font-size:1rem;padding:14px 28px;border-radius:100px;transition:all .22s ease;white-space:nowrap;position:relative;overflow:hidden}.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--blue-600);font-weight:800;font-size:1rem;padding:13px 27px;border-radius:100px;border:2px solid var(--blue-600);transition:all .22s ease}.announcement-bar{background:linear-gradient(90deg,var(--blue-900),var(--blue-700));color:var(--white);text-align:center;padding:10px 20px;font-size:.85rem;font-weight:700;letter-spacing:.02em;position:relative;overflow:hidden}.announcement-bar span{color:var(--yellow-300);margin:0 8px}.header{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,255,.96);border-bottom:1px solid var(--gray-100);padding:12px 0;transition:box-shadow .3s}.header .container{max-width:100% !important;width:100% !important;padding:0 24px !important}.header-inner{display:flex;align-items:center;justify-content:flex-start;gap:16px}.logo{display:flex;align-items:center;gap:10px;text-decoration:none;border-radius:12px;padding:4px 8px 4px 4px;margin:-4px -8px -4px -4px;transition:background .2s ease}.logo:hover{background:rgba(37,99,235,.07)}.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--blue-600),var(--blue-800));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}.logo-text{font-family:'Sora',sans-serif;font-weight:800;font-size:.95rem;color:var(--blue-900);line-height:1.2}.logo-text small{display:block;font-family:'Nunito',sans-serif;font-weight:600;font-size:.72rem;color:var(--gray-500)}.nav-cta{display:flex;align-items:center;gap:10px;margin-left:auto}.seats-badge{background:var(--red-500);color:var(--white);font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:100px;animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}.hero{position:relative;background:linear-gradient(135deg,var(--blue-900) 0%,var(--blue-700) 60%,var(--blue-600) 100%);overflow:hidden;padding:80px 0 60px}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1}.hero-badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:.78rem;font-weight:800;letter-spacing:.05em}.badge-open{background:rgba(16,185,129,.2);color:#6ee7b7;border:1px solid rgba(16,185,129,.3)}.badge-limited{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}.badge-class{background:rgba(251,191,36,.15);color:var(--yellow-300);border:1px solid rgba(251,191,36,.3)}.hero h1{font-size:clamp(1.8rem,4vw,3rem);color:var(--white);font-weight:800;line-height:1.15;margin-bottom:16px}.hero h1 .highlight{color:var(--yellow-400)}.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.82);line-height:1.75;margin-bottom:28px}.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}.hero-stats{display:flex;flex-wrap:wrap;gap:20px}.hero-stat{display:flex;align-items:center;gap:10px}.hero-stat-icon{width:38px;height:38px;background:rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}.hero-stat-text strong{display:block;color:var(--white);font-size:.95rem;font-weight:700}.hero-stat-text span{color:rgba(255,255,255,.6);font-size:.78rem}.hero-visual{position:relative;display:flex;justify-content:center}.hero-card-stack{position:relative;width:360px;max-width:100%;filter:drop-shadow(0 32px 56px rgba(37,99,235,.28))}.hero-main-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius-xl);padding:30px;color:var(--white)}.hero-main-card .card-title{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:8px}.course-list{display:flex;flex-direction:column;gap:10px}.course-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,255,255,.08);border-radius:var(--radius-sm);font-size:.88rem;font-weight:600}.course-item .ci-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}.float-card{position:absolute;background:var(--white);border-radius:var(--radius-md);padding:12px 16px;box-shadow:var(--shadow-lg);font-size:.82rem;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--gray-700)}.float-card-1{top:-20px;right:-20px;animation:float1 3s ease-in-out infinite}@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}.section-tag{display:inline-flex;align-items:center;gap:6px;background:var(--yellow-100);color:var(--yellow-500);font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:14px}.section-tag .dot{width:8px;height:8px;background:var(--yellow-400);border-radius:50%;display:inline-block}.section-title{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:var(--blue-900);margin-bottom:12px;position:relative;display:inline-block}.section-title span{color:var(--blue-600)}.text-center{text-align:center}.fade-up{opacity:0;transform:translateY(28px)}@media(max-width:768px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero-badge-row{justify-content:center}.hero-ctas{justify-content:center}.hero-stats{justify-content:center}.hero-visual{display:none}.nav-cta{display:none!important}.hero{padding:50px 0 70px}.container{padding:0 16px}h1{font-size:clamp(1.8rem,6vw,2.4rem)!important;line-height:1.2!important}body{overflow-x:hidden;padding-bottom:70px}}@media(max-width:480px){.hero-ctas{flex-direction:column;align-items:center}}#ptBanner.pt-banner{background:linear-gradient(135deg,#0f2861 0%,#1a3a7a 45%,#1e4ea0 100%);padding:64px 0;position:relative;overflow:hidden;box-sizing:border-box}#ptBanner.pt-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 75% 50%,rgba(124,58,237,.22) 0%,transparent 60%),radial-gradient(ellipse at 10% 80%,rgba(37,99,235,.15) 0%,transparent 50%);pointer-events:none}#ptBanner .pt-inner{max-width:1180px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;z-index:1;box-sizing:border-box}#ptBanner .pt-content{display:flex;flex-direction:column;gap:16px}#ptBanner .pt-badge-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}#ptBanner .pt-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.3);color:#fcd34d;font-size:.7rem;font-weight:800;padding:4px 11px;border-radius:100px;text-transform:uppercase;letter-spacing:.07em}#ptBanner .pt-tag-new{background:rgba(124,58,237,.2);border-color:rgba(124,58,237,.35);color:#c4b5fd}#ptBanner .pt-dot{width:7px;height:7px;background:#fbbf24;border-radius:50%;display:inline-block;animation:navBadgePulse 2s ease-in-out infinite;transform:none}#ptBanner .pt-title{font-family:"Sora",sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;color:#fff;margin:0;line-height:1.2}#ptBanner .pt-hl{color:#fbbf24}#ptBanner .pt-sub{font-size:.9rem;color:rgba(255,255,255,.7);margin:0;line-height:1.7;max-width:480px}#ptBanner .pt-chips{display:flex;flex-wrap:wrap;gap:7px}#ptBanner .pt-chip{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.8);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:4px 11px;border-radius:100px}#ptBanner .pt-cta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:4px}#ptBanner .pt-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#0f2861;font-family:"Sora",sans-serif;font-weight:800;font-size:1rem;padding:14px 28px;border-radius:100px;text-decoration:none;white-space:nowrap;box-shadow:0 8px 28px rgba(251,191,36,.4);transition:transform .22s ease,box-shadow .22s ease}#ptBanner .pt-cta:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 40px rgba(251,191,36,.55)}#ptBanner .pt-note{font-size:.78rem;color:rgba(255,255,255,.45);font-weight:600}#ptBanner .pt-cards{display:flex;flex-direction:column;gap:14px}#ptBanner .pt-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;transition:background .2s,transform .2s}#ptBanner .pt-card:hover{background:rgba(255,255,255,.12);transform:translateX(4px)}#ptBanner .pt-card-icon{font-size:1.6rem;flex-shrink:0;line-height:1}#ptBanner .pt-card-title{font-family:"Sora",sans-serif;font-size:.9rem;font-weight:800;color:#fff;margin-bottom:4px}#ptBanner .pt-card-desc{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.55}@keyframes navBadgePulse{0%,100%{opacity:1;transform:translateX(-50%) scale(1)}50%{opacity:0.75;transform:translateX(-50%) scale(1.08)}}@media (max-width:1024px){#ptBanner .pt-inner{gap:32px}}@media (max-width:768px){#ptBanner.pt-banner{padding:48px 0}#ptBanner .pt-inner{grid-template-columns:1fr;gap:28px}#ptBanner .pt-sub{max-width:100%}#ptBanner .pt-cta-row{flex-direction:column;align-items:flex-start}#ptBanner .pt-cta{width:100%;justify-content:center}#ptBanner .pt-cards{flex-direction:row;flex-wrap:wrap}#ptBanner .pt-card{flex:1 1 calc(50% - 7px);min-width:140px}}@media (max-width:480px){#ptBanner.pt-banner{padding:36px 0}#ptBanner .pt-cards{flex-direction:column}#ptBanner .pt-card{flex:none;width:100%}#ptBanner .pt-title{font-size:1.4rem}}</style>
 
 <link rel="stylesheet" href="assets/css/bundle.min.css">
 <meta property="og:type" content="website">
@@ -117,41 +150,10 @@
 }</script>
 
 <script src="../assets/js/fallback.js" id="file-protocol-fallback"></script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1356797499656239');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1356797499656239&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-ML9QWMMH');</script>
-<!-- End Google Tag Manager -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":["EducationalOrganization","LocalBusiness"],"@id":"https://skillnest.co.in/#organization","name":"SkillNest","alternateName":"Smart Digital Skills","url":"https://skillnest.co.in","logo":{"@type":"ImageObject","url":"https://skillnest.co.in/assets/skillnest-logo.png","width":200,"height":60},"description":"SkillNest is India's premier online digital skills and AI program for Class 6–8 students. The 6-week live curriculum covers computer basics, MS Office, cyber safety, Coding Program, and practical AI tools taught by expert instructors.","foundingDate":"2023","numberOfEmployees":{"@type":"QuantitativeValue","value":10},"areaServed":{"@type":"Country","name":"India"},"audience":{"@type":"EducationalAudience","educationalRole":"student","audienceType":"Middle School Students (Class 6–8)"},"contactPoint":{"@type":"ContactPoint","contactType":"customer support","availableLanguage":["English","Hindi"],"contactOption":"TollFree"},"sameAs":["https://www.youtube.com/@SkillNestIndia","https://www.instagram.com/skillnest.india"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"247","bestRating":"5","worstRating":"1"}}</script>
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ML9QWMMH"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <header class="header" id="mainHeader" data-dynamic-component="header"><div class="container">
   <div class="header-inner">
-    <a href="../index.html" class="logo ref-text-no-decor" >
+    <a href="../index.html" class="logo ref-style-1iq1zl">
       <div class="logo-icon">🎓</div>
       <div class="logo-text">
         <span class="brand-name">SkillNest</span>
@@ -337,7 +339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </ul>
     </nav>
     <div class="nav-cta">
-      <a class="btn-primary ref-badge-btn-sm" href="../contact/book-demo.html"  data-config="ctaText">Book Free Demo</a>
+      <a class="btn-primary ref-style-379mi5" href="../contact/book-demo.html" data-config="ctaText">Book Free Demo</a>
     </div>
     <button aria-label="Open Menu" class="mobile-nav-toggle" id="mobileNavToggle">☰</button>
   </div>
@@ -522,21 +524,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><a href="../legal/refund-policy.html">Refund Policy</a></li>
         </ul>
       </li>
-      <li ><a href="../contact/book-demo.html" class="btn-primary ref-cta-block ref-mt-15" >BOOK FREE DEMO</a></li>
+      <li class="ref-style-2o90qq"><a href="../contact/book-demo.html" class="btn-primary ref-style-ly5s5e">BOOK FREE DEMO</a></li>
     </ul>
 </div>
 
 </div>
 
 <!-- PAGE HERO -->
-<section class="page-hero fg-section-dark ref-text-center" >
+<section class="page-hero fg-section-dark ref-text-center">
   <div class="container">
     <div class="page-hero-tag"><span class="dot"></span>B2B School Partnerships</div>
     <h1>Bring <span>Future-Ready Skills</span> to Your School</h1>
     <p>Partner with us to integrate our proven 6-week Digital Skills, Coding, and AI curriculum into your school's academic or extracurricular calendar.</p>
-    <div style="margin-top:32px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-      <a href="#" class="btn-yellow email-address ref-btn-medium"  data-config-href="email">Request Partnership Proposal</a>
-      <a href="#benefits" class="btn-ghost ref-btn-medium" >Explore Benefits ↓</a>
+    <div class="ref-style-3wtqvx">
+      <a href="#" class="btn-yellow email-address ref-btn-medium" data-config-href="email">Request Partnership Proposal</a>
+      <a href="#benefits" class="btn-ghost ref-btn-medium">Explore Benefits ↓</a>
     </div>
   </div>
 </section>
@@ -583,18 +585,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- MAIN CONTENT -->
-<main style="padding:80px 0 100px;" class="fg-section-dark" id="benefits">
-  <div class="container" style="position:relative;z-index:1;">
+<main class="fg-section-dark ref-style-212ahu" id="benefits">
+  <div class="container ref-style-1ud3lc">
 
     <!-- Section header -->
-    <div class="text-center fade-up ref-mb-50" >
+    <div class="text-center fade-up ref-mb-50">
       <div class="section-tag"><span class="dot"></span>What We Offer</div>
-      <h2 class="section-title" style="color: var(--white);">Everything Your School <span style="color: var(--yellow-400);">Needs to Succeed</span></h2>
+      <h2 class="section-title ref-style-w1txc">Everything Your School <span class="ref-style-2ltiji">Needs to Succeed</span></h2>
       <p class="section-sub">We handle the curriculum, trainers, and technology — you provide the students.</p>
     </div>
 
     <!-- Feature Cards -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:28px; margin-bottom:80px;">
+    <div class="ref-style-1b9h89">
 
       <div class="gallery-card cd-card cd-glow fade-up">
         <div class="gallery-icon">📚</div>
@@ -635,33 +637,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- Stats row -->
-    <div style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin-bottom:80px;">
-      <div class="fg-card ref-price-cell-40" >
-        <div style="font-family:'Sora',sans-serif; font-size:2.5rem; font-weight:800; background:linear-gradient(135deg,#fbbf24,#fcd34d); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">500+</div>
-        <div class="ref-text-white-60-85" >Students Trained</div>
+    <div class="ref-style-40clr6">
+      <div class="fg-card ref-price-cell-40">
+        <div class="ref-style-gm443l">500+</div>
+        <div class="ref-text-white-60-85">Students Trained</div>
       </div>
-      <div class="fg-card ref-price-cell-40" >
-        <div style="font-family:'Sora',sans-serif; font-size:2.5rem; font-weight:800; background:linear-gradient(135deg,#06b6d4,#7c3aed); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">6 Wks</div>
-        <div class="ref-text-white-60-85" >Program Duration</div>
+      <div class="fg-card ref-price-cell-40">
+        <div class="ref-style-j1d4cz">6 Wks</div>
+        <div class="ref-text-white-60-85">Program Duration</div>
       </div>
-      <div class="fg-card ref-price-cell-40" >
-        <div style="font-family:'Sora',sans-serif; font-size:2.5rem; font-weight:800; background:linear-gradient(135deg,#10b981,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">5 Tools</div>
-        <div class="ref-text-white-60-85" >Learned Per Batch</div>
+      <div class="fg-card ref-price-cell-40">
+        <div class="ref-style-dic2rj">5 Tools</div>
+        <div class="ref-text-white-60-85">Learned Per Batch</div>
       </div>
-      <div class="fg-card ref-price-cell-40" >
-        <div style="font-family:'Sora',sans-serif; font-size:2.5rem; font-weight:800; background:linear-gradient(135deg,#fbbf24,#10b981); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">4.9★</div>
-        <div class="ref-text-white-60-85" >Parent Rating</div>
+      <div class="fg-card ref-price-cell-40">
+        <div class="ref-style-uffsja">4.9★</div>
+        <div class="ref-text-white-60-85">Parent Rating</div>
       </div>
     </div>
 
     <!-- CTA Block -->
-    <div class="b2b-cta-block fade-up" style="padding:60px 40px; text-align:center; border-radius:24px;">
-      <div class="page-hero-tag" style="margin:0 auto 20px;"><span class="dot"></span>Ready to Partner?</div>
-      <h2 style="font-family:'Sora',sans-serif; font-size:clamp(1.6rem,4vw,2.2rem); font-weight:800; margin-bottom:16px;">Ready to Upgrade Your Computer Lab Curriculum?</h2>
-      <p style="font-size:1.1rem; margin-bottom:32px; max-width:600px; margin-left:auto; margin-right:auto;">Let's discuss how we can customize our program for your students. We offer flexible batch sizes and scheduling options.</p>
-      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-        <a href="#" class="btn-yellow email-address" style="font-size:1.1rem; padding:16px 36px;" data-config-href="email">Request a Partnership Proposal</a>
-        <a href="#" target="_blank" class="btn-ghost whatsapp-link" style="font-size:1rem; padding:16px 28px;" rel="nofollow noopener noreferrer" data-config-href="whatsapp">💬 WhatsApp Us</a>
+    <div class="b2b-cta-block fade-up ref-style-ptmwo6">
+      <div class="page-hero-tag ref-style-2xwv3u"><span class="dot"></span>Ready to Partner?</div>
+      <h2 class="ref-style-15w4hk">Ready to Upgrade Your Computer Lab Curriculum?</h2>
+      <p class="ref-style-1s07c8">Let's discuss how we can customize our program for your students. We offer flexible batch sizes and scheduling options.</p>
+      <div class="ref-style-ctun8">
+        <a href="#" class="btn-yellow email-address ref-style-20jj4d" data-config-href="email">Request a Partnership Proposal</a>
+        <a href="#" target="_blank" class="btn-ghost whatsapp-link ref-style-1nkcz1" rel="nofollow noopener noreferrer" data-config-href="whatsapp">💬 WhatsApp Us</a>
       </div>
     </div>
 
@@ -782,13 +784,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ul>
       <h4 class="mt-16">Cities</h4>
       <ul>
-          <li><a href="/cities/index.html">Cities Overview</a></li>
-          <li><a href="/cities/bhilai/">Bhilai</a></li>
-          <li><a href="/cities/durg/">Durg</a></li>
-          <li><a href="/cities/raipur/">Raipur</a></li>
-          <li><a href="/cities/bhopal/">Bhopal</a></li>
-          <li><a href="/cities/indore/">Indore</a></li>
-          <li class="ref-text-yellow"><a href="/cities/" >All Cities →</a></li></ul>
+        <li><a href="../cities/index.html">Cities Overview</a></li>
+        <li><a href="../cities/bhopal/index.html">Bhopal</a></li>
+        <li><a href="../cities/indore/index.html">Indore</a></li>
+        <li><a href="../cities/raipur/index.html">Raipur</a></li>
+        <li><a href="../cities/delhi/index.html">Delhi</a></li>
+        <li><a href="../cities/mumbai/index.html">Mumbai</a></li>
+        <li><a href="../cities/pune/index.html">Pune</a></li>
+        <li><a href="../cities/bangalore/index.html">Bangalore</a></li>
+        <li><a href="../cities/hyderabad/index.html">Hyderabad</a></li>
+      </ul>
     </div>
 
     <div class="footer-col">
@@ -829,66 +834,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>No commitment. Experience a live class and see the difference yourself.</p>
     </div>
     <div class="footer-cta-btns">
-      <a class="btn-yellow ref-btn-sm-pad" href="../contact/book-demo.html"  data-config="ctaText">Book Free Demo Class</a>
+      <a class="btn-yellow ref-style-8ixa97" href="../contact/book-demo.html" data-config="ctaText">Book Free Demo Class</a>
       <a class="btn-ghost btn-ghost-footer whatsapp-link" href="#" target="_blank" rel="nofollow noopener noreferrer">✨ Download Curriculum</a>
     </div>
   </div>
-  <hr class="footer-divider ref-mt-0" >
+  <hr class="footer-divider ref-style-2kmd8c">
   <div class="footer-bottom">
     <p>© 2026 <span class="brand-name">SkillNest</span>. All Rights Reserved.</p>
     <p>Made with ❤️ for Students of India</p>
   </div>
 
-        <div class="locations-serve-footer-panel ref-footer-section-border" >
-      <div class="ref-grid-1col-15" >
+    <div class="locations-serve-footer-panel ref-footer-section-border">
+      <div class="ref-grid-1col-15">
         <div>
-          <h3 class="ref-footer-heading-white" >
+          <h3 class="ref-footer-heading-white">
             <span>📍</span> Operating Cities &amp; Learning Hubs
           </h3>
-          <div class="ref-footer-link-list" >
-            <a class="ref-text-link-white-bold ref-text-white-dim" href="/cities/bhilai/" >Bhilai</a><span >|</span>
-            <a class="ref-text-link-white-bold ref-text-white-dim" href="/cities/durg/" >Durg</a><span >|</span>
-            <a class="ref-text-link-white-bold ref-text-white-dim" href="/cities/raipur/" >Raipur</a><span >|</span>
-            <a class="ref-text-link-white-bold ref-text-white-dim" href="/cities/bhopal/" >Bhopal</a><span >|</span>
-            <a class="ref-text-link-white-bold ref-text-white-dim" href="/cities/indore/" >Indore</a><span >|</span>
-            <a class="ref-text-yellow-link" href="/cities/" >All Cities →</a>
+          <div class="ref-footer-link-list">
+            <a class="ref-text-link-white-bold ref-text-white-dim" href="/cities/bhilai/">Bhilai</a><span>|</span>
+            <a class="ref-text-link-white-bold ref-text-white-dim" href="/cities/durg/">Durg</a><span>|</span>
+            <a class="ref-text-link-white-bold ref-text-white-dim" href="/cities/raipur/">Raipur</a><span>|</span>
+            <a class="ref-text-link-white-bold ref-text-white-dim" href="/cities/bhopal/">Bhopal</a><span>|</span>
+            <a class="ref-text-link-white-bold ref-text-white-dim" href="/cities/indore/">Indore</a><span>|</span>
+            <a class="ref-text-yellow-link" href="/cities/">All Cities →</a>
           </div>
         </div>
       </div></div>
   </div>
-  </footer>
+
+</footer>
 
 <!-- SEO Quick Links -->
-<div class="ref-footer-bottom-dark" >
+<div class="ref-footer-bottom-dark">
   <div class="container">
-    <p class="ref-text-muted-sm" >Explore More:</p>
-    <div class="ref-flex-wrap-center-sm" >
-      <a class="ref-text-link-white" href="/index.html" >Home</a>
-      <a class="ref-text-link-white" href="/courses/computer/" >All Courses</a>
-      <a class="ref-text-link-white" href="/computer-classes-mumbai.html" >Classes in Mumbai</a>
-      <a class="ref-text-link-white" href="/computer-classes-delhi.html" >Classes in Delhi</a>
-      <a class="ref-text-link-white" href="/computer-classes-bangalore.html" >Classes in Bangalore</a>
-      <a class="ref-text-link-white" href="/computer-classes-bhopal.html" >Classes in Bhopal</a>
-      <a class="ref-text-link-white" href="/computer-classes-indore.html" >Classes in Indore</a>
-      <a class="ref-text-link-white" href="/computer-classes-pune.html" >Classes in Pune</a>
-      <a class="ref-text-link-white" href="/coding-classes-hyderabad.html" >Coding in Hyderabad</a>
-      <a class="ref-text-link-white" href="/ai-classes-chennai.html" >AI Classes in Chennai</a>
-      <a class="ref-text-link-white" href="/digital-skills-kolkata.html" >Digital Skills in Kolkata</a>
-      <a class="ref-text-link-white" href="/courses/ai-classes-for-school-students/" >AI Classes for Students</a>
-      <a class="ref-text-link-white" href="/courses/coding-classes-for-kids-india/" >Coding Classes India</a>
-      <a class="ref-text-link-white" href="/courses/computer-classes-for-teenagers/" >Computer Classes for Teenagers</a>
-      <a class="ref-text-link-white" href="/courses/digital-skills-classes-for-kids/" >Digital Skills for Kids</a>
-      <a class="ref-text-link-white" href="/blog/" >Blog</a>
-      <a class="ref-text-link-white" href="/projects/" >Student Projects</a>
-      <a class="ref-text-link-white" href="/parent-hub/testimonials/" >Parent Reviews</a>
+    <p class="ref-text-muted-sm">Explore More:</p>
+    <div class="ref-flex-wrap-center-sm">
+      <a class="ref-text-link-white" href="/index.html">Home</a>
+      <a class="ref-text-link-white" href="/courses/computer/">All Courses</a>
+      <a class="ref-text-link-white" href="/computer-classes-mumbai.html">Classes in Mumbai</a>
+      <a class="ref-text-link-white" href="/computer-classes-delhi.html">Classes in Delhi</a>
+      <a class="ref-text-link-white" href="/computer-classes-bangalore.html">Classes in Bangalore</a>
+      <a class="ref-text-link-white" href="/computer-classes-bhopal.html">Classes in Bhopal</a>
+      <a class="ref-text-link-white" href="/computer-classes-indore.html">Classes in Indore</a>
+      <a class="ref-text-link-white" href="/computer-classes-pune.html">Classes in Pune</a>
+      <a class="ref-text-link-white" href="/coding-classes-hyderabad.html">Coding in Hyderabad</a>
+      <a class="ref-text-link-white" href="/ai-classes-chennai.html">AI Classes in Chennai</a>
+      <a class="ref-text-link-white" href="/digital-skills-kolkata.html">Digital Skills in Kolkata</a>
+      <a class="ref-text-link-white" href="/courses/ai-classes-for-school-students/">AI Classes for Students</a>
+      <a class="ref-text-link-white" href="/courses/coding-classes-for-kids-india/">Coding Classes India</a>
+      <a class="ref-text-link-white" href="/courses/computer-classes-for-teenagers/">Computer Classes for Teenagers</a>
+      <a class="ref-text-link-white" href="/courses/digital-skills-classes-for-kids/">Digital Skills for Kids</a>
+      <a class="ref-text-link-white" href="/blog/">Blog</a>
+      <a class="ref-text-link-white" href="/projects/">Student Projects</a>
+      <a class="ref-text-link-white" href="/parent-hub/testimonials/">Parent Reviews</a>
     </div>
   </div>
 </div>
 
 <script src="../assets/js/bundle.min.js" defer=""></script>
 
-    <!-- GEO & AEO GLOBAL TRUST BLOCK (Visually Hidden, Crawlable) -->
-    <div class="geo-entity-block ref-sr-only"  aria-hidden="true">
+<!-- GEO & AEO GLOBAL TRUST BLOCK (Visually Hidden, Crawlable) -->
+    <div class="geo-entity-block ref-style-4jr18x" aria-hidden="true">
       <span itemprop="name">SkillNest Digital Skills &amp; AI Academy</span>
       <span itemprop="areaServed">India (National Coverage)</span>
       <p itemprop="description">

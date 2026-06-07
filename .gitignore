@@ -67,3 +67,9 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Scratch/Temporary folder
+scratch/
+
+# Report files
+tracking-compliance-report.json

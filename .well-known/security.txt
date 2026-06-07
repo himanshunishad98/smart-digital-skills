@@ -1,0 +1,5 @@
+Contact: mailto:admin@skillnest.co.in
+Expires: 2027-06-07T00:00:00.000Z
+Preferred-Languages: en, hi
+Canonical: https://skillnest.co.in/.well-known/security.txt
+Policy: https://skillnest.co.in/legal/privacy/

@@ -20,7 +20,7 @@
     "optimize:images": "node scripts/fix-image-alt.js",
     "optimize:pt-banner": "node scripts/inject-personality-banner.js",
     "optimize:cleanup": "node scripts/cleanup-comments.js && node scripts/cleanup-duplicates.js && node scripts/remove-empty-lines.js",
-    "optimize:all": "npm run optimize:critical-css && npm run optimize:head && npm run optimize:schemas && node scripts/inject-geo-signals.js && npm run optimize:images && npm run optimize:pt-banner && npm run optimize:cleanup && node scripts/post-process.js",
+    "optimize:all": "npm run optimize:critical-css && npm run optimize:head && npm run optimize:schemas && node scripts/inject-geo-signals.js && npm run optimize:images && npm run optimize:pt-banner && npm run optimize:cleanup && node scripts/post-process.js && node scripts/migrate-css-postbuild.js",
     "validate": "node scripts/validate-and-repair.js",
     "verify": "node scripts/verify-seo-delivery.js",
     "verify:seo": "node scripts/verify-seo.js",
@@ -31,7 +31,7 @@
     "verify:all": "npm run verify:seo && npm run verify:schema && npm run verify:accessibility && npm run verify:headings && npm run verify:tracking",
     "build:js": "node scripts/bundle-js.js",
     "build:css": "node scripts/bundle-css.js",
-    "build": "npm run build:css && npm run build:js && npm run generate:all && npm run optimize:all && npm run validate && npm run verify && npm run verify:all"
+    "build": "npm run build:css && npm run build:js && npm run optimize:all && npm run validate && npm run verify && npm run verify:all"
   },
   "keywords": [],
   "author": "",

@@ -979,7 +979,7 @@ ul, ol { list-style: none; }
 .form-input,
 .form-select {
   color: #111827 !important;
-  background: #ffffff !important;
+  background-color: #ffffff !important;
   border-color: #d1d5db !important;
 }
 .form-input:focus,
@@ -3529,7 +3529,7 @@ html, body { height: 100% !important; }
 .field-input:focus,
 .field-select:focus {
   outline: none;
-  background: #fff;
+  background-color: #fff;
   border-color: var(--navy-light);
   box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
 }

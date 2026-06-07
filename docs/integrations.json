@@ -1,0 +1,35 @@
+{
+  "integrations": [
+    {
+      "platform": "Firebase Hosting & Functions",
+      "purpose": "Web hosting, redirection maps, SSL, and backend serverless endpoints.",
+      "configuration": "firebase.json, firestore.rules"
+    },
+    {
+      "platform": "Google Tag Manager (GTM)",
+      "trackingId": "GTM-ML9QWMMH",
+      "purpose": "Unified script injection, page view monitoring, and event click tracking."
+    },
+    {
+      "platform": "Meta Pixel (Facebook Pixel)",
+      "trackingId": "1356797499656239",
+      "purpose": "Custom conversion tracking, retargeting ads optimization, and demographic analytics."
+    },
+    {
+      "platform": "MIT Scratch",
+      "purpose": "Visual block coding runtime, game sharing, and sprite development workspace."
+    },
+    {
+      "platform": "Canva",
+      "purpose": "Graphic design layouts, slide master formatting, and digital logo branding workflows."
+    },
+    {
+      "platform": "WhatsApp Integration",
+      "purpose": "Direct parent support hotline and demo booking registration reminders."
+    },
+    {
+      "platform": "Google Workspace & cloud drive",
+      "purpose": "Teaching students collaborative cloud workspaces, document editing, and folder directory sharing."
+    }
+  ]
+}

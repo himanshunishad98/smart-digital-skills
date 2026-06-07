@@ -1,0 +1,17 @@
+/* TEAM */
+Founder & Coordinating Educator: Aanandita Uplopwar
+Contact: admin@skillnest.co.in
+Location: Durg, Bhilai Nagar, Chhattisgarh, India
+
+/* THANKS */
+To all our students (1,000+ trained!) and parents who have supported SkillNest.
+
+/* SITE */
+Last update: 2026/06/07
+Standards: HTML5, CSS3, ES6 JavaScript
+Frameworks/Libs: Firebase SDK
+Software & Tools: Google Tag Manager (GTM-ML9QWMMH), Meta Pixel (1356797499656239), MIT Scratch, Canva
+Hosting: Firebase Hosting
+Analytics: Google Analytics
+Language: English, Hindi
+Doctype: HTML5

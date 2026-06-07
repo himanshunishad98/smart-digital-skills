@@ -1,0 +1,85 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://skillnest.co.in/courses/computer-basics/#service",
+      "name": "Computer Basics & File Management",
+      "provider": {
+        "@id": "https://skillnest.co.in/#organization"
+      },
+      "description": "Foundational course on computer systems, operating layouts, task shortcuts, folder structuring, and basic typing postures.",
+      "serviceType": "Education"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://skillnest.co.in/courses/typing-course/#service",
+      "name": "Touch Typing Mastery",
+      "provider": {
+        "@id": "https://skillnest.co.in/#organization"
+      },
+      "description": "6-week keyboard training course building muscle memory to achieve typing speeds of 40+ WPM without looking at the keys.",
+      "serviceType": "Education"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://skillnest.co.in/courses/coding-course/#service",
+      "name": "Visual Block Coding (Scratch)",
+      "provider": {
+        "@id": "https://skillnest.co.in/#organization"
+      },
+      "description": "Learn algorithms, loops, variables, conditional statements, and sprite physics by designing custom arcade games on Scratch.",
+      "serviceType": "Education"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://skillnest.co.in/courses/ai-classes-for-kids/#service",
+      "name": "Generative AI Skills for Students",
+      "provider": {
+        "@id": "https://skillnest.co.in/#organization"
+      },
+      "description": "Introduction to prompt engineering structures (Role, Task, Context, Output) and data security rules when using generative AI tools.",
+      "serviceType": "Education"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://skillnest.co.in/courses/excel-course/#service",
+      "name": "Microsoft Excel & Spreadsheets",
+      "provider": {
+        "@id": "https://skillnest.co.in/#organization"
+      },
+      "description": "Spreadsheet grid navigation, arithmetic calculations, average formulas, and automatic visual chart formatting.",
+      "serviceType": "Education"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://skillnest.co.in/courses/powerpoint-course/#service",
+      "name": "Microsoft PowerPoint & Presentation Design",
+      "provider": {
+        "@id": "https://skillnest.co.in/#organization"
+      },
+      "description": "Designing slide masters, templates, presentation structures, Canva graphics, and public speaking guidelines.",
+      "serviceType": "Education"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://skillnest.co.in/courses/internet-safety-course/#service",
+      "name": "Cyber Safety & Internet Hygiene",
+      "provider": {
+        "@id": "https://skillnest.co.in/#organization"
+      },
+      "description": "Password security, phishing email detection, cookie setups, browser privacy options, and digital footprint management.",
+      "serviceType": "Education"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://skillnest.co.in/courses/productivity-tools-course/#service",
+      "name": "Productivity Tools & Cloud Workspaces",
+      "provider": {
+        "@id": "https://skillnest.co.in/#organization"
+      },
+      "description": "Mastering Google Workspace cloud directories, layout margins, indexes, document sharing, and digital layout creations.",
+      "serviceType": "Education"
+    }
+  ]
+}

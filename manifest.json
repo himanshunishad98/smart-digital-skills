@@ -1,0 +1,18 @@
+{
+  "name": "SkillNest - Smart Digital Skills",
+  "short_name": "SkillNest",
+  "description": "Empowering middle school students (Class 6-8) with future-ready practical computer, coding, and AI skills.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f2861",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzFlNGVhMCIvPjxyZWN0IHg9IjYiIHk9IjkiIHdpZHRoPSIxMyIgaGVpZ2h0PSI5IiByeD0iMS41IiBmaWxsPSJub25lIiBzdHJva2U9IiNmYmJmMjQiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjkiIHkxPSIxOCIgeDI9IjE2IiB5Mj0iMTgiIHN0cm9rZT0iI2ZiYmYyNCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSI1IiBoZWlnaHQ9IjEuNSIgcng9Ii43NSIgZmlsbD0iI2ZiYmYyNCIvPjxjaXJjbGUgY3g9IjIzIiBjeT0iMTEiIHI9IjQiIGZpbGw9IiNmYmJmMjQiLz48dGV4dCB4PSIyMyIgeT0iMTQuNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMwZjI4NjEiPkFJPC90ZXh0Pjwvc3ZnPg==",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    }
+  ]
+}

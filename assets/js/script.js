@@ -120,7 +120,7 @@ function showScrollPopup() {
     <div class="scp-content">
       <button class="scp-close">&times;</button>
       <p>Still exploring?</p>
-      <a href="${demoHref}" class="btn-yellow">Book your free demo now</a>
+      <a href="tel:${CONFIG.phoneDisplay.replace(/[^+\d]/g, '')}" class="btn-yellow">📞 Call: ${CONFIG.phoneDisplay}</a>
     </div>
   `;
   document.body.appendChild(popup);
@@ -241,18 +241,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Sticky CTA Visibility Logic
-  const stickyCta = document.querySelector('.new-sticky-layout');
-  const heroSection = document.querySelector('.hero');
-  if (stickyCta && heroSection) {
-    window.addEventListener('scroll', () => {
-      const heroBottom = heroSection.getBoundingClientRect().bottom;
-      if (heroBottom < 0) {
-        stickyCta.classList.add('is-visible');
-      } else {
-        stickyCta.classList.remove('is-visible');
+  window.addEventListener('scroll', () => {
+    const stickyCta = document.querySelector('.new-sticky-layout');
+    if (!stickyCta) return;
+    const waFloat = document.querySelector('.whatsapp-float');
+    const isMobile = window.innerWidth <= 768;
+    const heroSection = document.querySelector('.hero') || document.querySelector('.page-hero');
+    let shouldShow = false;
+    if (heroSection) {
+      shouldShow = heroSection.getBoundingClientRect().bottom < 0;
+    } else {
+      shouldShow = (window.scrollY || document.documentElement.scrollTop) > 200;
+    }
+    if (shouldShow) {
+      stickyCta.classList.add('is-visible');
+      if (isMobile && waFloat) {
+        waFloat.style.setProperty('display', 'none', 'important');
       }
-    });
-  }
+    } else {
+      stickyCta.classList.remove('is-visible');
+      if (isMobile && waFloat) {
+        waFloat.style.removeProperty('display');
+      }
+    }
+  });
 
 
   // Curriculum Accordion

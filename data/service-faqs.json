@@ -1,0 +1,33 @@
+{
+  "serviceFaqs": {
+    "ComputerBasics": [
+      {"q": "What is the very first topic taught?", "a": "Operating systems layout: explaining folders, the taskbar, active windows, and hardware mouse inputs."},
+      {"q": "Why is folder organization stressed?", "a": "Students must learn to keep files neat, name files appropriately, and navigate local directories independently."},
+      {"q": "Will they learn keyboard shortcuts?", "a": "Yes, we teach critical shortcuts like Ctrl+C, Ctrl+V, Alt+Tab, and Win+D to build desktop navigation speed."},
+      {"q": "Is this suitable for absolute beginners?", "a": "Yes, this course assumes no prior computer knowledge and starts from the basics."}
+    ],
+    "TouchTyping": [
+      {"q": "How does touch typing differ from normal typing?", "a": "Touch typing relies on muscle memory and using all ten fingers on the home row, without looking down at the keyboard."},
+      {"q": "What typing speed can a child achieve in 6 weeks?", "a": "While it varies, the average student improves from under 15 WPM to 35-40+ WPM with practice."},
+      {"q": "Do we need a special keyboard?", "a": "No, any standard external keyboard or laptop keyboard works perfectly."},
+      {"q": "Is daily practice mandatory?", "a": "We recommend 10-15 minutes of daily practice using our tools to build muscle memory."}
+    ],
+    "CodingScratch": [
+      {"q": "What is Scratch?", "a": "Scratch is a block-based visual programming language developed by MIT that teaches coding logic without syntax errors."},
+      {"q": "What logic concepts will my child learn?", "a": "Key computer science concepts: variables, loops, conditional statements, coordinates (X, Y), and algorithms."},
+      {"q": "Can my child play their games after the course?", "a": "Yes! Scratch games are hosted online and can be shared with friends and family to play anytime."}
+    ],
+    "GenerativeAI": [
+      {"q": "What AI tools will students use?", "a": "Students learn prompting structures using safe educational frontends and tools like Canva's AI design features."},
+      {"q": "Will my child learn prompt engineering?", "a": "Yes, they learn templates utilizing Roles, Tasks, Context, and Output parameters to draft precise queries."}
+    ],
+    "SpreadsheetsExcel": [
+      {"q": "Is Excel too advanced for class 6 students?", "a": "No, we teach spreadsheet grids visually, showing how cells act as mathematical boxes to make math intuitive."},
+      {"q": "What math formulas are taught?", "a": "Basic arithmetic operations (addition, subtraction, multiplication) and functions like SUM and AVERAGE."}
+    ],
+    "CyberSafety": [
+      {"q": "Why is cyber hygiene crucial for kids?", "a": "With online gaming and school accounts, kids are target profiles for password cracking, phishing scams, and track cookie capture."},
+      {"q": "What will my child do in the safety course?", "a": "They will learn to build secure passwords, spot scam links, adjust browser privacy settings, and practice safe sharing."}
+    ]
+  }
+}

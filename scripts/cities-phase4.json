@@ -1,0 +1,62 @@
+[
+  {
+    "id": "agra",
+    "name": "Agra",
+    "h1": "Top Practical Computer & Coding Classes in Agra for Class 6–8",
+    "tagline": "Empowering Agra's youth with modern AI and essential computer skills",
+    "areas": "Sanjay Place, Dayalbagh, Tajganj, and Kamla Nagar",
+    "focus": "sparking digital curiosity and computational thinking for school students in Agra.",
+    "faqQuestion": "How does the SkillNest online course differ from adult computer institutes in Sanjay Place?",
+    "faqAnswer": "Adult computer institutes in Sanjay Place focus on billing and Tally. Our curriculum is custom-designed for Class 6-8 kids, focusing on generative AI basics, creative programming, and computer fundamentals.",
+    "faqQuestion2": "Are classes conducted in English or Hindi for Agra students?",
+    "faqAnswer2": "Our classes are bilingual (Hindi and English). Instructors explain complex technical terms in simple language, ensuring every student in Agra understands the concept completely."
+  },
+  {
+    "id": "meerut",
+    "name": "Meerut",
+    "h1": "Smart Computer & Coding Course for School Kids in Meerut",
+    "tagline": "Bridging the software learning gap with project-based classes in Meerut",
+    "areas": "Shastri Nagar, Saket, Ganga Nagar, and Modipuram",
+    "focus": "building typing accuracy, cyber safety, and coding foundations for Meerut's teenagers.",
+    "faqQuestion": "Will this computer course help school students in Meerut with their school ICT curriculum?",
+    "faqAnswer": "Yes, it fully aligns with CBSE/ICSE computer science guidelines, covering spreadsheet functions, slide designs, document formatting, and visual block coding.",
+    "faqQuestion2": "How do parents in Shastri Nagar track student progress?",
+    "faqAnswer2": "We send weekly updates and project demos on WhatsApp, and parents are invited to a live digital showcase at the end of 6 weeks to see their child's portfolio."
+  },
+  {
+    "id": "varanasi",
+    "name": "Varanasi",
+    "h1": "Best Practical Computer & AI Classes for Kids in Varanasi",
+    "tagline": "Unlocking future tech and digital career foundations for students in Varanasi",
+    "areas": "Sigra, Lanka, Mahmoorganj, and Cantonment",
+    "focus": "delivering high-quality practical computer education to kids across Varanasi.",
+    "faqQuestion": "Why should school kids in Varanasi learn generative AI tools so early?",
+    "faqAnswer": "Generative AI is changing the landscape. Learning proper prompting helps Varanasi students do homework research safely, structure essays, and build creative presentations.",
+    "faqQuestion2": "Is high-speed fiber broadband required in Sigra to join the classes?",
+    "faqAnswer2": "No, any stable home Wi-Fi or even a 4G/5G mobile hotspot is perfectly adequate to stream the live classes and complete browser exercises."
+  },
+  {
+    "id": "bareilly",
+    "name": "Bareilly",
+    "h1": "Future-Ready Digital Literacy & AI Course for Bareilly Kids",
+    "tagline": "Transitioning Bareilly's school students from passive screens to active tech creators",
+    "areas": "Civil Lines, Rajendra Nagar, DD Puram, and Mahanagar",
+    "focus": "instilling solid typing skills, spreadsheet basics, and coding logic in Bareilly's young minds.",
+    "faqQuestion": "My child in Rajendra Nagar has no prior coding experience. Is this program suitable?",
+    "faqAnswer": "Yes, our course starts from the absolute basics of block coding in Scratch, making it extremely easy and engaging for complete beginners.",
+    "faqQuestion2": "Can students attend on a tablet or mobile phone?",
+    "faqAnswer2": "To participate in interactive tasks and build projects, students need a laptop or desktop computer running Windows or macOS with a keyboard."
+  },
+  {
+    "id": "aligarh",
+    "name": "Aligarh",
+    "h1": "Top-Rated Digital Skills & Programming Course in Aligarh for Class 6–8",
+    "tagline": "Fostering cyber safety, software proficiency, and coding logic in Aligarh",
+    "areas": "Civil Lines, Ramghat Road, Swarna Jayanti Nagar, and Center Point",
+    "focus": "providing Aligarh's school students with strong digital hygiene and spreadsheet skills.",
+    "faqQuestion": "What cyber safety topics are taught to kids in Aligarh?",
+    "faqAnswer": "Our cyber safety module focuses on secure passwords, recognizing phishing scams, safe online social interactions, and avoiding cyber fraud.",
+    "faqQuestion2": "What is the duration and schedule for Aligarh batches?",
+    "faqAnswer2": "The program runs for 6 weeks, with multiple evening and weekend batch slots available to ensure zero clash with school timetables."
+  }
+]

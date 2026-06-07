@@ -40,7 +40,12 @@ const SITE_CONFIG = {
   CTA_SECONDARY: "Download Curriculum",
 
   // Current month variable
-  CURRENT_MONTH: "June"
+  CURRENT_MONTH: "June",
+
+  // Sticky CTA Config
+  STICKY_CTA_TITLE: "36-Day Digital Skills Program",
+  STICKY_CTA_SUB: "Special offer · Enroll before seats fill up",
+  STICKY_CTA_BADGE: "Limited Seats"
 };
 
 // Legacy compatibility
@@ -84,6 +89,9 @@ var CONFIG = {
     appId: "1:514313010895:web:7b0f4245c7cbad897f81ba"
   },
   appCheckSiteKey: "6LeNuAwtAAAAACOSin29ofv6VW8dN2hPX4CTy8z4",
+  stickyCtaTitle: SITE_CONFIG.STICKY_CTA_TITLE,
+  stickyCtaSub: SITE_CONFIG.STICKY_CTA_SUB,
+  stickyCtaBadge: SITE_CONFIG.STICKY_CTA_BADGE,
   ...existingConfig
 };
 

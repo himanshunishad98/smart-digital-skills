@@ -1,0 +1,67 @@
+{
+  "business": {
+    "name": "SkillNest",
+    "alternativeName": "Smart Digital Skills",
+    "founder": "Aanandita Uplopwar",
+    "type": "Educational Platform / EdTech",
+    "domain": "skillnest.co.in",
+    "url": "https://skillnest.co.in",
+    "email": "admin@skillnest.co.in",
+    "phone": "+91 88277 31006",
+    "headquarters": {
+      "city": "Durg",
+      "metro": "Bhilai Nagar",
+      "state": "Chhattisgarh",
+      "country": "India"
+    },
+    "description": "SkillNest is a practical, project-based online learning platform offering live computer, coding, and AI classes for school students in India (predominantly Class 6-8, Ages 10-14).",
+    "pedagogy": "100% Practical, project-based learning aligned with India's National Education Policy (NEP 2020).",
+    "pricingPolicy": {
+      "type": "Contact for pricing",
+      "text": "Detailed program fee structures are shared transparently with parents during the free trial/demo session."
+    },
+    "socialMedia": {
+      "facebook": "https://facebook.com/skillnest.co.in",
+      "instagram": "https://instagram.com/skillnest.co.in"
+    }
+  },
+  "curriculumModules": [
+    {
+      "name": "Computer Basics",
+      "description": "Foundational operating system navigation, file structures, shortcuts, and inputs."
+    },
+    {
+      "name": "Touch Typing",
+      "description": "Improving typing speed and finger posture to cross 40+ WPM."
+    },
+    {
+      "name": "Coding (Scratch)",
+      "description": "Block-based coding teaching variables, conditional loops, functions, and game design."
+    },
+    {
+      "name": "Generative AI",
+      "description": "Safe AI interaction, prompt engineering, data classification, and creative design tools."
+    },
+    {
+      "name": "Spreadsheets (Excel)",
+      "description": "Formulas, calculations, data tables, and automatic data visualization charts."
+    },
+    {
+      "name": "Presentations (PowerPoint)",
+      "description": "Designing slide masters, templates, transition pacing, and speech structure."
+    },
+    {
+      "name": "Cyber Safety",
+      "description": "Password complexity, phishing detection, browser privacy, and cyber hygiene."
+    },
+    {
+      "name": "Productivity Tools",
+      "description": "Google Workspace tools, margins, indexes, cloud files, and Canva graphic layouts."
+    }
+  ],
+  "institutionalOfferings": {
+    "schoolPrograms": "Syllabus alignment and lab setups for private/public schools.",
+    "teacherTraining": "Workshops to help school teachers instruct practical computer skills.",
+    "csrIntegrations": "Collaborations with corporates to deploy digital literacy labs in underserved areas."
+  }
+}

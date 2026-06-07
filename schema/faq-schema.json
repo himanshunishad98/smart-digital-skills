@@ -1,0 +1,62 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What programs does SkillNest offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SkillNest offers practical, project-based 6-week online cohorts covering Computer Basics, Touch Typing, block-coding (Scratch), Microsoft Excel, PowerPoint design, Internet Safety, and Generative AI prompt engineering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the fee structure for the courses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We operate on a 'contact for pricing' model. Fee structures and available installment options are discussed transparently with parents during our free 1-on-1 trial and demo booking session."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What age group are these courses designed for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The primary curriculum is optimized for middle school students in Class 6-8 (Ages 10-14). We also offer foundational paths for Ages 8-10 (Class 3-5) and advanced skill roadmaps for Ages 14-16 (Class 9-10)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What hardware/software is required for the classes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Students need a working laptop or desktop (Windows or macOS) with a webcam and an internet connection. Mobile phones or tablets are not suitable as the classes require hands-on keyboard and mouse interactions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who teaches the classes at SkillNest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Classes are taught by founder Aanandita Uplopwar and senior trained educators who specialize in keeping young minds engaged using gamified, practical, and interactive instruction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do students receive a certificate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, students receive a digital Certificate of Completion after finishing all project submissions at the end of their 6-week cohort."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the maximum batch size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To guarantee individual attention and debug code issues live, batch sizes are strictly capped at 5 to 10 students per online cohort."
+      }
+    }
+  ]
+}

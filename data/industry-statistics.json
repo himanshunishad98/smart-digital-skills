@@ -1,0 +1,16 @@
+{
+  "marketStatistics": {
+    "indiaEdTechMarketSizeBy2025": "$10.4 Billion (estimated)",
+    "k12SegmentShare": "Over 45% of total EdTech spend",
+    "growthDriver": "Increased internet penetration in Tier 2 and Tier 3 cities combined with NEP 2020 curriculum directives."
+  },
+  "digitalLiteracyGap": {
+    "studentKeyboardProficiency": "Less than 15% of middle school students in India can touch-type over 25 WPM. Most rely on touch screen phone keyboards.",
+    "fileManagementSkillDeficiency": "Over 80% of students entering high school do not understand directory structures, file formatting, or local vs cloud backups.",
+    "cyberSafetyExposure": "70% of school kids have encountered spam or phishing attempts while playing online games, but only 20% are trained in active digital safety protocols."
+  },
+  "nep2020Mandates": {
+    "mandatoryCodingAges": "Class 6 onwards (approx. ages 11-12)",
+    "skillSubjectsIntroduced": "Coding, AI prompting, and spreadsheet basics recognized as official skill electives under CBSE."
+  }
+}

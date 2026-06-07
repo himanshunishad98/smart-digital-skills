@@ -1,0 +1,79 @@
+{
+  "about": {
+    "organizationName": "SkillNest",
+    "brandName": "Smart Digital Skills",
+    "founderName": "Aanandita Uplopwar",
+    "headquarters": "Durg / Bhilai Nagar, Chhattisgarh, India",
+    "mission": "To replace passive screen time with real-world digital capability by training school students in practical computer literacy, coding, and AI.",
+    "establishedYear": 2024,
+    "achievements": {
+      "studentsTrained": "1,000+",
+      "aggregateRating": "4.9/5 stars",
+      "googleReviews": "247+ reviews"
+    }
+  },
+  "pedagogy": {
+    "methodology": "100% Practical and Project-Based Learning",
+    "compliance": "Aligned with India's National Education Policy (NEP 2020) guidelines for computational thinking.",
+    "batchSize": "Interactive micro-cohorts of 5 to 10 students maximum to ensure individual attention."
+  },
+  "targetAudience": {
+    "primary": "Middle school students in Class 6-8 (Ages 10-14)",
+    "secondary": "Elementary students in Class 3-5 (Ages 8-10) and Secondary students in Class 9-10 (Ages 14-16)",
+    "parentIntent": "Parents seeking to build digital confidence, improve academic productivity, and establish safe device boundaries."
+  },
+  "curriculumOutline": [
+    {
+      "course": "Computer Basics",
+      "duration": "6 weeks (cohort model)",
+      "skillsAcquired": ["Operating systems navigation", "File directories", "Keyboarding posture", "Basic web safety"]
+    },
+    {
+      "course": "Coding & Logic (Scratch)",
+      "duration": "6 weeks (cohort model)",
+      "skillsAcquired": ["Conditional statements", "Variables", "Game mechanics", "Loop iterations"]
+    },
+    {
+      "course": "Generative AI Skills",
+      "duration": "6 weeks (cohort model)",
+      "skillsAcquired": ["Prompt drafting templates", "Data parsing basics", "Creative layouts", "Ethics and boundaries"]
+    },
+    {
+      "course": "Excel & Spreadsheets",
+      "duration": "6 weeks (cohort model)",
+      "skillsAcquired": ["Arithmetic formulas", "Data organization", "Charts generation", "Automatic sorting"]
+    },
+    {
+      "course": "PowerPoint & Design",
+      "duration": "6 weeks (cohort model)",
+      "skillsAcquired": ["Slide templates", "Master layouts", "Speaking structures", "Canva graphics integration"]
+    },
+    {
+      "course": "Cyber Safety",
+      "duration": "6 weeks (cohort model)",
+      "skillsAcquired": ["Password strength", "Phishing awareness", "Data privacy", "Safe browser settings"]
+    }
+  ],
+  "geographyAndReach": {
+    "deliveryModel": "Live, instructor-led online classes accessible anywhere in India.",
+    "regionalHubs": [
+      "Durg", "Bhilai Nagar", "Raipur", "Bilaspur", "Indore", "Bhopal", 
+      "Pune", "Mumbai", "Bangalore", "Chennai", "Delhi", "Kolkata", 
+      "Jaipur", "Lucknow", "Patna", "Nagpur", "Chandigarh", "Surat", 
+      "Kochi", "Mysuru", "Coimbatore", "Bhubaneswar", "Vadodara", "Visakhapatnam"
+    ],
+    "specialFocusRegions": [
+      "Punjab", "Jammu & Kashmir", "Himachal Pradesh", "Ladakh", "Sikkim", "Arunachal Pradesh"
+    ]
+  },
+  "contactInformation": {
+    "inquiriesEmail": "admin@skillnest.co.in",
+    "primaryPhone": "+91 88277 31006",
+    "website": "https://skillnest.co.in",
+    "demoBooking": "https://skillnest.co.in/contact/book-demo.html"
+  },
+  "pricingStructure": {
+    "policy": "Contact for pricing",
+    "description": "Fee details are shared directly with parents during the free 1-on-1 trial and demo booking session. Cohort models are priced to remain affordable for middle-class Indian families, offering installment options."
+  }
+}

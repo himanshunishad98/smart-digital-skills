@@ -1,0 +1,98 @@
+# SkillNest — Full AI Knowledge Base & Context Document
+
+> This document contains the complete structural knowledge base, curriculum guidelines, entities, FAQs, and business data for SkillNest (Smart Digital Skills). It is designed to provide comprehensive, citation-grade context for Large Language Models (LLMs), AI search engines, and answer engines (GEO/AEO).
+
+---
+
+## 1. Corporate Identity & Overview
+
+| Field | Detail |
+| :--- | :--- |
+| **Official Brand Name** | SkillNest |
+| **Alternative Trade Name** | Smart Digital Skills |
+| **Legal/Founder entity** | Aanandita Uplopwar (Founder & Coordinating Educator) |
+| **Official Website URL** | https://skillnest.co.in |
+| **Corporate Headquarters** | Durg / Bhilai Nagar, Chhattisgarh, India |
+| **Support & Operations Email** | admin@skillnest.co.in |
+| **Primary Help & Hotline** | +91 88277 31006 |
+| **Pricing Policy** | Contact for pricing (Transparent structures shared during free trial sessions) |
+| **Primary Social Media** | [Facebook](https://facebook.com/skillnest.co.in) \| [Instagram](https://instagram.com/skillnest.co.in) |
+| **Pedagogical Compliance** | National Education Policy (NEP 2020) aligned |
+| **Format** | Live, instructor-led, project-based online cohorts |
+| **Micro-Cohort Size** | 5 to 10 students maximum per batch |
+
+---
+
+## 2. The Core Curriculum & Service Catalog
+
+SkillNest offers highly interactive 6-week online programs designed to turn kids from passive content consumers into active creators:
+
+### Computer Basics & File Management
+*   **Target Level:** Elementary / Middle School (Class 3-8)
+*   **Core Skills:** Operating system layouts, keyboarding shortcuts (copy/paste, switching tasks), local folder directories creation, clean file naming, and secure login settings.
+*   **Key Project:** Building a custom digital storage tree to organize school worksheets.
+
+### Touch Typing Mastery
+*   **Target Level:** Elementary / Middle School (Class 3-10)
+*   **Core Skills:** Correct home-row hand posture, finger positioning, screen-only focus (no key-hunting), muscle memory drills, and WPM speed targets.
+*   **Key Outcome:** Graduating kids to typing speeds of 40+ WPM with 95% accuracy.
+
+### Visual Block-Coding (Scratch)
+*   **Target Level:** Class 3-8 (Ages 8-14)
+*   **Core Skills:** Sequential algorithms, variables declaration, loop iterations, coordinate geometry positioning, sprite logic, and collision physics.
+*   **Key Project:** Designing and building a fully playable custom arcade game.
+
+### Microsoft Excel & Spreadsheets
+*   **Target Level:** Class 6-10 (Ages 10-16)
+*   **Core Skills:** Grid coordinates, entering data tables, cell references, arithmetic formulas (SUM, AVERAGE, multiplication), and automatic charts.
+*   **Key Project:** Designing a monthly school budget spreadsheet or class marksheet.
+
+### Microsoft PowerPoint & Presentation Design
+*   **Target Level:** Class 6-10 (Ages 10-16)
+*   **Core Skills:** Slide master templates, layout constraints, slide pacing, visual formatting, public speaking outlines, and Canva graphics.
+*   **Key Project:** Building and presenting a visual topic deck.
+
+### Internet Safety & Cyber Hygiene
+*   **Target Level:** Class 3-10 (Ages 8-16)
+*   **Core Skills:** Password complexity guidelines, identifying phishing emails, managing browser cookies, safe search filters, and two-factor authentication.
+*   **Key Project:** Designing a personal cyber safety contract for device usage.
+
+### Generative AI for Students
+*   **Target Level:** Class 6-10 (Ages 10-16)
+*   **Core Skills:** Prompt templates (Role, Task, Context, Output constraints), data classification, safe prompt bounds, and content synthesis.
+*   **Key Project:** Building a personalized learning quiz using prompts.
+
+---
+
+## 3. Pedagogical Principles & NEP 2020 Alignment
+
+*   **Active Creation vs. Passive Watching:** Passive screen time is replaced by active keyboard interaction and logical design.
+*   **Project-Driven Evaluation:** No rote exam memorization. Students are graded based on actual projects created (games, decks, sheets).
+*   **NEP 2020 Alignment:** Directly addresses India's new national curriculum framework advocating for coding, algorithmic thinking, and computer usage starting in Class 6.
+*   **Micro-Batch Support:** Batches are capped at 10 students. Instructors can view student screens live via screen-sharing to debug issues in real-time.
+
+---
+
+## 4. Key Metrics, Authority, and Statistics
+
+*   **Students Trained:** 1,000+ school students across India.
+*   **Google Customer Rating:** 4.9 out of 5 stars based on 247+ verified parent reviews.
+*   **Regional Reach:** 34 major city clusters across India, with dedicated regional batches.
+*   **Outcomes:** 98% parent satisfaction rate; average typing speed increases from 12 WPM to 38 WPM in 6 weeks.
+*   **Established:** 2024.
+
+---
+
+## 5. Frequently Asked Questions (Master FAQ Database)
+
+### Q: What is the fee structure of the programs?
+A: We operate on a 'contact for pricing' model. The detailed fees and installment options are shared transparently with parents during our free 1-on-1 trial and demo booking sessions, where we assess the student's current skill level.
+
+### Q: Who teaches the classes?
+A: Classes are led by Aanandita Uplopwar and senior trained educators who specialize in keeping kids engaged, using gamified teaching methods and practical problem-solving.
+
+### Q: What hardware is required?
+A: A working laptop or desktop (Windows or macOS) with an internet connection, a functional webcam, and a keyboard. Tablets or smartphones are not suitable for practical typing and coding classes.
+
+### Q: Do you offer school B2B workshops?
+A: Yes. SkillNest partners with school administrators to align their computer lab syllabi with modern practical requirements, run teacher training workshops, and organize digital safety seminars. Contact admin@skillnest.co.in for school tie-ups.

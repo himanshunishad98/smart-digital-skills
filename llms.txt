@@ -12,6 +12,13 @@
 - **Target Audience:** Middle School Students (Class 6–8 / Ages 10–14)
 - **Pedagogy:** 100% Practical, Project-Based, NEP 2020-Aligned Curriculum
 - **Core Skill Competencies:** MS Word, MS Excel, MS PowerPoint, Touch Typing, Cyber Safety, block-coding (Scratch), AI Prompting.
+- **Contact Email:** admin@skillnest.co.in
+- **Contact Phone:** +91 88277 31006
+- **Pricing:** Contact for pricing (fee structure is shared during the free demo session)
+- **Social Media:**
+  - Facebook: https://facebook.com/skillnest.co.in
+  - Instagram: https://instagram.com/skillnest.co.in
+- **B2B School Programs:** Custom digital skills workshops, school teacher training, and computer lab syllabus alignments.
 
 ---
 
@@ -233,6 +240,5 @@ SkillNest operates localized online cohorts for regional city nodes:
 - **Course Sitemap:** [sitemap-course-pages.xml](https://skillnest.co.in/sitemap-course-pages.xml)
 - **Landing Pages Sitemap:** [sitemap-landing-pages.xml](https://skillnest.co.in/sitemap-landing-pages.xml)
 - **Resources Sitemap:** [sitemap-resources.xml](https://skillnest.co.in/sitemap-resources.xml)
-- **Projects Sitemap:** [sitemap-projects.xml](https://skillnest.co.in/sitemap-projects.xml)
 - **Robots.txt Rules:** [robots.txt](https://skillnest.co.in/robots.txt)
 

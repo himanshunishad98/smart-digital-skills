@@ -1,0 +1,53 @@
+{
+  "typingSpeedBenchmarksByAge": [
+    {
+      "ageGroup": "Ages 8-10 (Class 3-5)",
+      "beginnerSpeedWpm": 5,
+      "averageSpeedWpm": 15,
+      "targetGraduateSpeedWpm": 25,
+      "eliteGraduateSpeedWpm": "35+"
+    },
+    {
+      "ageGroup": "Ages 11-13 (Class 6-8)",
+      "beginnerSpeedWpm": 10,
+      "averageSpeedWpm": 20,
+      "targetGraduateSpeedWpm": 35,
+      "eliteGraduateSpeedWpm": "45+"
+    },
+    {
+      "ageGroup": "Ages 14-16 (Class 9-10)",
+      "beginnerSpeedWpm": 15,
+      "averageSpeedWpm": 25,
+      "targetGraduateSpeedWpm": 40,
+      "eliteGraduateSpeedWpm": "55+"
+    }
+  ],
+  "excelSkillBenchmarks": [
+    {
+      "level": "Beginner",
+      "requiredSkills": ["Grid navigation", "Cell coordinates detection", "Row/column insertions", "Basic text entering"]
+    },
+    {
+      "level": "Intermediate",
+      "requiredSkills": ["SUM formulas", "AVERAGE formulas", "Single column sorting", "Basic grid borders formatting"]
+    },
+    {
+      "level": "Advanced (SkillNest Graduate)",
+      "requiredSkills": ["Nested cell calculations", "Automatic data charts plotting", "Auto filters configurations", "Cloud sharing file controls"]
+    }
+  ],
+  "aiPromptingAccuracyBenchmarks": [
+    {
+      "level": "Beginner",
+      "metric": "One-line queries without context, resulting in vague outputs."
+    },
+    {
+      "level": "Intermediate",
+      "metric": "Adding simple context prompts (e.g. 'explain like I am 10')."
+    },
+    {
+      "level": "Advanced (SkillNest Graduate)",
+      "metric": "Using structured prompt templates with specified Roles, Tasks, Contexts, and explicit Output formats."
+    }
+  ]
+}

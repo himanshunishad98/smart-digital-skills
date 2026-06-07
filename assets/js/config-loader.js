@@ -213,6 +213,41 @@
     `;
   }
 
+  // Inject sticky mobile cta dynamically
+  function injectStickyMobileCTA(basePath, config) {
+    if (document.querySelector('.sticky-mobile-cta')) return;
+
+    const title = config.STICKY_CTA_TITLE || "36-Day Digital Skills Program";
+    const sub = config.STICKY_CTA_SUB || "Special offer · Enroll before seats fill up";
+    const badge = config.STICKY_CTA_BADGE || "Limited Seats";
+    const originalPrice = config.ORIGINAL_PRICE || "₹5499";
+    const currentPrice = config.CURRENT_PRICE || "₹3499";
+    
+    const demoUrl = basePath + "contact/book-demo.html";
+    const enrollUrl = basePath + "programs/admission/index.html";
+
+    const cta = document.createElement('div');
+    cta.className = 'sticky-mobile-cta new-sticky-layout ref-sticky-cta-inner';
+    cta.innerHTML = `
+      <div class="smc-top-row">
+        <div class="smc-text">
+          <strong>${title}</strong>
+          <span class="smc-price">
+            <span class="smc-price-original original-price">${originalPrice}</span>
+            <span class="smc-price-offer current-price">${currentPrice}</span>
+            <span class="smc-offer-badge">${badge}</span>
+          </span>
+          <span class="smc-sub">${sub}</span>
+        </div>
+        <div class="smc-btns">
+          <a class="smc-demo" href="${demoUrl}">Free Demo</a>
+          <a class="smc-enroll" href="${enrollUrl}">Enroll Now</a>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(cta);
+  }
+
   // Load and inject the elements dynamically
   function initConfigAndComponents() {
     const config = window.SITE_CONFIG || window.CONFIG;
@@ -251,6 +286,9 @@
         }
       }
     }
+
+    // 4. Dynamic component injection for Sticky Mobile CTA
+    injectStickyMobileCTA(basePath, config);
   }
 
   // Run on DOMContentLoaded (and immediately if already loaded)

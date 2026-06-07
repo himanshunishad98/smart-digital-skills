@@ -1,0 +1,40 @@
+{
+  "comparisons": [
+    {
+      "topic": "Coding vs Digital Skills",
+      "focusA": "Coding (Scratch, Python)",
+      "focusB": "Practical Digital Skills (MS Office, AI, Typing)",
+      "suitability": "Coding builds logical structures, variables, loops, and math concepts. Digital Skills build immediate academic productivity, communication, formatting, typing, and digital hygiene. SkillNest recommends learning both in an integrated fashion."
+    },
+    {
+      "topic": "AI vs Coding",
+      "focusA": "Generative AI Prompting",
+      "focusB": "Logic-Based Programming",
+      "suitability": "AI prompting is highly accessible, using natural language to obtain creative or analytical outputs. Coding requires strict syntax and logical frameworks. AI helps build immediate design confidence, while coding builds computational logic. SkillNest teaches prompt engineering as a companion skill to Scratch block logic."
+    },
+    {
+      "topic": "Online vs Offline Learning",
+      "focusA": "Live Online Micro-Cohorts (SkillNest)",
+      "focusB": "Traditional Offline Centers",
+      "suitability": "Online cohorts eliminate travel time, feature expert national instructors, and use interactive screen sharing. Offline centers often suffer from outdated hardware, lack of individual screens, and theory-heavy instruction."
+    },
+    {
+      "topic": "SkillNest vs Traditional IT Classes",
+      "focusA": "SkillNest NEP 2020 Project-Based Pedagogy",
+      "focusB": "Rote-Learning Offline Centers",
+      "suitability": "SkillNest operates with interactive micro-batches (5-10 kids) and mandates practical projects (building a slide, creating a spreadsheet, designing a game). Traditional classes focus on memorizing textbook theory definitions for school exams."
+    },
+    {
+      "topic": "Group vs 1-to-1 Learning",
+      "focusA": "Interactive Cohorts (5-10 students)",
+      "focusB": "1-on-1 Tutoring",
+      "suitability": "Small cohorts encourage peer learning, collaboration, code reviews, and healthy competition. 1-on-1 tutoring can feel isolating and lacks the social dynamic of cooperative problem-solving."
+    },
+    {
+      "topic": "Excel vs AI Tools",
+      "focusA": "Structured Spreadsheets (formulas/grids)",
+      "focusB": "Generative Prompt Tools",
+      "suitability": "Excel teaches tabular structures, cell variables, mathematical logic, and charts. AI tools teach unstructured content processing and creative synthesis. SkillNest combines both to prepare students for modern data productivity."
+    }
+  ]
+}

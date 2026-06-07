@@ -483,7 +483,7 @@ article:hover {
 /* ============================================================
    19. WHATSAPP FLOAT
    ============================================================ */
-.whatsapp-btn { animation: waFloat 2.8s ease-in-out infinite; transition: transform .2s ease; }
+.whatsapp-btn { transition: transform .2s ease; }
 
 /* ============================================================
    20. LOGO ICON HOVER
@@ -603,8 +603,8 @@ article:hover {
    27. REVIEW CARD — for parent-testimonials page
    ============================================================ */
 .review-card {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.10);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
   border-radius: 20px;
   transition: transform .32s var(--fg-ease-bounce),
               box-shadow .32s ease,
@@ -612,12 +612,12 @@ article:hover {
 }
 .review-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(251,191,36,.22);
-  box-shadow: 0 20px 48px rgba(0,0,0,.35);
+  border-color: var(--blue-200);
+  box-shadow: var(--shadow-md);
 }
-.review-card .review-text { color: rgba(255,255,255,.80); line-height: 1.75; }
-.review-card .parent-name  { font-weight: 800; color: #ffffff; margin-top: 14px; }
-.review-card .student-detail { font-size: .82rem; color: rgba(255,255,255,.50); }
+.review-card .review-text { color: var(--gray-700); line-height: 1.75; }
+.review-card .parent-name  { font-weight: 800; color: var(--blue-900); margin-top: 14px; }
+.review-card .student-detail { font-size: .82rem; color: var(--gray-500); }
 
 /* ============================================================
    28. GALLERY CARD — student-projects page
@@ -716,17 +716,25 @@ article:hover {
 }
 .sticky-cta-strip.visible { transform: translateY(0); }
 .sticky-cta-strip p       { color: rgba(255,255,255,.80); font-weight: 700; font-size: .88rem; }
+.sticky-cta-strip .strip-btns { display: flex; align-items: center; gap: 8px; }
 .sticky-cta-strip .strip-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  box-sizing: border-box;
   background: var(--fg-gold);
   color: var(--fg-blue-900);
   font-weight: 800;
   font-size: .85rem;
-  padding: 9px 20px;
+  padding: 0 20px;
   border-radius: 100px;
   white-space: nowrap;
   transition: background .2s, transform .2s;
 }
 .sticky-cta-strip .strip-cta:hover { background: var(--fg-gold-light); transform: scale(1.04); }
+.sticky-cta-strip .whatsapp-strip-btn { background: #25d366; color: #ffffff; gap: 6px; }
+.sticky-cta-strip .whatsapp-strip-btn:hover { background: #1ebe5c; color: #ffffff; transform: scale(1.04); }
 .sticky-cta-strip .strip-close {
   background: transparent;
   color: rgba(255,255,255,.45);
@@ -789,5 +797,8 @@ article:hover {
   .midpage-cta-btns   { justify-content: center; }
   .footer-cta-row     { flex-direction: column; text-align: center; }
   .footer-cta-btns    { justify-content: center; }
-  .sticky-cta-strip p { font-size: .78rem; }
+  .sticky-cta-strip { flex-wrap: wrap; justify-content: center; padding: 10px 14px; gap: 8px; }
+  .sticky-cta-strip p { font-size: .78rem; width: 100%; text-align: center; margin: 0; }
+  .sticky-cta-strip .strip-btns { display: flex; justify-content: center; gap: 8px; width: 100%; flex-wrap: wrap; }
+  .sticky-cta-strip .strip-cta { padding: 0 16px; height: 34px; font-size: .8rem; }
 }

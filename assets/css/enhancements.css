@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    ENHANCEMENTS.CSS — Motion & 3D Layer
    OPTIMIZED: Removed global will-change overuse, removed
    non-composited animations (bar-aurora, scan-line),
@@ -209,42 +209,91 @@ article:hover{transform:translateY(-5px)!important}
 
 /* ============================================================
    DESKTOP NAVIGATION SQUEEZE (FITTING LARGE MENU)
+   Three-tier system to eliminate overlap at all desktop widths.
    ============================================================ */
-/* Squeeze navigation slightly for large laptop screens */
-@media (min-width: 1451px) and (max-width: 1700px) {
+
+/* Tier 1: 1450–1579px — tightest squeeze, compact everything */
+@media (min-width: 1450px) and (max-width: 1579px) {
+  .header-inner {
+    gap: 6px !important;
+  }
+  .logo-text {
+    display: none !important;
+  }
+  .desktop-nav {
+    flex: 1 !important;
+    min-width: 0 !important;
+    margin: 0 4px !important;
+  }
   .desktop-nav .nav-menu {
+    gap: 0 !important;
+    flex-wrap: nowrap !important;
+  }
+  .desktop-nav .nav-link {
+    font-size: 0.68rem !important;
+    padding: 4px 5px !important;
+    gap: 2px !important;
+    white-space: nowrap !important;
+  }
+  .desktop-nav .caret {
+    font-size: 0.55rem !important;
+  }
+  .nav-cta {
+    flex-shrink: 0 !important;
+    margin-left: 4px !important;
+  }
+  .nav-cta a.btn-primary {
+    font-size: 0.72rem !important;
+    padding: 6px 10px !important;
+    gap: 4px !important;
+  }
+}
+
+/* Tier 2: 1580–1669px — moderate squeeze */
+@media (min-width: 1580px) and (max-width: 1669px) {
+  .header-inner {
     gap: 8px !important;
+  }
+  .desktop-nav {
+    flex: 1 !important;
+    min-width: 0 !important;
+    margin: 0 6px !important;
+  }
+  .desktop-nav .nav-menu {
+    gap: 0 !important;
+    flex-wrap: nowrap !important;
+  }
+  .desktop-nav .nav-link {
+    font-size: 0.72rem !important;
+    padding: 5px 6px !important;
+    gap: 2px !important;
+    white-space: nowrap !important;
+  }
+  .nav-cta {
+    flex-shrink: 0 !important;
+    margin-left: 6px !important;
+  }
+  .nav-cta a.btn-primary {
+    font-size: 0.75rem !important;
+    padding: 7px 12px !important;
+  }
+}
+
+/* Tier 3: 1670–1800px — light squeeze, comfortable reading */
+@media (min-width: 1670px) and (max-width: 1800px) {
+  .header-inner {
+    gap: 10px !important;
+  }
+  .desktop-nav .nav-menu {
+    gap: 0 !important;
   }
   .desktop-nav .nav-link {
     font-size: 0.75rem !important;
     padding: 5px 7px !important;
-    gap: 3px !important;
-  }
-  .header-inner {
-    gap: 12px !important;
   }
   .nav-cta a.btn-primary {
     font-size: 0.78rem !important;
     padding: 8px 14px !important;
-  }
-}
-
-/* Squeeze navigation more aggressively for medium screens */
-@media (min-width: 1200px) and (max-width: 1350px) {
-  .desktop-nav .nav-menu {
-    gap: 5px !important;
-  }
-  .desktop-nav .nav-link {
-    font-size: 0.7rem !important;
-    padding: 4px 6px !important;
-    gap: 2px !important;
-  }
-  .header-inner {
-    gap: 8px !important;
-  }
-  .nav-cta a.btn-primary {
-    font-size: 0.72rem !important;
-    padding: 8px 12px !important;
   }
 }
 
@@ -377,14 +426,13 @@ article:hover{transform:translateY(-5px)!important}
   line-height: 1 !important;
 }
 
-/* Squeeze desktop nav layout and prevent wrapping */
+/* Base flex structure for all desktop widths (no gap/size overrides here) */
 @media (min-width: 1450px) {
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: clamp(8px, 1.2vw, 16px);
   }
   .logo {
     flex-shrink: 0 !important;
@@ -394,21 +442,38 @@ article:hover{transform:translateY(-5px)!important}
     flex: 1;
     justify-content: center;
     min-width: 0 !important;
-    margin: 0 clamp(8px, 1.5vw, 24px) !important;
   }
   .desktop-nav .nav-menu {
     display: flex;
     flex-wrap: nowrap !important;
-    gap: clamp(2px, 0.32vw, 10px) !important;
   }
   .desktop-nav .nav-link {
-    font-size: clamp(0.52rem, 0.65vw, 0.8rem) !important;
-    padding: 6px clamp(3px, 0.32vw, 8px) !important;
     white-space: nowrap;
   }
   .nav-cta {
     margin-left: 0 !important;
     flex-shrink: 0 !important;
+  }
+}
+
+/* Wide screens (1801px+) — full comfortable spacing, no squeeze needed */
+@media (min-width: 1801px) {
+  .header-inner {
+    gap: 20px !important;
+  }
+  .desktop-nav {
+    margin: 0 24px !important;
+  }
+  .desktop-nav .nav-menu {
+    gap: 0 !important;
+  }
+  .desktop-nav .nav-link {
+    font-size: 0.8rem !important;
+    padding: 6px 8px !important;
+  }
+  .nav-cta a.btn-primary {
+    font-size: 0.8rem !important;
+    padding: 8px 16px !important;
   }
 }
 

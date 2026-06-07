@@ -73,3 +73,6 @@ scratch/
 
 # Report files
 tracking-compliance-report.json
+
+# Scripts folder
+scripts/

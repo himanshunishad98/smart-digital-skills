@@ -1,0 +1,41 @@
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+.announcement-bar{background:linear-gradient(90deg,var(--blue-900),var(--blue-700));color:var(--white);text-align:center;padding:10px 20px;font-size:.85rem;font-weight:700;letter-spacing:.02em}
+.announcement-bar span{color:var(--yellow-300);margin:0 8px}
+
+/* ============================================================
+   STICKY HEADER
+   ============================================================ */
+.header{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-100);padding:12px 0;transition:box-shadow .3s}
+.header .container{max-width:100% !important;width:100% !important;padding:0 24px !important}
+.header.scrolled{box-shadow:var(--shadow-md)}
+.header-inner{display:flex;align-items:center;justify-content:flex-start;gap:16px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--blue-600),var(--blue-800));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.logo-text{font-family:'Sora',sans-serif;font-weight:800;font-size:.95rem;color:var(--blue-900);line-height:1.2}
+.logo-text small{display:block;font-family:'Nunito',sans-serif;font-weight:600;font-size:.72rem;color:var(--gray-500)}
+/* Logo home link hover */
+.logo{text-decoration:none;display:flex;align-items:center;gap:10px;border-radius:12px;padding:4px 8px 4px 4px;margin:-4px -8px -4px -4px;transition:background .2s ease}
+.logo:hover{background:rgba(37,99,235,.07)}
+.logo .logo-icon{transition:transform .22s cubic-bezier(.34,1.56,.64,1)}
+.logo:hover .logo-icon{transform:scale(1.1) rotate(-3deg)}
+.nav-cta{display:flex;align-items:center;gap:10px;margin-left:auto}
+.seats-badge{background:var(--red-500);color:var(--white);font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:100px;animation:pulse 2s infinite}
+@media (max-width: 1350px) {
+  .seats-badge { display: none !important; }
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+
+/* ============================================================
+   STICKY MOBILE CTA
+   ============================================================ */
+.sticky-mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:linear-gradient(90deg,var(--blue-900),var(--blue-800));border-top:2px solid var(--yellow-400);padding:12px 16px;align-items:center;justify-content:space-between;gap:10px}
+.smc-text{color:rgba(255,255,255,.8);font-size:.78rem;font-weight:700;line-height:1.3}
+.smc-text strong{color:var(--yellow-400);display:block;font-size:.9rem}
+.smc-btns{display:flex;gap:8px;flex-shrink:0}
+.smc-btns a{display:inline-flex;align-items:center;gap:5px;padding:9px 14px;border-radius:100px;font-size:.8rem;font-weight:800;white-space:nowrap}
+.smc-demo{background:rgba(255,255,255,.12);color:var(--white);border:1px solid rgba(255,255,255,.25)}
+.smc-enroll{background:var(--yellow-400);color:var(--blue-900)}
+@media(max-width:768px){.sticky-mobile-cta{display:flex}.whatsapp-float{bottom:80px}}

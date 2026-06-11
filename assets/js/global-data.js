@@ -60,6 +60,9 @@ function setHTML(id, value) {
     });
 
     document.querySelectorAll(".brand-name").forEach(el => {
+      if (el.closest('a.logo.ref-style-1iq1zl')) {
+        return;
+      }
       el.innerText = config.BRAND_NAME;
     });
 

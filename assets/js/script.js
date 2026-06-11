@@ -85,91 +85,132 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// Scroll-trigger CTA popup
-let scrollPopupShown = false;
+// Popups State Manager (Activity & Inactivity control)
+let isScrollPopupEligible = false;
+
 window.addEventListener('scroll', function() {
-  if (!scrollPopupShown) {
+  if (!isScrollPopupEligible) {
     let scrollPos = window.scrollY || document.documentElement.scrollTop;
     let docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    if (scrollPos / docHeight > 0.5) {
-      scrollPopupShown = true;
-      showScrollPopup();
+    // Eligible to show scroll popup after scrolling past 30% of page height
+    if (scrollPos / docHeight > 0.3) {
+      isScrollPopupEligible = true;
+      // If user is currently active (which they are) and exit popup is not shown, show scroll popup
+      const exitPopup = document.getElementById('exitPopup');
+      const isExitOpen = exitPopup && exitPopup.classList.contains('is-visible');
+      if (!isExitOpen && !sessionStorage.getItem('scrollPopupClosed')) {
+        showScrollPopup();
+      }
     }
   }
-});
+}, { passive: true });
 
 function showScrollPopup() {
-  var basePath = '';
-  var fb = document.getElementById('file-protocol-fallback');
-  if (fb && fb.getAttribute('data-depth')) {
-    var depth = parseInt(fb.getAttribute('data-depth'), 10) || 0;
-    for (var i = 0; i < depth; i++) basePath += '../';
-  } else {
-    var segments = window.location.pathname.split('/').filter(Boolean);
-    if (segments.length > 0 && segments[segments.length - 1].indexOf('.') !== -1) {
-      segments.pop();
+  let popup = document.querySelector('.scroll-cta-popup');
+  if (!popup) {
+    var basePath = '';
+    var fb = document.getElementById('file-protocol-fallback');
+    if (fb && fb.getAttribute('data-depth')) {
+      var depth = parseInt(fb.getAttribute('data-depth'), 10) || 0;
+      for (var i = 0; i < depth; i++) basePath += '../';
+    } else {
+      var segments = window.location.pathname.split('/').filter(Boolean);
+      if (segments.length > 0 && segments[segments.length - 1].indexOf('.') !== -1) {
+        segments.pop();
+      }
+      var depth = segments.length;
+      for (var i = 0; i < depth; i++) basePath += '../';
     }
-    var depth = segments.length;
-    for (var i = 0; i < depth; i++) basePath += '../';
+    
+    popup = document.createElement('div');
+    popup.className = 'scroll-cta-popup';
+    popup.innerHTML = `
+      <div class="scp-content">
+        <button class="scp-close">&times;</button>
+        <p>Still exploring?</p>
+        <a href="tel:${CONFIG.phoneDisplay.replace(/[^+\d]/g, '')}" class="btn-yellow">📞 Call: ${CONFIG.phoneDisplay}</a>
+      </div>
+    `;
+    document.body.appendChild(popup);
+    
+    popup.querySelector('.scp-close').addEventListener('click', () => {
+      sessionStorage.setItem('scrollPopupClosed', 'true');
+      popup.classList.remove('is-visible');
+    });
+    popup.querySelector('.btn-yellow').addEventListener('click', () => {
+      sessionStorage.setItem('scrollPopupClosed', 'true');
+      popup.classList.remove('is-visible');
+    });
   }
-  var demoHref = basePath + 'contact/book-demo.html';
-
-  const popup = document.createElement('div');
-  popup.className = 'scroll-cta-popup';
-  popup.innerHTML = `
-    <div class="scp-content">
-      <button class="scp-close">&times;</button>
-      <p>Still exploring?</p>
-      <a href="tel:${CONFIG.phoneDisplay.replace(/[^+\d]/g, '')}" class="btn-yellow">📞 Call: ${CONFIG.phoneDisplay}</a>
-    </div>
-  `;
-  document.body.appendChild(popup);
   
-  popup.querySelector('.scp-close').addEventListener('click', () => {
-    popup.style.display = 'none';
-  });
-  popup.querySelector('.btn-yellow').addEventListener('click', () => {
-    popup.style.display = 'none';
-  });
+  if (!sessionStorage.getItem('scrollPopupClosed')) {
+    // Hide exit popup if visible
+    const exitPopup = document.getElementById('exitPopup');
+    if (exitPopup) exitPopup.classList.remove('is-visible');
+    popup.classList.add('is-visible');
+  }
 }
+
 // ---- FUNNEL IMPROVEMENTS SCRIPT ----
 document.addEventListener('DOMContentLoaded', () => {
-  let exitPopupShown = sessionStorage.getItem('exitPopupShown');
   const popup = document.getElementById('exitPopup');
   const closes = document.querySelectorAll('.exit-close, .exit-close-btn');
   
   if (closes.length && popup) {
-    closes.forEach(btn => btn.addEventListener('click', () => popup.style.display = 'none'));
+    closes.forEach(btn => btn.addEventListener('click', () => {
+      sessionStorage.setItem('exitPopupClosed', 'true');
+      popup.classList.remove('is-visible');
+      resetInactivityTimer();
+    }));
   }
 
   function showExitPopup() {
-    if (!exitPopupShown && popup) {
-      popup.style.display = 'flex';
+    if (!sessionStorage.getItem('exitPopupClosed') && popup) {
+      // Hide scroll cta popup if it is open
+      const scrollPopup = document.querySelector('.scroll-cta-popup');
+      if (scrollPopup) {
+        scrollPopup.classList.remove('is-visible');
+      }
+      popup.classList.add('is-visible');
       sessionStorage.setItem('exitPopupShown', 'true');
-      exitPopupShown = true;
     }
   }
 
-  // 1. Desktop: Mouse leaves top
+  // Desktop: Mouse leaves top (Exit Intent)
   document.addEventListener('mouseleave', (e) => {
     if (e.clientY < 10) showExitPopup();
   });
 
-  // 2. Mobile: Scroll 60%
-  window.addEventListener('scroll', () => {
-    if (!exitPopupShown) {
-      let scrollPos = window.scrollY || document.documentElement.scrollTop;
-      let docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      if (scrollPos / docHeight > 0.6) {
-        showExitPopup();
-      }
+  // Unified Inactivity / Activity logic
+  let inactivityTimer;
+  const INACTIVITY_LIMIT = 5000; // 5 seconds of no user interaction
+
+  function resetInactivityTimer() {
+    // If the exit popup is currently visible, let the user fill in the details
+    if (popup && popup.classList.contains('is-visible')) {
+      return;
     }
+
+    clearTimeout(inactivityTimer);
+    
+    inactivityTimer = setTimeout(() => {
+      // When user becomes inactive, show exit popup and hide scroll popup
+      const scrollPopup = document.querySelector('.scroll-cta-popup');
+      if (scrollPopup) {
+        scrollPopup.classList.remove('is-visible');
+      }
+      showExitPopup();
+    }, INACTIVITY_LIMIT);
+  }
+
+  // Activity listeners covering mouse, keyboard, scrolling, and touch input on mobile
+  const activityEvents = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart', 'touchmove'];
+  activityEvents.forEach(eventName => {
+    window.addEventListener(eventName, resetInactivityTimer, { passive: true });
   });
 
-  // 3. Inactivity (10 seconds)
-  setTimeout(() => {
-    showExitPopup();
-  }, 10000);
+  // Start the timer on page load
+  resetInactivityTimer();
 
   // Lead Magnet Form Handler
   const lmForm = document.getElementById('leadMagnetForm');
@@ -199,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
       submitLead('lead-magnet', { lmName: name, lmPhone: phone }, {
         btnSelector: '#leadMagnetForm button[type="submit"]',
         btnLoadingText: '⏳ Loading...',
-        btnOriginalText: 'Get Starter Kit Now',
+        btnOriginalText: 'Chat to Advisor',
         onSuccess: () => {
           // 1. Simulate auto-download
           alert('Your PDF will download shortly!');
@@ -208,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const waText = encodeURIComponent(`Hi, I just downloaded the Starter Kit. My name is ${name}.`);
           window.location.href = `https://wa.me/${CONFIG.phone}?text=${waText}`;
           
-          popup.style.display = 'none';
+          popup.classList.remove('is-visible');
         },
         onError: (err) => {
           alert(err.message || 'Submission failed. Please try again.');

@@ -30,7 +30,7 @@
     "verify:tracking": "node scripts/verify-tracking-compliance.js",
     "verify:all": "npm run verify:seo && npm run verify:schema && npm run verify:accessibility && npm run verify:headings && npm run verify:tracking",
     "build:js": "node scripts/bundle-js.js",
-    "build:css": "node scripts/bundle-css.js",
+    "build:css": "node scripts/bundle-css.js && node scripts/cache-bust-css.js",
     "build": "npm run build:css && npm run build:js && npm run optimize:all && npm run validate && npm run verify && npm run verify:all"
   },
   "keywords": [],
@@ -38,7 +38,9 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "cheerio": "^1.2.0"
+    "cheerio": "^1.2.0",
+    "clean-css": "^5.3.3",
+    "html-validate": "^11.5.3"
   },
   "dependencies": {
     "firebase": "^12.14.0",

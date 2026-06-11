@@ -1,0 +1,6 @@
+/* city.css - City batch timelines and local map styles */
+
+.map-iframe, .level-card iframe {
+  width: 100%;
+  border: 0;
+}

@@ -22,17 +22,6 @@
     toggle.addEventListener('click', () => {
       const isOpen = drawer.classList.toggle('open');
       toggle.setAttribute('aria-expanded', isOpen);
-      // Animate bars → ✕
-      const bars = toggle.querySelectorAll('span');
-      if (isOpen) {
-        bars[0].style.transform = 'translateY(7px) rotate(45deg)';
-        bars[1].style.opacity   = '0';
-        bars[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-      } else {
-        bars[0].style.transform = '';
-        bars[1].style.opacity   = '';
-        bars[2].style.transform = '';
-      }
     });
 
     // Close drawer on outside click
@@ -40,10 +29,6 @@
       if (!navbar.contains(e.target) && !drawer.contains(e.target)) {
         drawer.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
-        toggle.querySelectorAll('span').forEach(b => {
-          b.style.transform = '';
-          b.style.opacity   = '';
-        });
       }
     });
   }

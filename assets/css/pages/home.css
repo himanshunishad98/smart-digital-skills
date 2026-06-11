@@ -1,0 +1,190 @@
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero{position:relative;background:linear-gradient(135deg,var(--blue-900) 0%,var(--blue-700) 60%,var(--blue-600) 100%);overflow:hidden;padding:80px 0 60px}
+.hero::before{content:'';position:absolute;inset:0}
+.hero-grid, .hero .container{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1}
+.hero-badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:.78rem;font-weight:800;letter-spacing:.05em}
+.badge-open{background:rgba(16,185,129,.2);color:#6ee7b7;border:1px solid rgba(16,185,129,.3)}
+.badge-limited{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
+.badge-class{background:rgba(251,191,36,.15);color:var(--yellow-300);border:1px solid rgba(251,191,36,.3)}
+.hero h1{font-size:clamp(1.8rem,4vw,3rem);color:var(--white);font-weight:800;line-height:1.15;margin-bottom:16px}
+.hero h1 .highlight{color:var(--yellow-400)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.82);line-height:1.75;margin-bottom:28px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}
+.hero-stats{display:flex;flex-wrap:wrap;gap:20px}
+.hero-stat{display:flex;align-items:center;gap:10px}
+.hero-stat-icon{width:38px;height:38px;background:rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.hero-stat-text strong{display:block;color:var(--white);font-size:.95rem;font-weight:700}
+.hero-stat-text span{color:rgba(255,255,255,.6);font-size:.78rem}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.hero-card-stack{position:relative;width:360px;max-width:100%}
+.hero-main-card{background:rgba(255,255,255,.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius-xl);padding:30px;color:var(--white)}
+.hero-main-card .card-title{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.course-list{display:flex;flex-direction:column;gap:10px}
+.course-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,255,255,.08);border-radius:var(--radius-sm);font-size:.88rem;font-weight:600}
+.course-item .ci-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.float-card{position:absolute;background:var(--white);border-radius:var(--radius-md);padding:12px 16px;box-shadow:var(--shadow-lg);font-size:.82rem;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--gray-700)}
+.float-card-1{top:-20px;right:-20px;animation:float1 3s ease-in-out infinite}
+.float-card-2{bottom:-14px;left:-16px;animation:float2 3.5s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ============================================================
+   HERO PRICING TEASER
+   ============================================================ */
+.hero-pricing{display:flex;flex-direction:column;gap:8px;margin:20px 0 28px;padding:14px 18px;background:rgba(255,255,255,.08);border:1px solid rgba(251,191,36,.25);border-radius:var(--radius-md);backdrop-filter:blur(8px)}
+.hp-price-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.hp-original{font-family:'Sora',sans-serif;font-size:.95rem;color:rgba(255,255,255,.38);text-decoration:line-through;font-weight:700}
+.hp-arrow{color:rgba(255,255,255,.35);font-size:.9rem}
+.hp-offer{font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:800;color:var(--yellow-400)}
+.hp-fire{font-size:.82rem;font-weight:800;color:#fca5a5;background:rgba(239,68,68,.18);border:1px solid rgba(239,68,68,.28);padding:3px 10px;border-radius:100px;white-space:nowrap}
+.hp-perks{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.hp-perk{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.72)}
+.hp-sep{color:rgba(255,255,255,.25);font-size:.8rem}
+@media(max-width:480px){
+  .hp-price-row{gap:6px 8px}
+  .hp-offer{font-size:1.05rem}
+  .hero-pricing{padding:12px 14px;gap:7px}
+}
+
+/* ============================================================
+   COUNTDOWN / URGENCY BAR
+   ============================================================ */
+.urgency-bar{background:var(--yellow-400);padding:14px 0}
+.urgency-inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:16px}
+.urgency-text{font-weight:800;font-size:.95rem;color:var(--blue-900)}
+.countdown-wrap{display:flex;gap:8px;align-items:center}
+.countdown-unit{background:var(--blue-900);color:var(--white);border-radius:8px;padding:6px 12px;text-align:center;min-width:52px}
+.countdown-unit .num{display:block;font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:800;line-height:1}
+.countdown-unit .lbl{display:block;font-size:.62rem;color:rgba(255,255,255,.7);letter-spacing:.06em;text-transform:uppercase}
+.countdown-sep{font-size:1.2rem;font-weight:900;color:var(--blue-900);line-height:1}
+
+/* ============================================================
+   TEACHING METHODOLOGY
+   ============================================================ */
+.method-section{padding:80px 0;background:linear-gradient(135deg,var(--blue-900),var(--blue-700))}
+.method-ratio{display:flex;border-radius:var(--radius-lg);overflow:hidden;margin-top:48px;box-shadow:var(--shadow-lg)}
+.ratio-block{padding:36px 28px;text-align:center;flex:1}
+.ratio-block h3{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);margin-bottom:6px}
+.ratio-block p{font-size:.88rem;color:rgba(255,255,255,.75)}
+.rb-explain{background:rgba(255,255,255,.1)}
+.rb-do{background:rgba(37,99,235,.4)}
+.rb-practice{background:rgba(251,191,36,.2)}
+.method-features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.mf-item{display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(255,255,255,.08);border-radius:var(--radius-md)}
+.mf-icon{font-size:1.4rem;flex-shrink:0}
+.mf-text{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.9)}
+
+/* ============================================================
+   PRICING SECTION
+   ============================================================ */
+.pricing-section{padding:80px 0;background:linear-gradient(150deg,var(--blue-900) 0%,#112270 50%,var(--blue-800) 100%);position:relative;overflow:hidden}
+.pricing-section::after{content:'';position:absolute;top:-120px;right:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(251,191,36,.07) 0%,transparent 70%);pointer-events:none}
+.pricing-wrap{max-width:640px;margin:48px auto 0}
+.pricing-card{background:rgba(255,255,255,.07);backdrop-filter:blur(24px);border:1px solid rgba(251,191,36,.22);border-radius:var(--radius-xl);padding:44px 40px;position:relative;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.35)}
+.pricing-top-bar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--yellow-500),var(--yellow-300),var(--yellow-500));border-radius:4px 4px 0 0}
+.pricing-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(251,191,36,.15);color:var(--yellow-300);font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:7px 16px;border-radius:100px;border:1px solid rgba(251,191,36,.28);margin-bottom:18px}
+.pricing-original{font-size:.9rem;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:6px}
+.pricing-original span{text-decoration:line-through;color:rgba(255,255,255,.38)}
+.pricing-main{margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.08)}
+.pricing-amount{font-family:'Sora',sans-serif;font-size:clamp(3rem,7vw,4rem);font-weight:800;color:var(--yellow-400);line-height:1}
+.pricing-label{font-size:.85rem;color:rgba(255,255,255,.55);margin-top:6px;font-weight:600}
+.pricing-urgency{display:flex;align-items:flex-start;gap:14px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.28);border-radius:var(--radius-md);padding:16px 20px;margin-bottom:14px}
+.pu-icon{font-size:1.5rem;flex-shrink:0;line-height:1.1;margin-top:1px}
+.pu-text{display:flex;flex-direction:column;gap:4px}
+.pu-text strong{font-size:.95rem;color:#fca5a5;font-weight:800;line-height:1.3}
+.pu-text span{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.4}
+.pricing-reserve{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.2);border-radius:var(--radius-md);padding:16px 20px;margin-bottom:26px;text-align:center}
+.pr-amount{font-size:1rem;font-weight:800;color:var(--yellow-300);margin-bottom:5px}
+.pr-amount span{font-family:'Sora',sans-serif;font-size:1.2rem;color:var(--yellow-400)}
+.pr-note{font-size:.78rem;color:rgba(255,255,255,.5)}
+.pricing-features{display:flex;flex-direction:column;gap:13px;margin-bottom:28px;padding:0}
+.pricing-features li{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.55}
+.pf-icon{flex-shrink:0;font-size:1rem;line-height:1.4}
+.pricing-cta{display:flex;width:100%;justify-content:center;font-size:1.05rem;padding:16px 28px;font-family:'Sora',sans-serif}
+.pricing-footer-note{text-align:center;font-size:.78rem;color:rgba(255,255,255,.38);margin-top:12px}
+@media(max-width:600px){.pricing-card{padding:30px 22px}}
+
+/* ============================================================
+   MOBILE OVERRIDES — home.css
+   Scoped strictly to mobile breakpoints. Desktop unchanged.
+   ============================================================ */
+
+@media(max-width:768px){
+  /* HERO — reduce large top/bottom padding */
+  .hero{padding:56px 0 40px!important}
+
+  /* Collapse hero to single-column so hero-content fills entire width */
+  .hero .container,
+  .hero-grid{
+    grid-template-columns:1fr!important;
+    gap:0!important;
+  }
+
+  /* hero-content takes full width */
+  .hero-content{
+    width:100%!important;
+    max-width:100%!important;
+    grid-column:1/-1!important;
+  }
+
+  /* Hide hero visual column on mobile */
+  .hero-visual{display:none!important}
+  .hero-main-card{display:none!important}
+
+  /* HERO CARD STACK — full width on narrow screens */
+  .hero-card-stack{width:100%!important;max-width:340px}
+
+  /* HERO SUB TEXT — make sure it's not cramped */
+  .hero-sub{font-size:1rem;margin-bottom:24px}
+
+  /* HERO STATS — 2 per row layout */
+  .hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .hero-stat{display:flex;align-items:center;gap:8px}
+
+  /* PRICING WRAP — full width on mobile */
+  .pricing-wrap{max-width:100%!important;margin-top:32px!important;padding:0 4px}
+
+  /* FORM WRAPPER — reduce large desktop padding */
+  .form-wrapper{padding:28px 20px!important;margin:28px auto 0!important}
+
+  /* METHOD SECTION — stack ratio vertically (already in futuristic but ensure here too) */
+  .method-section{padding:44px 0!important}
+
+  /* METHOD FEATURES — 1 col on mobile */
+  .method-features{grid-template-columns:1fr!important;gap:12px!important;margin-top:24px!important}
+
+  /* URGENCY BAR — compact and stacked */
+  .urgency-bar{padding:10px 0!important}
+  .urgency-inner{flex-direction:column;gap:8px!important;text-align:center}
+
+  /* COUNTDOWN WRAP — keep in one row but compact */
+  .countdown-wrap{gap:5px}
+  .countdown-unit{min-width:42px;padding:5px 8px}
+  .countdown-unit .num{font-size:1rem}
+}
+
+@media(max-width:480px){
+  /* HERO — minimum padding on smallest screens */
+  .hero{padding:44px 0 32px!important}
+
+  /* HERO CARD STACK — very narrow screens */
+  .hero-card-stack{max-width:280px}
+
+  /* HERO STATS — single column stack */
+  .hero-stats{grid-template-columns:1fr!important}
+
+  /* FLOAT CARDS — keep them within viewport bounds */
+  .float-card-1{right:0;top:-10px}
+  .float-card-2{left:0;bottom:-8px}
+
+  /* PRICING CARD — already handled in 600px breakpoint */
+  .pricing-wrap{padding:0}
+
+  /* FORM WRAPPER — tight fit on tiny screens */
+  .form-wrapper{padding:22px 16px!important}
+}
+

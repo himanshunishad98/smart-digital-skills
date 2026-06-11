@@ -10,7 +10,7 @@
   ════════════════════════════════════════ */
   var TOTAL_Q   = 100;
   var AUTO_SAVE = 'hexaco_answers';
-  var DATA_PATH = 'data/questions.json';
+  var DATA_PATH = '../data/questions.json';
 
   var DIM_ORDER = ['H','E','X','A','C','O','AL'];
   var DIM_NAMES = {
@@ -172,11 +172,11 @@
 
     // Linear progress fills
     document.querySelectorAll('.pt-pct-fill, #progress-fill').forEach(function(f) {
-      f.style.width = pct + '%';
+      f.setAttribute('data-progress', pct);
     });
     // Header bar fill
     var hbf = document.getElementById('nav-progress-fill');
-    if (hbf) hbf.style.width = pct + '%';
+    if (hbf) hbf.setAttribute('data-progress', pct);
 
     // Text counters
     ['answered-count','nav-answered','ring-answered'].forEach(function(id) {
@@ -191,8 +191,7 @@
     // Circular SVG ring (circumference = 2π×50 ≈ 314)
     var ring = document.getElementById('ring-fill');
     if (ring) {
-      var offset = 314 - (314 * answered / TOTAL_Q);
-      ring.style.strokeDashoffset = offset;
+      ring.setAttribute('data-answered', answered);
     }
 
     // Dimension chips: mark done when all questions of that dim answered
@@ -542,7 +541,10 @@
   ════════════════════════════════════════ */
   function init() {
     var loading = document.getElementById('loading-overlay');
-    if (loading) loading.style.display = 'flex';
+    if (loading) {
+      loading.classList.remove('d-none');
+      loading.classList.add('d-flex');
+    }
 
     loadSaved();
 
@@ -554,7 +556,10 @@
       questionsData = data;
       window._questionsData = data;
       renderQuestions(data);
-      if (loading) loading.style.display = 'none';
+      if (loading) {
+        loading.classList.add('d-none');
+        loading.classList.remove('d-flex');
+      }
       initTabs();
       updateProgress();
       checkSubmitReady();

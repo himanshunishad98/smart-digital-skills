@@ -76,3 +76,37 @@ tracking-compliance-report.json
 
 # Scripts folder
 scripts/
+# ======================================
+# IDE & Editor Files
+# ======================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ======================================
+# OS Files
+# ======================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ======================================
+# Test & Regression Artifacts
+# ======================================
+tests/
+schema-snapshots/
+
+# ======================================
+# Generated Audit Reports
+# ======================================
+*-report.json
+
+# ======================================
+# Duplicate Legacy Folders
+# ======================================
+Personality Test/
+Personality%20Test/

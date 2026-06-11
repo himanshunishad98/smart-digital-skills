@@ -1,0 +1,72 @@
+
+/* ============================================================
+   WHY PARENTS CHOOSE
+   ============================================================ */
+.why-section{padding:80px 0;background:var(--white)}
+.why-section-alt{padding:80px 0;background:var(--blue-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.why-card{background:var(--blue-50);border-radius:var(--radius-lg);padding:28px 24px;transition:all .25s ease;border:1px solid transparent}
+.why-section-alt .why-card{background:var(--white)}
+.why-card:hover{background:var(--white);border-color:var(--blue-100);box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.why-section-alt .why-card:hover{background:var(--blue-50);border-color:var(--blue-100);box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.why-icon, .why-card-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px}
+.why-card h4, .why-card-title{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:800;color:var(--blue-900);margin-bottom:8px;margin-top:0}
+.why-card p, .why-card-desc{font-size:.88rem;color:var(--gray-500);line-height:1.65;margin-bottom:0}
+.why-card .btn-outline{margin-top:15px;width:100%;text-align:center;justify-content:center}
+
+/* ============================================================
+   PROGRAM HIGHLIGHTS
+   ============================================================ */
+.highlights-section{padding:80px 0;background:var(--blue-900)}
+.highlights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.hl-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:28px 24px;text-align:center;transition:all .25s ease}
+.hl-card:hover{background:rgba(255,255,255,.12);transform:translateY(-4px)}
+.hl-icon{font-size:2.2rem;margin-bottom:12px}
+.hl-value{font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:800;color:var(--yellow-400);margin-bottom:4px}
+.hl-label{font-size:.88rem;color:rgba(255,255,255,.7);font-weight:600}
+
+/* ============================================================
+   PROJECTS SHOWCASE
+   ============================================================ */
+.projects-section{padding:80px 0;background:var(--white)}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:48px}
+.project-card{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);transition:all .25s ease}
+.project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.project-top{height:130px;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.project-bottom{padding:18px 20px;background:var(--white)}
+.project-bottom h4{font-size:.95rem;font-weight:800;color:var(--blue-900);margin-bottom:4px}
+.project-bottom p{font-size:.8rem;color:var(--gray-500)}
+
+/* ============================================================
+   DAILY EXPERIENCE
+   ============================================================ */
+.daily-section{padding:80px 0;background:var(--blue-50)}
+.daily-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.daily-card{background:var(--white);border-radius:var(--radius-md);padding:24px 20px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid var(--blue-100)}
+.daily-icon{font-size:2.2rem;margin-bottom:12px}
+.daily-card h4{font-size:.92rem;font-weight:800;color:var(--blue-900);margin-bottom:6px}
+.daily-card p{font-size:.8rem;color:var(--gray-500)}
+
+/* ============================================================
+   PARENT TRUST
+   ============================================================ */
+.trust-section{padding:80px 0;background:var(--white)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+.trust-card{background:var(--blue-50);border-radius:var(--radius-lg);padding:28px 22px;border-left:4px solid var(--blue-600)}
+.trust-icon{font-size:1.8rem;margin-bottom:12px}
+.trust-card h4{font-size:.92rem;font-weight:800;color:var(--blue-900);margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--gray-500);line-height:1.6}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonials-section{padding:80px 0;background:var(--gray-100)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.testi-card{background:var(--white);border-radius:var(--radius-lg);padding:28px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-100);transition:all .25s}
+.testi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.testi-stars{color:var(--yellow-400);font-size:1rem;margin-bottom:12px}
+.testi-text{font-size:.9rem;color:var(--gray-700);line-height:1.7;font-style:italic;margin-bottom:18px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue-400),var(--blue-600));display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--white);font-weight:800;flex-shrink:0}
+.testi-name{font-weight:800;font-size:.9rem;color:var(--blue-900)}
+.testi-role{font-size:.78rem;color:var(--gray-500)}

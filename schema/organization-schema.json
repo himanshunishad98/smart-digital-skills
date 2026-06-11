@@ -1,6 +1,10 @@
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": [
+    "EducationalOrganization",
+    "Organization",
+    "LocalBusiness"
+  ],
   "@id": "https://skillnest.co.in/#organization",
   "name": "SkillNest",
   "alternateName": "Smart Digital Skills",
@@ -9,8 +13,21 @@
     "@type": "ImageObject",
     "url": "https://skillnest.co.in/skillnest-poster.jpg"
   },
-  "email": "admin@skillnest.co.in",
+  "email": "support@skillnest.co.in",
   "telephone": "+91 88277 31006",
+  "areaServed": "India",
+  "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Durg",
+    "addressRegion": "Chhattisgarh",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "21.1904",
+    "longitude": "81.2849"
+  },
   "founder": {
     "@type": "Person",
     "@id": "https://skillnest.co.in/#founder",

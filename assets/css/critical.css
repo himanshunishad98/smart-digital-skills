@@ -16,6 +16,13 @@
   --radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;
   --shadow-sm:0 2px 8px rgba(0,0,0,.06);--shadow-md:0 6px 24px rgba(0,0,0,.10);
   --shadow-lg:0 16px 48px rgba(0,0,0,.14);--shadow-blue:0 8px 32px rgba(37,99,235,.25);
+  /* Mobile spacing design tokens — used in all @media (max-width: 768px) overrides */
+  --mobile-space-xs:8px;
+  --mobile-space-sm:12px;
+  --mobile-space-md:16px;
+  --mobile-space-lg:24px;
+  --mobile-space-xl:32px;
+  --mobile-space-xxl:40px;
 }
 
 /* 2. RESET */
@@ -55,7 +62,7 @@ button{cursor:pointer;border:none;font-family:inherit}
 
 /* 7. HERO */
 .hero{position:relative;background:linear-gradient(135deg,var(--blue-900) 0%,var(--blue-700) 60%,var(--blue-600) 100%);overflow:hidden;padding:80px 0 60px}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1}
+.hero-grid, .hero .container{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1}
 .hero-badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:.78rem;font-weight:800;letter-spacing:.05em}
 .badge-open{background:rgba(16,185,129,.2);color:#6ee7b7;border:1px solid rgba(16,185,129,.3)}
@@ -93,11 +100,12 @@ button{cursor:pointer;border:none;font-family:inherit}
 
 /* 10. MOBILE CRITICAL */
 @media(max-width:768px){
-  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-grid, .hero .container{grid-template-columns:1fr;text-align:center}
   .hero-badge-row{justify-content:center}
   .hero-ctas{justify-content:center}
   .hero-stats{justify-content:center}
-  .hero-visual{display:none}
+  .hero-visual{display:none!important}
+  .hero-main-card{display:none!important}
   .nav-cta{display:none!important}
   .hero{padding:50px 0 70px}
   .container{padding:0 16px}
@@ -176,20 +184,21 @@ button{cursor:pointer;border:none;font-family:inherit}
 }
 #ptBanner .pt-title {
   font-family: "Sora", sans-serif;
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
   font-weight: 800;
   color: #fff;
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -.02em;
 }
 #ptBanner .pt-hl {
   color: #fbbf24;
 }
 #ptBanner .pt-sub {
-  font-size: .9rem;
-  color: rgba(255,255,255,.7);
+  font-size: .95rem;
+  color: rgba(255,255,255,.72);
   margin: 0;
-  line-height: 1.7;
+  line-height: 1.75;
   max-width: 480px;
 }
 #ptBanner .pt-chips {
@@ -198,45 +207,48 @@ button{cursor:pointer;border:none;font-family:inherit}
   gap: 7px;
 }
 #ptBanner .pt-chip {
-  font-size: .72rem;
+  font-size: .75rem;
   font-weight: 700;
-  color: rgba(255,255,255,.8);
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.15);
-  padding: 4px 11px;
+  color: rgba(255,255,255,.85);
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 5px 13px;
   border-radius: 100px;
+  letter-spacing: .01em;
 }
 #ptBanner .pt-cta-row {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 #ptBanner .pt-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
   color: #0f2861;
   font-family: "Sora", sans-serif;
   font-weight: 800;
-  font-size: 1rem;
-  padding: 14px 28px;
+  font-size: .95rem;
+  padding: 14px 30px;
   border-radius: 100px;
   text-decoration: none;
   white-space: nowrap;
   box-shadow: 0 8px 28px rgba(251,191,36,.4);
   transition: transform .22s ease, box-shadow .22s ease;
+  letter-spacing: .01em;
 }
 #ptBanner .pt-cta:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 14px 40px rgba(251,191,36,.55);
 }
 #ptBanner .pt-note {
-  font-size: .78rem;
-  color: rgba(255,255,255,.45);
+  font-size: .8rem;
+  color: rgba(255,255,255,.5);
   font-weight: 600;
+  letter-spacing: .01em;
 }
 #ptBanner .pt-cards {
   display: flex;
@@ -264,13 +276,14 @@ button{cursor:pointer;border:none;font-family:inherit}
 }
 #ptBanner .pt-card-title {
   font-family: "Sora", sans-serif;
-  font-size: .9rem;
+  font-size: .95rem;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  line-height: 1.3;
 }
 #ptBanner .pt-card-desc {
-  font-size: .78rem;
+  font-size: .8rem;
   color: rgba(255,255,255,.6);
   line-height: 1.55;
 }

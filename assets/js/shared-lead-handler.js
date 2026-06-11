@@ -129,7 +129,7 @@ function validateLeadPayload(payload) {
   if (payload.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
     return { valid: false, error: "Please enter a valid email address." };
   }
-  return { valid: false, valid: true };
+  return { valid: true };
 }
 
 /**
@@ -285,49 +285,70 @@ async function submitLead(formType, rawData, options = {}) {
       throw new Error(validationResult.error);
     }
 
-    // 5. Submit to Firestore with retry handling
-    const db = firebase.firestore();
+    // 5. Submit to Firestore & Pipedream in a resilient manner
     let docRef = null;
-    let attempts = 0;
-    const maxAttempts = 3;
-    let delay = 1000; // start with 1 second delay
+    let firestoreSuccess = false;
+    let firestoreError = null;
 
-    while (attempts < maxAttempts) {
-      try {
-        docRef = await db.collection("leads").add(leadPayload);
-        break; // break loop on success
-      } catch (err) {
-        attempts++;
-        if (attempts >= maxAttempts) {
-          throw err; // throw error if max retries reached
+    try {
+      const db = firebase.firestore();
+      let attempts = 0;
+      const maxAttempts = 3;
+      let delay = 1000; // start with 1 second delay
+
+      while (attempts < maxAttempts) {
+        try {
+          docRef = await db.collection("leads").add(leadPayload);
+          firestoreSuccess = true;
+          break; // break loop on success
+        } catch (err) {
+          attempts++;
+          if (attempts >= maxAttempts) {
+            firestoreError = err;
+            break;
+          }
+          console.warn(`Firestore write failed, retrying in ${delay}ms... (Attempt ${attempts} of ${maxAttempts})`);
+          await new Promise(r => setTimeout(r, delay));
+          delay *= 2; // exponential backoff
         }
-        console.warn(`Firestore write failed, retrying in ${delay}ms... (Attempt ${attempts} of ${maxAttempts})`);
-        await new Promise(r => setTimeout(r, delay));
-        delay *= 2; // exponential backoff
       }
+    } catch (err) {
+      console.error("Firestore initialization or operation failed:", err);
+      firestoreError = err;
     }
+
+    // Generate a unique fallback ID if Firestore write failed or was blocked
+    const leadId = docRef ? docRef.id : "lead_" + Date.now() + "_" + Math.random().toString(36).substring(2, 11);
+
+    let pipedreamSuccess = false;
+    let pipedreamError = null;
+
     // Send Telegram notification via Pipedream
     try {
-      await fetch("https://eothguiuw8eqpfu.m.pipedream.net", {
+      const response1 = await fetch("https://eothguiuw8eqpfu.m.pipedream.net", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(leadPayload)
+        body: JSON.stringify({ ...leadPayload, clientLeadId: leadId })
       });
+      if (response1.ok) {
+        pipedreamSuccess = true;
+      }
     } catch (telegramError) {
       console.error("Telegram notification failed:", telegramError);
+      pipedreamError = telegramError;
     }
-    console.log(`Lead registered successfully with ID: ${docRef.id}`);
+
     // Send lead to Pipedream webhook
     try {
-      await fetch("https://eothguiuw8eqpfu.m.pipedream.net", {
+      const response2 = await fetch("https://eothguiuw8eqpfu.m.pipedream.net", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          leadId: docRef.id,
+          leadId: leadId,
           type: formType,
           studentName: leadPayload.studentName,
           parentName: leadPayload.parentName,
@@ -336,23 +357,38 @@ async function submitLead(formType, rawData, options = {}) {
           sourcePage: leadPayload.sourcePage
         })
       });
-    
+      if (response2.ok) {
+        pipedreamSuccess = true;
+      }
       console.log("Pipedream webhook sent successfully");
     } catch (webhookError) {
       console.error("Pipedream webhook failed:", webhookError);
+      if (!pipedreamError) {
+        pipedreamError = webhookError;
+      }
     }
-    // Push events to dataLayer for analytics tracking
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'lead_submission_success',
-      lead_id: docRef.id,
-      lead_type: formType,
-      source_page: leadPayload.sourcePage
-    });
 
-    // 6. Invoke success callback
-    if (typeof options.onSuccess === 'function') {
-      options.onSuccess(docRef.id);
+    // Treat submission as successful if Firestore succeeded OR Pipedream webhook succeeded
+    if (firestoreSuccess || pipedreamSuccess) {
+      console.log(`Lead registered successfully (Firestore: ${firestoreSuccess}, Pipedream: ${pipedreamSuccess})`);
+      
+      // Push events to dataLayer for analytics tracking
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'lead_submission_success',
+        lead_id: leadId,
+        lead_type: formType,
+        source_page: leadPayload.sourcePage
+      });
+
+      // Invoke success callback
+      if (typeof options.onSuccess === 'function') {
+        options.onSuccess(leadId);
+      }
+    } else {
+      // Both failed
+      const combinedError = firestoreError || pipedreamError || new Error("Lead submission failed on all channels.");
+      throw combinedError;
     }
 
   } catch (error) {

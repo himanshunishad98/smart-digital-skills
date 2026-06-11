@@ -1,0 +1,13 @@
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-section{padding:80px 0;background:var(--white)}
+.faq-list{max-width:760px;margin:48px auto 0;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--blue-50);border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--blue-100)}
+.faq-q{padding:18px 22px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:12px;transition:background .2s}
+.faq-q:hover{background:var(--blue-100)}
+.faq-q span{font-weight:700;font-size:.95rem;color:var(--blue-900)}
+.faq-arrow{font-size:1.2rem;transition:transform .3s;color:var(--blue-600);flex-shrink:0}
+.faq-a{display:none;padding:0 22px 18px;font-size:.9rem;color:var(--gray-700);line-height:1.7}
+.faq-a.open{display:block}

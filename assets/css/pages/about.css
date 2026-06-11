@@ -261,3 +261,25 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+/* ============================================================
+   MOBILE OVERRIDES — about.css
+   Scoped strictly to mobile breakpoints. Desktop unchanged.
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .culture-grid  { gap: 16px; }
+  .culture-card  { padding: 18px; }
+  .mission-milestones-card  { padding: 20px 18px; }
+  .mission-explore-section  { padding: 40px 0 !important; }
+  .mission-explore-title    { font-size: 1.3rem; }
+  .mission-explore-links    { gap: 12px; }
+  .mission-nep-section      { padding: 40px 0 !important; }
+}
+
+@media (max-width: 480px) {
+  .careers-form-card       { padding: 20px 14px; }
+  .mission-milestones-card { padding: 18px 14px; }
+  .mission-milestone-item  { gap: 12px; }
+  .mission-milestone-icon  { width: 24px; height: 24px; font-size: .8rem; }
+}

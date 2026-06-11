@@ -1,0 +1,24 @@
+h1, h2, h3, h4, h5 {
+  font-family: 'Sora', sans-serif;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 4vw, 2.4rem);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+  font-weight: 800;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, li, td, th {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}

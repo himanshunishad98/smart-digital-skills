@@ -132,3 +132,31 @@
     gap: 14px;
   }
 }
+
+/* ============================================================
+   MOBILE OVERRIDES — contact.css
+   Scoped strictly to mobile breakpoints. Desktop unchanged.
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* SUPPORT NAV GRID — auto-fit with 280px min can be too wide; force 1 col below 768 */
+  .support-nav-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin: 24px auto !important;
+  }
+  .support-nav-card { padding: 22px 18px; }
+
+  /* CONTACT INFO CARD — reduce icon size on mobile */
+  .contact-card-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+  /* CONTACT GRID — reduce gap */
+  .contact-grid { gap: 20px !important; }
+
+  /* SUPPORT NAV CARD — tight padding on tiny screens */
+  .support-nav-card { padding: 18px 14px; }
+  .contact-form-card { padding: 20px 14px; }
+}
+

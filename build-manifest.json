@@ -1,6 +1,6 @@
 {
-  "buildTimestamp": "2026-06-11T18:23:21.767Z",
-  "gitCommit": "b78ed20f4ab77f7562cb9850440e9265cfb417c0",
+  "buildTimestamp": "2026-06-13T06:44:55.644Z",
+  "gitCommit": "67926b68b7e35baae06be3d238dfe0ff5138f26d",
   "pagesGenerated": 307,
   "reportsGenerated": [
     "html-validation-report.json",
@@ -29,5 +29,5 @@
     "github-pages-report.json",
     "release-readiness-report.json"
   ],
-  "validationPassed": true
+  "validationPassed": false
 }

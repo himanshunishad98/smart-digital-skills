@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-11T18:23:21.518Z",
+  "timestamp": "2026-06-13T06:44:55.372Z",
   "summary": {
     "html": 307,
     "css": 30,
@@ -7,44 +7,44 @@
     "images": 19,
     "fonts": 2,
     "totalFiles": 379,
-    "totalSizeBytes": 31070516
+    "totalSizeBytes": 29308147
   },
   "assets": {
     "html": [
       {
         "path": "about/careers.html",
-        "sizeBytes": 70038,
-        "lastModified": "2026-06-11T18:22:40.921Z"
+        "sizeBytes": 70291,
+        "lastModified": "2026-06-13T06:44:17.985Z"
       },
       {
         "path": "about/founder.html",
-        "sizeBytes": 67109,
-        "lastModified": "2026-06-11T18:22:40.923Z"
+        "sizeBytes": 67362,
+        "lastModified": "2026-06-13T06:44:17.986Z"
       },
       {
         "path": "about/index.html",
-        "sizeBytes": 67415,
-        "lastModified": "2026-06-11T18:22:40.923Z"
+        "sizeBytes": 67668,
+        "lastModified": "2026-06-13T06:44:17.987Z"
       },
       {
         "path": "about/mentors.html",
-        "sizeBytes": 65008,
-        "lastModified": "2026-06-11T18:22:40.924Z"
+        "sizeBytes": 65261,
+        "lastModified": "2026-06-13T06:44:17.987Z"
       },
       {
         "path": "about/our-mission.html",
-        "sizeBytes": 62755,
-        "lastModified": "2026-06-11T18:22:40.925Z"
+        "sizeBytes": 63008,
+        "lastModified": "2026-06-13T06:44:17.988Z"
       },
       {
         "path": "about/success-stories.html",
-        "sizeBytes": 65655,
-        "lastModified": "2026-06-11T18:22:40.926Z"
+        "sizeBytes": 65908,
+        "lastModified": "2026-06-13T06:44:17.990Z"
       },
       {
         "path": "about/testimonials.html",
-        "sizeBytes": 66823,
-        "lastModified": "2026-06-11T18:22:40.927Z"
+        "sizeBytes": 67072,
+        "lastModified": "2026-06-13T06:44:17.990Z"
       },
       {
         "path": "admission.html",
@@ -53,813 +53,813 @@
       },
       {
         "path": "age-groups/ages-11-13/index.html",
-        "sizeBytes": 78108,
-        "lastModified": "2026-06-11T18:22:40.928Z"
+        "sizeBytes": 78309,
+        "lastModified": "2026-06-13T06:44:17.991Z"
       },
       {
         "path": "age-groups/ages-14-16/index.html",
-        "sizeBytes": 78520,
-        "lastModified": "2026-06-11T18:22:40.929Z"
+        "sizeBytes": 78733,
+        "lastModified": "2026-06-13T06:44:17.992Z"
       },
       {
         "path": "age-groups/ages-8-10/index.html",
-        "sizeBytes": 79218,
-        "lastModified": "2026-06-11T18:22:40.930Z"
+        "sizeBytes": 79437,
+        "lastModified": "2026-06-13T06:44:17.993Z"
       },
       {
         "path": "age-groups/index.html",
-        "sizeBytes": 78422,
-        "lastModified": "2026-06-11T18:22:40.931Z"
+        "sizeBytes": 78675,
+        "lastModified": "2026-06-13T06:44:17.994Z"
       },
       {
         "path": "ai-classes-chennai.html",
         "sizeBytes": 1860,
-        "lastModified": "2026-06-08T18:12:51.156Z"
+        "lastModified": "2026-06-13T06:27:03.814Z"
       },
       {
         "path": "ai-classes-for-students.html",
-        "sizeBytes": 10245,
-        "lastModified": "2026-06-11T18:22:40.932Z"
+        "sizeBytes": 10184,
+        "lastModified": "2026-06-13T06:44:17.995Z"
       },
       {
         "path": "ai-classes-in-bhilai-nagar.html",
         "sizeBytes": 1885,
-        "lastModified": "2026-06-08T18:12:51.157Z"
+        "lastModified": "2026-06-13T06:27:03.814Z"
       },
       {
         "path": "ai-classes-in-bhilai.html",
         "sizeBytes": 1855,
-        "lastModified": "2026-06-08T18:12:51.158Z"
+        "lastModified": "2026-06-13T06:27:03.815Z"
       },
       {
         "path": "ai-classes-in-durg.html",
         "sizeBytes": 1845,
-        "lastModified": "2026-06-08T18:12:51.158Z"
+        "lastModified": "2026-06-13T06:27:03.816Z"
       },
       {
         "path": "ai-classes-in-raipur.html",
         "sizeBytes": 1855,
-        "lastModified": "2026-06-08T18:12:51.158Z"
+        "lastModified": "2026-06-13T06:27:03.816Z"
       },
       {
         "path": "ai-coding-classes-near-me.html",
         "sizeBytes": 1933,
-        "lastModified": "2026-06-08T18:12:11.396Z"
+        "lastModified": "2026-06-13T06:25:42.197Z"
       },
       {
         "path": "b2b-schools.html",
-        "sizeBytes": 10149,
-        "lastModified": "2026-06-11T18:22:40.932Z"
+        "sizeBytes": 10088,
+        "lastModified": "2026-06-13T06:44:17.996Z"
       },
       {
         "path": "blog-ai-for-kids.html",
-        "sizeBytes": 10185,
-        "lastModified": "2026-06-11T18:22:40.956Z"
+        "sizeBytes": 10124,
+        "lastModified": "2026-06-13T06:44:18.015Z"
       },
       {
         "path": "blog-ai-learning-punjab.html",
-        "sizeBytes": 10213,
-        "lastModified": "2026-06-11T18:22:40.956Z"
+        "sizeBytes": 10152,
+        "lastModified": "2026-06-13T06:44:18.016Z"
       },
       {
         "path": "blog-coding-ladakh.html",
-        "sizeBytes": 10193,
-        "lastModified": "2026-06-11T18:22:40.957Z"
+        "sizeBytes": 10132,
+        "lastModified": "2026-06-13T06:44:18.016Z"
       },
       {
         "path": "blog-computational-thinking-arunachal.html",
-        "sizeBytes": 10269,
-        "lastModified": "2026-06-11T18:22:40.957Z"
+        "sizeBytes": 10208,
+        "lastModified": "2026-06-13T06:44:18.016Z"
       },
       {
         "path": "blog-digital-education-jk.html",
-        "sizeBytes": 10221,
-        "lastModified": "2026-06-11T18:22:40.958Z"
+        "sizeBytes": 10160,
+        "lastModified": "2026-06-13T06:44:18.017Z"
       },
       {
         "path": "blog-education-himachal.html",
         "sizeBytes": 1883,
-        "lastModified": "2026-06-08T18:12:11.553Z"
+        "lastModified": "2026-06-13T06:25:42.364Z"
       },
       {
         "path": "blog-excel-for-students.html",
         "sizeBytes": 1883,
-        "lastModified": "2026-06-08T18:12:11.554Z"
+        "lastModified": "2026-06-13T06:25:42.365Z"
       },
       {
         "path": "blog-screen-time.html",
         "sizeBytes": 1848,
-        "lastModified": "2026-06-08T18:12:11.555Z"
+        "lastModified": "2026-06-13T06:25:42.366Z"
       },
       {
         "path": "blog-skills-schools-miss.html",
         "sizeBytes": 1888,
-        "lastModified": "2026-06-08T18:12:11.555Z"
+        "lastModified": "2026-06-13T06:25:42.367Z"
       },
       {
         "path": "blog-stem-sikkim.html",
-        "sizeBytes": 10185,
-        "lastModified": "2026-06-11T18:22:40.959Z"
+        "sizeBytes": 10124,
+        "lastModified": "2026-06-13T06:44:18.018Z"
       },
       {
         "path": "blog.html",
-        "sizeBytes": 10137,
-        "lastModified": "2026-06-11T18:22:40.959Z"
+        "sizeBytes": 10076,
+        "lastModified": "2026-06-13T06:44:18.018Z"
       },
       {
         "path": "blog/ai-for-kids/index.html",
-        "sizeBytes": 84551,
-        "lastModified": "2026-06-11T18:22:40.933Z"
+        "sizeBytes": 84805,
+        "lastModified": "2026-06-13T06:44:17.998Z"
       },
       {
         "path": "blog/ai-learning-punjab/index.html",
-        "sizeBytes": 84637,
-        "lastModified": "2026-06-11T18:22:40.935Z"
+        "sizeBytes": 84891,
+        "lastModified": "2026-06-13T06:44:17.999Z"
       },
       {
         "path": "blog/ai-vs-coding/index.html",
-        "sizeBytes": 78454,
-        "lastModified": "2026-06-11T18:22:40.936Z"
+        "sizeBytes": 78708,
+        "lastModified": "2026-06-13T06:44:17.999Z"
       },
       {
         "path": "blog/coding-for-kids/index.html",
-        "sizeBytes": 79578,
-        "lastModified": "2026-06-11T18:22:40.937Z"
+        "sizeBytes": 79832,
+        "lastModified": "2026-06-13T06:44:18.000Z"
       },
       {
         "path": "blog/coding-ladakh/index.html",
-        "sizeBytes": 84604,
-        "lastModified": "2026-06-11T18:22:40.938Z"
+        "sizeBytes": 84858,
+        "lastModified": "2026-06-13T06:44:18.001Z"
       },
       {
         "path": "blog/coding-vs-digital-skills/index.html",
-        "sizeBytes": 78858,
-        "lastModified": "2026-06-11T18:22:40.939Z"
+        "sizeBytes": 79112,
+        "lastModified": "2026-06-13T06:44:18.002Z"
       },
       {
         "path": "blog/computational-thinking-arunachal/index.html",
-        "sizeBytes": 84786,
-        "lastModified": "2026-06-11T18:22:40.940Z"
+        "sizeBytes": 85040,
+        "lastModified": "2026-06-13T06:44:18.004Z"
       },
       {
         "path": "blog/digital-education-jk/index.html",
-        "sizeBytes": 84619,
-        "lastModified": "2026-06-11T18:22:40.942Z"
+        "sizeBytes": 84873,
+        "lastModified": "2026-06-13T06:44:18.005Z"
       },
       {
         "path": "blog/digital-skills/index.html",
-        "sizeBytes": 97501,
-        "lastModified": "2026-06-11T18:22:40.943Z"
+        "sizeBytes": 97755,
+        "lastModified": "2026-06-13T06:44:18.005Z"
       },
       {
         "path": "blog/education-himachal/index.html",
-        "sizeBytes": 84657,
-        "lastModified": "2026-06-11T18:22:40.945Z"
+        "sizeBytes": 84911,
+        "lastModified": "2026-06-13T06:44:18.006Z"
       },
       {
         "path": "blog/excel-for-students/index.html",
-        "sizeBytes": 84683,
-        "lastModified": "2026-06-11T18:22:40.946Z"
+        "sizeBytes": 84937,
+        "lastModified": "2026-06-13T06:44:18.007Z"
       },
       {
         "path": "blog/index.html",
-        "sizeBytes": 74604,
-        "lastModified": "2026-06-11T18:22:40.947Z"
+        "sizeBytes": 74858,
+        "lastModified": "2026-06-13T06:44:18.008Z"
       },
       {
         "path": "blog/internet-safety/index.html",
-        "sizeBytes": 78954,
-        "lastModified": "2026-06-11T18:22:40.947Z"
+        "sizeBytes": 79208,
+        "lastModified": "2026-06-13T06:44:18.009Z"
       },
       {
         "path": "blog/productivity-skills/index.html",
-        "sizeBytes": 79982,
-        "lastModified": "2026-06-11T18:22:40.949Z"
+        "sizeBytes": 80236,
+        "lastModified": "2026-06-13T06:44:18.010Z"
       },
       {
         "path": "blog/school-education/index.html",
-        "sizeBytes": 96197,
-        "lastModified": "2026-06-11T18:22:40.950Z"
+        "sizeBytes": 96451,
+        "lastModified": "2026-06-13T06:44:18.011Z"
       },
       {
         "path": "blog/screen-time/index.html",
-        "sizeBytes": 84923,
-        "lastModified": "2026-06-11T18:22:40.951Z"
+        "sizeBytes": 85177,
+        "lastModified": "2026-06-13T06:44:18.012Z"
       },
       {
         "path": "blog/skills-schools-miss/index.html",
-        "sizeBytes": 84715,
-        "lastModified": "2026-06-11T18:22:40.952Z"
+        "sizeBytes": 84969,
+        "lastModified": "2026-06-13T06:44:18.013Z"
       },
       {
         "path": "blog/stem-learning/index.html",
-        "sizeBytes": 78766,
-        "lastModified": "2026-06-11T18:22:40.954Z"
+        "sizeBytes": 79020,
+        "lastModified": "2026-06-13T06:44:18.014Z"
       },
       {
         "path": "blog/stem-sikkim/index.html",
-        "sizeBytes": 84672,
-        "lastModified": "2026-06-11T18:22:40.956Z"
+        "sizeBytes": 84926,
+        "lastModified": "2026-06-13T06:44:18.015Z"
       },
       {
         "path": "cities/agra/index.html",
-        "sizeBytes": 133593,
-        "lastModified": "2026-06-11T18:22:40.962Z"
+        "sizeBytes": 133901,
+        "lastModified": "2026-06-13T06:44:18.020Z"
       },
       {
         "path": "cities/aligarh/index.html",
-        "sizeBytes": 133542,
-        "lastModified": "2026-06-11T18:22:40.963Z"
+        "sizeBytes": 133850,
+        "lastModified": "2026-06-13T06:44:18.021Z"
       },
       {
         "path": "cities/arunachal-pradesh/index.html",
         "sizeBytes": 465,
-        "lastModified": "2026-06-08T18:12:18.884Z"
+        "lastModified": "2026-06-13T06:25:50.262Z"
       },
       {
         "path": "cities/bangalore/index.html",
-        "sizeBytes": 133632,
-        "lastModified": "2026-06-11T18:22:40.965Z"
+        "sizeBytes": 133940,
+        "lastModified": "2026-06-13T06:44:18.023Z"
       },
       {
         "path": "cities/bareilly/index.html",
-        "sizeBytes": 133577,
-        "lastModified": "2026-06-11T18:22:40.966Z"
+        "sizeBytes": 133885,
+        "lastModified": "2026-06-13T06:44:18.025Z"
       },
       {
         "path": "cities/bhilai-nagar/ai-classes/index.html",
-        "sizeBytes": 129809,
-        "lastModified": "2026-06-11T18:22:40.975Z"
+        "sizeBytes": 5803,
+        "lastModified": "2026-06-13T06:44:18.031Z"
       },
       {
         "path": "cities/bhilai-nagar/coding-classes/index.html",
-        "sizeBytes": 129871,
-        "lastModified": "2026-06-11T18:22:40.976Z"
+        "sizeBytes": 5707,
+        "lastModified": "2026-06-13T06:44:18.031Z"
       },
       {
         "path": "cities/bhilai-nagar/computer-classes-for-kids/index.html",
         "sizeBytes": 605,
-        "lastModified": "2026-06-08T18:12:18.888Z"
+        "lastModified": "2026-06-13T06:25:50.266Z"
       },
       {
         "path": "cities/bhilai-nagar/computer-classes/index.html",
-        "sizeBytes": 129937,
-        "lastModified": "2026-06-11T18:22:40.979Z"
+        "sizeBytes": 5752,
+        "lastModified": "2026-06-13T06:44:18.032Z"
       },
       {
         "path": "cities/bhilai-nagar/digital-skills/index.html",
-        "sizeBytes": 129931,
-        "lastModified": "2026-06-11T18:22:40.980Z"
+        "sizeBytes": 130242,
+        "lastModified": "2026-06-13T06:44:18.033Z"
       },
       {
         "path": "cities/bhilai-nagar/index.html",
-        "sizeBytes": 133669,
-        "lastModified": "2026-06-11T18:22:40.981Z"
+        "sizeBytes": 133977,
+        "lastModified": "2026-06-13T06:44:18.035Z"
       },
       {
         "path": "cities/bhilai/ai-classes/index.html",
-        "sizeBytes": 129617,
-        "lastModified": "2026-06-11T18:22:40.968Z"
+        "sizeBytes": 5661,
+        "lastModified": "2026-06-13T06:44:18.026Z"
       },
       {
         "path": "cities/bhilai/coding-classes/index.html",
-        "sizeBytes": 129679,
-        "lastModified": "2026-06-11T18:22:40.969Z"
+        "sizeBytes": 5565,
+        "lastModified": "2026-06-13T06:44:18.027Z"
       },
       {
         "path": "cities/bhilai/computer-classes-for-kids/index.html",
         "sizeBytes": 581,
-        "lastModified": "2026-06-08T18:12:18.888Z"
+        "lastModified": "2026-06-13T06:25:50.265Z"
       },
       {
         "path": "cities/bhilai/computer-classes/index.html",
-        "sizeBytes": 129745,
-        "lastModified": "2026-06-11T18:22:40.971Z"
+        "sizeBytes": 5610,
+        "lastModified": "2026-06-13T06:44:18.027Z"
       },
       {
         "path": "cities/bhilai/digital-skills/index.html",
-        "sizeBytes": 129739,
-        "lastModified": "2026-06-11T18:22:40.972Z"
+        "sizeBytes": 130050,
+        "lastModified": "2026-06-13T06:44:18.029Z"
       },
       {
         "path": "cities/bhilai/index.html",
-        "sizeBytes": 133435,
-        "lastModified": "2026-06-11T18:22:40.974Z"
+        "sizeBytes": 133743,
+        "lastModified": "2026-06-13T06:44:18.031Z"
       },
       {
         "path": "cities/bhopal/ai-classes/index.html",
         "sizeBytes": 521,
-        "lastModified": "2026-06-08T18:12:18.886Z"
+        "lastModified": "2026-06-13T06:25:50.263Z"
       },
       {
         "path": "cities/bhopal/coding-classes/index.html",
-        "sizeBytes": 129619,
-        "lastModified": "2026-06-11T18:22:40.983Z"
+        "sizeBytes": 129930,
+        "lastModified": "2026-06-13T06:44:18.037Z"
       },
       {
         "path": "cities/bhopal/computer-classes/index.html",
-        "sizeBytes": 129685,
-        "lastModified": "2026-06-11T18:22:40.984Z"
+        "sizeBytes": 129996,
+        "lastModified": "2026-06-13T06:44:18.038Z"
       },
       {
         "path": "cities/bhopal/digital-skills/index.html",
-        "sizeBytes": 129679,
-        "lastModified": "2026-06-11T18:22:40.985Z"
+        "sizeBytes": 129990,
+        "lastModified": "2026-06-13T06:44:18.039Z"
       },
       {
         "path": "cities/bhopal/index.html",
-        "sizeBytes": 133404,
-        "lastModified": "2026-06-11T18:22:40.987Z"
+        "sizeBytes": 133712,
+        "lastModified": "2026-06-13T06:44:18.041Z"
       },
       {
         "path": "cities/bhubaneswar/index.html",
-        "sizeBytes": 133630,
-        "lastModified": "2026-06-11T18:22:40.988Z"
+        "sizeBytes": 133938,
+        "lastModified": "2026-06-13T06:44:18.043Z"
       },
       {
         "path": "cities/bilaspur/index.html",
-        "sizeBytes": 133582,
-        "lastModified": "2026-06-11T18:22:40.990Z"
+        "sizeBytes": 133890,
+        "lastModified": "2026-06-13T06:44:18.045Z"
       },
       {
         "path": "cities/chandigarh/index.html",
-        "sizeBytes": 133500,
-        "lastModified": "2026-06-11T18:22:40.991Z"
+        "sizeBytes": 133808,
+        "lastModified": "2026-06-13T06:44:18.046Z"
       },
       {
         "path": "cities/chennai/index.html",
-        "sizeBytes": 133441,
-        "lastModified": "2026-06-11T18:22:40.993Z"
+        "sizeBytes": 133749,
+        "lastModified": "2026-06-13T06:44:18.048Z"
       },
       {
         "path": "cities/coimbatore/index.html",
-        "sizeBytes": 133591,
-        "lastModified": "2026-06-11T18:22:40.994Z"
+        "sizeBytes": 133899,
+        "lastModified": "2026-06-13T06:44:18.050Z"
       },
       {
         "path": "cities/delhi/index.html",
-        "sizeBytes": 133515,
-        "lastModified": "2026-06-11T18:22:40.995Z"
+        "sizeBytes": 133823,
+        "lastModified": "2026-06-13T06:44:18.051Z"
       },
       {
         "path": "cities/dharwad/index.html",
         "sizeBytes": 521,
-        "lastModified": "2026-06-08T18:12:18.882Z"
+        "lastModified": "2026-06-13T06:25:50.259Z"
       },
       {
         "path": "cities/durg/ai-classes/index.html",
-        "sizeBytes": 129553,
-        "lastModified": "2026-06-11T18:22:40.997Z"
+        "sizeBytes": 5611,
+        "lastModified": "2026-06-13T06:44:18.051Z"
       },
       {
         "path": "cities/durg/coding-classes/index.html",
-        "sizeBytes": 129615,
-        "lastModified": "2026-06-11T18:22:40.998Z"
+        "sizeBytes": 5515,
+        "lastModified": "2026-06-13T06:44:18.052Z"
       },
       {
         "path": "cities/durg/computer-classes-for-kids/index.html",
         "sizeBytes": 573,
-        "lastModified": "2026-06-08T18:12:18.888Z"
+        "lastModified": "2026-06-13T06:25:50.266Z"
       },
       {
         "path": "cities/durg/computer-classes/index.html",
-        "sizeBytes": 129681,
-        "lastModified": "2026-06-11T18:22:41.000Z"
+        "sizeBytes": 5560,
+        "lastModified": "2026-06-13T06:44:18.053Z"
       },
       {
         "path": "cities/durg/digital-skills/index.html",
-        "sizeBytes": 129675,
-        "lastModified": "2026-06-11T18:22:41.002Z"
+        "sizeBytes": 129986,
+        "lastModified": "2026-06-13T06:44:18.054Z"
       },
       {
         "path": "cities/durg/index.html",
-        "sizeBytes": 133357,
-        "lastModified": "2026-06-11T18:22:41.003Z"
+        "sizeBytes": 133665,
+        "lastModified": "2026-06-13T06:44:18.056Z"
       },
       {
         "path": "cities/gaya/index.html",
         "sizeBytes": 517,
-        "lastModified": "2026-06-08T18:12:18.883Z"
+        "lastModified": "2026-06-13T06:25:50.260Z"
       },
       {
         "path": "cities/himachal-pradesh/index.html",
         "sizeBytes": 465,
-        "lastModified": "2026-06-08T18:12:18.884Z"
+        "lastModified": "2026-06-13T06:25:50.262Z"
       },
       {
         "path": "cities/hyderabad/index.html",
-        "sizeBytes": 133560,
-        "lastModified": "2026-06-11T18:22:41.005Z"
+        "sizeBytes": 133868,
+        "lastModified": "2026-06-13T06:44:18.057Z"
       },
       {
         "path": "cities/index.html",
-        "sizeBytes": 143404,
-        "lastModified": "2026-06-11T18:22:41.006Z"
+        "sizeBytes": 143743,
+        "lastModified": "2026-06-13T06:44:18.059Z"
       },
       {
         "path": "cities/indore/ai-classes/index.html",
-        "sizeBytes": 129552,
-        "lastModified": "2026-06-11T18:22:41.008Z"
+        "sizeBytes": 129863,
+        "lastModified": "2026-06-13T06:44:18.060Z"
       },
       {
         "path": "cities/indore/coding-classes/index.html",
-        "sizeBytes": 129614,
-        "lastModified": "2026-06-11T18:22:41.009Z"
+        "sizeBytes": 129925,
+        "lastModified": "2026-06-13T06:44:18.062Z"
       },
       {
         "path": "cities/indore/computer-classes/index.html",
         "sizeBytes": 521,
-        "lastModified": "2026-06-08T18:12:18.886Z"
+        "lastModified": "2026-06-13T06:25:50.264Z"
       },
       {
         "path": "cities/indore/digital-skills/index.html",
-        "sizeBytes": 129674,
-        "lastModified": "2026-06-11T18:22:41.010Z"
+        "sizeBytes": 129985,
+        "lastModified": "2026-06-13T06:44:18.063Z"
       },
       {
         "path": "cities/indore/index.html",
-        "sizeBytes": 133420,
-        "lastModified": "2026-06-11T18:22:41.012Z"
+        "sizeBytes": 133728,
+        "lastModified": "2026-06-13T06:44:18.065Z"
       },
       {
         "path": "cities/jaipur/digital-skills/index.html",
         "sizeBytes": 521,
-        "lastModified": "2026-06-08T18:12:18.886Z"
+        "lastModified": "2026-06-13T06:25:50.264Z"
       },
       {
         "path": "cities/jaipur/index.html",
-        "sizeBytes": 133461,
-        "lastModified": "2026-06-11T18:22:41.014Z"
+        "sizeBytes": 133769,
+        "lastModified": "2026-06-13T06:44:18.067Z"
       },
       {
         "path": "cities/jammu-kashmir/index.html",
         "sizeBytes": 465,
-        "lastModified": "2026-06-08T18:12:18.885Z"
+        "lastModified": "2026-06-13T06:25:50.262Z"
       },
       {
         "path": "cities/jorhat/index.html",
         "sizeBytes": 465,
-        "lastModified": "2026-06-08T18:12:18.883Z"
+        "lastModified": "2026-06-13T06:25:50.261Z"
       },
       {
         "path": "cities/kalaburagi/index.html",
         "sizeBytes": 521,
-        "lastModified": "2026-06-08T18:12:18.882Z"
+        "lastModified": "2026-06-13T06:25:50.260Z"
       },
       {
         "path": "cities/kochi/index.html",
-        "sizeBytes": 133440,
-        "lastModified": "2026-06-11T18:22:41.015Z"
+        "sizeBytes": 133748,
+        "lastModified": "2026-06-13T06:44:18.068Z"
       },
       {
         "path": "cities/kolkata/index.html",
-        "sizeBytes": 133449,
-        "lastModified": "2026-06-11T18:22:41.017Z"
+        "sizeBytes": 133757,
+        "lastModified": "2026-06-13T06:44:18.070Z"
       },
       {
         "path": "cities/ladakh/index.html",
         "sizeBytes": 465,
-        "lastModified": "2026-06-08T18:12:18.883Z"
+        "lastModified": "2026-06-13T06:25:50.261Z"
       },
       {
         "path": "cities/lucknow/ai-classes/index.html",
         "sizeBytes": 525,
-        "lastModified": "2026-06-08T18:12:18.887Z"
+        "lastModified": "2026-06-13T06:25:50.264Z"
       },
       {
         "path": "cities/lucknow/coding-classes/index.html",
         "sizeBytes": 525,
-        "lastModified": "2026-06-08T18:12:18.887Z"
+        "lastModified": "2026-06-13T06:25:50.264Z"
       },
       {
         "path": "cities/lucknow/index.html",
-        "sizeBytes": 133536,
-        "lastModified": "2026-06-11T18:22:41.018Z"
+        "sizeBytes": 133844,
+        "lastModified": "2026-06-13T06:44:18.071Z"
       },
       {
         "path": "cities/meerut/index.html",
-        "sizeBytes": 133527,
-        "lastModified": "2026-06-11T18:22:41.020Z"
+        "sizeBytes": 133835,
+        "lastModified": "2026-06-13T06:44:18.073Z"
       },
       {
         "path": "cities/mohali/index.html",
         "sizeBytes": 537,
-        "lastModified": "2026-06-08T18:12:18.885Z"
+        "lastModified": "2026-06-13T06:25:50.263Z"
       },
       {
         "path": "cities/more-cities/index.html",
-        "sizeBytes": 141265,
-        "lastModified": "2026-06-11T18:22:41.021Z"
+        "sizeBytes": 141607,
+        "lastModified": "2026-06-13T06:44:18.075Z"
       },
       {
         "path": "cities/mumbai/index.html",
-        "sizeBytes": 133431,
-        "lastModified": "2026-06-11T18:22:41.023Z"
+        "sizeBytes": 133739,
+        "lastModified": "2026-06-13T06:44:18.076Z"
       },
       {
         "path": "cities/mysuru/index.html",
-        "sizeBytes": 133420,
-        "lastModified": "2026-06-11T18:22:41.025Z"
+        "sizeBytes": 133728,
+        "lastModified": "2026-06-13T06:44:18.077Z"
       },
       {
         "path": "cities/nagpur/index.html",
-        "sizeBytes": 133460,
-        "lastModified": "2026-06-11T18:22:41.026Z"
+        "sizeBytes": 133768,
+        "lastModified": "2026-06-13T06:44:18.079Z"
       },
       {
         "path": "cities/patna/index.html",
-        "sizeBytes": 133426,
-        "lastModified": "2026-06-11T18:22:41.027Z"
+        "sizeBytes": 133734,
+        "lastModified": "2026-06-13T06:44:18.080Z"
       },
       {
         "path": "cities/patna/spoken-english/index.html",
         "sizeBytes": 517,
-        "lastModified": "2026-06-08T18:12:18.887Z"
+        "lastModified": "2026-06-13T06:25:50.265Z"
       },
       {
         "path": "cities/pune/index.html",
-        "sizeBytes": 133405,
-        "lastModified": "2026-06-11T18:22:41.029Z"
+        "sizeBytes": 133713,
+        "lastModified": "2026-06-13T06:44:18.082Z"
       },
       {
         "path": "cities/punjab/index.html",
-        "sizeBytes": 133435,
-        "lastModified": "2026-06-11T18:22:41.030Z"
+        "sizeBytes": 133743,
+        "lastModified": "2026-06-13T06:44:18.084Z"
       },
       {
         "path": "cities/raipur/ai-classes/index.html",
-        "sizeBytes": 129602,
-        "lastModified": "2026-06-11T18:22:41.031Z"
+        "sizeBytes": 5659,
+        "lastModified": "2026-06-13T06:44:18.084Z"
       },
       {
         "path": "cities/raipur/coding-classes/index.html",
-        "sizeBytes": 129664,
-        "lastModified": "2026-06-11T18:22:41.033Z"
+        "sizeBytes": 5563,
+        "lastModified": "2026-06-13T06:44:18.085Z"
       },
       {
         "path": "cities/raipur/computer-classes-for-kids/index.html",
         "sizeBytes": 581,
-        "lastModified": "2026-06-08T18:12:18.888Z"
+        "lastModified": "2026-06-13T06:25:50.267Z"
       },
       {
         "path": "cities/raipur/computer-classes/index.html",
-        "sizeBytes": 129730,
-        "lastModified": "2026-06-11T18:22:41.035Z"
+        "sizeBytes": 5608,
+        "lastModified": "2026-06-13T06:44:18.085Z"
       },
       {
         "path": "cities/raipur/digital-skills/index.html",
-        "sizeBytes": 129724,
-        "lastModified": "2026-06-11T18:22:41.036Z"
+        "sizeBytes": 130035,
+        "lastModified": "2026-06-13T06:44:18.087Z"
       },
       {
         "path": "cities/raipur/index.html",
-        "sizeBytes": 133453,
-        "lastModified": "2026-06-11T18:22:41.037Z"
+        "sizeBytes": 133761,
+        "lastModified": "2026-06-13T06:44:18.088Z"
       },
       {
         "path": "cities/ranchi/index.html",
-        "sizeBytes": 133435,
-        "lastModified": "2026-06-11T18:22:41.038Z"
+        "sizeBytes": 133743,
+        "lastModified": "2026-06-13T06:44:18.090Z"
       },
       {
         "path": "cities/sikkim/index.html",
         "sizeBytes": 465,
-        "lastModified": "2026-06-08T18:12:18.884Z"
+        "lastModified": "2026-06-13T06:25:50.261Z"
       },
       {
         "path": "cities/surat/coding-classes/index.html",
         "sizeBytes": 517,
-        "lastModified": "2026-06-08T18:12:18.887Z"
+        "lastModified": "2026-06-13T06:25:50.265Z"
       },
       {
         "path": "cities/surat/index.html",
-        "sizeBytes": 133350,
-        "lastModified": "2026-06-11T18:22:41.040Z"
+        "sizeBytes": 133658,
+        "lastModified": "2026-06-13T06:44:18.092Z"
       },
       {
         "path": "cities/thiruvananthapuram/index.html",
-        "sizeBytes": 133903,
-        "lastModified": "2026-06-11T18:22:41.041Z"
+        "sizeBytes": 134211,
+        "lastModified": "2026-06-13T06:44:18.093Z"
       },
       {
         "path": "cities/tumkur/index.html",
         "sizeBytes": 521,
-        "lastModified": "2026-06-08T18:12:18.882Z"
+        "lastModified": "2026-06-13T06:25:50.260Z"
       },
       {
         "path": "cities/vadodara/index.html",
-        "sizeBytes": 133513,
-        "lastModified": "2026-06-11T18:22:41.043Z"
+        "sizeBytes": 133821,
+        "lastModified": "2026-06-13T06:44:18.094Z"
       },
       {
         "path": "cities/varanasi/digital-skills/index.html",
         "sizeBytes": 529,
-        "lastModified": "2026-06-08T18:12:18.888Z"
+        "lastModified": "2026-06-13T06:25:50.265Z"
       },
       {
         "path": "cities/varanasi/index.html",
-        "sizeBytes": 133554,
-        "lastModified": "2026-06-11T18:22:41.045Z"
+        "sizeBytes": 133862,
+        "lastModified": "2026-06-13T06:44:18.096Z"
       },
       {
         "path": "cities/visakhapatnam/index.html",
-        "sizeBytes": 133708,
-        "lastModified": "2026-06-11T18:22:41.046Z"
+        "sizeBytes": 134016,
+        "lastModified": "2026-06-13T06:44:18.098Z"
       },
       {
         "path": "coding-classes-hyderabad.html",
         "sizeBytes": 1890,
-        "lastModified": "2026-06-08T18:12:51.270Z"
+        "lastModified": "2026-06-13T06:27:03.967Z"
       },
       {
         "path": "coding-classes-in-bhilai-nagar.html",
         "sizeBytes": 1905,
-        "lastModified": "2026-06-08T18:12:51.271Z"
+        "lastModified": "2026-06-13T06:27:03.968Z"
       },
       {
         "path": "coding-classes-in-bhilai.html",
         "sizeBytes": 1875,
-        "lastModified": "2026-06-08T18:12:51.271Z"
+        "lastModified": "2026-06-13T06:27:03.968Z"
       },
       {
         "path": "coding-classes-in-durg.html",
         "sizeBytes": 1865,
-        "lastModified": "2026-06-08T18:12:51.271Z"
+        "lastModified": "2026-06-13T06:27:03.968Z"
       },
       {
         "path": "coding-classes-in-raipur.html",
         "sizeBytes": 1875,
-        "lastModified": "2026-06-08T18:12:51.272Z"
+        "lastModified": "2026-06-13T06:27:03.969Z"
       },
       {
         "path": "coding-classes.html",
-        "sizeBytes": 10177,
-        "lastModified": "2026-06-11T18:22:41.047Z"
+        "sizeBytes": 10116,
+        "lastModified": "2026-06-13T06:44:18.099Z"
       },
       {
         "path": "compare/ai-vs-coding-for-kids/index.html",
         "sizeBytes": 1874,
-        "lastModified": "2026-06-08T18:12:51.274Z"
+        "lastModified": "2026-06-13T06:27:03.971Z"
       },
       {
         "path": "compare/ai-vs-coding/index.html",
-        "sizeBytes": 73472,
-        "lastModified": "2026-06-11T18:22:41.048Z"
+        "sizeBytes": 66361,
+        "lastModified": "2026-06-13T06:44:18.100Z"
       },
       {
         "path": "compare/coding-vs-digital-skills/index.html",
-        "sizeBytes": 73916,
-        "lastModified": "2026-06-11T18:22:41.049Z"
+        "sizeBytes": 66805,
+        "lastModified": "2026-06-13T06:44:18.101Z"
       },
       {
         "path": "compare/excel-vs-ai-tools/index.html",
-        "sizeBytes": 73412,
-        "lastModified": "2026-06-11T18:22:41.050Z"
+        "sizeBytes": 66301,
+        "lastModified": "2026-06-13T06:44:18.102Z"
       },
       {
         "path": "compare/group-vs-1-to-1-learning/index.html",
-        "sizeBytes": 73328,
-        "lastModified": "2026-06-11T18:22:41.051Z"
+        "sizeBytes": 66217,
+        "lastModified": "2026-06-13T06:44:18.102Z"
       },
       {
         "path": "compare/index.html",
-        "sizeBytes": 72544,
-        "lastModified": "2026-06-11T18:22:41.052Z"
+        "sizeBytes": 65433,
+        "lastModified": "2026-06-13T06:44:18.103Z"
       },
       {
         "path": "compare/online-vs-offline-computer-classes/index.html",
-        "sizeBytes": 3193,
-        "lastModified": "2026-06-11T18:22:41.052Z"
+        "sizeBytes": 3132,
+        "lastModified": "2026-06-13T06:44:18.103Z"
       },
       {
         "path": "compare/online-vs-offline-learning/index.html",
-        "sizeBytes": 73527,
-        "lastModified": "2026-06-11T18:22:41.053Z"
+        "sizeBytes": 66416,
+        "lastModified": "2026-06-13T06:44:18.104Z"
       },
       {
         "path": "compare/skillnest-vs-traditional-classes/index.html",
-        "sizeBytes": 3268,
-        "lastModified": "2026-06-11T18:22:41.054Z"
+        "sizeBytes": 3207,
+        "lastModified": "2026-06-13T06:44:18.104Z"
       },
       {
         "path": "compare/skillnest-vs-traditional-computer-classes/index.html",
-        "sizeBytes": 74760,
-        "lastModified": "2026-06-11T18:22:41.055Z"
+        "sizeBytes": 67649,
+        "lastModified": "2026-06-13T06:44:18.105Z"
       },
       {
         "path": "computer-classes-bangalore.html",
         "sizeBytes": 1900,
-        "lastModified": "2026-06-08T18:12:51.280Z"
+        "lastModified": "2026-06-13T06:27:03.982Z"
       },
       {
         "path": "computer-classes-bhopal.html",
         "sizeBytes": 1885,
-        "lastModified": "2026-06-08T18:12:51.281Z"
+        "lastModified": "2026-06-13T06:27:03.982Z"
       },
       {
         "path": "computer-classes-delhi.html",
         "sizeBytes": 1880,
-        "lastModified": "2026-06-08T18:12:51.281Z"
+        "lastModified": "2026-06-13T06:27:03.983Z"
       },
       {
         "path": "computer-classes-for-kids-in-bhilai-nagar.html",
         "sizeBytes": 1905,
-        "lastModified": "2026-06-08T18:12:51.281Z"
+        "lastModified": "2026-06-13T06:27:03.983Z"
       },
       {
         "path": "computer-classes-for-kids-in-bhilai.html",
         "sizeBytes": 1875,
-        "lastModified": "2026-06-08T18:12:51.282Z"
+        "lastModified": "2026-06-13T06:27:03.984Z"
       },
       {
         "path": "computer-classes-for-kids-in-durg.html",
         "sizeBytes": 1865,
-        "lastModified": "2026-06-08T18:12:51.282Z"
+        "lastModified": "2026-06-13T06:27:03.984Z"
       },
       {
         "path": "computer-classes-for-kids-in-raipur.html",
         "sizeBytes": 1875,
-        "lastModified": "2026-06-08T18:12:51.282Z"
+        "lastModified": "2026-06-13T06:27:03.984Z"
       },
       {
         "path": "computer-classes-in-bhilai-nagar.html",
         "sizeBytes": 1915,
-        "lastModified": "2026-06-08T18:12:51.283Z"
+        "lastModified": "2026-06-13T06:27:03.985Z"
       },
       {
         "path": "computer-classes-in-bhilai.html",
         "sizeBytes": 1885,
-        "lastModified": "2026-06-08T18:12:51.283Z"
+        "lastModified": "2026-06-13T06:27:03.985Z"
       },
       {
         "path": "computer-classes-in-durg.html",
         "sizeBytes": 1875,
-        "lastModified": "2026-06-08T18:12:51.284Z"
+        "lastModified": "2026-06-13T06:27:03.986Z"
       },
       {
         "path": "computer-classes-in-raipur.html",
         "sizeBytes": 1885,
-        "lastModified": "2026-06-08T18:12:51.284Z"
+        "lastModified": "2026-06-13T06:27:03.986Z"
       },
       {
         "path": "computer-classes-indore.html",
         "sizeBytes": 1885,
-        "lastModified": "2026-06-08T18:12:51.284Z"
+        "lastModified": "2026-06-13T06:27:03.987Z"
       },
       {
         "path": "computer-classes-mumbai.html",
         "sizeBytes": 1885,
-        "lastModified": "2026-06-08T18:12:51.285Z"
+        "lastModified": "2026-06-13T06:27:03.987Z"
       },
       {
         "path": "computer-classes-pune.html",
         "sizeBytes": 1875,
-        "lastModified": "2026-06-08T18:12:51.285Z"
+        "lastModified": "2026-06-13T06:27:03.988Z"
       },
       {
         "path": "computer-classes.html",
-        "sizeBytes": 10213,
-        "lastModified": "2026-06-11T18:22:41.056Z"
+        "sizeBytes": 10152,
+        "lastModified": "2026-06-13T06:44:18.107Z"
       },
       {
         "path": "contact/book-demo.html",
-        "sizeBytes": 67692,
-        "lastModified": "2026-06-11T18:22:41.057Z"
+        "sizeBytes": 67945,
+        "lastModified": "2026-06-13T06:44:18.107Z"
       },
       {
         "path": "contact/index.html",
-        "sizeBytes": 63541,
-        "lastModified": "2026-06-11T18:22:41.058Z"
+        "sizeBytes": 63794,
+        "lastModified": "2026-06-13T06:44:18.108Z"
       },
       {
         "path": "contact/support.html",
-        "sizeBytes": 64554,
-        "lastModified": "2026-06-11T18:22:41.059Z"
+        "sizeBytes": 64807,
+        "lastModified": "2026-06-13T06:44:18.109Z"
       },
       {
         "path": "contact/whatsapp.html",
-        "sizeBytes": 65501,
-        "lastModified": "2026-06-11T18:22:41.059Z"
+        "sizeBytes": 65754,
+        "lastModified": "2026-06-13T06:44:18.110Z"
       },
       {
         "path": "courses/ai-classes-for-kids/index.html",
-        "sizeBytes": 78947,
-        "lastModified": "2026-06-11T18:22:41.060Z"
+        "sizeBytes": 71836,
+        "lastModified": "2026-06-13T06:44:18.111Z"
       },
       {
         "path": "courses/ai-classes-for-school-students/index.html",
-        "sizeBytes": 10130,
-        "lastModified": "2026-06-11T18:22:41.060Z"
+        "sizeBytes": 10069,
+        "lastModified": "2026-06-13T06:44:18.112Z"
       },
       {
         "path": "courses/ai-classes-for-students/index.html",
-        "sizeBytes": 121331,
-        "lastModified": "2026-06-11T18:22:41.062Z"
+        "sizeBytes": 121584,
+        "lastModified": "2026-06-13T06:44:18.113Z"
       },
       {
         "path": "courses/ai-coding-classes-near-me/index.html",
-        "sizeBytes": 120097,
-        "lastModified": "2026-06-11T18:22:41.064Z"
+        "sizeBytes": 120350,
+        "lastModified": "2026-06-13T06:44:18.114Z"
       },
       {
         "path": "courses/ai-tools-for-students/index.html",
@@ -868,78 +868,78 @@
       },
       {
         "path": "courses/coding-classes-for-kids-india/index.html",
-        "sizeBytes": 10062,
-        "lastModified": "2026-06-11T18:22:41.066Z"
+        "sizeBytes": 10001,
+        "lastModified": "2026-06-13T06:44:18.117Z"
       },
       {
         "path": "courses/coding-course/index.html",
         "sizeBytes": 1844,
-        "lastModified": "2026-06-08T18:12:51.294Z"
+        "lastModified": "2026-06-13T06:27:04.002Z"
       },
       {
         "path": "courses/coding/index.html",
-        "sizeBytes": 127162,
-        "lastModified": "2026-06-11T18:22:41.065Z"
+        "sizeBytes": 127381,
+        "lastModified": "2026-06-13T06:44:18.117Z"
       },
       {
         "path": "courses/computer-basics/index.html",
-        "sizeBytes": 80109,
-        "lastModified": "2026-06-11T18:22:41.066Z"
+        "sizeBytes": 72998,
+        "lastModified": "2026-06-13T06:44:18.118Z"
       },
       {
         "path": "courses/computer-classes-for-teenagers/index.html",
-        "sizeBytes": 10098,
-        "lastModified": "2026-06-11T18:22:41.067Z"
+        "sizeBytes": 10037,
+        "lastModified": "2026-06-13T06:44:18.118Z"
       },
       {
         "path": "courses/computer/index.html",
         "sizeBytes": 1889,
-        "lastModified": "2026-06-08T18:12:51.294Z"
+        "lastModified": "2026-06-13T06:27:04.002Z"
       },
       {
         "path": "courses/cyber-safety-course/index.html",
         "sizeBytes": 1924,
-        "lastModified": "2026-06-08T18:12:51.296Z"
+        "lastModified": "2026-06-13T06:27:04.004Z"
       },
       {
         "path": "courses/digital-skills-classes-for-kids/index.html",
-        "sizeBytes": 10142,
-        "lastModified": "2026-06-11T18:22:41.067Z"
+        "sizeBytes": 10081,
+        "lastModified": "2026-06-13T06:44:18.119Z"
       },
       {
         "path": "courses/digital-skills-program/index.html",
-        "sizeBytes": 1969,
-        "lastModified": "2026-06-08T18:02:53.065Z"
+        "sizeBytes": 1944,
+        "lastModified": "2026-06-11T19:09:49.639Z"
       },
       {
         "path": "courses/excel-course/index.html",
-        "sizeBytes": 78540,
-        "lastModified": "2026-06-11T18:22:41.068Z"
+        "sizeBytes": 71429,
+        "lastModified": "2026-06-13T06:44:18.120Z"
       },
       {
         "path": "courses/index.html",
-        "sizeBytes": 78161,
-        "lastModified": "2026-06-11T18:22:41.069Z"
+        "sizeBytes": 71050,
+        "lastModified": "2026-06-13T06:44:18.121Z"
       },
       {
         "path": "courses/internet-safety-course/index.html",
-        "sizeBytes": 78817,
-        "lastModified": "2026-06-11T18:22:41.070Z"
+        "sizeBytes": 71706,
+        "lastModified": "2026-06-13T06:44:18.121Z"
       },
       {
         "path": "courses/powerpoint-course/index.html",
-        "sizeBytes": 78809,
-        "lastModified": "2026-06-11T18:22:41.071Z"
+        "sizeBytes": 71698,
+        "lastModified": "2026-06-13T06:44:18.122Z"
       },
       {
         "path": "courses/productivity-tools-course/index.html",
-        "sizeBytes": 78813,
-        "lastModified": "2026-06-11T18:22:41.072Z"
+        "sizeBytes": 71702,
+        "lastModified": "2026-06-13T06:44:18.124Z"
       },
       {
         "path": "courses/scratch-coding-course/index.html",
         "sizeBytes": 525,
-        "lastModified": "2026-06-08T18:12:18.886Z"
+        "lastModified": "2026-06-13T06:25:50.263Z"
       },
       {
         "path": "courses/stem-program/index.html",
@@ -953,8 +953,8 @@
       },
       {
         "path": "courses/typing-course/index.html",
-        "sizeBytes": 79030,
-        "lastModified": "2026-06-11T18:22:41.073Z"
+        "sizeBytes": 71919,
+        "lastModified": "2026-06-13T06:44:18.125Z"
       },
       {
         "path": "demo.html",
@@ -964,7 +964,7 @@
       {
         "path": "digital-skills-kolkata.html",
         "sizeBytes": 1880,
-        "lastModified": "2026-06-08T18:12:51.303Z"
+        "lastModified": "2026-06-13T06:27:04.012Z"
       },
       {
         "path": "founder.html",
@@ -973,103 +973,103 @@
       },
       {
         "path": "index.html",
-        "sizeBytes": 134371,
-        "lastModified": "2026-06-11T18:22:41.074Z"
+        "sizeBytes": 134566,
+        "lastModified": "2026-06-13T06:44:18.127Z"
       },
       {
         "path": "learning-paths/advanced-digital-skills/index.html",
-        "sizeBytes": 90182,
-        "lastModified": "2026-06-11T18:22:41.075Z"
+        "sizeBytes": 90401,
+        "lastModified": "2026-06-13T06:44:18.128Z"
       },
       {
         "path": "learning-paths/beginner-digital-skills/index.html",
-        "sizeBytes": 90032,
-        "lastModified": "2026-06-11T18:22:41.077Z"
+        "sizeBytes": 90251,
+        "lastModified": "2026-06-13T06:44:18.128Z"
       },
       {
         "path": "learning-paths/index.html",
-        "sizeBytes": 83651,
-        "lastModified": "2026-06-11T18:22:41.078Z"
+        "sizeBytes": 83904,
+        "lastModified": "2026-06-13T06:44:18.129Z"
       },
       {
         "path": "learning-paths/intermediate-digital-skills/index.html",
-        "sizeBytes": 89256,
-        "lastModified": "2026-06-11T18:22:41.079Z"
+        "sizeBytes": 89475,
+        "lastModified": "2026-06-13T06:44:18.131Z"
       },
       {
         "path": "legal/disclaimer.html",
-        "sizeBytes": 65629,
-        "lastModified": "2026-06-11T18:22:41.080Z"
+        "sizeBytes": 65882,
+        "lastModified": "2026-06-13T06:44:18.132Z"
       },
       {
         "path": "legal/privacy-policy.html",
-        "sizeBytes": 66891,
-        "lastModified": "2026-06-11T18:22:41.080Z"
+        "sizeBytes": 67144,
+        "lastModified": "2026-06-13T06:44:18.133Z"
       },
       {
         "path": "legal/refund-policy.html",
-        "sizeBytes": 70502,
-        "lastModified": "2026-06-11T18:22:41.081Z"
+        "sizeBytes": 70755,
+        "lastModified": "2026-06-13T06:44:18.134Z"
       },
       {
         "path": "legal/refund-policy/index.html",
         "sizeBytes": 561,
-        "lastModified": "2026-06-08T18:12:18.885Z"
+        "lastModified": "2026-06-13T06:25:50.263Z"
       },
       {
         "path": "legal/terms-and-conditions.html",
-        "sizeBytes": 68792,
-        "lastModified": "2026-06-11T18:22:41.082Z"
+        "sizeBytes": 69045,
+        "lastModified": "2026-06-13T06:44:18.135Z"
       },
       {
         "path": "m4xgd615qog7bvnp0uvkqsalkh2dkq.html",
-        "sizeBytes": 20329,
-        "lastModified": "2026-06-11T18:22:41.082Z"
+        "sizeBytes": 20582,
+        "lastModified": "2026-06-13T06:44:18.136Z"
       },
       {
         "path": "parent-hub/ai-safety-for-kids/index.html",
-        "sizeBytes": 74105,
-        "lastModified": "2026-06-11T18:22:41.083Z"
+        "sizeBytes": 74358,
+        "lastModified": "2026-06-13T06:44:18.136Z"
       },
       {
         "path": "parent-hub/digital-parenting/index.html",
-        "sizeBytes": 73598,
-        "lastModified": "2026-06-11T18:22:41.084Z"
+        "sizeBytes": 73851,
+        "lastModified": "2026-06-13T06:44:18.137Z"
       },
       {
         "path": "parent-hub/future-skills-guide/index.html",
-        "sizeBytes": 73898,
-        "lastModified": "2026-06-11T18:22:41.085Z"
+        "sizeBytes": 74151,
+        "lastModified": "2026-06-13T06:44:18.138Z"
       },
       {
         "path": "parent-hub/index.html",
-        "sizeBytes": 73096,
-        "lastModified": "2026-06-11T18:22:41.086Z"
+        "sizeBytes": 73349,
+        "lastModified": "2026-06-13T06:44:18.139Z"
       },
       {
         "path": "parent-hub/internet-safety/index.html",
-        "sizeBytes": 73547,
-        "lastModified": "2026-06-11T18:22:41.086Z"
+        "sizeBytes": 73800,
+        "lastModified": "2026-06-13T06:44:18.139Z"
       },
       {
         "path": "parent-hub/learning-tips/index.html",
-        "sizeBytes": 74890,
-        "lastModified": "2026-06-11T18:22:41.087Z"
+        "sizeBytes": 75143,
+        "lastModified": "2026-06-13T06:44:18.140Z"
       },
       {
         "path": "parent-hub/screen-time-guide/index.html",
-        "sizeBytes": 73630,
-        "lastModified": "2026-06-11T18:22:41.088Z"
+        "sizeBytes": 73883,
+        "lastModified": "2026-06-13T06:44:18.141Z"
       },
       {
         "path": "parent-hub/testimonials/index.html",
-        "sizeBytes": 70962,
-        "lastModified": "2026-06-11T18:22:41.089Z"
+        "sizeBytes": 71215,
+        "lastModified": "2026-06-13T06:44:18.142Z"
       },
       {
         "path": "parent-testimonials.html",
-        "sizeBytes": 10213,
-        "lastModified": "2026-06-11T18:22:41.089Z"
+        "sizeBytes": 10152,
+        "lastModified": "2026-06-13T06:44:18.142Z"
       },
       {
         "path": "Personality Test/pt-assessment.html",
@@ -1113,288 +1113,288 @@
       },
       {
         "path": "programs/admission/index.html",
-        "sizeBytes": 65334,
-        "lastModified": "2026-06-11T18:22:41.090Z"
+        "sizeBytes": 65587,
+        "lastModified": "2026-06-13T06:44:18.144Z"
       },
       {
         "path": "programs/ai-skills-for-students/index.html",
-        "sizeBytes": 75856,
-        "lastModified": "2026-06-11T18:22:41.092Z"
+        "sizeBytes": 68745,
+        "lastModified": "2026-06-13T06:44:18.145Z"
       },
       {
         "path": "programs/canva-design/index.html",
-        "sizeBytes": 1969,
-        "lastModified": "2026-06-08T18:02:53.566Z"
+        "sizeBytes": 1944,
+        "lastModified": "2026-06-11T19:09:49.639Z"
       },
       {
         "path": "programs/coding/index.html",
-        "sizeBytes": 75830,
-        "lastModified": "2026-06-11T18:22:41.093Z"
+        "sizeBytes": 68719,
+        "lastModified": "2026-06-13T06:44:18.147Z"
       },
       {
         "path": "programs/cyber-safety/index.html",
-        "sizeBytes": 75733,
-        "lastModified": "2026-06-11T18:22:41.094Z"
+        "sizeBytes": 68622,
+        "lastModified": "2026-06-13T06:44:18.147Z"
       },
       {
         "path": "programs/digital-skills-foundation/index.html",
-        "sizeBytes": 76822,
-        "lastModified": "2026-06-11T18:22:41.094Z"
+        "sizeBytes": 69711,
+        "lastModified": "2026-06-13T06:44:18.148Z"
       },
       {
         "path": "programs/excel-for-students/index.html",
-        "sizeBytes": 75732,
-        "lastModified": "2026-06-11T18:22:41.096Z"
+        "sizeBytes": 68621,
+        "lastModified": "2026-06-13T06:44:18.149Z"
       },
       {
         "path": "programs/index.html",
-        "sizeBytes": 73457,
-        "lastModified": "2026-06-11T18:22:41.096Z"
+        "sizeBytes": 66346,
+        "lastModified": "2026-06-13T06:44:18.150Z"
       },
       {
         "path": "programs/presentation-skills/index.html",
-        "sizeBytes": 1969,
-        "lastModified": "2026-06-08T18:02:53.678Z"
+        "sizeBytes": 1944,
+        "lastModified": "2026-06-11T19:09:49.640Z"
       },
       {
         "path": "programs/productivity-tools/index.html",
-        "sizeBytes": 75566,
-        "lastModified": "2026-06-11T18:22:41.097Z"
+        "sizeBytes": 68455,
+        "lastModified": "2026-06-13T06:44:18.150Z"
       },
       {
         "path": "programs/scholarship/index.html",
-        "sizeBytes": 63430,
-        "lastModified": "2026-06-11T18:22:41.097Z"
+        "sizeBytes": 63683,
+        "lastModified": "2026-06-13T06:44:18.151Z"
       },
       {
         "path": "programs/scratch-coding/index.html",
         "sizeBytes": 1849,
-        "lastModified": "2026-06-08T18:12:51.330Z"
+        "lastModified": "2026-06-13T06:27:04.046Z"
       },
       {
         "path": "programs/smart-internet-skills/index.html",
-        "sizeBytes": 1964,
-        "lastModified": "2026-06-08T18:02:53.714Z"
+        "sizeBytes": 1889,
+        "lastModified": "2026-06-11T19:09:49.640Z"
       },
       {
         "path": "programs/summer-camp/index.html",
-        "sizeBytes": 78414,
-        "lastModified": "2026-06-11T18:22:41.098Z"
+        "sizeBytes": 71263,
+        "lastModified": "2026-06-13T06:44:18.152Z"
       },
       {
         "path": "programs/typing-productivity/index.html",
-        "sizeBytes": 1964,
-        "lastModified": "2026-06-08T18:02:53.734Z"
+        "sizeBytes": 1889,
+        "lastModified": "2026-06-11T19:09:49.640Z"
       },
       {
         "path": "projects/ai-projects/index.html",
-        "sizeBytes": 74936,
-        "lastModified": "2026-06-11T18:22:41.099Z"
+        "sizeBytes": 67825,
+        "lastModified": "2026-06-13T06:44:18.153Z"
       },
       {
         "path": "projects/certificates/index.html",
-        "sizeBytes": 74631,
-        "lastModified": "2026-06-11T18:22:41.100Z"
+        "sizeBytes": 67520,
+        "lastModified": "2026-06-13T06:44:18.154Z"
       },
       {
         "path": "projects/coding-and-games/index.html",
-        "sizeBytes": 75893,
-        "lastModified": "2026-06-11T18:22:41.101Z"
+        "sizeBytes": 68782,
+        "lastModified": "2026-06-13T06:44:18.155Z"
       },
       {
         "path": "projects/excel-projects/index.html",
-        "sizeBytes": 74604,
-        "lastModified": "2026-06-11T18:22:41.101Z"
+        "sizeBytes": 67493,
+        "lastModified": "2026-06-13T06:44:18.156Z"
       },
       {
         "path": "projects/index.html",
-        "sizeBytes": 76828,
-        "lastModified": "2026-06-11T18:22:41.103Z"
+        "sizeBytes": 69717,
+        "lastModified": "2026-06-13T06:44:18.156Z"
       },
       {
         "path": "projects/portfolio-projects/index.html",
-        "sizeBytes": 74969,
-        "lastModified": "2026-06-11T18:22:41.104Z"
+        "sizeBytes": 67858,
+        "lastModified": "2026-06-13T06:44:18.157Z"
       },
       {
         "path": "projects/student-presentations/index.html",
-        "sizeBytes": 75198,
-        "lastModified": "2026-06-11T18:22:41.105Z"
+        "sizeBytes": 68087,
+        "lastModified": "2026-06-13T06:44:18.158Z"
       },
       {
         "path": "refund-policy.html",
-        "sizeBytes": 1863,
-        "lastModified": "2026-06-08T18:02:53.886Z"
+        "sizeBytes": 1883,
+        "lastModified": "2026-06-11T19:09:49.641Z"
       },
       {
         "path": "resources/ai-prompt-guide/index.html",
-        "sizeBytes": 69760,
-        "lastModified": "2026-06-11T18:22:41.106Z"
+        "sizeBytes": 62649,
+        "lastModified": "2026-06-13T06:44:18.159Z"
       },
       {
         "path": "resources/ai-tools/index.html",
-        "sizeBytes": 70557,
-        "lastModified": "2026-06-11T18:22:41.107Z"
+        "sizeBytes": 63446,
+        "lastModified": "2026-06-13T06:44:18.159Z"
       },
       {
         "path": "resources/cbse-resources/class-1/index.html",
-        "sizeBytes": 73016,
-        "lastModified": "2026-06-11T18:22:41.107Z"
+        "sizeBytes": 73269,
+        "lastModified": "2026-06-13T06:44:18.160Z"
       },
       {
         "path": "resources/cbse-resources/class-10/index.html",
-        "sizeBytes": 73194,
-        "lastModified": "2026-06-11T18:22:41.108Z"
+        "sizeBytes": 73447,
+        "lastModified": "2026-06-13T06:44:18.161Z"
       },
       {
         "path": "resources/cbse-resources/class-11/index.html",
-        "sizeBytes": 73200,
-        "lastModified": "2026-06-11T18:22:41.109Z"
+        "sizeBytes": 73453,
+        "lastModified": "2026-06-13T06:44:18.163Z"
       },
       {
         "path": "resources/cbse-resources/class-12/index.html",
-        "sizeBytes": 73145,
-        "lastModified": "2026-06-11T18:22:41.110Z"
+        "sizeBytes": 73398,
+        "lastModified": "2026-06-13T06:44:18.163Z"
       },
       {
         "path": "resources/cbse-resources/class-2/index.html",
-        "sizeBytes": 73055,
-        "lastModified": "2026-06-11T18:22:41.111Z"
+        "sizeBytes": 73308,
+        "lastModified": "2026-06-13T06:44:18.164Z"
       },
       {
         "path": "resources/cbse-resources/class-3/index.html",
-        "sizeBytes": 73123,
-        "lastModified": "2026-06-11T18:22:41.112Z"
+        "sizeBytes": 73376,
+        "lastModified": "2026-06-13T06:44:18.165Z"
       },
       {
         "path": "resources/cbse-resources/class-4/index.html",
-        "sizeBytes": 73081,
-        "lastModified": "2026-06-11T18:22:41.112Z"
+        "sizeBytes": 73334,
+        "lastModified": "2026-06-13T06:44:18.166Z"
       },
       {
         "path": "resources/cbse-resources/class-5/index.html",
-        "sizeBytes": 73028,
-        "lastModified": "2026-06-11T18:22:41.113Z"
+        "sizeBytes": 73281,
+        "lastModified": "2026-06-13T06:44:18.167Z"
       },
       {
         "path": "resources/cbse-resources/class-6/index.html",
-        "sizeBytes": 74414,
-        "lastModified": "2026-06-11T18:22:41.114Z"
+        "sizeBytes": 74667,
+        "lastModified": "2026-06-13T06:44:18.167Z"
       },
       {
         "path": "resources/cbse-resources/class-7/index.html",
-        "sizeBytes": 74388,
-        "lastModified": "2026-06-11T18:22:41.115Z"
+        "sizeBytes": 74641,
+        "lastModified": "2026-06-13T06:44:18.168Z"
       },
       {
         "path": "resources/cbse-resources/class-8/index.html",
-        "sizeBytes": 74437,
-        "lastModified": "2026-06-11T18:22:41.116Z"
+        "sizeBytes": 74690,
+        "lastModified": "2026-06-13T06:44:18.169Z"
       },
       {
         "path": "resources/cbse-resources/class-9/index.html",
-        "sizeBytes": 73146,
-        "lastModified": "2026-06-11T18:22:41.117Z"
+        "sizeBytes": 73399,
+        "lastModified": "2026-06-13T06:44:18.170Z"
       },
       {
         "path": "resources/cbse-resources/index.html",
-        "sizeBytes": 73020,
-        "lastModified": "2026-06-11T18:22:41.118Z"
+        "sizeBytes": 65909,
+        "lastModified": "2026-06-13T06:44:18.171Z"
       },
       {
         "path": "resources/cbse-resources/ncert-books/index.html",
-        "sizeBytes": 74643,
-        "lastModified": "2026-06-11T18:22:41.119Z"
+        "sizeBytes": 74896,
+        "lastModified": "2026-06-13T06:44:18.172Z"
       },
       {
         "path": "resources/class-1.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.119Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.172Z"
       },
       {
         "path": "resources/class-10.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.119Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.173Z"
       },
       {
         "path": "resources/class-11.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.120Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.173Z"
       },
       {
         "path": "resources/class-12.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.120Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.173Z"
       },
       {
         "path": "resources/class-2.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.120Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.174Z"
       },
       {
         "path": "resources/class-3.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.121Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.174Z"
       },
       {
         "path": "resources/class-4.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.121Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.174Z"
       },
       {
         "path": "resources/class-5.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.121Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.175Z"
       },
       {
         "path": "resources/class-6.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.122Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.175Z"
       },
       {
         "path": "resources/class-7.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.122Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.175Z"
       },
       {
         "path": "resources/class-8.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.122Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.176Z"
       },
       {
         "path": "resources/class-9.html",
-        "sizeBytes": 10160,
-        "lastModified": "2026-06-11T18:22:41.123Z"
+        "sizeBytes": 10099,
+        "lastModified": "2026-06-13T06:44:18.176Z"
       },
       {
         "path": "resources/cyber-safety-guide/index.html",
-        "sizeBytes": 70191,
-        "lastModified": "2026-06-11T18:22:41.123Z"
+        "sizeBytes": 63080,
+        "lastModified": "2026-06-13T06:44:18.177Z"
       },
       {
         "path": "resources/digital-skills-checklist/index.html",
-        "sizeBytes": 71307,
-        "lastModified": "2026-06-11T18:22:41.125Z"
+        "sizeBytes": 64196,
+        "lastModified": "2026-06-13T06:44:18.178Z"
       },
       {
         "path": "resources/free-mini-courses/index.html",
-        "sizeBytes": 70111,
-        "lastModified": "2026-06-11T18:22:41.125Z"
+        "sizeBytes": 63000,
+        "lastModified": "2026-06-13T06:44:18.178Z"
       },
       {
         "path": "resources/index.html",
-        "sizeBytes": 71591,
-        "lastModified": "2026-06-11T18:22:41.126Z"
+        "sizeBytes": 64480,
+        "lastModified": "2026-06-13T06:44:18.179Z"
       },
       {
         "path": "resources/ncert-books.html",
-        "sizeBytes": 10220,
-        "lastModified": "2026-06-11T18:22:41.126Z"
+        "sizeBytes": 10159,
+        "lastModified": "2026-06-13T06:44:18.179Z"
       },
       {
         "path": "resources/parent-guides/index.html",
-        "sizeBytes": 71259,
-        "lastModified": "2026-06-11T18:22:41.127Z"
+        "sizeBytes": 64148,
+        "lastModified": "2026-06-13T06:44:18.180Z"
       },
       {
         "path": "resources/templates/index.html",
@@ -1403,13 +1403,13 @@
       },
       {
         "path": "resources/typing-practice/index.html",
-        "sizeBytes": 69512,
-        "lastModified": "2026-06-11T18:22:41.128Z"
+        "sizeBytes": 62401,
+        "lastModified": "2026-06-13T06:44:18.181Z"
       },
       {
         "path": "resources/worksheets/index.html",
-        "sizeBytes": 70532,
-        "lastModified": "2026-06-11T18:22:41.129Z"
+        "sizeBytes": 63421,
+        "lastModified": "2026-06-13T06:44:18.183Z"
       },
       {
         "path": "scholarship.html",
@@ -1418,133 +1418,133 @@
       },
       {
         "path": "schools/book-school-demo/index.html",
-        "sizeBytes": 84698,
-        "lastModified": "2026-06-11T18:22:41.130Z"
+        "sizeBytes": 75861,
+        "lastModified": "2026-06-13T06:44:18.184Z"
       },
       {
         "path": "schools/case-studies/index.html",
-        "sizeBytes": 78488,
-        "lastModified": "2026-06-11T18:22:41.130Z"
+        "sizeBytes": 74524,
+        "lastModified": "2026-06-13T06:44:18.185Z"
       },
       {
         "path": "schools/csr-programs/index.html",
-        "sizeBytes": 78091,
-        "lastModified": "2026-06-11T18:22:41.131Z"
+        "sizeBytes": 75099,
+        "lastModified": "2026-06-13T06:44:18.186Z"
       },
       {
         "path": "schools/index.html",
-        "sizeBytes": 68730,
-        "lastModified": "2026-06-11T18:22:41.133Z"
+        "sizeBytes": 68983,
+        "lastModified": "2026-06-13T06:44:18.187Z"
       },
       {
         "path": "schools/partner-with-us/index.html",
-        "sizeBytes": 79133,
-        "lastModified": "2026-06-11T18:22:41.134Z"
+        "sizeBytes": 76178,
+        "lastModified": "2026-06-13T06:44:18.188Z"
       },
       {
         "path": "schools/principal-pitch/index.html",
-        "sizeBytes": 77590,
-        "lastModified": "2026-06-11T18:22:41.135Z"
+        "sizeBytes": 74541,
+        "lastModified": "2026-06-13T06:44:18.188Z"
       },
       {
         "path": "schools/school-partnerships/index.html",
-        "sizeBytes": 77576,
-        "lastModified": "2026-06-11T18:22:41.136Z"
+        "sizeBytes": 73406,
+        "lastModified": "2026-06-13T06:44:18.189Z"
       },
       {
         "path": "schools/school-programs/index.html",
-        "sizeBytes": 78248,
-        "lastModified": "2026-06-11T18:22:41.137Z"
+        "sizeBytes": 75483,
+        "lastModified": "2026-06-13T06:44:18.190Z"
       },
       {
         "path": "schools/teacher-training/index.html",
-        "sizeBytes": 78941,
-        "lastModified": "2026-06-11T18:22:41.138Z"
+        "sizeBytes": 76208,
+        "lastModified": "2026-06-13T06:44:18.191Z"
       },
       {
         "path": "schools/workshops/index.html",
-        "sizeBytes": 80045,
-        "lastModified": "2026-06-11T18:22:41.138Z"
+        "sizeBytes": 77273,
+        "lastModified": "2026-06-13T06:44:18.192Z"
       },
       {
         "path": "seo-ai-classes-for-school-students.html",
         "sizeBytes": 621,
-        "lastModified": "2026-06-08T18:12:18.889Z"
+        "lastModified": "2026-06-13T06:25:50.267Z"
       },
       {
         "path": "seo-coding-classes-for-kids-india.html",
         "sizeBytes": 617,
-        "lastModified": "2026-06-08T18:12:18.889Z"
+        "lastModified": "2026-06-13T06:25:50.267Z"
       },
       {
         "path": "seo-computer-classes-for-teenagers.html",
         "sizeBytes": 621,
-        "lastModified": "2026-06-08T18:12:18.890Z"
+        "lastModified": "2026-06-13T06:25:50.267Z"
       },
       {
         "path": "seo-digital-skills-classes-for-kids.html",
         "sizeBytes": 625,
-        "lastModified": "2026-06-08T18:12:18.890Z"
+        "lastModified": "2026-06-13T06:25:50.268Z"
       },
       {
         "path": "student-projects.html",
         "sizeBytes": 501,
-        "lastModified": "2026-06-08T18:12:18.890Z"
+        "lastModified": "2026-06-13T06:25:50.268Z"
       },
       {
         "path": "summer-course-for-kids.html",
-        "sizeBytes": 10199,
-        "lastModified": "2026-06-11T18:22:41.140Z"
+        "sizeBytes": 10138,
+        "lastModified": "2026-06-13T06:44:18.193Z"
       },
       {
         "path": "tools/ai-prompt-generator/index.html",
-        "sizeBytes": 72282,
-        "lastModified": "2026-06-11T18:22:41.140Z"
+        "sizeBytes": 72535,
+        "lastModified": "2026-06-13T06:44:18.194Z"
       },
       {
         "path": "tools/digital-readiness-quiz/index.html",
-        "sizeBytes": 77034,
-        "lastModified": "2026-06-11T18:22:41.141Z"
+        "sizeBytes": 77287,
+        "lastModified": "2026-06-13T06:44:18.195Z"
       },
       {
         "path": "tools/index.html",
-        "sizeBytes": 72472,
-        "lastModified": "2026-06-11T18:22:41.142Z"
+        "sizeBytes": 72725,
+        "lastModified": "2026-06-13T06:44:18.196Z"
       },
       {
         "path": "tools/password-strength-checker/index.html",
-        "sizeBytes": 72291,
-        "lastModified": "2026-06-11T18:22:41.143Z"
+        "sizeBytes": 72544,
+        "lastModified": "2026-06-13T06:44:18.197Z"
       },
       {
         "path": "tools/personality-test/assessment/index.html",
-        "sizeBytes": 65477,
-        "lastModified": "2026-06-11T18:22:41.144Z"
+        "sizeBytes": 65730,
+        "lastModified": "2026-06-13T06:44:18.197Z"
       },
       {
         "path": "tools/personality-test/index.html",
-        "sizeBytes": 72395,
-        "lastModified": "2026-06-11T18:22:41.144Z"
+        "sizeBytes": 72648,
+        "lastModified": "2026-06-13T06:44:18.199Z"
       },
       {
         "path": "tools/personality-test/register/index.html",
-        "sizeBytes": 73885,
-        "lastModified": "2026-06-11T18:22:41.145Z"
+        "sizeBytes": 74138,
+        "lastModified": "2026-06-13T06:44:18.200Z"
       },
       {
         "path": "tools/personality-test/result/index.html",
-        "sizeBytes": 66661,
-        "lastModified": "2026-06-11T18:22:41.146Z"
+        "sizeBytes": 66914,
+        "lastModified": "2026-06-13T06:44:18.201Z"
       },
       {
         "path": "tools/productivity-calculator/index.html",
-        "sizeBytes": 70866,
-        "lastModified": "2026-06-11T18:22:41.148Z"
+        "sizeBytes": 71119,
+        "lastModified": "2026-06-13T06:44:18.201Z"
       },
       {
         "path": "tools/typing-speed-test/index.html",
-        "sizeBytes": 73894,
-        "lastModified": "2026-06-11T18:22:41.149Z"
+        "sizeBytes": 74147,
+        "lastModified": "2026-06-13T06:44:18.203Z"
       }
     ],
     "css": [
@@ -1555,8 +1555,8 @@
       },
       {
         "path": "assets/css/base/autogenerated-utility.css",
-        "sizeBytes": 58211,
-        "lastModified": "2026-06-11T15:08:50.736Z"
+        "sizeBytes": 65472,
+        "lastModified": "2026-06-13T06:27:04.148Z"
       },
       {
         "path": "assets/css/base/color-dynamics.css",
@@ -1595,8 +1595,8 @@
       },
       {
         "path": "assets/css/bundle.min.css",
-        "sizeBytes": 389602,
-        "lastModified": "2026-06-11T18:22:17.693Z"
+        "sizeBytes": 396508,
+        "lastModified": "2026-06-13T06:43:55.367Z"
       },
       {
         "path": "assets/css/components/breadcrumbs.css",
@@ -1702,8 +1702,8 @@
     "js": [
       {
         "path": "assets/js/bundle.min.js",
-        "sizeBytes": 127587,
-        "lastModified": "2026-06-11T18:22:18.337Z"
+        "sizeBytes": 126975,
+        "lastModified": "2026-06-13T06:43:56.022Z"
       },
       {
         "path": "assets/js/color-dynamics.js",
@@ -1772,8 +1772,8 @@
       },
       {
         "path": "assets/js/shared-lead-handler.js",
-        "sizeBytes": 13250,
-        "lastModified": "2026-06-10T15:18:43.411Z"
+        "sizeBytes": 12638,
+        "lastModified": "2026-06-11T19:32:52.818Z"
       },
       {
         "path": "functions/index.js",

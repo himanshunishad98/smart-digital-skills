@@ -1966,9 +1966,13 @@
 .ref-section-gray-80 { padding: 80px 0; background: var(--gray-100); }
 .ref-bg-blue-25 { background: rgba(59,130,246,.25); }
 .ref-bg-purple-25 { background: rgba(139,92,246,.25); }
-.ref-footer-bottom-dark { background: var(--blue-900); padding: 40px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+.ref-footer-bottom-dark { background: var(--blue-900) !important; padding: 40px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); color: var(--white) !important; }
+.ref-text-link-white { color: rgba(255,255,255,0.85) !important; text-decoration: none; font-weight: 600; transition: color 0.22s ease; }
+.ref-text-link-white:hover { color: var(--yellow-400) !important; }
 .ref-text-muted-sm { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 10px; }
 .ref-flex-wrap-center-sm { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 0.85rem; }
+.ref-btn-footer-cta { font-size: 0.9rem; padding: 12px 26px; }
+.ref-footer-divider-top { margin-top: 0; }
 .ref-hero-title-clamp-lg { font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 20px; }
 .ref-hero-list-white { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.8; margin-bottom: 28px; list-style: none; padding: 0; }
 .ref-text-muted-badge { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 30px; }
@@ -2229,7 +2233,7 @@
 .ref-border-left-green { border-left-color: var(--green-500); }
 .ref-flex-col-center-full { margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; }
 .ref-hero-card-dark-320 { flex: 1.2; min-width: 320px; background: linear-gradient(135deg, #0f2861, #1a3a7a); border-radius: 20px; padding: 30px; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.25); }
-.ref-grid-autofit-280-60 { margin-top: 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.ref-grid-autofit-280-60 { margin: 60px auto !important; max-width: 1180px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; box-sizing: border-box; }
 .ref-card-gray-overflow { background: var(--gray-100); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
 .ref-img-full-cover { width: 100%; object-fit: cover; }
 .ref-pad-20 { padding: 20px; }

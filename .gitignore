@@ -109,3 +109,9 @@ schema-snapshots/
 # Duplicate Legacy Folders
 # ======================================
 Personality%20Test/
+
+# ======================================
+# Production Files Folder (entire folder ignored)
+# Everything inside production files/ is excluded from Git
+# ======================================
+production files/

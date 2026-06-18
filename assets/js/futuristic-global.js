@@ -66,7 +66,7 @@
     if (isMobile()) return; // skip heavy effects on mobile
 
     document.querySelectorAll(
-      '.why-card,.hl-card,.testi-card,.project-card,.trust-card,.daily-card,.review-card,.gallery-card'
+      '.why-card,.hl-card,.testi-card,.project-card,.trust-card,.daily-card,.review-card'
     ).forEach((el, i) => {
       el.classList.add('cd-card');
       el.style.setProperty('--cd-stagger', (i * 0.45) + 's');

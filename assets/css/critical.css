@@ -93,6 +93,8 @@ button{cursor:pointer;border:none;font-family:inherit}
 .section-tag .dot{width:8px;height:8px;background:var(--yellow-400);border-radius:50%;display:inline-block}
 .section-title{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:var(--blue-900);margin-bottom:12px;position:relative;display:inline-block}
 .section-title span{color:var(--blue-600)}
+.section-title.title-visible{color:var(--blue-700)}
+.section-title.title-visible span{color:var(--blue-600)}
 .text-center{text-align:center}
 
 /* 9. FADE-UP initial state (prevents layout shift during JS init) */

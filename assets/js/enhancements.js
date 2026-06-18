@@ -217,6 +217,21 @@ document.addEventListener('DOMContentLoaded', function () {
       for (var i = 0; i < depth; i++) basePath += '../';
     } else {
       var segments = window.location.pathname.split('/').filter(Boolean);
+      if (window.location.protocol === 'file:') {
+        var folders = ['cities', 'resources', 'tools', 'about', 'age-groups', 'blog', 'compare', 'contact', 'courses', 'legal', 'parent-hub', 'programs', 'projects', 'schools', 'Personality Test', 'Personality%20Test'];
+        var rootIdx = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (folders.indexOf(segments[i]) !== -1) {
+            rootIdx = i;
+            break;
+          }
+        }
+        if (rootIdx !== -1) {
+          segments = segments.slice(rootIdx);
+        } else {
+          segments = [];
+        }
+      }
       if (segments.length > 0 && segments[segments.length - 1].indexOf('.') !== -1) {
         segments.pop();
       }

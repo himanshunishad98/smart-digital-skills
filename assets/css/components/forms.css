@@ -77,13 +77,24 @@
   box-shadow:0 0 0 3px rgba(251,191,36,.18);
 }
 
-/* Light background form overrides (e.g. contact & careers form cards) */
+/* ============================================================
+   SCHOOL WORKSHOP & INQUIRY FORM SECTION
+   ============================================================ */
+.school-form-section {
+  padding: 80px 0;
+  background: var(--blue-50);
+}
+
+/* Light background form overrides (e.g. contact, careers, and school form cards) */
 .contact-form-card .form-group input,
 .contact-form-card .form-group select,
 .contact-form-card .form-group textarea,
 .careers-form-card .form-group input,
 .careers-form-card .form-group select,
-.careers-form-card .form-group textarea {
+.careers-form-card .form-group textarea,
+.school-form-section .form-group input,
+.school-form-section .form-group select,
+.school-form-section .form-group textarea {
   color: var(--gray-900);
   background-color: var(--white);
   border-color: var(--gray-300);
@@ -92,18 +103,25 @@
 .careers-form-card .form-group label {
   color: #000000;
 }
+.school-form-section .form-group label {
+  color: var(--blue-900);
+}
 .contact-form-card .form-group input::placeholder,
 .contact-form-card .form-group textarea::placeholder,
 .careers-form-card .form-group input::placeholder,
-.careers-form-card .form-group textarea::placeholder {
+.careers-form-card .form-group textarea::placeholder,
+.school-form-section .form-group input::placeholder,
+.school-form-section .form-group textarea::placeholder {
   color: var(--gray-500);
 }
 .contact-form-card .form-group select,
-.careers-form-card .form-group select {
+.careers-form-card .form-group select,
+.school-form-section .form-group select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(15,40,97,0.6)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 .contact-form-card .form-group select option,
-.careers-form-card .form-group select option {
+.careers-form-card .form-group select option,
+.school-form-section .form-group select option {
   background: var(--white);
   color: var(--gray-900);
 }
@@ -112,7 +130,10 @@
 .contact-form-card .form-group textarea:hover,
 .careers-form-card .form-group input:hover,
 .careers-form-card .form-group select:hover,
-.careers-form-card .form-group textarea:hover {
+.careers-form-card .form-group textarea:hover,
+.school-form-section .form-group input:hover,
+.school-form-section .form-group select:hover,
+.school-form-section .form-group textarea:hover {
   border-color: var(--blue-400);
 }
 .contact-form-card .form-group input:focus,
@@ -120,7 +141,10 @@
 .contact-form-card .form-group textarea:focus,
 .careers-form-card .form-group input:focus,
 .careers-form-card .form-group select:focus,
-.careers-form-card .form-group textarea:focus {
+.careers-form-card .form-group textarea:focus,
+.school-form-section .form-group input:focus,
+.school-form-section .form-group select:focus,
+.school-form-section .form-group textarea:focus {
   border-color: var(--blue-600);
   background-color: var(--white);
   box-shadow: 0 0 0 3px rgba(37,99,235,.15);

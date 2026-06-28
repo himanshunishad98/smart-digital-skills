@@ -180,9 +180,9 @@
             <h4>Courses</h4>
             <ul>
               <li><a href="${basePath}courses/index.html">Courses Overview</a></li>
-              <li><a href="${basePath}courses/computer-basics/index.html">Computer Basics</a></li>
-              <li><a href="${basePath}courses/typing-course/index.html">Typing Course</a></li>
-              <li><a href="${basePath}courses/coding/index.html">Coding Course</a></li>
+              <li><a href="${basePath}courses/digital-literacy-online-presence/index.html">Computer Basics</a></li>
+              <li><a href="${basePath}courses/digital-literacy-online-presence/index.html">Typing Course</a></li>
+              <li><a href="${basePath}courses/computational-thinking-coding-logic/index.html">Coding Course</a></li>
               <li><a href="${basePath}courses/ai-classes-for-kids/index.html">AI Classes for Kids</a></li>
               <li><a href="${basePath}courses/excel-course/index.html">Excel Course</a></li>
               <li><a href="${basePath}courses/powerpoint-course/index.html">PowerPoint Course</a></li>
@@ -213,8 +213,8 @@
             <ul>
               <li><a href="${basePath}compare/index.html">Compare Overview</a></li>
               <li><a href="${basePath}compare/coding-vs-digital-skills/index.html">Coding vs Digital Skills</a></li>
-              <li><a href="${basePath}compare/ai-vs-coding-for-kids/index.html">AI vs Coding for Kids</a></li>
-              <li><a href="${basePath}compare/online-vs-offline-computer-classes/index.html">Online vs Offline Classes</a></li>
+              <li><a href="${basePath}compare/ai-vs-coding/index.html">AI vs Coding for Kids</a></li>
+              <li><a href="${basePath}compare/online-vs-offline-learning/index.html">Online vs Offline Classes</a></li>
               <li><a href="${basePath}compare/skillnest-vs-traditional-computer-classes/index.html"><span class="brand-name">SkillNest</span> vs Traditional</a></li>
             </ul>
           </div>
@@ -292,8 +292,8 @@
               <li><a href="${basePath}index.html#highlights">Program Highlights</a></li>
               <li><a href="${basePath}index.html#parents">Parent Info</a></li>
               <li><a href="${basePath}index.html#faq">FAQ</a></li>
-              <li><a href="${basePath}courses/computer-basics/index.html">Computer Basics</a></li>
-              <li><a href="${basePath}courses/coding/index.html">Coding Course</a></li>
+              <li><a href="${basePath}courses/digital-literacy-online-presence/index.html">Computer Basics</a></li>
+              <li><a href="${basePath}courses/computational-thinking-coding-logic/index.html">Coding Course</a></li>
               <li><a href="${basePath}schools/index.html">School Partnerships</a></li>
               <li><a href="${basePath}blog/index.html">Parent Blog</a></li>
             </ul>
@@ -409,18 +409,7 @@
     // 3. Dynamic component injection for Footer
     const footerEl = document.querySelector('footer.footer') || document.querySelector('footer');
     if (footerEl && (footerEl.innerHTML.trim() === '' || !footerEl.querySelector('.footer-grid'))) {
-      // Preserve regional cities panel if it exists in the footer
-      const regionalPanel = footerEl.querySelector('.locations-serve-footer-panel');
-      const regionalPanelHtml = regionalPanel ? regionalPanel.outerHTML : '';
       footerEl.innerHTML = getFooterHTML(basePath, config);
-      if (regionalPanelHtml) {
-        const bottomDivider = footerEl.querySelector('.footer-divider');
-        if (bottomDivider) {
-          bottomDivider.insertAdjacentHTML('beforebegin', regionalPanelHtml);
-        } else {
-          footerEl.querySelector('.container').appendChild(regionalPanel);
-        }
-      }
     }
 
     // 3b. Inject SEO Quick Links block after footer if not already present
@@ -432,7 +421,7 @@
           <p class="ref-text-muted-sm">Explore More:</p>
           <div class="ref-flex-wrap-center-sm">
             <a class="ref-text-link-white" href="${basePath}index.html">Home</a>
-            <a class="ref-text-link-white" href="${basePath}courses/computer-basics/index.html">All Courses</a>
+            <a class="ref-text-link-white" href="${basePath}courses/index.html">All Courses</a>
             <a class="ref-text-link-white" href="${basePath}cities/mumbai/index.html">Classes in Mumbai</a>
             <a class="ref-text-link-white" href="${basePath}cities/delhi/index.html">Classes in Delhi</a>
             <a class="ref-text-link-white" href="${basePath}cities/bangalore/index.html">Classes in Bangalore</a>
@@ -443,9 +432,9 @@
             <a class="ref-text-link-white" href="${basePath}cities/chennai/index.html">AI Classes in Chennai</a>
             <a class="ref-text-link-white" href="${basePath}cities/kolkata/index.html">Digital Skills in Kolkata</a>
             <a class="ref-text-link-white" href="${basePath}courses/ai-classes-for-students/index.html">AI Classes for Students</a>
-            <a class="ref-text-link-white" href="${basePath}courses/coding/index.html">Coding Classes India</a>
-            <a class="ref-text-link-white" href="${basePath}courses/computer-basics/index.html">Computer Classes for Teenagers</a>
-            <a class="ref-text-link-white" href="${basePath}programs/digital-skills-foundation/index.html">Digital Skills for Kids</a>
+            <a class="ref-text-link-white" href="${basePath}courses/computational-thinking-coding-logic/index.html">Coding Classes India</a>
+            <a class="ref-text-link-white" href="${basePath}courses/digital-literacy-online-presence/index.html">Computer Classes for Teenagers</a>
+            <a class="ref-text-link-white" href="${basePath}courses/digital-literacy-online-presence/index.html">Digital Skills for Kids</a>
             <a class="ref-text-link-white" href="${basePath}blog/index.html">Blog</a>
             <a class="ref-text-link-white" href="${basePath}projects/index.html">Student Projects</a>
             <a class="ref-text-link-white" href="${basePath}parent-hub/testimonials/index.html">Parent Reviews</a>

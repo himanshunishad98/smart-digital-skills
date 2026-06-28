@@ -1,65 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-
     <loc>https://skillnest.co.in/courses/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-
-    <loc>https://skillnest.co.in/courses/computer-basics/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <loc>https://skillnest.co.in/courses/communication-confidence-lab/</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-
-    <loc>https://skillnest.co.in/courses/typing-course/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <loc>https://skillnest.co.in/courses/multilingual-communication-mastery/</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-
-    <loc>https://skillnest.co.in/courses/excel-course/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <loc>https://skillnest.co.in/courses/critical-thinking-problem-solving/</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-
-    <loc>https://skillnest.co.in/courses/powerpoint-course/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <loc>https://skillnest.co.in/courses/computational-thinking-coding-logic/</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-
-    <loc>https://skillnest.co.in/courses/internet-safety-course/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <loc>https://skillnest.co.in/courses/emotional-intelligence-empathy/</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-
-    <loc>https://skillnest.co.in/courses/productivity-tools-course/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <loc>https://skillnest.co.in/courses/parakh-presentation-skills/</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-
-    <loc>https://skillnest.co.in/courses/coding/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <loc>https://skillnest.co.in/courses/public-speaking-olympiad-prep/</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-
-    <loc>https://skillnest.co.in/courses/ai-classes-for-students/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <loc>https://skillnest.co.in/courses/ai-literacy-prompt-engineering/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://skillnest.co.in/courses/design-thinking-problem-solving/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://skillnest.co.in/courses/digital-literacy-online-presence/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://skillnest.co.in/courses/digital-content-citizenship/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://skillnest.co.in/courses/financial-literacy-payments/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://skillnest.co.in/courses/financial-literacy-wealth-creation/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://skillnest.co.in/courses/ipr-patent-basics/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://skillnest.co.in/courses/retail-customer-service/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://skillnest.co.in/courses/tourism-hospitality-communication/</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>

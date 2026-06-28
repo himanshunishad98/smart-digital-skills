@@ -4,7 +4,17 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "production files/**",
+      "scratch/**",
+      "tests/**",
+      "schema-snapshots/**",
+      "package.json",
+      "package-lock.json",
+      ".gitignore",
+      ".firebaserc",
+      "*-report.json",
+      "tracking-compliance-report.json"
     ],
     "rewrites": [
       {

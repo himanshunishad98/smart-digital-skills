@@ -169,6 +169,37 @@
 .fade-up-delay-2{transition-delay:.20s}
 .fade-up-delay-3{transition-delay:.30s}
 
+/* Improved section division and premium hover animations for fade-up divs */
+div.fade-up {
+  transition: opacity 0.65s cubic-bezier(.22,1,.36,1), transform 0.65s cubic-bezier(.22,1,.36,1), box-shadow 0.4s cubic-bezier(.16,1,.3,1), border-color 0.4s cubic-bezier(.16,1,.3,1), background-color 0.3s ease;
+}
+
+div.fade-up.visible.fg-visible {
+  margin-bottom: 40px !important; /* Enhanced section division spacing */
+}
+
+/* Premium hover effects for light cards utilizing fade-up */
+div.why-card.fade-up.visible.fg-visible:hover,
+div.project-card.fade-up.visible.fg-visible:hover,
+div.ba-card.fade-up.visible.fg-visible:hover,
+div.conv-card.fade-up.visible.fg-visible:hover,
+div.daily-card.fade-up.visible.fg-visible:hover,
+div.trust-card.fade-up.visible.fg-visible:hover,
+div.testi-card.fade-up.visible.fg-visible:hover {
+  transform: translateY(-8px) scale(1.025) !important;
+  box-shadow: 0 24px 48px rgba(15,40,97,0.12), 0 0 0 1px rgba(37,99,235,0.2) !important;
+  border-color: var(--blue-400) !important;
+  background-color: var(--white) !important;
+}
+
+/* Premium hover effects for dark highlights cards utilizing fade-up */
+div.hl-card.fade-up.visible.fg-visible:hover {
+  transform: translateY(-8px) scale(1.025) !important;
+  background-color: rgba(255,255,255,0.15) !important;
+  box-shadow: 0 20px 40px rgba(251,191,36,0.15), 0 0 0 1px rgba(251,191,36,0.3) !important;
+  border-color: var(--yellow-400) !important;
+}
+
 /* Highlights section */
 .highlights-section{position:relative;overflow:hidden}
 
@@ -947,18 +978,18 @@ body:has(.sticky-cta-strip.visible) .scroll-cta-popup {
   box-shadow: 0 8px 24px rgba(15, 40, 97, 0.06) !important;
 }
 
-/* Mid-Page CTA Banner � h2 heading correction */
+/* Mid-Page CTA Banner — h2 heading correction */
 .midpage-cta-text h2{
   font-family:'Sora',sans-serif;font-size:clamp(1.1rem,2.5vw,1.5rem);
   font-weight:800;color:var(--white);margin-bottom:6px;
 }
 /* ============================================================
-   ARTICLE CONTENT � Readability & Typography System
-   Governs all blog article pages under /blog/*/
+   ARTICLE CONTENT  Readability & Typography System
+   Governs all blog article pages under /blog/
    NO inline styles permitted inside .article-content
 ============================================================ */
 
-/* Base article shell � centered, padded reading column */
+/* Base article shell  centered, padded reading column */
 .article-shell {
   background: var(--fg-card-bg, rgba(255,255,255,0.04));
   border: 1px solid var(--glass-blue-border, rgba(255,255,255,0.08));

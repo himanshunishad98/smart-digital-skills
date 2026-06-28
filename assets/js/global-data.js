@@ -120,6 +120,13 @@ function setHTML(id, value) {
       }
     });
 
+    // Inject per-course prices via data-course-price="<slug>" attribute
+    document.querySelectorAll('[data-course-price]').forEach(el => {
+      const slug = el.getAttribute('data-course-price');
+      const price = config.COURSE_PRICES && config.COURSE_PRICES[slug];
+      if (price) el.innerText = price;
+    });
+
     document.querySelectorAll('[data-config-href]').forEach(el => {
       const key = el.getAttribute('data-config-href');
       if (key === 'mobile') {
@@ -228,16 +235,6 @@ function setHTML(id, value) {
       document.head.appendChild(orgScript);
     } catch (err) {
       console.error("Error injecting dynamic Organization schema:", err);
-    }
-
-    // 5. Dynamic Footer Location Panel check & replace
-    const cityLinks = document.querySelectorAll('.locations-serve-footer-panel a');
-    if (cityLinks.length) {
-      cityLinks.forEach(link => {
-        if (link.innerText.includes("Bhilai") || link.innerText.includes("Durg")) {
-          // accent color highlight or custom updates if needed
-        }
-      });
     }
   }
 

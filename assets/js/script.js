@@ -193,17 +193,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Unified Inactivity / Activity logic
   let inactivityTimer;
-  const INACTIVITY_LIMIT = 5000; // 5 seconds of no user interaction
+  const INACTIVITY_LIMIT = (window.CONFIG && window.CONFIG.exitPopupDelay) || 10000;
 
   function resetInactivityTimer() {
-    // If the exit popup is currently visible, let the user fill in the details
+    // If the exit popup is currently visible or tab is hidden, do nothing
     if (popup && popup.classList.contains('is-visible')) {
+      return;
+    }
+    if (document.visibilityState === 'hidden') {
       return;
     }
 
     clearTimeout(inactivityTimer);
     
     inactivityTimer = setTimeout(() => {
+      // Don't show if tab is hidden
+      if (document.visibilityState === 'hidden') {
+        return;
+      }
       // When user becomes inactive, show exit popup and hide scroll popup
       const scrollPopup = document.querySelector('.scroll-cta-popup');
       if (scrollPopup) {
@@ -217,6 +224,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const activityEvents = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart', 'touchmove'];
   activityEvents.forEach(eventName => {
     window.addEventListener(eventName, resetInactivityTimer, { passive: true });
+  });
+
+  // Handle visibility changes (tab switches, opening in new tab, etc.) to pause/resume timer
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      resetInactivityTimer();
+    } else {
+      clearTimeout(inactivityTimer);
+    }
   });
 
   // Start the inactivity timer on page load

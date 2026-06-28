@@ -3799,6 +3799,7 @@ header.navbar {
               linear-gradient(135deg, #061233 0%, #0d2870 50%, #173fa3 100%) !important;
   background-attachment: fixed !important;
   color: #fff;
+}
 .pt-assessment-page::before {
   content: '';
   position: fixed;

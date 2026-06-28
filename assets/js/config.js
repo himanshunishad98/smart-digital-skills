@@ -29,7 +29,26 @@ const SITE_CONFIG = {
   // Pricing
   CURRENT_PRICE: "\u20b93499",
   ORIGINAL_PRICE: "\u20b95499",
-  REGISTRATION_FEES: "\u20b999",
+  REGISTRATION_FEES: "\u20b9499",
+
+  COURSE_PRICES: {
+    'communication-confidence-lab':       '\u20b94,999',
+    'multilingual-communication-mastery': '\u20b96,999',
+    'critical-thinking-problem-solving':  '\u20b96,999',
+    'computational-thinking-coding-logic': '\u20b98,999',
+    'emotional-intelligence-empathy':     '\u20b95,999',
+    'parakh-presentation-skills':         '\u20b95,999',
+    'public-speaking-olympiad-prep':      '\u20b915,000 - \u20b920,000',
+    'ai-literacy-prompt-engineering':     '\u20b98,000 - \u20b912,000',
+    'design-thinking-problem-solving':    '\u20b912,000 - \u20b914,000',
+    'digital-literacy-online-presence':   '\u20b97,999',
+    'digital-content-citizenship':        '\u20b97,000 - \u20b99,000',
+    'financial-literacy-payments':        '\u20b96,999',
+    'financial-literacy-wealth-creation': '\u20b95,000 - \u20b97,000',
+    'ipr-patent-basics':                  '\u20b98,999',
+    'retail-customer-service':            '\u20b96,999',
+    'tourism-hospitality-communication':  '\u20b97,999'
+  },
 
   // Social Media
   INSTAGRAM: "https://instagram.com/skillnest.co.in",
@@ -48,7 +67,10 @@ const SITE_CONFIG = {
   // Sticky CTA Config
   STICKY_CTA_TITLE: "36-Day Digital Skills Program",
   STICKY_CTA_SUB: "Special offer · Enroll before seats fill up",
-  STICKY_CTA_BADGE: "Limited Seats"
+  STICKY_CTA_BADGE: "Limited Seats",
+
+  // Exit Popup Delay (10 seconds)
+  EXIT_POPUP_DELAY: 10000
 };
 
 // Legacy compatibility
@@ -96,6 +118,7 @@ var CONFIG = {
   stickyCtaTitle: SITE_CONFIG.STICKY_CTA_TITLE,
   stickyCtaSub: SITE_CONFIG.STICKY_CTA_SUB,
   stickyCtaBadge: SITE_CONFIG.STICKY_CTA_BADGE,
+  exitPopupDelay: SITE_CONFIG.EXIT_POPUP_DELAY,
   ...existingConfig
 };
 

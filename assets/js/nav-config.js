@@ -21,31 +21,18 @@
         ]
       },
       {
-        name: 'PROGRAMS',
-        url: '/programs/',
-        dropdown: [
-          { name: 'Programs Overview', url: '/programs/' },
-          { name: 'Digital Skills Foundation', url: '/programs/digital-skills-foundation/' },
-          { name: 'AI Skills for Students', url: '/programs/ai-skills-for-students/' },
-          { name: 'Coding Program', url: '/programs/coding/' },
-          { name: 'Excel for Students', url: '/programs/excel-for-students/' },
-          { name: 'Productivity Tools', url: '/programs/productivity-tools/' },
-          { name: 'Cyber Safety', url: '/programs/cyber-safety/' }
-        ]
-      },
-      {
         name: 'COURSES',
         url: '/courses/',
         dropdown: [
           { name: 'Courses Overview', url: '/courses/' },
-          { name: 'Computer Basics', url: '/courses/computer-basics/' },
-          { name: 'Typing Course', url: '/courses/typing-course/' },
-          { name: 'Coding Course', url: '/courses/coding/' },
-          { name: 'AI Classes for Kids', url: '/courses/ai-classes-for-kids/' },
-          { name: 'Excel Course', url: '/courses/excel-course/' },
-          { name: 'PowerPoint Course', url: '/courses/powerpoint-course/' },
-          { name: 'Internet Safety Course', url: '/courses/internet-safety-course/' },
-          { name: 'Productivity Tools Course', url: '/courses/productivity-tools-course/' }
+          { name: 'Communication & Confidence', url: '/courses/communication-confidence-lab/' },
+          { name: 'Coding Logic', url: '/courses/computational-thinking-coding-logic/' },
+          { name: 'AI & Prompting', url: '/courses/ai-literacy-prompt-engineering/' },
+          { name: 'Design Thinking', url: '/courses/design-thinking-problem-solving/' },
+          { name: 'Digital Literacy', url: '/courses/digital-literacy-online-presence/' },
+          { name: 'Financial Literacy', url: '/courses/financial-literacy-payments/' },
+          { name: 'IPR & Patents', url: '/courses/ipr-patent-basics/' },
+          { name: 'View All Courses', url: '/courses/' }
         ]
       },
       {

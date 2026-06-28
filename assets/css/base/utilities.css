@@ -99,10 +99,6 @@ div.fade-up {
   position: absolute !important;
 }
 
-.brand-name::before {
-  content: "SkillNest";
-}
-
 /* Screen Reader Only Utility */
 .sr-only {
   position: absolute !important;
@@ -1992,6 +1988,7 @@ div.fade-up {
 .ref-text-link-white:hover { color: var(--yellow-400) !important; }
 .ref-text-muted-sm { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 10px; }
 .ref-flex-wrap-center-sm { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 0.85rem; }
+
 .ref-btn-footer-cta { font-size: 0.9rem; padding: 12px 26px; }
 .ref-footer-divider-top { margin-top: 0; }
 .ref-hero-title-clamp-lg { font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 20px; }
@@ -2034,7 +2031,7 @@ div.fade-up {
 .ref-blob-blue { position: absolute; top: -10%; left: -5%; width: 300px; height: 300px; background: var(--blue-600); filter: blur(100px); border-radius: 50%; opacity: 0.3; }
 .ref-blob-yellow { position: absolute; bottom: -10%; right: -5%; width: 300px; height: 300px; background: var(--yellow-400); filter: blur(100px); border-radius: 50%; opacity: 0.2; }
 .ref-pos-rel-z1 { position: relative; z-index: 1; }
-.ref-flex-wrap-900 { max-width: 900px; margin: 40px auto; display: flex; flex-wrap: wrap; gap: 30px; }
+.ref-flex-wrap-900 { max-width: 900px; margin: 40px auto; display: flex; flex-direction: column; gap: 30px; }
 .ref-card-glass-dark { flex: 1; min-width: 300px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 30px; color: white; }
 .ref-subtitle-white { font-family: 'Sora', sans-serif; font-size: 1.2rem; margin-bottom: 20px; color: var(--white); }
 .ref-flex-col-white { display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem; color: rgba(255,255,255,0.85); }

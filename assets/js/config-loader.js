@@ -354,8 +354,8 @@
     const title = config.STICKY_CTA_TITLE || "36-Day Digital Skills Program";
     const sub = config.STICKY_CTA_SUB || "Special offer · Enroll before seats fill up";
     const badge = config.STICKY_CTA_BADGE || "Limited Seats";
-    const originalPrice = config.ORIGINAL_PRICE || "₹5499";
-    const currentPrice = config.CURRENT_PRICE || "₹3499";
+    const originalPrice = config.ORIGINAL_PRICE || "₹7499";
+    const currentPrice = config.CURRENT_PRICE || "₹5499";
     
     const demoUrl = basePath + "contact/book-demo.html";
     const enrollUrl = basePath + "programs/admission/index.html";

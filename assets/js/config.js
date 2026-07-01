@@ -27,8 +27,8 @@ const SITE_CONFIG = {
   WEBSITE: "https://skillnest.co.in",
 
   // Pricing
-  CURRENT_PRICE: "\u20b93499",
-  ORIGINAL_PRICE: "\u20b95499",
+  CURRENT_PRICE: "\u20b95499",
+  ORIGINAL_PRICE: "\u20b97499",
   REGISTRATION_FEES: "\u20b9499",
 
   COURSE_PRICES: {

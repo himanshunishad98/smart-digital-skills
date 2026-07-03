@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Safety & Fraud Awareness Quiz | SkillNest</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root{
+    --navy:#0f1f4d;
+    --blue:#1e40af;
+    --blue-light:#3b5fd8;
+    --blue-pale:#eef2ff;
+    --accent:#f59e0b;
+    --green:#16a34a;
+    --red:#dc2626;
+    --ink:#1e2433;
+    --muted:#64748b;
+    --card:#ffffff;
+    --bg:#f4f6fb;
+    --radius:18px;
+    font-size:16px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:linear-gradient(180deg,#eef2ff 0%, #f4f6fb 40%);
+    color:var(--ink);
+    min-height:100vh;
+  }
+  .topbar{
+    background:linear-gradient(90deg,var(--navy),var(--blue) 60%,var(--blue-light));
+    color:#fff;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 4px 18px rgba(15,31,77,.25);
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem;letter-spacing:.2px;}
+  .brand .badge{
+    background:#fff;color:var(--blue);
+    border-radius:10px;padding:4px 8px;font-size:1rem;
+  }
+  .tag{font-size:.72rem;background:rgba(255,255,255,.15);padding:4px 10px;border-radius:999px;}
+  .wrap{max-width:820px;margin:0 auto;padding:28px 18px 60px;}
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:0 10px 30px rgba(30,64,175,.10), 0 1px 0 rgba(15,23,42,.03);
+    padding:32px;
+    border:1px solid #e7ebf7;
+  }
+  h1{font-size:1.6rem;margin:0 0 6px;color:var(--navy);}
+  h2{font-size:1.2rem;margin:0 0 12px;color:var(--navy);}
+  p.lead{color:var(--muted);margin:0 0 22px;line-height:1.55;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 26px;}
+  .pill{background:var(--blue-pale);color:var(--blue);font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:999px;}
+  label.field-label{display:block;font-weight:700;font-size:.9rem;color:var(--navy);margin-bottom:6px;}
+  input[type=text]{
+    width:100%;padding:13px 14px;border-radius:12px;border:1.5px solid #d7deef;
+    font-size:1rem;margin-bottom:18px;outline:none;transition:.15s;
+  }
+  input[type=text]:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(30,64,175,.12);}
+  .btn{
+    appearance:none;border:none;cursor:pointer;
+    background:linear-gradient(90deg,var(--blue),var(--blue-light));
+    color:#fff;font-weight:700;font-size:1rem;
+    padding:14px 26px;border-radius:12px;
+    box-shadow:0 8px 20px rgba(30,64,175,.28);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(30,64,175,.35);}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none;}
+  .btn.secondary{background:#fff;color:var(--blue);border:1.5px solid var(--blue);box-shadow:none;}
+  .btn.ghost{background:transparent;color:var(--muted);box-shadow:none;padding:10px 16px;}
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+  .progress-wrap{margin-bottom:20px;}
+  .progress-bar{height:10px;background:#e7ebf7;border-radius:999px;overflow:hidden;}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--blue));border-radius:999px;transition:width .25s ease;}
+  .progress-text{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-top:7px;font-weight:600;}
+  .qtext{font-size:1.12rem;font-weight:700;color:var(--navy);margin:4px 0 20px;line-height:1.5;}
+  .options{display:flex;flex-direction:column;gap:11px;margin-bottom:8px;}
+  .option{
+    display:flex;align-items:center;gap:12px;
+    border:1.6px solid #dde3f2;border-radius:13px;
+    padding:13px 15px;cursor:pointer;transition:.13s;
+    background:#fbfcff;
+  }
+  .option:hover{border-color:var(--blue-light);background:var(--blue-pale);}
+  .option.selected{border-color:var(--blue);background:var(--blue-pale);box-shadow:0 0 0 3px rgba(30,64,175,.10);}
+  .option .letter{
+    width:28px;height:28px;border-radius:8px;background:#eef2ff;color:var(--blue);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex:none;
+  }
+  .option.selected .letter{background:var(--blue);color:#fff;}
+  .option span.opt-text{font-size:.98rem;}
+  .footer-nav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;}
+  .qcounter-chip{font-size:.8rem;color:var(--muted);font-weight:600;}
+  .center{text-align:center;}
+  .score-hero{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;border-radius:16px;padding:30px 20px;margin-bottom:24px;
+  }
+  .score-num{font-size:3rem;font-weight:900;line-height:1;}
+  .score-sub{opacity:.9;margin-top:6px;font-size:.95rem;}
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;}
+  .stat{background:var(--blue-pale);border-radius:12px;padding:16px 10px;text-align:center;}
+  .stat .n{font-size:1.5rem;font-weight:800;color:var(--navy);}
+  .stat .l{font-size:.75rem;color:var(--muted);font-weight:600;margin-top:2px;}
+  .review-item{border-bottom:1px solid #e7ebf7;padding:14px 0;}
+  .review-item:last-child{border-bottom:none;}
+  .review-q{font-weight:700;font-size:.93rem;color:var(--navy);margin-bottom:6px;}
+  .review-line{font-size:.85rem;margin:2px 0;}
+  .ok{color:var(--green);font-weight:700;}
+  .bad{color:var(--red);font-weight:700;}
+  .badgey{display:inline-block;font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;margin-right:6px;}
+  .badgey.correct{background:#dcfce7;color:var(--green);}
+  .badgey.wrong{background:#fee2e2;color:var(--red);}
+  footer.small{text-align:center;color:var(--muted);font-size:.78rem;margin-top:26px;}
+  .hidden{display:none !important;}
+  @media (max-width:600px){
+    .wrap{padding:16px 10px 40px;}
+    .card{padding:20px;}
+    .stat-grid{grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    .score-num{font-size:2.3rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="badge">🎓</span> SkillNest <span style="font-weight:500;opacity:.85;">Assessments</span></div>
+  <div class="tag">Cyber Safety & Fraud Awareness</div>
+</div>
+
+<div class="wrap">
+
+  <!-- START SCREEN -->
+  <div class="card" id="startScreen">
+    <h1>🛡️ Cyber Safety & Fraud Awareness Quiz</h1>
+    <p class="lead">Test what you've learned about staying safe online and spotting scams. Every question here comes straight from your SkillNest Cyber Safety and Fraud Awareness material.</p>
+    <div class="pill-row">
+      <span class="pill">📋 105 Questions</span>
+      <span class="pill">🔀 Fresh order every attempt</span>
+      <span class="pill">⏱️ Self-paced</span>
+      <span class="pill">📄 Downloadable PDF report</span>
+    </div>
+    <label class="field-label" for="studentName">Student Name</label>
+    <input type="text" id="studentName" placeholder="Enter your full name">
+    <label class="field-label" for="studentClass">Class / Section (optional)</label>
+    <input type="text" id="studentClass" placeholder="e.g. Class 7 - B">
+    <div class="btn-row">
+      <button class="btn" id="startBtn">Start Quiz →</button>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div class="card hidden" id="quizScreen">
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-text">
+        <span id="progressLabel">Question 1 of 105</span>
+        <span id="answeredLabel">0 answered</span>
+      </div>
+    </div>
+    <div class="qtext" id="qtext"></div>
+    <div class="options" id="optionsBox"></div>
+    <div class="footer-nav">
+      <button class="btn ghost" id="prevBtn">← Previous</button>
+      <span class="qcounter-chip" id="qcounterChip"></span>
+      <button class="btn" id="nextBtn">Next →</button>
+    </div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div class="card hidden" id="resultScreen">
+    <div class="score-hero center">
+      <div style="font-size:.95rem;opacity:.9;" id="resultName">Report for Student</div>
+      <div class="score-num" id="scorePct">0%</div>
+      <div class="score-sub" id="scoreLine">0 out of 105 correct</div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="n" id="statCorrect">0</div><div class="l">✅ Correct</div></div>
+      <div class="stat"><div class="n" id="statWrong">0</div><div class="l">❌ Incorrect</div></div>
+      <div class="stat"><div class="n" id="statGrade">-</div><div class="l">🏅 Grade</div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="downloadPdfBtn">📄 Download PDF Report</button>
+      <button class="btn secondary" id="toggleReviewBtn">🔍 Show Answer Review</button>
+      <button class="btn ghost" id="retakeBtn">🔁 Retake Quiz</button>
+    </div>
+    <div id="reviewBox" style="margin-top:22px;" class="hidden"></div>
+  </div>
+
+  <footer class="small">SkillNest · Cyber Safety & Fraud Awareness Program · Questions sourced from official course material</footer>
+</div>
+
+<script>
+/* ===================== QUESTION BANK ===================== *
+   Each entry: [ question, correctAnswer, wrong1, wrong2, wrong3 ]
+   Source: FRAUD_AWARENESS.docx (F) and Cyber__Safety.docx (C)
+   ============================================================ */
+const BANK = [
+// ---------- FRAUD AWARENESS ----------
+["What does the word 'Fraud' mean?","Trying to cheat people to steal money or personal information","A type of computer virus","A fast internet connection","A social media app"],
+["Through which of these can fraud commonly take place?","Phone calls, messages, emails and fake websites","Only through bank branches","Only through newspapers","Only through television"],
+["Which of these is a common disguise fraudsters use to gain trust?","Bank Officer","School Principal","Traffic Police","Family Doctor"],
+["Which of these is also a common disguise fraudsters use?","Delivery Agent","Class Teacher","Family Friend","Neighbour"],
+["Which of these is also a common disguise mentioned in the document?","Customer Care Executive","Sports Coach","Music Teacher","Family Doctor"],
+["Fraudsters may pretend to represent which of these?","Lottery Company","Local Bakery","School Library","Public Park"],
+["Fraudsters may also pretend to be a...","Gaming Website","Weather App","Alarm Clock App","Calculator App"],
+["What is an OTP scam?","When someone calls pretending to be from your bank and asks for your OTP","When your phone battery drains fast","When you forget your password","When your internet is slow"],
+["If someone calls saying 'I am calling from your bank, please tell me your OTP,' what should you do?","Refuse and not share it","Share it immediately","Ask them to call later","Share half of the OTP"],
+["What does OTP stand for?","One-Time Password","Online Transaction Process","Open Text Protocol","Official Transfer Payment"],
+["According to the document, an OTP is like...","The key to your account","A gift card code","A phone number","A website address"],
+["Do banks, payment apps, or trusted companies ever ask for your OTP over a phone call or message?","No, never","Yes, always","Only on weekends","Only if you call them first"],
+["In the fake prize message example, how much money did the message claim was won?","₹50,000","₹5,000","₹500","₹5,00,000"],
+["Which of these is NOT listed as a warning sign of the fake prize message?","Message from a saved contact","Unknown sender","Suspicious link","Creates excitement"],
+["Which of these IS listed as a warning sign of a fake prize message?","Too good to be true","Formal language","Long message","Sent late at night"],
+["In the fake shopping offer example, which item was advertised for ₹999?","An iPhone","A bicycle","A television","A pair of shoes"],
+["What does the document say about offers that look unbelievable?","They are probably fake","They are always genuine","They are only for VIP customers","They expire in one hour"],
+["Which of these is listed as a red flag for fraud?","Unknown phone number","A number saved in contacts","A missed call from home","A message from school"],
+["Which of these is a red flag for fraud involving what someone asks you for?","Asking for your OTP or password","Asking about your favourite subject","Asking about your favourite sport","Asking about your favourite cartoon"],
+["Which of these is a red flag for fraud involving a website?","A suspicious website link","A link to your school's official website","A link shared by your teacher","A link to a government exam site"],
+["Which of these is a red flag for fraud involving an offer?","Too-good-to-be-true offers","Reasonable, fairly priced offers","Offers from known shops","Discounts during festivals"],
+["Which type of message is described as a red flag in the document?","Urgent messages that create panic","Messages sent in the morning","Messages with emojis","Messages from friends"],
+["Which of these is an example of an urgent scam message from the document?","Your account will be blocked in 5 minutes!","Your class starts in 5 minutes","Your food delivery is 5 minutes away","Your bus arrives in 5 minutes"],
+["Which of these is another example of an urgent scam message from the document?","Claim your reward immediately!","Submit your homework immediately!","Charge your phone immediately!","Water the plants immediately!"],
+["Why do scammers create panic in their messages?","So people don't stop to think","So people feel happy","So people call customer care","So people share the message"],
+["What three-step rule does the document recommend before reacting to a suspicious message?","Pause → Think → Verify","Click → Share → Reply","Ignore → Delete → Forget","Call → Shout → Panic"],
+["What is the first step of the 'Pause → Think → Verify' rule?","Pause","Think","Verify","Reply"],
+["What is the final step of the 'Pause → Think → Verify' rule?","Verify","Pause","Think","Ignore"],
+["According to the document, what does fraud ultimately try to steal?","Money, personal information, or account access","Only your phone","Only your email address","Only your photographs"],
+["Should you share your OTP with anyone, even someone claiming to be from your bank?","No, never share it","Yes, always share it","Only share it with friends","Only share it on request"],
+["Which of these is one sign of a scam mentioned in the document?","An unknown sender offering something too good to be true","A message from a saved family contact","A message written in perfect grammar","A message sent during office hours"],
+["What should you do before clicking an unknown link?","Pause and verify it is genuine","Click it immediately to see what it is","Forward it to all your friends","Reply with your personal details"],
+["Scenario: You get a call from an unknown number saying you won a lottery you never entered. What is the safest response?","Do not trust it and do not share any details","Share your bank details to claim it","Call back and share your OTP","Forward the message to friends"],
+["Scenario: A message says 'Buy an iPhone for ₹999 today only!' What should you suspect?","It is likely a fake shopping offer","It is a normal daily sale","It is guaranteed genuine","It is a government scheme"],
+["Which of the following best describes how fraudsters usually operate?","They pretend to be someone you trust","They always use their real identity","They only contact people in person","They only target businesses"],
+["Fraudsters commonly pretend to represent which kind of online platform, according to the document?","Gaming websites","Registered schools only","Government offices only","Public libraries only"],
+["According to the document, what is a key characteristic of fake prize or reward messages?","They create excitement to rush your decision","They are always sent by post","They take weeks to respond","They ask no questions at all"],
+["What should be your reaction to a message claiming 'Your account will be blocked in 5 minutes'?","Stay calm, pause, and verify before acting","Immediately share your password to save the account","Immediately delete your account","Ignore it and share it publicly"],
+["Which of these best completes the fraud safety mindset taught in the document?","Pause, think, and verify before trusting a message","Reply fast to prove you are alert","Trust every message from an unknown number","Always click links to check if they are safe"],
+["Which of the following statements is TRUE according to the document?","Banks never ask for your OTP over a call or message","Banks always ask for OTP for verification","It's safe to click any link that offers a prize","Urgent messages are usually genuine"],
+
+// ---------- CYBER SAFETY ----------
+["What are Cyber Laws?","Rules that govern the use of the internet","Laws that only apply to cyber cafes","Rules for using a calculator","Laws for writing letters"],
+["The document compares Cyber Laws to which two other kinds of rules?","School rules and traffic rules","Cooking rules and sports rules","Music rules and art rules","Library rules and gym rules"],
+["What is a 'Digital Footprint'?","The record left behind by everything we do online","The size of your computer screen","The speed of your internet connection","The number of apps installed on your phone"],
+["Which of these is an example of a digital footprint mentioned in the document?","Photos you upload","The colour of your school bag","Your height and weight","Your favourite food"],
+["Which of these is also an example of a digital footprint?","Videos you watch","The pages in your notebook","Your handwriting","Your shoe size"],
+["Which of these written online activities counts as part of your digital footprint?","Comments you write online","Your date of birth on a certificate","Your blood group","Your fingerprints"],
+["Which of these browsing activities counts as part of your digital footprint?","Websites you visit","Books in your school library","Your report card grades","Your bus route number"],
+["Which of these social media actions counts as part of your digital footprint?","Likes and shares","Your locker number","Your seat number in class","Your uniform size"],
+["Which of the following is one of the online rights every internet user has, according to the document?","Privacy","Free unlimited data","Unlimited screen time","A verified badge"],
+["Alongside Privacy, which of these is also an online right mentioned in the document?","Safety","Free games","Free followers","Free storage"],
+["Alongside Privacy and Safety, which of these is also an online right mentioned in the document?","Respect","Popularity","Free downloads","Fast internet"],
+["Which of these describes a responsible internet user, according to the document?","Respects others online","Bullies others for fun","Spreads fake news for attention","Shares others' photos without asking"],
+["Which of these describes how a responsible internet user treats other people?","Doesn't bully anyone","Shares strangers' private photos","Spreads rumours online","Ignores others' privacy"],
+["Which of these describes how a responsible internet user treats information online?","Doesn't spread fake news","Shares unverified news quickly","Believes every online post","Forwards messages without checking"],
+["Which of these describes how a responsible internet user treats others' photos?","Doesn't share someone else's photos without permission","Posts friends' photos without asking","Tags people without consent","Shares private pictures publicly"],
+["What are illegal activities carried out on the internet called?","Cyber crimes","Digital footprints","Cyber laws","Online rights"],
+["How does the document define 'Hacking'?","Someone enters your account without permission","Someone helps you recover a forgotten password","Someone teaches you computer skills","Someone repairs your computer"],
+["How does the document define 'Identity theft,' with an example?","Someone pretends to be you, e.g. through fake accounts","Someone steals your bicycle","Someone copies your homework","Someone borrows a book and returns it late"],
+["Which examples does the document give for 'Online fraud'?","Fake shopping websites, fake lottery messages and fake rewards","Real shopping websites with discounts","Verified lottery announcements","Genuine cashback offers"],
+["How does the document define 'Cyber bullying'?","Hurting or threatening someone online","Helping someone with homework online","Complimenting someone's post","Reporting a fake account"],
+["Is sharing your password with your best friend SAFE or UNSAFE, according to the document?","Unsafe","Safe","Depends on the day","Only unsafe on weekends"],
+["Is using a strong password SAFE or UNSAFE, according to the document?","Safe","Unsafe","Depends on your mood","Only safe for adults"],
+["Is clicking an unknown link SAFE or UNSAFE, according to the document?","Unsafe","Safe","Safe only at night","Safe if it's colourful"],
+["Is downloading games only from the official App Store or Play Store SAFE or UNSAFE?","Safe","Unsafe","Safe only on weekends","Depends on the game"],
+["Is sharing your home address online SAFE or UNSAFE?","Unsafe","Safe","Safe with close friends only","Safe if asked nicely"],
+["Is respectfully commenting on someone's post SAFE or UNSAFE?","Safe","Unsafe","Depends on the platform","Only safe for teachers"],
+["Is sharing your OTP SAFE or UNSAFE?","Unsafe","Safe","Safe with family only","Safe if urgent"],
+["Is reporting fake accounts SAFE or UNSAFE?","Safe","Unsafe","Only safe for adults","Depends on the account"],
+["Is opening random email attachments SAFE or UNSAFE?","Unsafe","Safe","Safe if the file name looks nice","Safe on a new device"],
+["Is asking parents before buying something online SAFE or UNSAFE?","Safe","Unsafe","Only safe for small items","Depends on the website"],
+["Which of these should you NEVER share online, according to the document?","Phone Number","First name","Favourite sport","Favourite cartoon"],
+["Which of these security codes should you NEVER share online?","OTP","Favourite subject","First name","Favourite cartoon"],
+["Which of these login credentials should you NEVER share online?","Passwords","Favourite sport","First name","Favourite subject"],
+["Which of these financial details should you NEVER share online?","Bank details","Favourite cartoon","First name","Favourite subject"],
+["Which of these location details should you NEVER share online?","Home address","Favourite sport","Favourite subject","First name"],
+["Which of these identification details should you NEVER share online?","School ID","Favourite cartoon","Favourite sport","First name"],
+["Which of these government ID numbers should you NEVER share online?","Aadhar number","Favourite subject","First name","Favourite cartoon"],
+["Which of these payment card details should you NEVER share online?","Debit/Credit card number","Favourite sport","Favourite cartoon","First name"],
+["Which of these real-time tracking details should you NEVER share online?","Live location","First name","Favourite subject","Favourite sport"],
+["Which of these is safe to share online, according to the document?","First name","Home address","OTP","Bank details"],
+["Which of these hobby-related details is safe to share online?","Favourite sport","Aadhar number","Passwords","Live location"],
+["Which of these school-related details is safe to share online?","Favourite subject","School ID","Phone number","Debit card number"],
+["Which of these entertainment-related details is safe to share online?","Favourite cartoon","Home address","Bank details","OTP"],
+["Which password example does the document label as WEAK?","123456","R!tv!k@2026","Passwird@2345","P@ssw0rd!23"],
+["Which password example does the document label as STRONG?","R!tv!k@2026","123456","password","abcdef"],
+["According to the document, what should a strong password include?","Numbers, alphabets and different symbols","Only your name","Only numbers","Only your birth date"],
+["According to the document, how many characters should a strong password have?","8–12 characters","2–3 characters","20–30 characters","Exactly 4 characters"],
+["Which of the following is one of the safety rules listed in the document?","Never share passwords","Always share passwords with friends","Write your password on your notebook","Use the same password everywhere and tell everyone"],
+["Which safety rule is specifically about OTPs?","Never share OTPs","Share OTPs with delivery agents","Share OTPs over text","Share OTPs to win prizes"],
+["According to the safety rules, where should you download apps from?","Only trusted sources like the official App Store or Play Store","Any random website","Links from unknown messages","Pop-up advertisements"],
+["According to the safety rules, what should you do before clicking unknown links?","Always ask parents first","Click immediately","Share it with friends first","Ignore your parents and click it"],
+["According to the safety rules, what should you do after using a public computer?","Log out","Leave it logged in","Turn off the monitor only","Delete the browser"],
+["Which safety rule is about how you behave towards others online?","Be respectful online","Argue with strangers online","Ignore others' feelings online","Post without thinking"],
+["According to the safety rules, what should you do if something makes you uncomfortable online?","Tell a trusted adult immediately","Keep it a secret","Ignore it and continue","Reply angrily"],
+["According to the document, why should you think before posting something online?","To understand what risk or harm the post could cause","Because posts must be very long","Because posting is only allowed once a day","Because photos load faster that way"],
+["Which cyber crime matches this description: 'Someone enters your account without permission'?","Hacking","Cyber bullying","Online fraud","Identity theft"],
+["Which cyber crime matches this description: 'Someone pretends to be you using fake accounts'?","Identity theft","Hacking","Cyber bullying","Online fraud"],
+["Which cyber crime matches this description: 'Hurting or threatening someone online'?","Cyber bullying","Hacking","Identity theft","Online fraud"],
+["Which cyber crime matches this description: 'Fake shopping websites, fake lottery messages and fake rewards'?","Online fraud","Hacking","Cyber bullying","Identity theft"],
+["What is the internet compared to, in terms of having rules, in the document's introduction to Cyber Laws?","Schools having rules and roads having traffic rules","Games having levels","Shops having prices","Libraries having silence"],
+["Which of these best explains what Digital Footprint means, according to the document?","The data we leave behind from everything we do online","The number of steps you walk in a day","The size of your phone's storage","The number of friends you have online"],
+["According to the document, a responsible internet user does NOT do which of these?","Spread fake news","Respect others","Report fake accounts","Ask before sharing photos"],
+["Which of these correctly matches an 'unsafe' behaviour listed in the document?","Opening random email attachments","Using a strong password","Reporting fake accounts","Asking parents before buying online"],
+["Which of these correctly matches a 'safe' behaviour listed in the document?","Downloading games only from official App Store or Play Store","Sharing your OTP","Clicking an unknown link","Sharing your home address online"],
+["Along with your phone number and OTP, which of these should you also never share, according to the document?","Your passwords","Your favourite cartoon","Your first name","Your favourite subject"],
+["What does the document say everyone using the internet has a right to, besides Privacy and Respect?","Safety","Free followers","Unlimited screen time","Free storage"],
+["Which of these online rights is listed alongside Privacy and Safety in the document?","Respect","Popularity","Fast internet","Free games"],
+["According to the document, what happens to everything we do online?","It leaves a record called our digital footprint","It disappears immediately","It is stored only on paper","It cannot be tracked at all"],
+["Which of these is an illegal online activity, as defined by the document?","Hacking","Using a strong password","Reporting a fake account","Logging out of public computers"],
+["Fill in the blank: 'Never share your phone number, OTP, passwords, bank details, home address, school ID, Aadhar number, debit/credit card number, or your ____.'","Live location","Favourite subject","First name","Favourite cartoon"],
+["Which safety rule involves what to do with apps?","Only download apps from trusted sources","Download any app that looks fun","Download apps shared by strangers","Download apps without checking reviews"],
+["Which safety rule is about clicking links sent by unknown people?","Always ask parents before clicking unknown links","Click first, ask later","Only click links sent at night","Click if the link has a nice picture"],
+["Which safety rule is specifically about public computers?","Log out from public computers","Leave your account open for the next user","Share your password with the next user","Never use public computers at all"],
+["Which safety rule reminds you to treat others well online?","Be respectful online","Argue to prove your point","Ignore other people's feelings","Post whatever you want without thinking"],
+["Which safety rule is about telling someone if you feel unsafe online?","If something makes you uncomfortable online, tell a trusted adult immediately","Keep uncomfortable experiences a secret","Handle it alone without telling anyone","Block the app and never mention it"],
+["Combining both documents, what is the common advice for dealing with anything suspicious online — a call, message, or link?","Pause, think, and verify before acting","React quickly without thinking","Always trust it the first time","Ignore your instincts and proceed"],
+["According to the document, which best matches 'Password 2: R!tv!k@2026'?","A strong password example","A weak password example","An OTP example","A username example"],
+["According to the document, which best matches 'Password 1: 123456'?","A weak password example","A strong password example","A safe example of a password","An OTP example"],
+["What kind of accounts are given as an example of identity theft?","Fake accounts","Verified accounts","School accounts","Bank accounts"],
+["Which of these is grouped under 'Cyber Crimes' in the document?","Hacking, identity theft, online fraud, and cyber bullying","Typing practice, coding, and design","Photos, videos, and comments","Privacy, safety, and respect"],
+["A student wants to buy something online. According to the safety rules, what should they do first?","Ask their parents before buying something online","Buy it immediately using saved card details","Share their bank details with the seller","Ignore the price and click 'buy now'"],
+["A student receives an email attachment from an unknown sender. What does the document advise?","Do not open random email attachments","Open it to see what it contains","Forward it to friends first","Reply asking who sent it"],
+["A student sees an unfamiliar account impersonating their friend. What should they do, based on the document's safe behaviours?","Report the fake account","Accept the friend request anyway","Share personal details with it","Ignore it completely and take no action"]
+];
+
+/* ------------- App logic ------------- */
+let quiz = [];
+let current = 0;
+let answers = []; // {selectedIndex, correctIndex, options, question}
+let studentName = "", studentClass = "";
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+function buildQuiz(){
+  const pool = shuffle(BANK);
+  quiz = pool.map(item=>{
+    const [q, correct, ...wrongs] = item;
+    const optionSet = shuffle([correct, ...wrongs]);
+    return { question:q, options:optionSet, correctIndex: optionSet.indexOf(correct) };
+  });
+  answers = new Array(quiz.length).fill(null);
+}
+
+const startScreen = document.getElementById('startScreen');
+const quizScreen = document.getElementById('quizScreen');
+const resultScreen = document.getElementById('resultScreen');
+
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  studentName = document.getElementById('studentName').value.trim() || "Student";
+  studentClass = document.getElementById('studentClass').value.trim();
+  buildQuiz();
+  current = 0;
+  startScreen.classList.add('hidden');
+  quizScreen.classList.remove('hidden');
+  renderQuestion();
+});
+
+function renderQuestion(){
+  const q = quiz[current];
+  document.getElementById('qtext').textContent = q.question;
+  document.getElementById('progressLabel').textContent = `Question ${current+1} of ${quiz.length}`;
+  const answeredCount = answers.filter(a=>a!==null).length;
+  document.getElementById('answeredLabel').textContent = `${answeredCount} answered`;
+  document.getElementById('progressFill').style.width = `${((current+1)/quiz.length)*100}%`;
+  document.getElementById('qcounterChip').textContent = `${current+1} / ${quiz.length}`;
+
+  const box = document.getElementById('optionsBox');
+  box.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.options.forEach((opt, idx)=>{
+    const div = document.createElement('div');
+    div.className = 'option' + (answers[current]===idx ? ' selected' : '');
+    div.innerHTML = `<span class="letter">${letters[idx]}</span><span class="opt-text">${opt}</span>`;
+    div.addEventListener('click', ()=>{
+      answers[current] = idx;
+      renderQuestion();
+    });
+    box.appendChild(div);
+  });
+
+  document.getElementById('prevBtn').disabled = current===0;
+  document.getElementById('nextBtn').textContent = current===quiz.length-1 ? 'Finish Quiz ✓' : 'Next →';
+}
+
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  if(current>0){ current--; renderQuestion(); }
+});
+
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  if(current < quiz.length-1){
+    current++;
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+});
+
+function finishQuiz(){
+  quizScreen.classList.add('hidden');
+  resultScreen.classList.remove('hidden');
+
+  let correctCount = 0;
+  answers.forEach((sel, i)=>{
+    if(sel!==null && sel===quiz[i].correctIndex) correctCount++;
+  });
+  const total = quiz.length;
+  const pct = Math.round((correctCount/total)*100);
+
+  let grade = 'D';
+  if(pct>=90) grade='A+';
+  else if(pct>=80) grade='A';
+  else if(pct>=70) grade='B';
+  else if(pct>=60) grade='C';
+  else if(pct>=40) grade='D';
+  else grade='E';
+
+  document.getElementById('resultName').textContent = `Report for ${studentName}${studentClass ? ' · '+studentClass : ''}`;
+  document.getElementById('scorePct').textContent = `${pct}%`;
+  document.getElementById('scoreLine').textContent = `${correctCount} out of ${total} correct`;
+  document.getElementById('statCorrect').textContent = correctCount;
+  document.getElementById('statWrong').textContent = total - correctCount;
+  document.getElementById('statGrade').textContent = grade;
+
+  buildReview();
+}
+
+function buildReview(){
+  const box = document.getElementById('reviewBox');
+  box.innerHTML = '';
+  const letters=['A','B','C','D'];
+  quiz.forEach((q,i)=>{
+    const sel = answers[i];
+    const isCorrect = sel!==null && sel===q.correctIndex;
+    const div = document.createElement('div');
+    div.className='review-item';
+    div.innerHTML = `
+      <div class="review-q">${i+1}. ${q.question}</div>
+      <div class="review-line"><span class="badgey ${isCorrect?'correct':'wrong'}">${isCorrect?'CORRECT':'INCORRECT'}</span>
+      Your answer: ${sel!==null ? letters[sel]+'. '+q.options[sel] : '(not answered)'}</div>
+      ${!isCorrect ? `<div class="review-line ok">Correct answer: ${letters[q.correctIndex]}. ${q.options[q.correctIndex]}</div>` : ''}
+    `;
+    box.appendChild(div);
+  });
+}
+
+document.getElementById('toggleReviewBtn').addEventListener('click', (e)=>{
+  const box = document.getElementById('reviewBox');
+  box.classList.toggle('hidden');
+  e.target.textContent = box.classList.contains('hidden') ? '🔍 Show Answer Review' : '🙈 Hide Answer Review';
+});
+
+document.getElementById('retakeBtn').addEventListener('click', ()=>{
+  resultScreen.classList.add('hidden');
+  document.getElementById('reviewBox').classList.add('hidden');
+  document.getElementById('toggleReviewBtn').textContent = '🔍 Show Answer Review';
+  startScreen.classList.remove('hidden');
+});
+
+document.getElementById('downloadPdfBtn').addEventListener('click', ()=>{
+  generatePdf();
+});
+
+function generatePdf(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit:'pt', format:'a4' });
+  const pageW = doc.internal.pageSize.getWidth();
+  const margin = 40;
+  let y = 50;
+
+  let correctCount = 0;
+  answers.forEach((sel,i)=>{ if(sel!==null && sel===quiz[i].correctIndex) correctCount++; });
+  const total = quiz.length;
+  const pct = Math.round((correctCount/total)*100);
+  let grade='D';
+  if(pct>=90) grade='A+'; else if(pct>=80) grade='A'; else if(pct>=70) grade='B';
+  else if(pct>=60) grade='C'; else if(pct>=40) grade='D'; else grade='E';
+
+  // Header
+  doc.setFillColor(30,64,175);
+  doc.rect(0,0,pageW,80,'F');
+  doc.setTextColor(255,255,255);
+  doc.setFontSize(18);
+  doc.setFont(undefined,'bold');
+  doc.text('SkillNest — Cyber Safety & Fraud Awareness', margin, 35);
+  doc.setFontSize(11);
+  doc.setFont(undefined,'normal');
+  doc.text('Assessment Report', margin, 55);
+
+  y = 105;
+  doc.setTextColor(20,20,20);
+  doc.setFontSize(12);
+  doc.setFont(undefined,'bold');
+  doc.text(`Student Name: ${studentName}`, margin, y); y+=18;
+  if(studentClass){ doc.text(`Class / Section: ${studentClass}`, margin, y); y+=18; }
+  doc.text(`Date: ${new Date().toLocaleDateString()}`, margin, y); y+=18;
+  doc.setFont(undefined,'normal');
+  doc.text(`Total Questions: ${total}`, margin, y); y+=16;
+  doc.text(`Correct Answers: ${correctCount}`, margin, y); y+=16;
+  doc.text(`Incorrect / Unanswered: ${total-correctCount}`, margin, y); y+=16;
+  doc.setFont(undefined,'bold');
+  doc.text(`Score: ${pct}%    Grade: ${grade}`, margin, y); y+=28;
+
+  doc.setDrawColor(220,220,220);
+  doc.line(margin, y, pageW-margin, y); y+=20;
+
+  doc.setFontSize(13);
+  doc.text('Answer Review', margin, y); y+=18;
+  doc.setFontSize(9);
+
+  const letters=['A','B','C','D'];
+  const maxWidth = pageW - margin*2;
+
+  quiz.forEach((q,i)=>{
+    const sel = answers[i];
+    const isCorrect = sel!==null && sel===q.correctIndex;
+
+    const qLines = doc.splitTextToSize(`${i+1}. ${q.question}`, maxWidth);
+    const yourAns = `Your answer: ${sel!==null ? letters[sel]+'. '+q.options[sel] : '(not answered)'}  [${isCorrect?'CORRECT':'INCORRECT'}]`;
+    const yourLines = doc.splitTextToSize(yourAns, maxWidth);
+    let correctLines = [];
+    if(!isCorrect){
+      correctLines = doc.splitTextToSize(`Correct answer: ${letters[q.correctIndex]}. ${q.options[q.correctIndex]}`, maxWidth);
+    }
+
+    const blockHeight = (qLines.length + yourLines.length + correctLines.length) * 11 + 8;
+    if(y + blockHeight > 780){
+      doc.addPage();
+      y = 50;
+    }
+
+    doc.setFont(undefined,'bold');
+    doc.setTextColor(15,31,77);
+    doc.text(qLines, margin, y);
+    y += qLines.length*11 + 2;
+
+    doc.setFont(undefined,'normal');
+    doc.setTextColor(isCorrect ? 22 : 190, isCorrect ? 130 : 40, isCorrect ? 60 : 40);
+    doc.text(yourLines, margin, y);
+    y += yourLines.length*11 + 1;
+
+    if(!isCorrect){
+      doc.setTextColor(20,120,60);
+      doc.text(correctLines, margin, y);
+      y += correctLines.length*11 + 1;
+    }
+    doc.setTextColor(20,20,20);
+    y += 6;
+  });
+
+  const fname = `SkillNest_Quiz_Report_${studentName.replace(/\s+/g,'_')}.pdf`;
+  doc.save(fname);
+}
+</script>
+</body>
+</html>

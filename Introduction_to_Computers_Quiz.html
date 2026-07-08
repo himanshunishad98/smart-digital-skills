@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to Computers Quiz | SkillNest</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root{
+    --navy:#0f1f4d;
+    --blue:#1e40af;
+    --blue-light:#3b5fd8;
+    --blue-pale:#eef2ff;
+    --accent:#f59e0b;
+    --green:#16a34a;
+    --red:#dc2626;
+    --ink:#1e2433;
+    --muted:#64748b;
+    --card:#ffffff;
+    --bg:#f4f6fb;
+    --radius:18px;
+    font-size:16px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:linear-gradient(180deg,#eef2ff 0%, #f4f6fb 40%);
+    color:var(--ink);
+    min-height:100vh;
+  }
+  .topbar{
+    background:linear-gradient(90deg,var(--navy),var(--blue) 60%,var(--blue-light));
+    color:#fff;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 4px 18px rgba(15,31,77,.25);
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem;letter-spacing:.2px;}
+  .brand .badge{
+    background:#fff;color:var(--blue);
+    border-radius:10px;padding:4px 8px;font-size:1rem;
+  }
+  .tag{font-size:.72rem;background:rgba(255,255,255,.15);padding:4px 10px;border-radius:999px;}
+  .wrap{max-width:820px;margin:0 auto;padding:28px 18px 60px;}
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:0 10px 30px rgba(30,64,175,.10), 0 1px 0 rgba(15,23,42,.03);
+    padding:32px;
+    border:1px solid #e7ebf7;
+  }
+  h1{font-size:1.6rem;margin:0 0 6px;color:var(--navy);}
+  h2{font-size:1.2rem;margin:0 0 12px;color:var(--navy);}
+  p.lead{color:var(--muted);margin:0 0 22px;line-height:1.55;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 26px;}
+  .pill{background:var(--blue-pale);color:var(--blue);font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:999px;}
+  label.field-label{display:block;font-weight:700;font-size:.9rem;color:var(--navy);margin-bottom:6px;}
+  input[type=text]{
+    width:100%;padding:13px 14px;border-radius:12px;border:1.5px solid #d7deef;
+    font-size:1rem;margin-bottom:18px;outline:none;transition:.15s;
+  }
+  input[type=text]:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(30,64,175,.12);}
+  .btn{
+    appearance:none;border:none;cursor:pointer;
+    background:linear-gradient(90deg,var(--blue),var(--blue-light));
+    color:#fff;font-weight:700;font-size:1rem;
+    padding:14px 26px;border-radius:12px;
+    box-shadow:0 8px 20px rgba(30,64,175,.28);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(30,64,175,.35);}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none;}
+  .btn.secondary{background:#fff;color:var(--blue);border:1.5px solid var(--blue);box-shadow:none;}
+  .btn.ghost{background:transparent;color:var(--muted);box-shadow:none;padding:10px 16px;}
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+  .progress-wrap{margin-bottom:20px;}
+  .progress-bar{height:10px;background:#e7ebf7;border-radius:999px;overflow:hidden;}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--blue));border-radius:999px;transition:width .25s ease;}
+  .progress-text{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-top:7px;font-weight:600;}
+  .qtext{font-size:1.12rem;font-weight:700;color:var(--navy);margin:4px 0 20px;line-height:1.5;}
+  .options{display:flex;flex-direction:column;gap:11px;margin-bottom:8px;}
+  .option{
+    display:flex;align-items:center;gap:12px;
+    border:1.6px solid #dde3f2;border-radius:13px;
+    padding:13px 15px;cursor:pointer;transition:.13s;
+    background:#fbfcff;
+  }
+  .option:hover{border-color:var(--blue-light);background:var(--blue-pale);}
+  .option.selected{border-color:var(--blue);background:var(--blue-pale);box-shadow:0 0 0 3px rgba(30,64,175,.10);}
+  .option .letter{
+    width:28px;height:28px;border-radius:8px;background:#eef2ff;color:var(--blue);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex:none;
+  }
+  .option.selected .letter{background:var(--blue);color:#fff;}
+  .option span.opt-text{font-size:.98rem;}
+  .footer-nav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;}
+  .qcounter-chip{font-size:.8rem;color:var(--muted);font-weight:600;}
+  .center{text-align:center;}
+  .score-hero{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;border-radius:16px;padding:30px 20px;margin-bottom:24px;
+  }
+  .score-num{font-size:3rem;font-weight:900;line-height:1;}
+  .score-sub{opacity:.9;margin-top:6px;font-size:.95rem;}
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;}
+  .stat{background:var(--blue-pale);border-radius:12px;padding:16px 10px;text-align:center;}
+  .stat .n{font-size:1.5rem;font-weight:800;color:var(--navy);}
+  .stat .l{font-size:.75rem;color:var(--muted);font-weight:600;margin-top:2px;}
+  .review-item{border-bottom:1px solid #e7ebf7;padding:14px 0;}
+  .review-item:last-child{border-bottom:none;}
+  .review-q{font-weight:700;font-size:.93rem;color:var(--navy);margin-bottom:6px;}
+  .review-line{font-size:.85rem;margin:2px 0;}
+  .ok{color:var(--green);font-weight:700;}
+  .bad{color:var(--red);font-weight:700;}
+  .badgey{display:inline-block;font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;margin-right:6px;}
+  .badgey.correct{background:#dcfce7;color:var(--green);}
+  .badgey.wrong{background:#fee2e2;color:var(--red);}
+  footer.small{text-align:center;color:var(--muted);font-size:.78rem;margin-top:26px;}
+  .hidden{display:none !important;}
+  @media (max-width:600px){
+    .wrap{padding:16px 10px 40px;}
+    .card{padding:20px;}
+    .stat-grid{grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    .score-num{font-size:2.3rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="badge">🎓</span> SkillNest <span style="font-weight:500;opacity:.85;">Assessments</span></div>
+  <div class="tag">Introduction to Computers</div>
+</div>
+
+<div class="wrap">
+
+  <!-- START SCREEN -->
+  <div class="card" id="startScreen">
+    <h1>💻 Introduction to Computers Quiz</h1>
+    <p class="lead">Test what you've learned about computers — types, hardware, storage, and more. Every question here comes straight from your SkillNest Introduction to Computers question bank.</p>
+    <div class="pill-row">
+      <span class="pill">📋 100 Questions</span>
+      <span class="pill">🔀 Fresh order every attempt</span>
+      <span class="pill">⏱️ Self-paced</span>
+      <span class="pill">📄 Downloadable PDF report</span>
+    </div>
+    <label class="field-label" for="studentName">Student Name</label>
+    <input type="text" id="studentName" placeholder="Enter your full name">
+    <label class="field-label" for="studentClass">Class / Section (optional)</label>
+    <input type="text" id="studentClass" placeholder="e.g. Class 7 - B">
+    <div class="btn-row">
+      <button class="btn" id="startBtn">Start Quiz →</button>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div class="card hidden" id="quizScreen">
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-text">
+        <span id="progressLabel">Question 1 of 100</span>
+        <span id="answeredLabel">0 answered</span>
+      </div>
+    </div>
+    <div class="qtext" id="qtext"></div>
+    <div class="options" id="optionsBox"></div>
+    <div class="footer-nav">
+      <button class="btn ghost" id="prevBtn">← Previous</button>
+      <span class="qcounter-chip" id="qcounterChip"></span>
+      <button class="btn" id="nextBtn">Next →</button>
+    </div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div class="card hidden" id="resultScreen">
+    <div class="score-hero center">
+      <div style="font-size:.95rem;opacity:.9;" id="resultName">Report for Student</div>
+      <div class="score-num" id="scorePct">0%</div>
+      <div class="score-sub" id="scoreLine">0 out of 100 correct</div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="n" id="statCorrect">0</div><div class="l">✅ Correct</div></div>
+      <div class="stat"><div class="n" id="statWrong">0</div><div class="l">❌ Incorrect</div></div>
+      <div class="stat"><div class="n" id="statGrade">-</div><div class="l">🏅 Grade</div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="downloadPdfBtn">📄 Download PDF Report</button>
+      <button class="btn secondary" id="toggleReviewBtn">🔍 Show Answer Review</button>
+      <button class="btn ghost" id="retakeBtn">🔁 Retake Quiz</button>
+    </div>
+    <div id="reviewBox" style="margin-top:22px;" class="hidden"></div>
+  </div>
+
+  <footer class="small">SkillNest · Introduction to Computers Program · Questions sourced from official course material</footer>
+</div>
+
+<script>
+/* ===================== QUESTION BANK ===================== *
+   Each entry: [ question, correctAnswer, wrong1, wrong2, wrong3 ]
+   Source: SkillNest_100_MCQ_Question_Bank_Introduction_to_Computers.docx
+   ============================================================ */
+const BANK = [
+["Which computer is best for weather forecasting?", "Supercomputer", "Microcomputer", "Minicomputer", "Hybrid"],
+["Which computer is commonly used in banks?", "Mainframe", "Analog", "Hybrid", "Microcomputer"],
+["Which computer is mainly used for personal work?", "Microcomputer", "Mainframe", "Supercomputer", "Analog"],
+["Which computer measures continuous data?", "Analog", "Digital", "Microcomputer", "Mainframe"],
+["Which computer combines analog and digital features?", "Hybrid", "Mainframe", "Mini", "Micro"],
+["Which computer type is used in hospitals for monitoring?", "Hybrid", "Micro", "Mainframe", "Super"],
+["Which computer is the fastest?", "Supercomputer", "Mini", "Desktop", "Laptop"],
+["Digital computers are mainly used for?", "Everyday computing", "Only science", "Only banking", "Only gaming"],
+["Minicomputers are mainly used for?", "Business operations", "Weather", "Medical monitoring", "Home use"],
+["Which computer is most powerful?", "Supercomputer", "Laptop", "Desktop", "Tablet"],
+["The first step of CPU cycle is?", "Fetch", "Execute", "Store", "Decode"],
+["After Decode comes?", "Execute", "Fetch", "Repeat", "Store"],
+["The last step before repeating is?", "Store", "Fetch", "Decode", "Execute"],
+["Vacuum tubes belong to which generation?", "1st", "2nd", "3rd", "4th"],
+["Transistors belong to?", "2nd", "1st", "3rd", "5th"],
+["Integrated Circuits belong to?", "3rd", "2nd", "4th", "5th"],
+["Microprocessors belong to?", "4th", "3rd", "5th", "2nd"],
+["AI is linked with?", "5th", "2nd", "3rd", "4th"],
+["CPU stands for?", "Central Processing Unit", "Computer Processing Unit", "Control Program Unit", "Central Program Unit"],
+["Which performs calculations?", "CPU", "Mouse", "Printer", "Scanner"],
+["Hardware can be?", "Touched", "Installed only", "Downloaded", "Programmed only"],
+["Software is?", "Programs", "Physical", "Plastic", "Metal"],
+["Which is hardware?", "RAM", "Windows", "Excel", "Chrome"],
+["Which is software?", "Windows", "Keyboard", "CPU", "SSD"],
+["Hardware requires?", "Software", "Nothing", "Internet only", "Battery only"],
+["Software requires?", "Hardware", "Paper", "Mouse only", "UPS"],
+["Which wears out physically?", "Hardware", "Software", "Both", "None"],
+["Which may become outdated?", "Software", "Keyboard", "Monitor", "RAM"],
+["Operating system is?", "Software", "Hardware", "Storage", "CPU"],
+["MS Word is?", "Application Software", "Hardware", "CPU", "Memory"],
+["RAM is?", "Primary", "Secondary", "Cloud", "Backup"],
+["SSD is?", "Secondary", "Primary", "Cache", "Register"],
+["Cache memory is?", "Fast", "Slow", "Portable", "External"],
+["Pen Drive is?", "Secondary", "Primary", "CPU", "Register"],
+["Google Drive is?", "Cloud", "Cache", "RAM", "Register"],
+["Dropbox is?", "Cloud", "UPS", "CPU", "GUI"],
+["NAS stands for?", "Network Attached Storage", "New Access Storage", "Network Application Server", "None"],
+["USB Flash Drive is?", "Portable", "Primary", "Cache", "Cloud"],
+["Cold cloud storage is?", "Archival", "Primary", "RAM", "Register"],
+["Backup storage is used for?", "Recovery", "Gaming", "CPU", "Printing"],
+["UPS provides?", "Backup power", "Internet", "Cooling", "Storage"],
+["PSU converts?", "AC to DC", "DC to AC", "Heat to power", "None"],
+["FAT32 max file size?", "4GB", "2GB", "8GB", "16GB"],
+["NTFS supports?", "Encryption", "Nothing", "Only games", "Only videos"],
+["Which is more reliable?", "NTFS", "FAT32", "Same", "None"],
+["Which supports compression?", "NTFS", "FAT32", "Both", "Neither"],
+["FAT32 is best for?", "USB drives", "Windows only", "Servers", "AI"],
+["NTFS is best for?", "Internal Windows drives", "DVD", "Phones", "Calculators"],
+["Which has journaling?", "NTFS", "FAT32", "Both", "Neither"],
+["Which has wider compatibility?", "FAT32", "NTFS", "Same", "None"],
+["GUI stands for?", "Graphical User Interface", "General User Interface", "Global User Interface", "Graphic Utility Interface"],
+["GUI uses?", "Windows and icons", "Commands only", "Code only", "Binary only"],
+["UTF-8 uses?", "1-4 bytes", "8 bytes", "16 bytes", "32 bytes"],
+["UTF-16 uses?", "2 or 4 bytes", "1 byte", "8 bytes", "16 bytes"],
+["UTF-32 uses?", "4 bytes", "2 bytes", "8 bits", "1 byte"],
+["Bit represents?", "0 or 1", "0-9", "A-F", "256 values"],
+["1 Byte equals?", "8 bits", "4 bits", "16 bits", "32 bits"],
+["Hexadecimal base is?", "16", "2", "8", "10"],
+["Hexadecimal A equals?", "10", "9", "11", "12"],
+["Hexadecimal F equals?", "15", "14", "16", "13"],
+["Application 1: Which computer is best for weather forecasting?", "Supercomputer", "Microcomputer", "Minicomputer", "Hybrid"],
+["Application 2: Which computer is commonly used in banks?", "Mainframe", "Analog", "Hybrid", "Microcomputer"],
+["Application 3: Which computer is mainly used for personal work?", "Microcomputer", "Mainframe", "Supercomputer", "Analog"],
+["Application 4: Which computer measures continuous data?", "Analog", "Digital", "Microcomputer", "Mainframe"],
+["Application 5: Which computer combines analog and digital features?", "Hybrid", "Mainframe", "Mini", "Micro"],
+["Application 6: Which computer type is used in hospitals for monitoring?", "Hybrid", "Micro", "Mainframe", "Super"],
+["Application 7: Which computer is the fastest?", "Supercomputer", "Mini", "Desktop", "Laptop"],
+["Application 8: Digital computers are mainly used for?", "Everyday computing", "Only science", "Only banking", "Only gaming"],
+["Application 9: Minicomputers are mainly used for?", "Business operations", "Weather", "Medical monitoring", "Home use"],
+["Application 10: Which computer is most powerful?", "Supercomputer", "Laptop", "Desktop", "Tablet"],
+["Application 11: The first step of CPU cycle is?", "Fetch", "Execute", "Store", "Decode"],
+["Application 12: After Decode comes?", "Execute", "Fetch", "Repeat", "Store"],
+["Application 13: The last step before repeating is?", "Store", "Fetch", "Decode", "Execute"],
+["Application 14: Vacuum tubes belong to which generation?", "1st", "2nd", "3rd", "4th"],
+["Application 15: Transistors belong to?", "2nd", "1st", "3rd", "5th"],
+["Application 16: Integrated Circuits belong to?", "3rd", "2nd", "4th", "5th"],
+["Application 17: Microprocessors belong to?", "4th", "3rd", "5th", "2nd"],
+["Application 18: AI is linked with?", "5th", "2nd", "3rd", "4th"],
+["Application 19: CPU stands for?", "Central Processing Unit", "Computer Processing Unit", "Control Program Unit", "Central Program Unit"],
+["Application 20: Which performs calculations?", "CPU", "Mouse", "Printer", "Scanner"],
+["Application 21: Hardware can be?", "Touched", "Installed only", "Downloaded", "Programmed only"],
+["Application 22: Software is?", "Programs", "Physical", "Plastic", "Metal"],
+["Application 23: Which is hardware?", "RAM", "Windows", "Excel", "Chrome"],
+["Application 24: Which is software?", "Windows", "Keyboard", "CPU", "SSD"],
+["Application 25: Hardware requires?", "Software", "Nothing", "Internet only", "Battery only"],
+["Application 26: Software requires?", "Hardware", "Paper", "Mouse only", "UPS"],
+["Application 27: Which wears out physically?", "Hardware", "Software", "Both", "None"],
+["Application 28: Which may become outdated?", "Software", "Keyboard", "Monitor", "RAM"],
+["Application 29: Operating system is?", "Software", "Hardware", "Storage", "CPU"],
+["Application 30: MS Word is?", "Application Software", "Hardware", "CPU", "Memory"],
+["Application 31: RAM is?", "Primary", "Secondary", "Cloud", "Backup"],
+["Application 32: SSD is?", "Secondary", "Primary", "Cache", "Register"],
+["Application 33: Cache memory is?", "Fast", "Slow", "Portable", "External"],
+["Application 34: Pen Drive is?", "Secondary", "Primary", "CPU", "Register"],
+["Application 35: Google Drive is?", "Cloud", "Cache", "RAM", "Register"],
+["Application 36: Dropbox is?", "Cloud", "UPS", "CPU", "GUI"],
+["Application 37: NAS stands for?", "Network Attached Storage", "New Access Storage", "Network Application Server", "None"],
+["Application 38: USB Flash Drive is?", "Portable", "Primary", "Cache", "Cloud"],
+["Application 39: Cold cloud storage is?", "Archival", "Primary", "RAM", "Register"],
+["Application 40: Backup storage is used for?", "Recovery", "Gaming", "CPU", "Printing"]
+];
+
+/* ------------- App logic ------------- */
+let quiz = [];
+let current = 0;
+let answers = []; // {selectedIndex, correctIndex, options, question}
+let studentName = "", studentClass = "";
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+function buildQuiz(){
+  const pool = shuffle(BANK);
+  quiz = pool.map(item=>{
+    const [q, correct, ...wrongs] = item;
+    const optionSet = shuffle([correct, ...wrongs]);
+    return { question:q, options:optionSet, correctIndex: optionSet.indexOf(correct) };
+  });
+  answers = new Array(quiz.length).fill(null);
+}
+
+const startScreen = document.getElementById('startScreen');
+const quizScreen = document.getElementById('quizScreen');
+const resultScreen = document.getElementById('resultScreen');
+
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  studentName = document.getElementById('studentName').value.trim() || "Student";
+  studentClass = document.getElementById('studentClass').value.trim();
+  buildQuiz();
+  current = 0;
+  startScreen.classList.add('hidden');
+  quizScreen.classList.remove('hidden');
+  renderQuestion();
+});
+
+function renderQuestion(){
+  const q = quiz[current];
+  document.getElementById('qtext').textContent = q.question;
+  document.getElementById('progressLabel').textContent = `Question ${current+1} of ${quiz.length}`;
+  const answeredCount = answers.filter(a=>a!==null).length;
+  document.getElementById('answeredLabel').textContent = `${answeredCount} answered`;
+  document.getElementById('progressFill').style.width = `${((current+1)/quiz.length)*100}%`;
+  document.getElementById('qcounterChip').textContent = `${current+1} / ${quiz.length}`;
+
+  const box = document.getElementById('optionsBox');
+  box.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.options.forEach((opt, idx)=>{
+    const div = document.createElement('div');
+    div.className = 'option' + (answers[current]===idx ? ' selected' : '');
+    div.innerHTML = `<span class="letter">${letters[idx]}</span><span class="opt-text">${opt}</span>`;
+    div.addEventListener('click', ()=>{
+      answers[current] = idx;
+      renderQuestion();
+    });
+    box.appendChild(div);
+  });
+
+  document.getElementById('prevBtn').disabled = current===0;
+  document.getElementById('nextBtn').textContent = current===quiz.length-1 ? 'Finish Quiz ✓' : 'Next →';
+}
+
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  if(current>0){ current--; renderQuestion(); }
+});
+
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  if(current < quiz.length-1){
+    current++;
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+});
+
+function finishQuiz(){
+  quizScreen.classList.add('hidden');
+  resultScreen.classList.remove('hidden');
+
+  let correctCount = 0;
+  answers.forEach((sel, i)=>{
+    if(sel!==null && sel===quiz[i].correctIndex) correctCount++;
+  });
+  const total = quiz.length;
+  const pct = Math.round((correctCount/total)*100);
+
+  let grade = 'D';
+  if(pct>=90) grade='A+';
+  else if(pct>=80) grade='A';
+  else if(pct>=70) grade='B';
+  else if(pct>=60) grade='C';
+  else if(pct>=40) grade='D';
+  else grade='E';
+
+  document.getElementById('resultName').textContent = `Report for ${studentName}${studentClass ? ' · '+studentClass : ''}`;
+  document.getElementById('scorePct').textContent = `${pct}%`;
+  document.getElementById('scoreLine').textContent = `${correctCount} out of ${total} correct`;
+  document.getElementById('statCorrect').textContent = correctCount;
+  document.getElementById('statWrong').textContent = total - correctCount;
+  document.getElementById('statGrade').textContent = grade;
+
+  buildReview();
+}
+
+function buildReview(){
+  const box = document.getElementById('reviewBox');
+  box.innerHTML = '';
+  const letters=['A','B','C','D'];
+  quiz.forEach((q,i)=>{
+    const sel = answers[i];
+    const isCorrect = sel!==null && sel===q.correctIndex;
+    const div = document.createElement('div');
+    div.className='review-item';
+    div.innerHTML = `
+      <div class="review-q">${i+1}. ${q.question}</div>
+      <div class="review-line"><span class="badgey ${isCorrect?'correct':'wrong'}">${isCorrect?'CORRECT':'INCORRECT'}</span>
+      Your answer: ${sel!==null ? letters[sel]+'. '+q.options[sel] : '(not answered)'}</div>
+      ${!isCorrect ? `<div class="review-line ok">Correct answer: ${letters[q.correctIndex]}. ${q.options[q.correctIndex]}</div>` : ''}
+    `;
+    box.appendChild(div);
+  });
+}
+
+document.getElementById('toggleReviewBtn').addEventListener('click', (e)=>{
+  const box = document.getElementById('reviewBox');
+  box.classList.toggle('hidden');
+  e.target.textContent = box.classList.contains('hidden') ? '🔍 Show Answer Review' : '🙈 Hide Answer Review';
+});
+
+document.getElementById('retakeBtn').addEventListener('click', ()=>{
+  resultScreen.classList.add('hidden');
+  document.getElementById('reviewBox').classList.add('hidden');
+  document.getElementById('toggleReviewBtn').textContent = '🔍 Show Answer Review';
+  startScreen.classList.remove('hidden');
+});
+
+document.getElementById('downloadPdfBtn').addEventListener('click', ()=>{
+  generatePdf();
+});
+
+function generatePdf(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit:'pt', format:'a4' });
+  const pageW = doc.internal.pageSize.getWidth();
+  const margin = 40;
+  let y = 50;
+
+  let correctCount = 0;
+  answers.forEach((sel,i)=>{ if(sel!==null && sel===quiz[i].correctIndex) correctCount++; });
+  const total = quiz.length;
+  const pct = Math.round((correctCount/total)*100);
+  let grade='D';
+  if(pct>=90) grade='A+'; else if(pct>=80) grade='A'; else if(pct>=70) grade='B';
+  else if(pct>=60) grade='C'; else if(pct>=40) grade='D'; else grade='E';
+
+  // Header
+  doc.setFillColor(30,64,175);
+  doc.rect(0,0,pageW,80,'F');
+  doc.setTextColor(255,255,255);
+  doc.setFontSize(18);
+  doc.setFont(undefined,'bold');
+  doc.text('SkillNest — Introduction to Computers', margin, 35);
+  doc.setFontSize(11);
+  doc.setFont(undefined,'normal');
+  doc.text('Assessment Report', margin, 55);
+
+  y = 105;
+  doc.setTextColor(20,20,20);
+  doc.setFontSize(12);
+  doc.setFont(undefined,'bold');
+  doc.text(`Student Name: ${studentName}`, margin, y); y+=18;
+  if(studentClass){ doc.text(`Class / Section: ${studentClass}`, margin, y); y+=18; }
+  doc.text(`Date: ${new Date().toLocaleDateString()}`, margin, y); y+=18;
+  doc.setFont(undefined,'normal');
+  doc.text(`Total Questions: ${total}`, margin, y); y+=16;
+  doc.text(`Correct Answers: ${correctCount}`, margin, y); y+=16;
+  doc.text(`Incorrect / Unanswered: ${total-correctCount}`, margin, y); y+=16;
+  doc.setFont(undefined,'bold');
+  doc.text(`Score: ${pct}%    Grade: ${grade}`, margin, y); y+=28;
+
+  doc.setDrawColor(220,220,220);
+  doc.line(margin, y, pageW-margin, y); y+=20;
+
+  doc.setFontSize(13);
+  doc.text('Answer Review', margin, y); y+=18;
+  doc.setFontSize(9);
+
+  const letters=['A','B','C','D'];
+  const maxWidth = pageW - margin*2;
+
+  quiz.forEach((q,i)=>{
+    const sel = answers[i];
+    const isCorrect = sel!==null && sel===q.correctIndex;
+
+    const qLines = doc.splitTextToSize(`${i+1}. ${q.question}`, maxWidth);
+    const yourAns = `Your answer: ${sel!==null ? letters[sel]+'. '+q.options[sel] : '(not answered)'}  [${isCorrect?'CORRECT':'INCORRECT'}]`;
+    const yourLines = doc.splitTextToSize(yourAns, maxWidth);
+    let correctLines = [];
+    if(!isCorrect){
+      correctLines = doc.splitTextToSize(`Correct answer: ${letters[q.correctIndex]}. ${q.options[q.correctIndex]}`, maxWidth);
+    }
+
+    const blockHeight = (qLines.length + yourLines.length + correctLines.length) * 11 + 8;
+    if(y + blockHeight > 780){
+      doc.addPage();
+      y = 50;
+    }
+
+    doc.setFont(undefined,'bold');
+    doc.setTextColor(15,31,77);
+    doc.text(qLines, margin, y);
+    y += qLines.length*11 + 2;
+
+    doc.setFont(undefined,'normal');
+    doc.setTextColor(isCorrect ? 22 : 190, isCorrect ? 130 : 40, isCorrect ? 60 : 40);
+    doc.text(yourLines, margin, y);
+    y += yourLines.length*11 + 1;
+
+    if(!isCorrect){
+      doc.setTextColor(20,120,60);
+      doc.text(correctLines, margin, y);
+      y += correctLines.length*11 + 1;
+    }
+    doc.setTextColor(20,20,20);
+    y += 6;
+  });
+
+  const fname = `SkillNest_Quiz_Report_${studentName.replace(/\s+/g,'_')}.pdf`;
+  doc.save(fname);
+}
+</script>
+</body>
+</html>

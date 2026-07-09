@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillNest | Computer Fundamentals Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root{
+    --sn-blue:#1e40af;
+    --sn-blue-light:#3b82f6;
+    --sn-blue-pale:#eaf1ff;
+    --sn-navy:#0f2557;
+    --sn-amber:#f59e0b;
+    --sn-green:#16a34a;
+    --sn-red:#dc2626;
+    --sn-bg:#f5f8ff;
+    --sn-card:#ffffff;
+    --sn-border:#dbe6ff;
+    --sn-text:#1c2b4a;
+    --sn-text-soft:#5b6b8c;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:
+      radial-gradient(circle at 15% -10%, #dbe9ff 0%, transparent 45%),
+      radial-gradient(circle at 100% 0%, #eef4ff 0%, transparent 40%),
+      var(--sn-bg);
+    color:var(--sn-text);
+    min-height:100vh;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:28px 18px 60px;}
+
+  /* Header */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:26px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-badge{
+    width:42px;height:42px;border-radius:12px;
+    background:linear-gradient(135deg,var(--sn-blue),var(--sn-blue-light));
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;box-shadow:0 6px 16px rgba(30,64,175,.28);
+  }
+  .brand-name{font-family:'Poppins',sans-serif;font-weight:800;font-size:19px;color:var(--sn-navy);letter-spacing:.2px;}
+  .brand-tag{font-size:11px;color:var(--sn-text-soft);font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-top:-2px;}
+  .pill{
+    background:var(--sn-blue-pale);color:var(--sn-blue);
+    font-size:12px;font-weight:700;padding:7px 14px;border-radius:999px;
+    border:1px solid var(--sn-border);
+  }
+
+  /* Cards */
+  .card{
+    background:var(--sn-card);
+    border:1px solid var(--sn-border);
+    border-radius:var(--radius);
+    box-shadow:0 10px 30px -12px rgba(30,64,175,.18);
+    padding:32px;
+  }
+
+  /* Landing */
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--sn-blue-pale);color:var(--sn-blue);
+    font-weight:700;font-size:12px;padding:6px 12px;border-radius:999px;margin-bottom:14px;
+  }
+  h1{font-family:'Poppins',sans-serif;font-weight:800;font-size:28px;line-height:1.25;margin:0 0 10px;color:var(--sn-navy);}
+  .subtext{color:var(--sn-text-soft);font-size:15px;line-height:1.6;margin-bottom:22px;}
+  .stat-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px;}
+  .stat-chip{
+    flex:1;min-width:130px;
+    background:var(--sn-blue-pale);border-radius:14px;padding:14px 16px;
+    border:1px solid var(--sn-border);
+  }
+  .stat-chip b{display:block;font-family:'Poppins',sans-serif;font-size:20px;color:var(--sn-blue);}
+  .stat-chip span{font-size:12px;color:var(--sn-text-soft);font-weight:600;}
+  label{font-size:13px;font-weight:700;color:var(--sn-navy);display:block;margin-bottom:6px;}
+  input[type=text]{
+    width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--sn-border);
+    font-size:15px;font-family:'Inter',sans-serif;margin-bottom:16px;background:#fbfcff;
+    transition:border-color .15s;
+  }
+  input[type=text]:focus{outline:none;border-color:var(--sn-blue-light);}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    background:linear-gradient(135deg,var(--sn-blue),var(--sn-blue-light));
+    color:#fff;border:none;padding:14px 26px;border-radius:12px;
+    font-weight:700;font-size:15px;cursor:pointer;font-family:'Inter',sans-serif;
+    box-shadow:0 10px 20px -8px rgba(30,64,175,.45);
+    transition:transform .12s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn:active{transform:translateY(0px);}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+  .btn-outline{
+    background:#fff;color:var(--sn-blue);border:1.5px solid var(--sn-blue-light);
+    box-shadow:none;
+  }
+  .btn-full{width:100%;}
+  .note-box{
+    margin-top:18px;font-size:12.5px;color:var(--sn-text-soft);
+    background:#fff9ec;border:1px solid #fbe6b8;border-radius:12px;padding:12px 14px;
+    display:flex;gap:8px;
+  }
+
+  /* Quiz screen */
+  .progress-track{
+    height:9px;background:var(--sn-blue-pale);border-radius:999px;overflow:hidden;margin-bottom:8px;
+  }
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--sn-blue),var(--sn-blue-light));border-radius:999px;transition:width .3s ease;}
+  .progress-label{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:var(--sn-text-soft);margin-bottom:22px;}
+  .qsection{
+    display:inline-block;font-size:11px;font-weight:700;color:var(--sn-blue);
+    background:var(--sn-blue-pale);padding:4px 10px;border-radius:999px;margin-bottom:14px;
+  }
+  .qtext{font-family:'Poppins',sans-serif;font-weight:700;font-size:19px;line-height:1.45;color:var(--sn-navy);margin-bottom:22px;}
+  .options{display:flex;flex-direction:column;gap:11px;margin-bottom:26px;}
+  .opt{
+    display:flex;align-items:center;gap:12px;
+    border:1.5px solid var(--sn-border);border-radius:14px;padding:13px 16px;
+    cursor:pointer;font-size:14.5px;font-weight:600;color:var(--sn-text);
+    background:#fbfcff;transition:.15s;
+  }
+  .opt:hover{border-color:var(--sn-blue-light);background:var(--sn-blue-pale);}
+  .opt.selected{border-color:var(--sn-blue);background:var(--sn-blue-pale);color:var(--sn-navy);}
+  .opt .letter{
+    width:26px;height:26px;border-radius:8px;background:#e7edff;color:var(--sn-blue);
+    display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;flex-shrink:0;
+  }
+  .opt.selected .letter{background:var(--sn-blue);color:#fff;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;align-items:center;}
+  .jumpgrid{
+    display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:22px;
+  }
+  .jbtn{
+    width:100%;aspect-ratio:1;border-radius:8px;border:1px solid var(--sn-border);
+    background:#fff;font-size:11px;font-weight:700;color:var(--sn-text-soft);cursor:pointer;
+  }
+  .jbtn.answered{background:var(--sn-blue-pale);color:var(--sn-blue);border-color:var(--sn-blue-light);}
+  .jbtn.current{background:var(--sn-blue);color:#fff;border-color:var(--sn-blue);}
+
+  /* Results */
+  .score-ring-wrap{display:flex;justify-content:center;margin:8px 0 20px;}
+  .score-summary{text-align:center;margin-bottom:8px;}
+  .score-big{font-family:'Poppins',sans-serif;font-size:44px;font-weight:800;color:var(--sn-blue);}
+  .score-sub{color:var(--sn-text-soft);font-size:14px;font-weight:600;}
+  .grade-badge{
+    display:inline-block;margin-top:10px;padding:6px 16px;border-radius:999px;
+    font-weight:700;font-size:13px;
+  }
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0;}
+  .metric{background:var(--sn-blue-pale);border-radius:14px;padding:16px;text-align:center;border:1px solid var(--sn-border);}
+  .metric b{display:block;font-family:'Poppins',sans-serif;font-size:22px;}
+  .metric.correct b{color:var(--sn-green);}
+  .metric.wrong b{color:var(--sn-red);}
+  .metric.pct b{color:var(--sn-blue);}
+  .metric span{font-size:11.5px;color:var(--sn-text-soft);font-weight:700;text-transform:uppercase;letter-spacing:.3px;}
+  .review-item{
+    border:1px solid var(--sn-border);border-radius:14px;padding:14px 16px;margin-bottom:10px;
+  }
+  .review-item.wrong{border-color:#f7c9c9;background:#fff6f6;}
+  .review-item.right{border-color:#c7ecd3;background:#f6fffa;}
+  .review-q{font-weight:700;font-size:13.5px;color:var(--sn-navy);margin-bottom:6px;}
+  .review-a{font-size:12.5px;color:var(--sn-text-soft);}
+  .review-a b.ok{color:var(--sn-green);}
+  .review-a b.bad{color:var(--sn-red);}
+  .actions-row{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;}
+  .actions-row .btn{flex:1;}
+  .hidden{display:none !important;}
+  .footer-credit{text-align:center;font-size:12px;color:var(--sn-text-soft);margin-top:28px;}
+  @media(max-width:560px){
+    .card{padding:22px;}
+    h1{font-size:23px;}
+    .grid-3{grid-template-columns:1fr;}
+    .jumpgrid{grid-template-columns:repeat(6,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-badge">🎓</div>
+      <div>
+        <div class="brand-name">SkillNest</div>
+        <div class="brand-tag">Digital Skills Program</div>
+      </div>
+    </div>
+    <div class="pill" id="topPill">Computer Fundamentals</div>
+  </div>
+
+  <!-- LANDING -->
+  <div class="card" id="landing">
+    <div class="hero-eyebrow">🧠 Practice Assessment</div>
+    <h1>Computer Fundamentals Quiz</h1>
+    <p class="subtext">Test what you've learned about hardware, software, the operating system, file management and keyboard shortcuts. Answer every question, then get your score and a downloadable PDF report instantly.</p>
+
+    <div class="stat-row">
+      <div class="stat-chip"><b id="statTotal">90</b><span>Total Questions</span></div>
+      <div class="stat-chip"><b>MCQ + T/F</b><span>Question Types</span></div>
+      <div class="stat-chip"><b>Instant</b><span>Auto-Graded Result</span></div>
+    </div>
+
+    <label for="studentName">Student Name</label>
+    <input type="text" id="studentName" placeholder="e.g. Aarav Singh">
+    <label for="studentClass">Class / Grade</label>
+    <input type="text" id="studentClass" placeholder="e.g. Class 7">
+
+    <button class="btn btn-full" id="startBtn">Start Quiz →</button>
+
+    <div class="note-box">
+      ℹ️ This quiz uses all 90 unique questions available in the source question bank (70 Multiple Choice + 20 True/False). The source document's Section A header lists "80" MCQs and the set as "100" total, but items 71–80 are not present in the file, so 90 is the full unique set drawn from it.
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="card hidden" id="quizScreen">
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="progress-label">
+      <span id="progressText">Question 1 of 90</span>
+      <span id="answeredText">0 answered</span>
+    </div>
+
+    <div class="qsection" id="qSectionLabel">Section A · Multiple Choice</div>
+    <div class="qtext" id="qText"></div>
+    <div class="options" id="optionsBox"></div>
+
+    <div class="nav-row">
+      <button class="btn btn-outline" id="prevBtn">← Previous</button>
+      <button class="btn" id="nextBtn">Next →</button>
+    </div>
+
+    <div class="jumpgrid" id="jumpGrid"></div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="card hidden" id="resultsScreen">
+    <div class="hero-eyebrow">📊 Result</div>
+    <h1 id="resultTitle">Great effort!</h1>
+    <div class="score-summary">
+      <div class="score-big" id="scoreBig">0/90</div>
+      <div class="score-sub" id="scoreSub">0% Score</div>
+      <div class="grade-badge" id="gradeBadge">Grade</div>
+    </div>
+
+    <div class="grid-3">
+      <div class="metric correct"><b id="correctCount">0</b><span>Correct</span></div>
+      <div class="metric wrong"><b id="wrongCount">0</b><span>Incorrect</span></div>
+      <div class="metric pct"><b id="pctCount">0%</b><span>Accuracy</span></div>
+    </div>
+
+    <div class="actions-row">
+      <button class="btn" id="downloadPdfBtn">⬇ Download PDF Report</button>
+      <button class="btn btn-outline" id="retakeBtn">↻ Retake Quiz</button>
+      <button class="btn btn-outline" id="reviewToggleBtn">🔍 Show Review</button>
+    </div>
+
+    <div id="reviewList" class="hidden" style="margin-top:22px;"></div>
+  </div>
+
+  <div class="footer-credit">SkillNest Computer Fundamentals Assessment · Questions sourced from the official SkillNest question bank</div>
+</div>
+
+<script>
+const QUESTIONS_RAW = [{"id": 1, "type": "mcq", "q": "A computer is an electronic device that ____.", "options": ["Cooks food", "Processes data", "Prints books", "Repairs machines"], "correct": 1}, {"id": 2, "type": "mcq", "q": "Raw facts are called ____.", "options": ["Information", "Software", "Data", "Memory"], "correct": 2}, {"id": 3, "type": "mcq", "q": "Processed data is called ____.", "options": ["Information", "Hardware", "Folder", "Program"], "correct": 0}, {"id": 4, "type": "mcq", "q": "Which is the correct IPO cycle?", "options": ["Output-Input-Process", "Input-Process-Output", "Process-Input-Output", "Storage-Input-Output"], "correct": 1}, {"id": 5, "type": "mcq", "q": "Which is NOT a characteristic of a computer?", "options": ["Accuracy", "Speed", "Emotions", "Storage"], "correct": 2}, {"id": 6, "type": "mcq", "q": "Computers are widely used in ____.", "options": ["Hospitals", "Banks", "Schools", "All of these"], "correct": 3}, {"id": 7, "type": "mcq", "q": "Which device is known as the brain of the computer?", "options": ["Keyboard", "CPU", "Monitor", "Mouse"], "correct": 1}, {"id": 8, "type": "mcq", "q": "Which of these is a limitation of computers?", "options": ["Can think independently", "Needs instructions", "Never stores data", "Cannot process"], "correct": 1}, {"id": 9, "type": "mcq", "q": "Which field uses computers for online shopping?", "options": ["E-commerce", "Agriculture only", "Sports only", "Music only"], "correct": 0}, {"id": 10, "type": "mcq", "q": "Which feature allows computers to work continuously?", "options": ["Automation", "Sleep", "Brightness", "Voice"], "correct": 0}, {"id": 11, "type": "mcq", "q": "Which is hardware?", "options": ["MS Word", "Keyboard", "Windows", "Chrome"], "correct": 1}, {"id": 12, "type": "mcq", "q": "Which is software?", "options": ["Printer", "Excel", "CPU", "RAM"], "correct": 1}, {"id": 13, "type": "mcq", "q": "Hardware can be ____.", "options": ["Touched", "Downloaded", "Installed only", "Updated"], "correct": 0}, {"id": 14, "type": "mcq", "q": "Software consists of ____.", "options": ["Plastic parts", "Programs", "Wires", "Chips"], "correct": 1}, {"id": 15, "type": "mcq", "q": "Which is system software?", "options": ["Windows", "PowerPoint", "Canva", "Paint"], "correct": 0}, {"id": 16, "type": "mcq", "q": "Application software is used to ____.", "options": ["Perform user tasks", "Start electricity", "Build CPUs", "Increase RAM"], "correct": 0}, {"id": 17, "type": "mcq", "q": "Hardware and software ____.", "options": ["Never work together", "Always work together", "Are the same", "Replace each other"], "correct": 1}, {"id": 18, "type": "mcq", "q": "Which hardware displays output?", "options": ["Monitor", "Keyboard", "Scanner", "Mouse"], "correct": 0}, {"id": 19, "type": "mcq", "q": "Which software is a web browser?", "options": ["Chrome", "CPU", "SSD", "RAM"], "correct": 0}, {"id": 20, "type": "mcq", "q": "Software may become ____ over time.", "options": ["Rusty", "Outdated", "Heavy", "Metal"], "correct": 1}, {"id": 21, "type": "mcq", "q": "Keyboard is an ____ device.", "options": ["Input", "Output", "Storage", "Network"], "correct": 0}, {"id": 22, "type": "mcq", "q": "Printer is an ____ device.", "options": ["Input", "Output", "Memory", "Processing"], "correct": 1}, {"id": 23, "type": "mcq", "q": "Scanner is used to ____.", "options": ["Print", "Scan documents", "Play music", "Store files"], "correct": 1}, {"id": 24, "type": "mcq", "q": "Speakers produce ____.", "options": ["Input", "Sound output", "Storage", "Processing"], "correct": 1}, {"id": 25, "type": "mcq", "q": "Touchscreen is ____.", "options": ["Input only", "Output only", "Both input and output", "Neither"], "correct": 2}, {"id": 26, "type": "mcq", "q": "Webcam captures ____.", "options": ["Video", "Print", "Storage", "Power"], "correct": 0}, {"id": 27, "type": "mcq", "q": "Microphone is used to input ____.", "options": ["Images", "Audio", "Video", "Text"], "correct": 1}, {"id": 28, "type": "mcq", "q": "Projector displays information on a ____.", "options": ["Wall/Screen", "Keyboard", "CPU", "Table"], "correct": 0}, {"id": 29, "type": "mcq", "q": "Mouse is mainly used to ____.", "options": ["Type", "Point and click", "Print", "Scan"], "correct": 1}, {"id": 30, "type": "mcq", "q": "Headphones are ____ devices.", "options": ["Output", "Input", "Storage", "Processing"], "correct": 0}, {"id": 31, "type": "mcq", "q": "An operating system manages ____.", "options": ["Hardware and software", "Food", "Internet only", "Games"], "correct": 0}, {"id": 32, "type": "mcq", "q": "Which is an operating system?", "options": ["Linux", "Excel", "Canva", "YouTube"], "correct": 0}, {"id": 33, "type": "mcq", "q": "Android is mainly used on ____.", "options": ["Phones", "Printers", "CPU", "Scanner"], "correct": 0}, {"id": 34, "type": "mcq", "q": "The desktop appears after the computer ____.", "options": ["Starts", "Stops", "Sleeps", "Prints"], "correct": 0}, {"id": 35, "type": "mcq", "q": "The taskbar shows ____.", "options": ["Open apps", "RAM", "CPU", "Folders only"], "correct": 0}, {"id": 36, "type": "mcq", "q": "The Start Menu helps open ____.", "options": ["Applications", "Monitor", "Mouse", "Printer"], "correct": 0}, {"id": 37, "type": "mcq", "q": "Without an operating system, a computer ____.", "options": ["Works normally", "Cannot be used properly", "Runs faster", "Prints automatically"], "correct": 1}, {"id": 38, "type": "mcq", "q": "GUI means ____.", "options": ["Graphical User Interface", "General Utility Interface", "Graphic Unit", "Global Utility"], "correct": 0}, {"id": 39, "type": "mcq", "q": "Windows is an example of ____.", "options": ["Operating system", "Browser", "Game", "CPU"], "correct": 0}, {"id": 40, "type": "mcq", "q": "macOS is developed for ____ computers.", "options": ["Apple", "Android", "Linux", "DOS"], "correct": 0}, {"id": 41, "type": "mcq", "q": "A folder is used to ____.", "options": ["Organize files", "Print", "Browse", "Scan"], "correct": 0}, {"id": 42, "type": "mcq", "q": "A .pdf file is a type of ____.", "options": ["File extension", "CPU", "Folder", "RAM"], "correct": 0}, {"id": 43, "type": "mcq", "q": "Copy creates a ____.", "options": ["Duplicate", "Deletion", "Virus", "Shortcut"], "correct": 0}, {"id": 44, "type": "mcq", "q": "Move changes the ____.", "options": ["Location", "Name only", "Size", "Color"], "correct": 0}, {"id": 45, "type": "mcq", "q": "Deleted files first go to ____.", "options": ["Recycle Bin", "CPU", "RAM", "Desktop"], "correct": 0}, {"id": 46, "type": "mcq", "q": "Meaningful file names help in ____.", "options": ["Finding files", "Gaming", "Printing", "Typing"], "correct": 0}, {"id": 47, "type": "mcq", "q": "Which extension is an image?", "options": [".jpg", ".docx", ".mp4", ".xlsx"], "correct": 0}, {"id": 48, "type": "mcq", "q": "Which extension is a Word document?", "options": [".docx", ".jpg", ".mp3", ".png"], "correct": 0}, {"id": 49, "type": "mcq", "q": "Which extension is a video?", "options": [".mp4", ".pdf", ".png", ".txt"], "correct": 0}, {"id": 50, "type": "mcq", "q": "Folders can contain ____.", "options": ["Files and folders", "CPU", "RAM", "Internet"], "correct": 0}, {"id": 51, "type": "mcq", "q": "Ctrl+S is used to ____.", "options": ["Save", "Search", "Share", "Start"], "correct": 0}, {"id": 52, "type": "mcq", "q": "Save As creates ____.", "options": ["Another copy", "Virus", "Shortcut", "Folder"], "correct": 0}, {"id": 53, "type": "mcq", "q": "Backups help prevent ____.", "options": ["Data loss", "Typing", "Printing", "Power"], "correct": 0}, {"id": 54, "type": "mcq", "q": "Google Drive is used for ____.", "options": ["Cloud storage", "Printing", "Scanning", "Gaming"], "correct": 0}, {"id": 55, "type": "mcq", "q": "Ctrl+C means ____.", "options": ["Copy", "Close", "Cut", "Create"], "correct": 0}, {"id": 56, "type": "mcq", "q": "Ctrl+V means ____.", "options": ["Paste", "Preview", "Print", "View"], "correct": 0}, {"id": 57, "type": "mcq", "q": "Ctrl+X means ____.", "options": ["Cut", "Copy", "Exit", "Export"], "correct": 0}, {"id": 58, "type": "mcq", "q": "Ctrl+Z means ____.", "options": ["Undo", "Update", "Upload", "Underline"], "correct": 0}, {"id": 59, "type": "mcq", "q": "Ctrl+A means ____.", "options": ["Select All", "Save", "Search", "Add"], "correct": 0}, {"id": 60, "type": "mcq", "q": "Ctrl+F means ____.", "options": ["Find", "Folder", "File", "Finish"], "correct": 0}, {"id": 61, "type": "mcq", "q": "Alt+Tab switches between ____.", "options": ["Applications", "Printers", "Folders", "Networks"], "correct": 0}, {"id": 62, "type": "mcq", "q": "Alt+F4 closes the ____.", "options": ["Current window", "Internet", "CPU", "Folder"], "correct": 0}, {"id": 63, "type": "mcq", "q": "Windows+E opens ____.", "options": ["File Explorer", "Excel", "Edge", "Email"], "correct": 0}, {"id": 64, "type": "mcq", "q": "Windows+D shows the ____.", "options": ["Desktop", "Downloads", "Documents", "Drive"], "correct": 0}, {"id": 65, "type": "mcq", "q": "F2 is used to ____.", "options": ["Rename", "Refresh", "Redo", "Replace"], "correct": 0}, {"id": 66, "type": "mcq", "q": "Delete key sends files to ____.", "options": ["Recycle Bin", "CPU", "Cloud", "RAM"], "correct": 0}, {"id": 67, "type": "mcq", "q": "Touch typing improves ____.", "options": ["Typing speed", "Screen size", "Internet", "Battery"], "correct": 0}, {"id": 68, "type": "mcq", "q": "Software updates improve ____.", "options": ["Security", "Dust", "Weight", "Color"], "correct": 0}, {"id": 69, "type": "mcq", "q": "Passwords should be ____.", "options": ["Strong", "Shared", "Simple", "Written publicly"], "correct": 0}, {"id": 70, "type": "mcq", "q": "Computer skills are useful for ____.", "options": ["Every career", "Games only", "School only", "Banks only"], "correct": 0}, {"id": 81, "type": "tf", "q": "Hardware can be touched.", "options": ["True", "False"], "correct": 0}, {"id": 82, "type": "tf", "q": "Software is a physical component.", "options": ["True", "False"], "correct": 1}, {"id": 83, "type": "tf", "q": "Keyboard is an input device.", "options": ["True", "False"], "correct": 0}, {"id": 84, "type": "tf", "q": "Monitor is an output device.", "options": ["True", "False"], "correct": 0}, {"id": 85, "type": "tf", "q": "Windows is an operating system.", "options": ["True", "False"], "correct": 0}, {"id": 86, "type": "tf", "q": "A folder stores files.", "options": ["True", "False"], "correct": 0}, {"id": 87, "type": "tf", "q": "Ctrl+S is used to save work.", "options": ["True", "False"], "correct": 0}, {"id": 88, "type": "tf", "q": "Google Drive is cloud storage.", "options": ["True", "False"], "correct": 0}, {"id": 89, "type": "tf", "q": "Backup helps recover important files.", "options": ["True", "False"], "correct": 0}, {"id": 90, "type": "tf", "q": "Touchscreen is only an output device.", "options": ["True", "False"], "correct": 1}, {"id": 91, "type": "tf", "q": "CPU is called the brain of the computer.", "options": ["True", "False"], "correct": 0}, {"id": 92, "type": "tf", "q": "Data means processed information.", "options": ["True", "False"], "correct": 1}, {"id": 93, "type": "tf", "q": "Recycle Bin stores deleted files temporarily.", "options": ["True", "False"], "correct": 0}, {"id": 94, "type": "tf", "q": "Ctrl+C is used to copy.", "options": ["True", "False"], "correct": 0}, {"id": 95, "type": "tf", "q": "Alt+Tab switches applications.", "options": ["True", "False"], "correct": 0}, {"id": 96, "type": "tf", "q": "File extensions identify file types.", "options": ["True", "False"], "correct": 0}, {"id": 97, "type": "tf", "q": "Android is an operating system.", "options": ["True", "False"], "correct": 0}, {"id": 98, "type": "tf", "q": "Typing practice improves productivity.", "options": ["True", "False"], "correct": 0}, {"id": 99, "type": "tf", "q": "Strong passwords improve security.", "options": ["True", "False"], "correct": 0}, {"id": 100, "type": "tf", "q": "Software and hardware work together.", "options": ["True", "False"], "correct": 0}];
+
+// Shuffle deterministically per session (Fisher-Yates)
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+let QUESTIONS = [];
+let current = 0;
+let answers = {}; // qId -> selectedIndex
+let studentName = "";
+let studentClass = "";
+
+const landing = document.getElementById('landing');
+const quizScreen = document.getElementById('quizScreen');
+const resultsScreen = document.getElementById('resultsScreen');
+
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  studentName = document.getElementById('studentName').value.trim() || "Student";
+  studentClass = document.getElementById('studentClass').value.trim() || "—";
+  QUESTIONS = shuffle(QUESTIONS_RAW);
+  answers = {};
+  current = 0;
+  landing.classList.add('hidden');
+  quizScreen.classList.remove('hidden');
+  document.getElementById('statTotal').textContent = QUESTIONS.length;
+  buildJumpGrid();
+  renderQuestion();
+});
+
+function buildJumpGrid(){
+  const grid = document.getElementById('jumpGrid');
+  grid.innerHTML = '';
+  QUESTIONS.forEach((q,idx)=>{
+    const b = document.createElement('button');
+    b.className = 'jbtn';
+    b.textContent = idx+1;
+    b.addEventListener('click', ()=>{ current = idx; renderQuestion(); });
+    grid.appendChild(b);
+  });
+}
+
+function updateJumpGrid(){
+  const grid = document.getElementById('jumpGrid');
+  [...grid.children].forEach((b,idx)=>{
+    b.classList.toggle('answered', answers[QUESTIONS[idx].id] !== undefined);
+    b.classList.toggle('current', idx === current);
+  });
+}
+
+function renderQuestion(){
+  const q = QUESTIONS[current];
+  document.getElementById('qSectionLabel').textContent = q.type === 'mcq'
+    ? 'Multiple Choice Question'
+    : 'True / False';
+  document.getElementById('qText').textContent = q.q;
+
+  const box = document.getElementById('optionsBox');
+  box.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.options.forEach((opt, idx)=>{
+    const div = document.createElement('div');
+    div.className = 'opt' + (answers[q.id] === idx ? ' selected' : '');
+    div.innerHTML = `<span class="letter">${letters[idx]}</span><span>${opt}</span>`;
+    div.addEventListener('click', ()=>{
+      answers[q.id] = idx;
+      renderQuestion();
+      updateJumpGrid();
+    });
+    box.appendChild(div);
+  });
+
+  document.getElementById('progressText').textContent = `Question ${current+1} of ${QUESTIONS.length}`;
+  const answeredN = Object.keys(answers).length;
+  document.getElementById('answeredText').textContent = `${answeredN} answered`;
+  document.getElementById('progressFill').style.width = `${((current+1)/QUESTIONS.length)*100}%`;
+
+  document.getElementById('prevBtn').disabled = current === 0;
+  document.getElementById('nextBtn').textContent = (current === QUESTIONS.length-1) ? 'Finish Quiz ✓' : 'Next →';
+
+  updateJumpGrid();
+}
+
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  if(current>0){ current--; renderQuestion(); }
+});
+
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  if(current < QUESTIONS.length-1){
+    current++;
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+});
+
+function finishQuiz(){
+  const unanswered = QUESTIONS.length - Object.keys(answers).length;
+  if(unanswered > 0){
+    const proceed = confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`);
+    if(!proceed) return;
+  }
+  quizScreen.classList.add('hidden');
+  resultsScreen.classList.remove('hidden');
+  showResults();
+}
+
+let lastCorrect = 0, lastWrong = 0, lastPct = 0;
+
+function showResults(){
+  let correct = 0;
+  QUESTIONS.forEach(q=>{
+    if(answers[q.id] === q.correct) correct++;
+  });
+  const total = QUESTIONS.length;
+  const wrong = total - correct;
+  const pct = Math.round((correct/total)*100);
+  lastCorrect = correct; lastWrong = wrong; lastPct = pct;
+
+  document.getElementById('scoreBig').textContent = `${correct}/${total}`;
+  document.getElementById('scoreSub').textContent = `${pct}% Score`;
+  document.getElementById('correctCount').textContent = correct;
+  document.getElementById('wrongCount').textContent = wrong;
+  document.getElementById('pctCount').textContent = pct + '%';
+
+  let grade, gcolor, gbg, title;
+  if(pct >= 90){grade='A+ · Outstanding';gcolor='#166534';gbg='#dcfce7';title='Outstanding work, '+studentName+'! 🌟';}
+  else if(pct >= 75){grade='A · Excellent';gcolor='#166534';gbg='#dcfce7';title='Excellent job, '+studentName+'! 🎉';}
+  else if(pct >= 60){grade='B · Good';gcolor='#92400e';gbg='#fef3c7';title='Good effort, '+studentName+'!';}
+  else if(pct >= 40){grade='C · Needs Practice';gcolor='#92400e';gbg='#fef3c7';title='Keep practicing, '+studentName+'!';}
+  else {grade='D · Revise Again';gcolor='#991b1b';gbg='#fee2e2';title='Time to revise together, '+studentName+'!';}
+
+  document.getElementById('resultTitle').textContent = title;
+  const badge = document.getElementById('gradeBadge');
+  badge.textContent = grade;
+  badge.style.color = gcolor;
+  badge.style.background = gbg;
+
+  buildReview();
+}
+
+function buildReview(){
+  const container = document.getElementById('reviewList');
+  container.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  QUESTIONS.forEach((q,idx)=>{
+    const given = answers[q.id];
+    const isCorrect = given === q.correct;
+    const div = document.createElement('div');
+    div.className = 'review-item ' + (isCorrect ? 'right' : 'wrong');
+    const givenText = given !== undefined ? q.options[given] : 'Not answered';
+    div.innerHTML = `
+      <div class="review-q">${idx+1}. ${q.q}</div>
+      <div class="review-a">Your answer: <b class="${isCorrect?'ok':'bad'}">${givenText}</b>
+      ${isCorrect ? '' : ' &nbsp;|&nbsp; Correct answer: <b class="ok">'+q.options[q.correct]+'</b>'}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+document.getElementById('reviewToggleBtn').addEventListener('click', (e)=>{
+  const list = document.getElementById('reviewList');
+  list.classList.toggle('hidden');
+  e.target.textContent = list.classList.contains('hidden') ? '🔍 Show Review' : '🔽 Hide Review';
+});
+
+document.getElementById('retakeBtn').addEventListener('click', ()=>{
+  resultsScreen.classList.add('hidden');
+  landing.classList.remove('hidden');
+  document.getElementById('reviewList').classList.add('hidden');
+  document.getElementById('reviewToggleBtn').textContent = '🔍 Show Review';
+});
+
+document.getElementById('downloadPdfBtn').addEventListener('click', generatePdf);
+
+function generatePdf(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({unit:'pt', format:'a4'});
+  const pageW = doc.internal.pageSize.getWidth();
+  const marginX = 48;
+  let y = 56;
+
+  // Header band
+  doc.setFillColor(30,64,175);
+  doc.rect(0,0,pageW,86,'F');
+  doc.setTextColor(255,255,255);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(18);
+  doc.text('SkillNest — Digital Skills Program', marginX, 36);
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(11);
+  doc.text('Computer Fundamentals Assessment Report', marginX, 56);
+
+  y = 120;
+  doc.setTextColor(20,30,60);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(13);
+  doc.text('Student Details', marginX, y);
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(11);
+  y += 20;
+  doc.text(`Name: ${studentName}`, marginX, y);
+  doc.text(`Class: ${studentClass}`, marginX + 260, y);
+  y += 18;
+  doc.text(`Date: ${new Date().toLocaleDateString()}`, marginX, y);
+  doc.text(`Total Questions: ${QUESTIONS.length}`, marginX + 260, y);
+
+  y += 34;
+  // Score box
+  doc.setFillColor(234,241,255);
+  doc.roundedRect(marginX, y, pageW - marginX*2, 70, 8, 8, 'F');
+  doc.setTextColor(30,64,175);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(22);
+  doc.text(`${lastCorrect} / ${QUESTIONS.length}`, marginX + 20, y + 30);
+  doc.setFontSize(11);
+  doc.setTextColor(90,100,130);
+  doc.text(`Score: ${lastPct}%`, marginX + 20, y + 50);
+
+  doc.setTextColor(22,163,74);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(11);
+  doc.text(`Correct: ${lastCorrect}`, marginX + 220, y + 30);
+  doc.setTextColor(220,38,38);
+  doc.text(`Incorrect: ${lastWrong}`, marginX + 220, y + 50);
+
+  let grade;
+  if(lastPct>=90) grade='A+ Outstanding';
+  else if(lastPct>=75) grade='A Excellent';
+  else if(lastPct>=60) grade='B Good';
+  else if(lastPct>=40) grade='C Needs Practice';
+  else grade='D Revise Again';
+  doc.setTextColor(30,64,175);
+  doc.setFontSize(13);
+  doc.text(`Grade: ${grade}`, marginX + 380, y + 40);
+
+  y += 100;
+  doc.setTextColor(20,30,60);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(13);
+  doc.text('Detailed Answer Review', marginX, y);
+  y += 12;
+
+  const letters = ['A','B','C','D'];
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(9.5);
+
+  QUESTIONS.forEach((q, idx)=>{
+    const given = answers[q.id];
+    const isCorrect = given === q.correct;
+    const givenText = given !== undefined ? q.options[given] : 'Not answered';
+    const correctText = q.options[q.correct];
+
+    const qLines = doc.splitTextToSize(`${idx+1}. ${q.q}`, pageW - marginX*2 - 10);
+    const blockHeight = 14*qLines.length + 26;
+
+    if(y + blockHeight > 780){
+      doc.addPage();
+      y = 50;
+    }
+
+    doc.setFont('helvetica','bold');
+    doc.setTextColor(20,30,60);
+    doc.text(qLines, marginX, y);
+    y += 14*qLines.length + 4;
+
+    doc.setFont('helvetica','normal');
+    if(isCorrect){
+      doc.setTextColor(22,163,74);
+      doc.text(`Your answer: ${givenText}  ✓`, marginX + 10, y);
+    } else {
+      doc.setTextColor(220,38,38);
+      doc.text(`Your answer: ${givenText}  ✗`, marginX + 10, y);
+      y += 13;
+      doc.setTextColor(22,163,74);
+      doc.text(`Correct answer: ${correctText}`, marginX + 10, y);
+    }
+    y += 18;
+  });
+
+  // Footer on last page
+  doc.setTextColor(150,150,150);
+  doc.setFontSize(8.5);
+  doc.text('Generated by the SkillNest Computer Fundamentals Quiz App', marginX, 815);
+
+  doc.save(`SkillNest_Report_${studentName.replace(/\s+/g,'_')}.pdf`);
+}
+</script>
+</body>
+</html>

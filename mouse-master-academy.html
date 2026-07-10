@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mouse Master Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#241B3A;        /* screen background */
+    --panel:#31264F;       /* card panels */
+    --panel-light:#3C2F5E;
+    --cheese:#F5C242;      /* primary accent */
+    --cheese-dark:#D9A521;
+    --mint:#68E3C4;        /* success */
+    --coral:#FF6F61;       /* error/hint */
+    --cream:#FFF8E7;       /* text on dark */
+    --ink:#2B1F3D;         /* text on light */
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(245,194,66,0.10), transparent 45%),
+      radial-gradient(circle at 85% 90%, rgba(104,227,196,0.08), transparent 40%),
+      var(--deep);
+    font-family:'Nunito',sans-serif;
+    color:var(--cream);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:22px 14px 44px;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30'><polygon points='2,2 27,11 12,15 8,27' fill='%23F5C242' stroke='%232B1F3D' stroke-width='2' stroke-linejoin='round'/></svg>") 2 2, auto;
+  }
+
+  .title-wrap{ text-align:center; margin-bottom:18px; }
+  .title-wrap h1{
+    font-family:'Fredoka',sans-serif;
+    font-weight:700;
+    font-size:clamp(28px,5vw,40px);
+    margin:0;
+    color:var(--cheese);
+    text-shadow:0 2px 0 rgba(0,0,0,0.4);
+  }
+  .title-wrap p{
+    color:#C9BEE0;
+    font-weight:700;
+    font-size:14px;
+    margin:6px 0 0;
+  }
+
+  .stage{
+    width:100%;
+    max-width:920px;
+    background:var(--panel);
+    border-radius:26px;
+    padding:20px;
+    box-shadow:0 20px 44px rgba(0,0,0,0.35);
+    position:relative;
+  }
+
+  /* tabs */
+  .tabs{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-bottom:16px;
+    flex-wrap:wrap;
+  }
+  .tab{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--panel-light);
+    border:2px solid transparent;
+    border-radius:14px;
+    padding:10px 16px;
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    color:var(--cream);
+    cursor:pointer;
+    transition:transform .12s ease, border-color .12s ease;
+  }
+  .tab:hover{ transform:translateY(-2px); }
+  .tab.active{
+    border-color:var(--cheese);
+    background:#443768;
+  }
+  .tab .icon{ font-size:20px; }
+  .tab .check{
+    color:var(--mint);
+    font-weight:800;
+    display:none;
+  }
+  .tab.done .check{ display:inline; }
+
+  .hint-bar{
+    background:var(--panel-light);
+    border-radius:14px;
+    padding:12px 16px;
+    font-family:'Fredoka',sans-serif;
+    font-size:15px;
+    text-align:center;
+    margin-bottom:16px;
+    color:var(--cheese);
+  }
+
+  .panel{ display:none; }
+  .panel.active{ display:block; }
+
+  .play-stage{
+    position:relative;
+    background:#1B142C;
+    border-radius:18px;
+    min-height:320px;
+    overflow:hidden;
+    box-shadow:inset 0 0 0 3px #443768;
+  }
+
+  .score-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:12px 2px 0;
+    font-family:'Fredoka',sans-serif;
+    font-size:15px;
+  }
+  .score-row .badge{
+    background:var(--cheese);
+    color:var(--ink);
+    padding:4px 12px;
+    border-radius:20px;
+    font-weight:600;
+  }
+
+  /* LEFT CLICK - cheese pop */
+  .cheese-bubble{
+    position:absolute;
+    font-size:34px;
+    cursor:pointer;
+    animation:float-in .25s ease;
+    filter:drop-shadow(0 3px 3px rgba(0,0,0,0.4));
+    user-select:none;
+  }
+  @keyframes float-in{ from{ transform:scale(0);} to{ transform:scale(1);} }
+  .cheese-bubble.pop{ animation:pop-out .25s ease forwards; }
+  @keyframes pop-out{ to{ transform:scale(1.6); opacity:0; } }
+
+  /* RIGHT CLICK - chests / DOUBLE CLICK - doors, shared grid */
+  .item-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    padding:26px;
+    place-items:center;
+  }
+  .item-tile{
+    width:100px;height:100px;
+    background:var(--panel-light);
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:46px;
+    cursor:pointer;
+    user-select:none;
+    box-shadow:0 4px 0 rgba(0,0,0,0.3);
+    transition:transform .1s ease;
+  }
+  .item-tile.opened{
+    background:#2E4A3E;
+    box-shadow:0 4px 0 rgba(0,0,0,0.2);
+    cursor:default;
+  }
+  .item-tile.shake{ animation:shake .3s ease; }
+  @keyframes shake{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-6px) rotate(-3deg);}
+    75%{transform:translateX(6px) rotate(3deg);}
+  }
+
+  /* POINTER CONTROL */
+  .pointer-area{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    padding:22px;
+  }
+  .drag-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .tray{
+    display:flex;
+    gap:14px;
+    min-height:70px;
+  }
+  .drag-cheese{
+    font-size:44px;
+    cursor:grab;
+    user-select:none;
+    touch-action:none;
+    filter:drop-shadow(0 3px 3px rgba(0,0,0,0.4));
+  }
+  .drag-cheese.dragging{
+    position:fixed;
+    z-index:999;
+    pointer-events:none;
+    cursor:grabbing;
+  }
+  .mouse-hole{
+    width:130px;height:100px;
+    background:#0F0A1A;
+    border-radius:65px 65px 14px 14px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    font-size:14px;
+    font-family:'Fredoka',sans-serif;
+    color:#8B7DAE;
+    padding-bottom:8px;
+    box-shadow:inset 0 6px 10px rgba(0,0,0,0.5);
+  }
+  .mouse-hole.hover-drop{
+    box-shadow:inset 0 6px 10px rgba(0,0,0,0.5), 0 0 0 3px var(--mint);
+  }
+
+  .hover-task{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+  .hover-target{
+    width:110px;height:110px;
+    border-radius:50%;
+    background:conic-gradient(var(--mint) calc(var(--p, 0) * 1%), var(--panel-light) 0);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .hover-target::after{
+    content:"🎯";
+    font-size:38px;
+    background:var(--panel);
+    width:82px;height:82px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hover-target.done::after{ content:"⭐"; }
+
+  .message{
+    text-align:center;
+    font-family:'Fredoka',sans-serif;
+    font-size:15px;
+    color:var(--coral);
+    min-height:22px;
+    margin-top:10px;
+  }
+  .message.good{ color:var(--mint); }
+
+  .badge-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(15,10,26,0.85);
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+  }
+  .badge-overlay.show{ display:flex; }
+  .badge-overlay h2{
+    font-family:'Fredoka',sans-serif;
+    color:var(--cheese);
+    font-size:34px;
+    margin:10px 0;
+  }
+  .badge-overlay .medal{ font-size:80px; }
+  .badge-overlay button{
+    margin-top:16px;
+    background:var(--cheese);
+    color:var(--ink);
+    border:none;
+    border-radius:14px;
+    padding:12px 26px;
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    font-size:16px;
+    cursor:pointer;
+  }
+
+  @media (max-width:560px){
+    .item-grid{ grid-template-columns:repeat(3,1fr); gap:10px; padding:16px; }
+    .item-tile{ width:76px; height:76px; font-size:34px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="title-wrap">
+  <h1>🖱️ Mouse Master Academy</h1>
+  <p>Learn left click, right click, double click &amp; smooth pointer control!</p>
+</div>
+
+<div class="stage">
+  <div class="tabs" id="tabs">
+    <div class="tab active" data-tab="left"><span class="icon">👆</span>Left Click<span class="check">✔</span></div>
+    <div class="tab" data-tab="right"><span class="icon">🖱️</span>Right Click<span class="check">✔</span></div>
+    <div class="tab" data-tab="double"><span class="icon">👆👆</span>Double Click<span class="check">✔</span></div>
+    <div class="tab" data-tab="pointer"><span class="icon">🎯</span>Pointer Control<span class="check">✔</span></div>
+  </div>
+
+  <div class="hint-bar" id="hintBar"></div>
+
+  <!-- LEFT CLICK -->
+  <div class="panel active" data-panel="left">
+    <div class="play-stage" id="leftStage"></div>
+    <div class="score-row">
+      <span>🧀 Pop the cheese with a single left click!</span>
+      <span class="badge" id="leftScore">0 / 12</span>
+    </div>
+  </div>
+
+  <!-- RIGHT CLICK -->
+  <div class="panel" data-panel="right">
+    <div class="play-stage">
+      <div class="item-grid" id="rightGrid"></div>
+    </div>
+    <div class="score-row">
+      <span>📦 Right-click each chest to open it!</span>
+      <span class="badge" id="rightScore">0 / 6</span>
+    </div>
+  </div>
+
+  <!-- DOUBLE CLICK -->
+  <div class="panel" data-panel="double">
+    <div class="play-stage">
+      <div class="item-grid" id="doubleGrid"></div>
+    </div>
+    <div class="score-row">
+      <span>🔐 Double-click each door to unlock it!</span>
+      <span class="badge" id="doubleScore">0 / 6</span>
+    </div>
+  </div>
+
+  <!-- POINTER CONTROL -->
+  <div class="panel" data-panel="pointer">
+    <div class="play-stage">
+      <div class="pointer-area">
+        <div class="drag-row">
+          <div class="tray" id="cheeseTray"></div>
+          <div class="mouse-hole" id="mouseHole">home</div>
+        </div>
+        <div class="hover-task">
+          <div class="hover-target" id="hoverTarget"></div>
+          <div>Hold your pointer still over the target until it fills up!</div>
+        </div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span>🖐️ Drag cheese into the hole, then hold steady on the target</span>
+      <span class="badge" id="pointerScore">0 / 4</span>
+    </div>
+  </div>
+
+  <div class="message" id="message"></div>
+</div>
+
+<div class="badge-overlay" id="badgeOverlay">
+  <div class="medal">🏅</div>
+  <h2>You're a Mouse Master!</h2>
+  <p>Left click, right click, double click, and pointer control — all mastered.</p>
+  <button id="restartBtn">Play Again</button>
+</div>
+
+<script>
+const hints = {
+  left: "👆 Use a single LEFT click to pop each piece of cheese before it disappears.",
+  right: "🖱️ Click the RIGHT mouse button on a chest to open it — a left click won't work!",
+  double: "👆👆 Click TWICE quickly (double-click) on a door to unlock it.",
+  pointer: "🎯 Drag with your mouse to move the cheese, and hold still to fill the target."
+};
+
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+const hintBar = document.getElementById('hintBar');
+const messageEl = document.getElementById('message');
+const badgeOverlay = document.getElementById('badgeOverlay');
+
+let completedStations = new Set();
+
+function checkAllDone(){
+  if(completedStations.size === 4){
+    setTimeout(() => badgeOverlay.classList.add('show'), 500);
+  }
+}
+
+function markDone(station){
+  completedStations.add(station);
+  document.querySelector(`.tab[data-tab="${station}"]`).classList.add('done');
+  checkAllDone();
+}
+
+function setMessage(text, good){
+  messageEl.textContent = text;
+  messageEl.classList.toggle('good', !!good);
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const name = tab.dataset.tab;
+    document.querySelector(`.panel[data-panel="${name}"]`).classList.add('active');
+    hintBar.textContent = hints[name];
+    setMessage('');
+    if(name === 'left') startLeftStation(); else stopLeftStation();
+  });
+});
+hintBar.textContent = hints.left;
+
+/* ---------------- LEFT CLICK STATION ---------------- */
+const leftStage = document.getElementById('leftStage');
+const leftScoreEl = document.getElementById('leftScore');
+const LEFT_TARGET = 12;
+let leftPopped = 0;
+let leftBubbles = [];
+let leftSpawnTimer = null;
+
+function spawnCheese(){
+  if(leftPopped >= LEFT_TARGET) return;
+  if(leftBubbles.length >= 4) return;
+  const bubble = document.createElement('div');
+  bubble.className = 'cheese-bubble';
+  bubble.textContent = '🧀';
+  const stageRect = leftStage.getBoundingClientRect();
+  const maxX = Math.max(stageRect.width - 50, 40);
+  const maxY = Math.max(stageRect.height - 50, 40);
+  bubble.style.left = (Math.random() * maxX) + 'px';
+  bubble.style.top = (Math.random() * maxY) + 'px';
+
+  const timeout = setTimeout(() => {
+    if(bubble.parentNode){ bubble.remove(); leftBubbles = leftBubbles.filter(b => b !== bubble); }
+  }, 3000);
+
+  bubble.addEventListener('click', () => {
+    clearTimeout(timeout);
+    bubble.classList.add('pop');
+    setTimeout(() => bubble.remove(), 250);
+    leftBubbles = leftBubbles.filter(b => b !== bubble);
+    leftPopped++;
+    leftScoreEl.textContent = `${leftPopped} / ${LEFT_TARGET}`;
+    if(leftPopped >= LEFT_TARGET){
+      stopLeftStation();
+      setMessage('🎉 Great clicking! Left click mastered!', true);
+      markDone('left');
+    }
+  });
+
+  leftStage.appendChild(bubble);
+  leftBubbles.push(bubble);
+}
+
+function startLeftStation(){
+  if(leftPopped >= LEFT_TARGET) return;
+  if(leftSpawnTimer) return;
+  leftSpawnTimer = setInterval(spawnCheese, 850);
+}
+function stopLeftStation(){
+  clearInterval(leftSpawnTimer);
+  leftSpawnTimer = null;
+}
+startLeftStation();
+
+/* ---------------- RIGHT CLICK STATION ---------------- */
+const rightGrid = document.getElementById('rightGrid');
+const rightScoreEl = document.getElementById('rightScore');
+const RIGHT_TARGET = 6;
+let rightOpened = 0;
+
+for(let i=0;i<RIGHT_TARGET;i++){
+  const tile = document.createElement('div');
+  tile.className = 'item-tile';
+  tile.textContent = '📦';
+  tile.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    if(tile.classList.contains('opened')) return;
+    tile.classList.add('opened');
+    tile.textContent = '🎁';
+    rightOpened++;
+    rightScoreEl.textContent = `${rightOpened} / ${RIGHT_TARGET}`;
+    if(rightOpened >= RIGHT_TARGET){
+      setMessage('🎉 Nicely done! Right click mastered!', true);
+      markDone('right');
+    }
+  });
+  tile.addEventListener('click', () => {
+    if(tile.classList.contains('opened')) return;
+    tile.classList.add('shake');
+    setTimeout(() => tile.classList.remove('shake'), 300);
+    setMessage('Try RIGHT-clicking this chest instead!', false);
+  });
+  rightGrid.appendChild(tile);
+}
+
+/* ---------------- DOUBLE CLICK STATION ---------------- */
+const doubleGrid = document.getElementById('doubleGrid');
+const doubleScoreEl = document.getElementById('doubleScore');
+const DOUBLE_TARGET = 6;
+let doubleOpened = 0;
+
+for(let i=0;i<DOUBLE_TARGET;i++){
+  const tile = document.createElement('div');
+  tile.className = 'item-tile';
+  tile.textContent = '🔒';
+  tile.addEventListener('dblclick', () => {
+    if(tile.classList.contains('opened')) return;
+    tile.classList.add('opened');
+    tile.textContent = '🔓';
+    doubleOpened++;
+    doubleScoreEl.textContent = `${doubleOpened} / ${DOUBLE_TARGET}`;
+    if(doubleOpened >= DOUBLE_TARGET){
+      setMessage('🎉 Excellent! Double click mastered!', true);
+      markDone('double');
+    }
+  });
+  tile.addEventListener('click', () => {
+    if(tile.classList.contains('opened')) return;
+    tile.classList.add('shake');
+    setTimeout(() => tile.classList.remove('shake'), 300);
+    setMessage('Click twice quickly to double-click this door!', false);
+  });
+  doubleGrid.appendChild(tile);
+}
+
+/* ---------------- POINTER CONTROL STATION ---------------- */
+const cheeseTray = document.getElementById('cheeseTray');
+const mouseHole = document.getElementById('mouseHole');
+const hoverTarget = document.getElementById('hoverTarget');
+const pointerScoreEl = document.getElementById('pointerScore');
+const POINTER_TARGET = 4; // 3 drags + 1 hover
+let pointerProgress = 0;
+let dragDone = 0;
+
+function updatePointerScore(){
+  pointerScoreEl.textContent = `${pointerProgress} / ${POINTER_TARGET}`;
+  if(pointerProgress >= POINTER_TARGET){
+    setMessage('🎉 Superb! Your pointer control is excellent!', true);
+    markDone('pointer');
+  }
+}
+
+for(let i=0;i<3;i++){
+  const cheese = document.createElement('div');
+  cheese.className = 'drag-cheese';
+  cheese.textContent = '🧀';
+  cheeseTray.appendChild(cheese);
+  makeDraggable(cheese);
+}
+
+function makeDraggable(el){
+  let offsetX = 0, offsetY = 0;
+  let dragging = false;
+
+  el.addEventListener('pointerdown', (e) => {
+    if(el.dataset.done) return;
+    dragging = true;
+    el.setPointerCapture(e.pointerId);
+    const rect = el.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    el.classList.add('dragging');
+    el.style.left = rect.left + 'px';
+    el.style.top = rect.top + 'px';
+  });
+
+  el.addEventListener('pointermove', (e) => {
+    if(!dragging) return;
+    el.style.left = (e.clientX - offsetX) + 'px';
+    el.style.top = (e.clientY - offsetY) + 'px';
+    const holeRect = mouseHole.getBoundingClientRect();
+    const overHole = e.clientX > holeRect.left && e.clientX < holeRect.right &&
+                      e.clientY > holeRect.top && e.clientY < holeRect.bottom;
+    mouseHole.classList.toggle('hover-drop', overHole);
+  });
+
+  el.addEventListener('pointerup', (e) => {
+    if(!dragging) return;
+    dragging = false;
+    el.classList.remove('dragging');
+    const holeRect = mouseHole.getBoundingClientRect();
+    const overHole = e.clientX > holeRect.left && e.clientX < holeRect.right &&
+                      e.clientY > holeRect.top && e.clientY < holeRect.bottom;
+    mouseHole.classList.remove('hover-drop');
+    if(overHole){
+      el.style.transition = 'transform .2s ease, opacity .2s ease';
+      el.style.transform = 'scale(0)';
+      el.style.opacity = '0';
+      el.dataset.done = 'true';
+      dragDone++;
+      pointerProgress = dragDone + (hoverDone ? 1 : 0);
+      updatePointerScore();
+    } else {
+      el.style.position = 'static';
+      el.style.left = '';
+      el.style.top = '';
+    }
+  });
+}
+
+let hoverDone = false;
+let hoverInterval = null;
+let hoverPct = 0;
+
+hoverTarget.addEventListener('pointerenter', () => {
+  if(hoverDone) return;
+  clearInterval(hoverInterval);
+  hoverInterval = setInterval(() => {
+    hoverPct = Math.min(100, hoverPct + 4);
+    hoverTarget.style.setProperty('--p', hoverPct);
+    if(hoverPct >= 100){
+      clearInterval(hoverInterval);
+      hoverDone = true;
+      hoverTarget.classList.add('done');
+      pointerProgress = dragDone + 1;
+      updatePointerScore();
+    }
+  }, 90);
+});
+hoverTarget.addEventListener('pointerleave', () => {
+  clearInterval(hoverInterval);
+  if(hoverDone) return;
+  hoverInterval = setInterval(() => {
+    hoverPct = Math.max(0, hoverPct - 2);
+    hoverTarget.style.setProperty('--p', hoverPct);
+    if(hoverPct <= 0) clearInterval(hoverInterval);
+  }, 90);
+});
+
+/* ---------------- RESTART ---------------- */
+document.getElementById('restartBtn').addEventListener('click', () => {
+  location.reload();
+});
+</script>
+</body>
+</html>

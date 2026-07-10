@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Learn to Drag &amp; Drop — Puzzle Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky-top:#BFE9FF;
+    --sky-bottom:#EAF8FF;
+    --ink:#2B2250;
+    --ink-soft:#5B5480;
+    --coral:#FF6F59;
+    --sunny:#FFD23F;
+    --grass:#4CB963;
+    --purple:#8C6FF7;
+    --sky-accent:#4FB6E8;
+    --pink:#FF8FB1;
+    --teal:#38B6A6;
+    --card:#FFFFFF;
+    --slot-border:#C9C2E8;
+    --shadow:0 14px 30px rgba(43,34,80,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    min-height:100vh;
+    font-family:'Nunito',sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 12% 8%, rgba(255,255,255,0.6), transparent 40%),
+      radial-gradient(circle at 90% 4%, rgba(255,255,255,0.5), transparent 35%),
+      linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 55%, #F5F1FF 100%);
+    overflow-x:hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* ---------- floating background clouds ---------- */
+  .bg-cloud{
+    position:fixed; opacity:0.55; pointer-events:none; z-index:0;
+    animation:drift 60s linear infinite;
+  }
+  @keyframes drift{
+    0%{transform:translateX(-10%);}
+    100%{transform:translateX(10%);}
+  }
+  .bg-cloud.c1{top:6%; left:2%; width:120px; animation-duration:50s;}
+  .bg-cloud.c2{top:14%; right:4%; width:90px; animation-duration:65s; animation-direction:reverse;}
+  .bg-cloud.c3{top:70%; left:6%; width:70px; animation-duration:80s;}
+
+  /* ---------- layout ---------- */
+  .wrap{
+    position:relative; z-index:1;
+    max-width:920px; margin:0 auto; padding:20px 16px 60px;
+  }
+  header.top{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; margin-bottom:18px;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand svg{width:52px; height:52px; flex-shrink:0; filter:drop-shadow(0 6px 10px rgba(43,34,80,0.18));}
+  .brand h1{
+    font-family:'Baloo 2', sans-serif; font-weight:800;
+    font-size:clamp(20px,4vw,30px); margin:0; line-height:1.05;
+    color:var(--ink);
+  }
+  .brand p{margin:2px 0 0; font-size:13px; font-weight:700; color:var(--ink-soft); letter-spacing:.02em;}
+
+  .teacher-toggle{
+    border:2px solid var(--slot-border); background:var(--card);
+    color:var(--ink-soft); font-family:'Nunito',sans-serif; font-weight:800;
+    font-size:13px; padding:9px 14px; border-radius:999px; cursor:pointer;
+    box-shadow:var(--shadow); transition:transform .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .teacher-toggle:hover{transform:translateY(-2px); background:#FBFAFF;}
+  .teacher-toggle:focus-visible{outline:3px solid var(--purple); outline-offset:2px;}
+
+  /* ---------- progress trail ---------- */
+  .trail-card{
+    background:var(--card); border-radius:22px; box-shadow:var(--shadow);
+    padding:16px 18px; margin-bottom:18px; overflow-x:auto;
+  }
+  .trail{
+    display:flex; align-items:center; gap:0; min-width:560px; position:relative;
+  }
+  .stone-wrap{display:flex; align-items:center; flex:1;}
+  .stone{
+    width:38px; height:38px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:15px;
+    background:#EDEAFB; color:var(--ink-soft); border:3px solid #DCD6F5;
+    cursor:pointer; transition:transform .18s ease, background .18s ease, border-color .18s ease;
+    position:relative;
+  }
+  .stone.done{background:var(--grass); border-color:#3aa254; color:#fff;}
+  .stone.current{background:var(--sunny); border-color:#e6ba1f; color:#5c4200; transform:scale(1.18);}
+  .stone.locked{cursor:not-allowed; opacity:.55;}
+  .stone:not(.locked):hover{transform:scale(1.1);}
+  .stone .mascot-marker{
+    position:absolute; top:-34px; left:50%; transform:translateX(-50%);
+    font-size:22px; animation:bob 1.6s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,-5px);}}
+  .connector{height:5px; flex:1; background:#DCD6F5; border-radius:3px;}
+  .connector.done{background:var(--grass);}
+
+  /* ---------- puzzle card ---------- */
+  .puzzle-card{
+    background:var(--card); border-radius:28px; box-shadow:var(--shadow);
+    padding:20px 20px 26px; position:relative; overflow:hidden;
+  }
+  .puzzle-heading{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    margin-bottom:6px; flex-wrap:wrap;
+  }
+  .puzzle-heading h2{
+    font-family:'Baloo 2',sans-serif; font-size:clamp(18px,3.4vw,24px);
+    margin:0; color:var(--ink);
+  }
+  .puzzle-heading .sub{font-size:13px; font-weight:700; color:var(--ink-soft);}
+  .instruction{
+    font-size:14px; font-weight:700; color:var(--ink-soft);
+    background:#F6F4FF; border:2px dashed var(--slot-border);
+    padding:8px 14px; border-radius:14px; margin:10px 0 16px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .instruction .hand-emoji{font-size:18px;}
+
+  .board{
+    position:relative; width:100%;
+    aspect-ratio:640/300;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(79,182,232,0.10), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(140,111,247,0.10), transparent 45%),
+      #FBFAFF;
+    border-radius:20px; border:2px solid #EFEBFF;
+    touch-action:none;
+    overflow:visible;
+  }
+  .slot{
+    position:absolute; width:16%; aspect-ratio:1/1; transform:translate(-50%,-50%);
+    border:3px dashed #C9C2E8; border-radius:20%;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(201,194,232,0.08);
+    transition:background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .slot svg{width:70%; height:70%; opacity:.28;}
+  .slot.filled{border-style:solid; box-shadow:0 8px 16px rgba(43,34,80,0.14); background:rgba(255,255,255,0.6);}
+  .slot.filled svg{opacity:0;}
+  .slot.hover-ok{background:rgba(76,185,99,0.18); border-color:var(--grass);}
+  .slot.hover-bad{background:rgba(255,111,89,0.16); border-color:var(--coral);}
+
+  .placed-piece{
+    position:absolute; width:16%; aspect-ratio:1/1; transform:translate(-50%,-50%) scale(0);
+    animation:pop-in .38s cubic-bezier(.34,1.56,.64,1) forwards;
+    pointer-events:none;
+  }
+  @keyframes pop-in{ to{ transform:translate(-50%,-50%) scale(1);} }
+
+  .tray{
+    display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
+    margin-top:20px; padding:14px; border-radius:18px;
+    background:repeating-linear-gradient(135deg, #F6F4FF, #F6F4FF 10px, #F1EEFC 10px, #F1EEFC 20px);
+    min-height:96px;
+  }
+  .piece{
+    width:74px; height:74px; border-radius:20%;
+    background:#fff; box-shadow:0 8px 14px rgba(43,34,80,0.18);
+    display:flex; align-items:center; justify-content:center;
+    cursor:grab; user-select:none; touch-action:none;
+    transition:box-shadow .15s ease;
+    will-change:transform;
+  }
+  .piece:active{cursor:grabbing;}
+  .piece svg{width:70%; height:70%;}
+  .piece.dragging{
+    position:fixed; z-index:500; box-shadow:0 18px 30px rgba(43,34,80,0.3);
+    transform:scale(1.12);
+  }
+  .piece.guide-pulse{ animation:pulse 1.1s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{box-shadow:0 8px 14px rgba(43,34,80,0.18);} 50%{box-shadow:0 8px 22px rgba(140,111,247,0.55);} }
+  .piece.returning{ transition:transform .35s cubic-bezier(.34,1.56,.64,1); }
+
+  .controls-row{
+    display:flex; align-items:center; justify-content:center; gap:12px; margin-top:18px;
+  }
+  .btn{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:15px;
+    padding:11px 22px; border-radius:999px; border:none; cursor:pointer;
+    box-shadow:0 8px 16px rgba(43,34,80,0.18); transition:transform .15s ease, filter .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn:focus-visible{outline:3px solid var(--ink); outline-offset:2px;}
+  .btn-ghost{background:#fff; color:var(--ink-soft); border:2px solid var(--slot-border); box-shadow:none;}
+  .btn-primary{background:var(--purple); color:#fff;}
+  .btn-next{background:var(--grass); color:#fff; display:none;}
+  .btn-next.show{display:inline-block; animation:pop-in .3s ease;}
+
+  .toast{
+    position:absolute; left:50%; top:14px; transform:translate(-50%,-140%);
+    background:var(--grass); color:#fff; font-family:'Baloo 2',sans-serif;
+    font-weight:700; font-size:16px; padding:10px 22px; border-radius:999px;
+    box-shadow:0 10px 20px rgba(43,34,80,0.25);
+    transition:transform .4s cubic-bezier(.34,1.56,.64,1); z-index:50;
+  }
+  .toast.show{transform:translate(-50%,0);}
+
+  /* demo hand */
+  .demo-hand{
+    position:absolute; font-size:34px; z-index:60; pointer-events:none;
+    filter:drop-shadow(0 6px 8px rgba(43,34,80,0.3));
+    opacity:0; transform:translate(-50%,-40%);
+  }
+
+  /* teacher drawer */
+  .teacher-drawer{
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+    background:#fff; border-radius:18px; box-shadow:var(--shadow); margin-bottom:0;
+  }
+  .teacher-drawer.open{max-height:260px; margin-bottom:18px;}
+  .teacher-drawer-inner{padding:16px 20px;}
+  .teacher-drawer-inner h3{
+    font-family:'Baloo 2',sans-serif; margin:0 0 8px; font-size:16px; color:var(--ink);
+  }
+  .teacher-drawer-inner p{margin:0 0 8px; font-size:14px; color:var(--ink-soft); line-height:1.5;}
+  .teacher-drawer-inner ul{margin:0; padding-left:18px; font-size:14px; color:var(--ink-soft); line-height:1.6;}
+
+  /* celebration overlay */
+  .celebration{
+    position:fixed; inset:0; background:rgba(43,34,80,0.55);
+    display:flex; align-items:center; justify-content:center; z-index:1000;
+    opacity:0; pointer-events:none; transition:opacity .3s ease;
+  }
+  .celebration.show{opacity:1; pointer-events:auto;}
+  .celebration-card{
+    background:#fff; border-radius:28px; padding:40px 34px; text-align:center;
+    max-width:380px; box-shadow:0 30px 60px rgba(0,0,0,0.35);
+    transform:scale(.85); transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  .celebration.show .celebration-card{transform:scale(1);}
+  .celebration-card svg{width:100px; height:100px;}
+  .celebration-card h2{font-family:'Baloo 2',sans-serif; font-size:26px; margin:12px 0 6px; color:var(--ink);}
+  .celebration-card p{font-size:15px; color:var(--ink-soft); margin:0 0 18px;}
+
+  .confetti-piece{
+    position:fixed; top:-20px; z-index:900; border-radius:2px; pointer-events:none;
+  }
+
+  footer.credit{
+    text-align:center; margin-top:26px; font-size:12px; color:var(--ink-soft); opacity:.8;
+  }
+
+  @media (max-width:520px){
+    .puzzle-card{padding:16px 12px 20px;}
+    .stone{width:32px; height:32px; font-size:13px;}
+    .piece{width:64px; height:64px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001s !important; transition-duration:0.001s !important;}
+  }
+</style>
+</head>
+<body>
+
+<svg class="bg-cloud c1" viewBox="0 0 200 100"><path d="M30 70c-16 0-28-12-28-27 0-14 11-26 25-27 4-14 17-24 32-24 16 0 30 11 34 26 15 1 27 13 27 28 0 15-13 28-29 28H30z" fill="#ffffff"/></svg>
+<svg class="bg-cloud c2" viewBox="0 0 200 100"><path d="M30 70c-16 0-28-12-28-27 0-14 11-26 25-27 4-14 17-24 32-24 16 0 30 11 34 26 15 1 27 13 27 28 0 15-13 28-29 28H30z" fill="#ffffff"/></svg>
+<svg class="bg-cloud c3" viewBox="0 0 200 100"><path d="M30 70c-16 0-28-12-28-27 0-14 11-26 25-27 4-14 17-24 32-24 16 0 30 11 34 26 15 1 27 13 27 28 0 15-13 28-29 28H30z" fill="#ffffff"/></svg>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="55" r="34" fill="#8C6FF7"/>
+        <circle cx="33" cy="42" r="12" fill="#8C6FF7"/>
+        <circle cx="67" cy="42" r="12" fill="#8C6FF7"/>
+        <circle cx="40" cy="52" r="5.5" fill="#2B2250"/>
+        <circle cx="62" cy="52" r="5.5" fill="#2B2250"/>
+        <path d="M38 66c5 6 19 6 24 0" stroke="#2B2250" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="30" cy="60" r="5" fill="#FF8FB1" opacity="0.7"/>
+        <circle cx="70" cy="60" r="5" fill="#FF8FB1" opacity="0.7"/>
+      </svg>
+      <div>
+        <h1>Learn to Drag &amp; Drop</h1>
+        <p>PUZZLE LAB · PRE‑READER EDITION</p>
+      </div>
+    </div>
+    <button class="teacher-toggle" id="teacherToggle" aria-expanded="false">For Teachers</button>
+  </header>
+
+  <div class="teacher-drawer" id="teacherDrawer">
+    <div class="teacher-drawer-inner">
+      <h3>What this activity builds</h3>
+      <p>A gentle first stop before real coding puzzles: kids practice clicking, holding, dragging, and releasing so the mouse, trackpad, or touchscreen stops being the hard part later on.</p>
+      <ul>
+        <li>Model it first — drag a piece yourself, including an "oops" drop, so mistakes look normal.</li>
+        <li>Say the steps out loud: point, press and hold, move, let go — that's a sequence!</li>
+        <li>Pair students up and let the first partner drive while the second cheers them on.</li>
+        <li>Let learners retry as often as they like — there's no penalty for a missed drop.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trail-card">
+    <div class="trail" id="trail"></div>
+  </div>
+
+  <main class="puzzle-card" id="puzzleCard">
+    <div class="toast" id="toast">Great job! ✨</div>
+    <div class="puzzle-heading">
+      <h2 id="puzzleTitle">Puzzle 1 of 10</h2>
+      <span class="sub" id="puzzleSub">1 piece to place</span>
+    </div>
+    <div class="instruction"><span class="hand-emoji">👉</span><span id="instructionText">Press and hold the shape, slide it onto its matching outline, then let go.</span></div>
+
+    <div class="board" id="board"></div>
+
+    <div class="tray" id="tray"></div>
+
+    <div class="controls-row">
+      <button class="btn btn-ghost" id="resetBtn">↺ Start over</button>
+      <button class="btn btn-primary btn-next" id="nextBtn">Next puzzle →</button>
+    </div>
+  </main>
+
+  <footer class="credit">An original fan-made recreation inspired by the "Learn to Drag and Drop" pre-reader lesson — not affiliated with Code.org.</footer>
+</div>
+
+<div class="celebration" id="celebration">
+  <div class="celebration-card">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="55" r="34" fill="#FFD23F"/>
+      <circle cx="33" cy="42" r="12" fill="#FFD23F"/>
+      <circle cx="67" cy="42" r="12" fill="#FFD23F"/>
+      <circle cx="40" cy="50" r="5.5" fill="#2B2250"/>
+      <circle cx="62" cy="50" r="5.5" fill="#2B2250"/>
+      <path d="M36 64c6 9 22 9 28 0" stroke="#2B2250" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </svg>
+    <h2>You did it!</h2>
+    <p>Every puzzle placed, every shape in its spot. Those clicking-and-dragging hands are ready for anything.</p>
+    <button class="btn btn-primary" id="playAgainBtn">Play again</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- shape library ---------------- */
+  const SHAPES = {
+    circle:  {color:'#4FB6E8', dark:'#2f8ab5', draw:(c)=>`<circle cx="50" cy="50" r="38" fill="${c}"/>`},
+    square:  {color:'#FF6F59', dark:'#c9503e', draw:(c)=>`<rect x="14" y="14" width="72" height="72" rx="16" fill="${c}"/>`},
+    triangle:{color:'#FFD23F', dark:'#c9a11f', draw:(c)=>`<polygon points="50,10 90,86 10,86" fill="${c}"/>`},
+    star:    {color:'#8C6FF7', dark:'#6a4fc4', draw:(c)=>`<path d="M50 6 L61 38 L96 38 L67 58 L78 92 L50 71 L22 92 L33 58 L4 38 L39 38 Z" fill="${c}"/>`},
+    heart:   {color:'#FF8FB1', dark:'#d1607f', draw:(c)=>`<path d="M50 88C20 66 6 48 6 30 6 14 18 4 32 4c8 0 15 4 18 11 3-7 10-11 18-11 14 0 26 10 26 26 0 18-14 36-44 58z" fill="${c}"/>`},
+    hexagon: {color:'#4CB963', dark:'#37954a', draw:(c)=>`<polygon points="50,6 92,28 92,72 50,94 8,72 8,28" fill="${c}"/>`},
+    cloud:   {color:'#38B6A6', dark:'#279182', draw:(c)=>`<path d="M26 74c-13 0-22-10-22-22 0-11 9-21 20-22 3-11 14-19 26-19 13 0 24 9 27 21 12 1 21 11 21 23 0 12-10 23-23 23H26z" fill="${c}"/>`},
+    moon:    {color:'#6C63FF', dark:'#4b44c9', draw:(c)=>`<path d="M64 6c-24 4-40 24-40 46 0 24 20 44 44 44 10 0 19-3 27-9-27 1-49-21-49-48 0-14 6-26 18-33z" fill="${c}"/>`},
+    flower:  {color:'#F2994A', dark:'#c07530', draw:(c)=>`<g fill="${c}"><circle cx="50" cy="26" r="16"/><circle cx="50" cy="74" r="16"/><circle cx="26" cy="50" r="16"/><circle cx="74" cy="50" r="16"/><circle cx="50" cy="50" r="15" fill="#fff8e6"/></g>`},
+    plus:    {color:'#FF6FA5', dark:'#c94f7d', draw:(c)=>`<path d="M38 6h24v32h32v24H62v32H38V62H6V38h32z" fill="${c}"/>`}
+  };
+  function shapeSVG(type, opacityFull){
+    const s = SHAPES[type];
+    return `<svg viewBox="0 0 100 100">${s.draw(s.color)}</svg>`;
+  }
+
+  /* ---------------- level definitions ---------------- */
+  const LAYOUTS = {
+    1: [{x:50,y:50}],
+    2: [{x:32,y:50},{x:68,y:50}],
+    3: [{x:27,y:34},{x:73,y:34},{x:50,y:74}],
+    4: [{x:24,y:30},{x:76,y:30},{x:24,y:74},{x:76,y:74}],
+    5: [{x:50,y:22},{x:19,y:58},{x:81,y:58},{x:35,y:90},{x:65,y:90}]
+  };
+
+  const LEVELS = [
+    {shapes:['circle']},
+    {shapes:['star']},
+    {shapes:['circle','square']},
+    {shapes:['triangle','heart']},
+    {shapes:['star','circle','square']},
+    {shapes:['hexagon','cloud','moon']},
+    {shapes:['flower','plus','triangle']},
+    {shapes:['heart','hexagon','star','cloud']},
+    {shapes:['circle','plus','moon','flower']},
+    {shapes:['star','square','triangle','heart','hexagon']}
+  ];
+
+  const INSTRUCTIONS = [
+    "Press and hold the shape, slide it onto its matching outline, then let go.",
+    "You've got it! Drag this shape home too.",
+    "Two shapes this time — match each one to its own outline.",
+    "Take your time. Slide each shape to the outline that matches it.",
+    "Three shapes to place! Start with whichever one you like.",
+    "New shapes, same idea — shape meets matching outline.",
+    "Look closely at each outline before you drag.",
+    "Four shapes now — you're getting fast at this!",
+    "Almost the final puzzle — keep matching shape to shape.",
+    "The big one! Five shapes — place them all to finish the set."
+  ];
+
+  /* ---------------- state ---------------- */
+  let state = {
+    level: 0,
+    completed: new Array(LEVELS.length).fill(false),
+    unlocked: 0,
+    filledInLevel: 0
+  };
+
+  const board = document.getElementById('board');
+  const tray = document.getElementById('tray');
+  const puzzleTitle = document.getElementById('puzzleTitle');
+  const puzzleSub = document.getElementById('puzzleSub');
+  const instructionText = document.getElementById('instructionText');
+  const toast = document.getElementById('toast');
+  const nextBtn = document.getElementById('nextBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const trailEl = document.getElementById('trail');
+  const celebration = document.getElementById('celebration');
+
+  /* ---------------- audio ---------------- */
+  let actx = null;
+  function ctx(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return actx; }
+  function tone(freq, dur, type, delay, vol){
+    const a = ctx(); if(!a) return;
+    const t0 = a.currentTime + (delay||0);
+    const osc = a.createOscillator();
+    const gain = a.createGain();
+    osc.type = type || 'sine';
+    osc.frequency.setValueAtTime(freq, t0);
+    gain.gain.setValueAtTime(0, t0);
+    gain.gain.linearRampToValueAtTime(vol||0.18, t0+0.02);
+    gain.gain.exponentialRampToValueAtTime(0.001, t0+dur);
+    osc.connect(gain).connect(a.destination);
+    osc.start(t0); osc.stop(t0+dur+0.02);
+  }
+  function playCorrect(){ tone(660,0.14,'triangle',0,0.16); tone(880,0.18,'triangle',0.08,0.16); }
+  function playWrong(){ tone(180,0.18,'sine',0,0.12); }
+  function playFanfare(){
+    [523,659,784,1046].forEach((f,i)=> tone(f,0.22,'triangle', i*0.11, 0.16));
+  }
+
+  /* ---------------- confetti ---------------- */
+  function confettiBurst(count){
+    const colors = ['#FF6F59','#FFD23F','#4CB963','#8C6FF7','#4FB6E8','#FF8FB1'];
+    for(let i=0;i<(count||60);i++){
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      const size = 6 + Math.random()*8;
+      el.style.width = size+'px';
+      el.style.height = (size*0.5+4)+'px';
+      el.style.left = (Math.random()*100)+'vw';
+      el.style.background = colors[Math.floor(Math.random()*colors.length)];
+      const duration = 2.2 + Math.random()*1.6;
+      const rot = Math.random()*720-360;
+      el.style.transform = `rotate(${Math.random()*360}deg)`;
+      document.body.appendChild(el);
+      const anim = el.animate([
+        { transform:`translateY(0) rotate(0deg)`, opacity:1 },
+        { transform:`translateY(${window.innerHeight+40}px) rotate(${rot}deg)`, opacity:0.9 }
+      ], { duration: duration*1000, easing:'cubic-bezier(.2,.6,.4,1)' });
+      anim.onfinish = ()=> el.remove();
+    }
+  }
+  function sparkleAt(xClient, yClient){
+    for(let i=0;i<10;i++){
+      const el = document.createElement('div');
+      el.style.position='fixed'; el.style.left=xClient+'px'; el.style.top=yClient+'px';
+      el.style.width='6px'; el.style.height='6px'; el.style.borderRadius='50%';
+      el.style.background = ['#FFD23F','#8C6FF7','#4CB963','#FF8FB1'][i%4];
+      el.style.zIndex=600; el.style.pointerEvents='none';
+      document.body.appendChild(el);
+      const ang = Math.random()*Math.PI*2;
+      const dist = 30+Math.random()*30;
+      const anim = el.animate([
+        {transform:'translate(0,0) scale(1)', opacity:1},
+        {transform:`translate(${Math.cos(ang)*dist}px, ${Math.sin(ang)*dist}px) scale(0)`, opacity:0}
+      ], {duration:500+Math.random()*300, easing:'ease-out'});
+      anim.onfinish = ()=> el.remove();
+    }
+  }
+
+  /* ---------------- rendering ---------------- */
+  function renderTrail(){
+    trailEl.innerHTML = '';
+    LEVELS.forEach((lv, i)=>{
+      const wrap = document.createElement('div');
+      wrap.className = 'stone-wrap';
+      const stone = document.createElement('div');
+      let cls = 'stone';
+      if(state.completed[i]) cls += ' done';
+      else if(i === state.level) cls += ' current';
+      else if(i > state.unlocked) cls += ' locked';
+      stone.className = cls;
+      stone.textContent = state.completed[i] ? '✓' : (i+1);
+      stone.setAttribute('role','button');
+      stone.setAttribute('aria-label', 'Puzzle '+(i+1));
+      if(i === state.level){
+        const marker = document.createElement('span');
+        marker.className = 'mascot-marker';
+        marker.textContent = '🧸';
+        stone.appendChild(marker);
+      }
+      if(i <= state.unlocked){
+        stone.addEventListener('click', ()=> goToLevel(i));
+      }
+      wrap.appendChild(stone);
+      if(i < LEVELS.length-1){
+        const conn = document.createElement('div');
+        conn.className = 'connector' + (state.completed[i] ? ' done' : '');
+        wrap.appendChild(conn);
+      }
+      trailEl.appendChild(wrap);
+    });
+  }
+
+  let dragCtxState = null; // active drag info
+  let filledSlots = new Set();
+
+  function renderLevel(){
+    const idx = state.level;
+    const lv = LEVELS[idx];
+    const layout = LAYOUTS[lv.shapes.length];
+    filledSlots = new Set();
+    state.filledInLevel = 0;
+
+    puzzleTitle.textContent = `Puzzle ${idx+1} of ${LEVELS.length}`;
+    puzzleSub.textContent = `${lv.shapes.length} ${lv.shapes.length===1?'piece':'pieces'} to place`;
+    instructionText.textContent = INSTRUCTIONS[idx];
+    nextBtn.classList.remove('show');
+    toast.classList.remove('show');
+
+    board.innerHTML = '';
+    tray.innerHTML = '';
+
+    lv.shapes.forEach((type, i)=>{
+      const pos = layout[i];
+      const slot = document.createElement('div');
+      slot.className = 'slot';
+      slot.style.left = pos.x+'%';
+      slot.style.top = pos.y+'%';
+      slot.dataset.type = type;
+      slot.dataset.slotId = 'slot-'+i;
+      slot.innerHTML = shapeSVG(type);
+      board.appendChild(slot);
+    });
+
+    // shuffle tray order so it isn't a trivial left-to-right match
+    const order = lv.shapes.map((t,i)=>({t,i})).sort(()=>Math.random()-0.5);
+    order.forEach(({t,i})=>{
+      const piece = document.createElement('div');
+      piece.className = 'piece';
+      if(idx===0 && i===0) piece.classList.add('guide-pulse');
+      piece.dataset.type = t;
+      piece.dataset.pieceId = 'piece-'+i;
+      piece.innerHTML = shapeSVG(t);
+      piece.setAttribute('tabindex','0');
+      piece.setAttribute('aria-label', t+' piece, drag to matching outline');
+      attachDrag(piece);
+      tray.appendChild(piece);
+    });
+
+    renderTrail();
+
+    if(idx === 0){
+      setTimeout(runDemo, 550);
+    }
+  }
+
+  function goToLevel(i){
+    state.level = i;
+    renderLevel();
+  }
+
+  /* ---------------- drag & drop (pointer events) ---------------- */
+  function attachDrag(piece){
+    piece.addEventListener('pointerdown', onPointerDown);
+  }
+
+  function onPointerDown(e){
+    if(e.button !== undefined && e.button !== 0 && e.pointerType==='mouse') return;
+    const piece = e.currentTarget;
+    piece.classList.remove('guide-pulse');
+    const rect = piece.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+
+    // placeholder to keep tray layout stable
+    const placeholder = document.createElement('div');
+    placeholder.style.width = rect.width+'px';
+    placeholder.style.height = rect.height+'px';
+    placeholder.style.flexShrink = '0';
+    piece.parentNode.insertBefore(placeholder, piece);
+
+    piece.classList.add('dragging');
+    piece.style.width = rect.width+'px';
+    piece.style.height = rect.height+'px';
+    piece.style.left = rect.left+'px';
+    piece.style.top = rect.top+'px';
+    document.body.appendChild(piece);
+
+    dragCtxState = { piece, placeholder, offsetX, offsetY, type: piece.dataset.type };
+    piece.setPointerCapture(e.pointerId);
+
+    piece.addEventListener('pointermove', onPointerMove);
+    piece.addEventListener('pointerup', onPointerUp);
+    piece.addEventListener('pointercancel', onPointerUp);
+
+    clearSlotHover();
+  }
+
+  function onPointerMove(e){
+    if(!dragCtxState) return;
+    const {piece, offsetX, offsetY} = dragCtxState;
+    piece.style.left = (e.clientX - offsetX)+'px';
+    piece.style.top = (e.clientY - offsetY)+'px';
+    updateSlotHover(e.clientX, e.clientY, piece.dataset.type);
+  }
+
+  function updateSlotHover(x,y,type){
+    clearSlotHover();
+    const slot = slotUnderPoint(x,y);
+    if(slot && !slot.classList.contains('filled')){
+      slot.classList.add(slot.dataset.type === type ? 'hover-ok' : 'hover-bad');
+    }
+  }
+  function clearSlotHover(){
+    document.querySelectorAll('.slot.hover-ok,.slot.hover-bad').forEach(s=>{
+      s.classList.remove('hover-ok'); s.classList.remove('hover-bad');
+    });
+  }
+  function slotUnderPoint(x,y){
+    const slots = board.querySelectorAll('.slot');
+    let best = null, bestDist = Infinity;
+    slots.forEach(s=>{
+      const r = s.getBoundingClientRect();
+      if(x>=r.left && x<=r.right && y>=r.top && y<=r.bottom){
+        const cx=r.left+r.width/2, cy=r.top+r.height/2;
+        const d=(x-cx)**2+(y-cy)**2;
+        if(d<bestDist){bestDist=d; best=s;}
+      }
+    });
+    return best;
+  }
+
+  function onPointerUp(e){
+    if(!dragCtxState) return;
+    const {piece, placeholder, type} = dragCtxState;
+    piece.removeEventListener('pointermove', onPointerMove);
+    piece.removeEventListener('pointerup', onPointerUp);
+    piece.removeEventListener('pointercancel', onPointerUp);
+    clearSlotHover();
+
+    const cx = e.clientX, cy = e.clientY;
+    const slot = slotUnderPoint(cx, cy);
+
+    if(slot && !slot.classList.contains('filled') && slot.dataset.type === type){
+      // correct!
+      const slotRect = slot.getBoundingClientRect();
+      const boardRect = board.getBoundingClientRect();
+      const px = ((slotRect.left+slotRect.width/2 - boardRect.left)/boardRect.width)*100;
+      const py = ((slotRect.top+slotRect.height/2 - boardRect.top)/boardRect.height)*100;
+
+      piece.classList.remove('dragging');
+      piece.style.position='absolute'; piece.style.left=px+'%'; piece.style.top=py+'%';
+      piece.style.width='16%'; piece.style.height='16%';
+      piece.style.pointerEvents='none';
+      piece.classList.add('placed-piece');
+      board.appendChild(piece);
+      placeholder.remove();
+
+      slot.classList.add('filled');
+      sparkleAt(slotRect.left+slotRect.width/2, slotRect.top+slotRect.height/2);
+      playCorrect();
+
+      state.filledInLevel++;
+      const lv = LEVELS[state.level];
+      if(state.filledInLevel >= lv.shapes.length){
+        onLevelComplete();
+      }
+    } else if(slot && slot.dataset.type === type && slot.classList.contains('filled')){
+      returnPieceToTray(piece, placeholder);
+    } else if(slot){
+      // wrong shape
+      playWrong();
+      shakeThenReturn(piece, placeholder);
+    } else {
+      returnPieceToTray(piece, placeholder);
+    }
+
+    dragCtxState = null;
+  }
+
+  function shakeThenReturn(piece, placeholder){
+    piece.animate([
+      {transform:'translateX(0)'},{transform:'translateX(-8px)'},
+      {transform:'translateX(8px)'},{transform:'translateX(-6px)'},
+      {transform:'translateX(0)'}
+    ], {duration:320, easing:'ease-in-out'});
+    setTimeout(()=> returnPieceToTray(piece, placeholder), 260);
+  }
+
+  function returnPieceToTray(piece, placeholder){
+    const target = placeholder.getBoundingClientRect();
+    piece.classList.add('returning');
+    piece.style.left = target.left+'px';
+    piece.style.top = target.top+'px';
+    setTimeout(()=>{
+      piece.classList.remove('dragging','returning');
+      piece.style.position=''; piece.style.left=''; piece.style.top='';
+      piece.style.width=''; piece.style.height='';
+      placeholder.parentNode.insertBefore(piece, placeholder);
+      placeholder.remove();
+    }, 360);
+  }
+
+  function onLevelComplete(){
+    state.completed[state.level] = true;
+    state.unlocked = Math.max(state.unlocked, state.level+1);
+    renderTrail();
+    toast.textContent = ['Great job! ✨','Nailed it! 🌟','Woohoo! 🎉','Perfect match! 💫','Yes! You got it! 🎈'][state.level % 5];
+    toast.classList.add('show');
+    confettiBurst(36);
+
+    if(state.level === LEVELS.length-1){
+      setTimeout(()=>{ playFanfare(); confettiBurst(140); celebration.classList.add('show'); }, 500);
+    } else {
+      nextBtn.classList.add('show');
+    }
+  }
+
+  /* ---------------- demo hand (level 1 only) ---------------- */
+  function runDemo(){
+    const piece = tray.querySelector('.piece');
+    const slot = board.querySelector('.slot');
+    if(!piece || !slot) return;
+    const hand = document.createElement('div');
+    hand.className = 'demo-hand';
+    hand.textContent = '👆';
+    document.body.appendChild(hand);
+
+    const pRect = piece.getBoundingClientRect();
+    const sRect = slot.getBoundingClientRect();
+    const startX = pRect.left+pRect.width/2, startY = pRect.top+pRect.height/2;
+    const endX = sRect.left+sRect.width/2, endY = sRect.top+sRect.height/2;
+
+    hand.style.left = startX+'px'; hand.style.top = startY+'px';
+    const anim = hand.animate([
+      {left:startX+'px', top:startY+'px', opacity:0},
+      {left:startX+'px', top:startY+'px', opacity:1, offset:0.15},
+      {left:startX+'px', top:startY+'px', opacity:1, offset:0.35},
+      {left:endX+'px', top:endY+'px', opacity:1, offset:0.8},
+      {left:endX+'px', top:endY+'px', opacity:0}
+    ], {duration:2400, easing:'ease-in-out'});
+    anim.onfinish = ()=> hand.remove();
+  }
+
+  /* ---------------- controls ---------------- */
+  resetBtn.addEventListener('click', renderLevel);
+  nextBtn.addEventListener('click', ()=>{
+    if(state.level < LEVELS.length-1){
+      state.level++;
+      renderLevel();
+    }
+  });
+  document.getElementById('playAgainBtn').addEventListener('click', ()=>{
+    celebration.classList.remove('show');
+    state = { level:0, completed:new Array(LEVELS.length).fill(false), unlocked:0, filledInLevel:0 };
+    renderLevel();
+  });
+  document.getElementById('teacherToggle').addEventListener('click', (e)=>{
+    const d = document.getElementById('teacherDrawer');
+    const open = d.classList.toggle('open');
+    e.currentTarget.setAttribute('aria-expanded', open);
+  });
+
+  window.addEventListener('resize', ()=>{ /* percentage-based layout handles reflow */ });
+
+  renderLevel();
+})();
+</script>
+</body>
+</html>

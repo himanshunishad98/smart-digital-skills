@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Keyboard Carnival — Learn to Type!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#FF5D5D;
+    --orange:#FF9F45;
+    --yellow:#FFD93D;
+    --green:#5FD068;
+    --blue:#4D96FF;
+    --purple:#B388FF;
+    --pink:#FF7EB6;
+    --cream:#FFF9EC;
+    --tent-dark:#2E2A4A;
+    --ink:#2E2A4A;
+    --white:#ffffff;
+    --key-idle:#EDEBF9;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent; user-select:none;}
+  html,body{
+    margin:0;padding:0;
+    height:100%; width:100%;
+    overflow:hidden;
+    overscroll-behavior:none;
+  }
+  body{
+    font-family:'Quicksand',sans-serif;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(255,217,61,0.35), transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(77,150,255,0.3), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(255,126,182,0.3), transparent 45%),
+      linear-gradient(180deg, #FFF9EC 0%, #FFF3D6 100%);
+    color:var(--ink);
+    height:100dvh;
+    width:100vw;
+  }
+
+  #app{
+    height:100dvh;
+    width:100vw;
+    display:flex;
+    flex-direction:column;
+    padding:1vh 1.4vw;
+    gap:0.8vh;
+  }
+
+  /* ---------- TOPBAR ---------- */
+  .topbar{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1vw;
+  }
+  .logo{
+    font-family:'Baloo 2',sans-serif;
+    font-weight:800;
+    font-size:clamp(20px,3.4vh,40px);
+    color:var(--tent-dark);
+    display:flex;
+    align-items:center;
+    gap:0.6vw;
+    text-shadow:2px 2px 0 var(--yellow);
+    white-space:nowrap;
+  }
+  .stats{display:flex; gap:0.8vw; align-items:center;}
+  .pill{
+    background:var(--white);
+    border:3px solid var(--tent-dark);
+    border-radius:999px;
+    padding:0.5vh 1.4vw;
+    font-family:'Baloo 2',sans-serif;
+    font-weight:700;
+    font-size:clamp(16px,2.4vh,28px);
+    display:flex; align-items:center; gap:6px;
+    box-shadow:3px 3px 0 var(--tent-dark);
+    white-space:nowrap;
+  }
+  .icon-btn{
+    background:var(--white);
+    border:3px solid var(--tent-dark);
+    border-radius:50%;
+    width:clamp(36px,5.2vh,56px); height:clamp(36px,5.2vh,56px);
+    font-size:clamp(16px,2.4vh,26px);
+    cursor:pointer;
+    box-shadow:3px 3px 0 var(--tent-dark);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .1s;
+    flex:0 0 auto;
+  }
+  .icon-btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--tent-dark);}
+
+  .screen{display:none; flex:1; min-height:0;}
+  .screen.active{display:flex; flex-direction:column; animation:fadein .3s ease; min-height:0;}
+  @keyframes fadein{from{opacity:0;} to{opacity:1;}}
+
+  /* ---------- HOME SCREEN ---------- */
+  #home-screen{justify-content:space-between; gap:1vh;}
+  .marquee{
+    text-align:center;
+    font-family:'Baloo 2',sans-serif;
+    font-size:clamp(24px,5.2vh,52px);
+    font-weight:800;
+    color:var(--tent-dark);
+    flex:0 0 auto;
+  }
+  .marquee span{display:inline-block; animation:bob 1.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);}}
+  .subtitle{
+    text-align:center;
+    font-size:clamp(14px,2.2vh,22px);
+    font-weight:600;
+    color:#555;
+    flex:0 0 auto;
+    margin-top:-0.6vh;
+  }
+  .mode-cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.6vw;
+    flex:1;
+    min-height:0;
+  }
+  .mode-card{
+    border:4px solid var(--tent-dark);
+    border-radius:28px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:8px 8px 0 var(--tent-dark);
+    transition:transform .12s, box-shadow .12s;
+  }
+  .mode-card:active{transform:translate(4px,4px); box-shadow:3px 3px 0 var(--tent-dark);}
+  .mode-card.letters{background:linear-gradient(160deg,var(--yellow),var(--orange));}
+  .mode-card.words{background:linear-gradient(160deg,var(--blue),var(--purple));}
+  .mode-emoji{font-size:clamp(50px,10vh,110px); margin-bottom:1vh; display:block;}
+  .mode-title{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:clamp(22px,4vh,42px); color:var(--tent-dark);}
+  .mode-desc{font-size:clamp(13px,2vh,20px); font-weight:600; color:var(--tent-dark); opacity:.85; margin-top:0.8vh;}
+
+  .howto{
+    background:var(--white);
+    border:3px dashed var(--tent-dark);
+    border-radius:16px;
+    padding:1vh 1.4vw;
+    font-size:clamp(13px,2vh,19px);
+    font-weight:600;
+    line-height:1.4;
+    flex:0 0 auto;
+    text-align:center;
+  }
+  .howto b{font-family:'Baloo 2',sans-serif;}
+
+  /* ---------- GAME SCREENS ---------- */
+  #letter-screen, #word-screen{gap:0.8vh;}
+  .game-header{
+    flex:0 0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1vw;
+  }
+  .progress-wrap{
+    background:var(--white);
+    border:3px solid var(--tent-dark);
+    border-radius:999px;
+    height:clamp(16px,2.6vh,28px);
+    flex:1;
+    overflow:hidden;
+  }
+  .progress-bar{
+    height:100%;
+    background:linear-gradient(90deg,var(--green),var(--yellow));
+    width:0%;
+    transition:width .4s ease;
+    border-radius:999px;
+  }
+
+  .target-card{
+    background:var(--white);
+    border:5px solid var(--tent-dark);
+    border-radius:24px;
+    padding:1vh 1.4vw;
+    text-align:center;
+    box-shadow:6px 6px 0 var(--tent-dark);
+    position:relative;
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:2vw;
+  }
+  .target-card.shake{animation:shake .4s;}
+  @keyframes shake{
+    0%,100%{transform:translateX(0);}
+    20%{transform:translateX(-10px);}
+    40%{transform:translateX(10px);}
+    60%{transform:translateX(-6px);}
+    80%{transform:translateX(6px);}
+  }
+  .target-emoji{font-size:clamp(46px,9vh,100px); line-height:1;}
+  .target-letter{
+    font-family:'Baloo 2',sans-serif;
+    font-weight:800;
+    font-size:clamp(50px,11vh,120px);
+    color:var(--red);
+    text-shadow:3px 3px 0 var(--yellow);
+    line-height:1;
+  }
+  .target-word-label{
+    font-family:'Baloo 2',sans-serif;
+    font-weight:700;
+    font-size:clamp(14px,2.2vh,24px);
+    color:#666;
+  }
+  .word-blanks{
+    display:flex;
+    justify-content:center;
+    gap:1vw;
+    flex-wrap:nowrap;
+  }
+  .letter-blank{
+    width:clamp(40px,7vh,90px); height:clamp(48px,8vh,100px);
+    border-bottom:6px solid var(--tent-dark);
+    border-radius:10px 10px 0 0;
+    background:#f4f4f4;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Baloo 2',sans-serif;
+    font-weight:800;
+    font-size:clamp(24px,5vh,54px);
+    color:var(--tent-dark);
+    transition:background .2s, color .2s;
+    flex:0 0 auto;
+  }
+  .letter-blank.filled{background:var(--green); color:var(--white);}
+  .letter-blank.current{background:var(--yellow); animation:pulse 1s infinite;}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(255,217,61,.6);}
+    50%{box-shadow:0 0 0 8px rgba(255,217,61,0);}
+  }
+
+  .hint{
+    text-align:center;
+    font-weight:700;
+    color:#666;
+    font-size:clamp(14px,2.2vh,22px);
+    flex:0 0 auto;
+  }
+
+  /* ---------- REALISTIC KEYBOARD ---------- */
+  .keyboard{
+    flex:1;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    gap:0.8%;
+    background:#3B3660;
+    border:4px solid var(--tent-dark);
+    border-radius:18px;
+    padding:1%;
+    box-shadow:6px 6px 0 var(--tent-dark);
+  }
+  .kb-row{display:flex; flex:1; gap:0.6%; min-height:0;}
+  .kb-row.row1{padding-left:0; padding-right:0;}
+  .kb-row.row2{padding-left:3.2%; padding-right:3.2%;}
+  .kb-row.row3{padding-left:6.4%; padding-right:6.4%;}
+  .kb-row.spacer{flex:1; gap:0.6%;}
+
+  .key{
+    flex:1;
+    min-width:0;
+    border-radius:8px;
+    border:none;
+    border-bottom:5px solid rgba(0,0,0,0.25);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Baloo 2',sans-serif;
+    font-weight:700;
+    font-size:clamp(16px,4vh,42px);
+    color:var(--tent-dark);
+    cursor:default;
+    background:var(--key-idle);
+    transition:filter .15s, transform .08s;
+  }
+  .key.dummy{
+    background:#5A5480;
+    color:#DAD6F5;
+    opacity:0.55;
+    font-size:clamp(10px,1.8vh,18px);
+  }
+  .key.target-key{
+    animation:glow 1s infinite;
+    background:linear-gradient(160deg,var(--yellow),var(--orange));
+    color:var(--tent-dark);
+    z-index:2;
+    transform:scale(1.06);
+  }
+  @keyframes glow{
+    0%,100%{box-shadow:0 0 0 0 rgba(255,159,69,.8), 0 6px 0 rgba(0,0,0,0.25);}
+    50%{box-shadow:0 0 18px 8px rgba(255,159,69,.7), 0 6px 0 rgba(0,0,0,0.25);}
+  }
+  .key.correct-flash{background:var(--green) !important; color:white;}
+  .key.wrong-flash{background:var(--red) !important; color:white;}
+  .key.nudge{animation:nudge-shake .3s;}
+  @keyframes nudge-shake{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-4px);}
+  }
+
+  .back-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--white);
+    border:3px solid var(--tent-dark);
+    border-radius:14px;
+    padding:0.6vh 1.2vw;
+    font-family:'Baloo 2',sans-serif;
+    font-weight:700;
+    font-size:clamp(14px,2.2vh,22px);
+    cursor:pointer;
+    box-shadow:3px 3px 0 var(--tent-dark);
+    flex:0 0 auto;
+    white-space:nowrap;
+  }
+  .back-btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--tent-dark);}
+
+  /* ---------- TOAST ---------- */
+  .toast{
+    position:fixed;
+    top:1.5vh; left:50%;
+    transform:translateX(-50%) translateY(-60px);
+    background:var(--tent-dark);
+    color:white;
+    font-family:'Baloo 2',sans-serif;
+    font-weight:700;
+    font-size:clamp(15px,2.6vh,26px);
+    padding:1vh 2vw;
+    border-radius:999px;
+    z-index:50;
+    opacity:0;
+    transition:transform .35s ease, opacity .35s ease;
+    white-space:nowrap;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  .confetti-piece{
+    position:fixed; top:-20px;
+    width:10px;height:16px;
+    z-index:40; pointer-events:none;
+    border-radius:2px;
+  }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="topbar">
+    <div class="logo">🎪 Keyboard Carnival</div>
+    <div class="stats">
+      <div class="pill">⭐ <span id="starCount">0</span></div>
+      <button class="icon-btn" id="muteBtn" title="Sound on/off">🔊</button>
+    </div>
+  </div>
+
+  <!-- HOME SCREEN -->
+  <div class="screen active" id="home-screen">
+    <div class="marquee">
+      <span style="color:var(--red)">F</span><span style="color:var(--orange)">i</span><span style="color:var(--yellow)">n</span><span style="color:var(--green)">d</span>&nbsp;<span style="color:var(--blue)">&amp;</span>&nbsp;<span style="color:var(--purple)">T</span><span style="color:var(--pink)">y</span><span style="color:var(--red)">p</span><span style="color:var(--orange)">e</span><span style="color:var(--yellow)">!</span>
+    </div>
+    <div class="subtitle">Use your REAL keyboard to find the glowing key!</div>
+
+    <div class="mode-cards">
+      <div class="mode-card letters" onclick="startLetterGame()">
+        <span class="mode-emoji">🔎🔤</span>
+        <div class="mode-title">Letter Hunt</div>
+        <div class="mode-desc">Find the letter on the keyboard</div>
+      </div>
+      <div class="mode-card words" onclick="startWordGame()">
+        <span class="mode-emoji">🧩✏️</span>
+        <div class="mode-title">Word Builder</div>
+        <div class="mode-desc">Type simple words letter by letter</div>
+      </div>
+    </div>
+
+    <div class="howto">
+      <b>How to play:</b> Look at the picture and letter, then press the matching glowing key on your <b>real keyboard</b> ⌨️. Clicking with the mouse won't work — this game is for finger practice!
+    </div>
+  </div>
+
+  <!-- LETTER HUNT SCREEN -->
+  <div class="screen" id="letter-screen">
+    <div class="game-header">
+      <button class="back-btn" onclick="goHome()">⬅ Home</button>
+      <div class="progress-wrap"><div class="progress-bar" id="letterProgress"></div></div>
+      <div class="pill">🔥 <span id="letterStreak">0</span></div>
+    </div>
+
+    <div class="target-card" id="letterCard">
+      <span class="target-emoji" id="letterEmoji">🍎</span>
+      <div>
+        <div class="target-letter" id="letterTarget">A</div>
+        <div class="target-word-label" id="letterWordLabel">A is for Apple</div>
+      </div>
+    </div>
+
+    <div class="hint" id="letterHint">Find this letter on your keyboard! 👇</div>
+
+    <div class="keyboard" id="letterKeyboard"></div>
+  </div>
+
+  <!-- WORD BUILDER SCREEN -->
+  <div class="screen" id="word-screen">
+    <div class="game-header">
+      <button class="back-btn" onclick="goHome()">⬅ Home</button>
+      <div class="progress-wrap"><div class="progress-bar" id="wordProgress"></div></div>
+      <div class="pill">🔥 <span id="wordStreak">0</span></div>
+    </div>
+
+    <div class="target-card" id="wordCard">
+      <span class="target-emoji" id="wordEmoji">🐱</span>
+      <div class="word-blanks" id="wordBlanks"></div>
+    </div>
+
+    <div class="hint" id="wordHint">Type each letter to spell the word! 👇</div>
+
+    <div class="keyboard" id="wordKeyboard"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------------- DATA ---------------- */
+const letterData = {
+  A:['🍎','Apple'], B:['🐻','Bear'], C:['🐱','Cat'], D:['🐶','Dog'],
+  E:['🥚','Egg'], F:['🐸','Frog'], G:['🍇','Grapes'], H:['🏠','House'],
+  I:['🍦','Ice cream'], J:['🧃','Juice'], K:['🪁','Kite'], L:['🦁','Lion'],
+  M:['🐵','Monkey'], N:['🥜','Nut'], O:['🐙','Octopus'], P:['🐷','Pig'],
+  Q:['👑','Queen'], R:['🌈','Rainbow'], S:['☀️','Sun'], T:['🐯','Tiger'],
+  U:['☂️','Umbrella'], V:['🎻','Violin'], W:['🐳','Whale'], X:['🎼','Xylophone'],
+  Y:['🪀','Yoyo'], Z:['🦓','Zebra']
+};
+
+const wordData = [
+  ['CAT','🐱'], ['DOG','🐶'], ['SUN','☀️'], ['HAT','🎩'], ['PEN','🖊️'],
+  ['CUP','☕'], ['BUS','🚌'], ['BOX','📦'], ['MAP','🗺️'], ['BAT','🦇'],
+  ['RED','🔴'], ['PIG','🐷'], ['HEN','🐔'], ['BED','🛏️'], ['BAG','👜'],
+  ['FAN','🌀'], ['JAM','🍓'], ['LOG','🪵'], ['RUN','🏃'], ['WEB','🕸️']
+];
+
+/* Row layout resembles a real QWERTY keyboard, including non-letter keys
+   shown as inactive "dummy" keys purely so the board looks/feels real. */
+const kbRows = [
+  { cls:'row1', keys:[
+      {t:'`',d:1},{t:'1',d:1},{t:'2',d:1},{t:'3',d:1},{t:'4',d:1},{t:'5',d:1},
+      {t:'6',d:1},{t:'7',d:1},{t:'8',d:1},{t:'9',d:1},{t:'0',d:1},{t:'⌫',d:1}
+  ]},
+  { cls:'row1b', keys:[
+      {t:'Q'},{t:'W'},{t:'E'},{t:'R'},{t:'T'},{t:'Y'},{t:'U'},{t:'I'},{t:'O'},{t:'P'}
+  ]},
+  { cls:'row2', keys:[
+      {t:'A'},{t:'S'},{t:'D'},{t:'F'},{t:'G'},{t:'H'},{t:'J'},{t:'K'},{t:'L'}
+  ]},
+  { cls:'row3', keys:[
+      {t:'⇧',d:1},{t:'Z'},{t:'X'},{t:'C'},{t:'V'},{t:'B'},{t:'N'},{t:'M'},{t:'⇧',d:1}
+  ]},
+  { cls:'row4', keys:[
+      {t:'SPACE',d:1,wide:6}
+  ]}
+];
+
+const keyColors = ['#FF5D5D','#FF9F45','#FFD93D','#5FD068','#4D96FF','#B388FF','#FF7EB6'];
+
+/* ---------------- STATE ---------------- */
+let state = {
+  mode: null,
+  stars: 0,
+  letterStreak: 0,
+  letterTarget: null,
+  lastLetter: null,
+  wordStreak: 0,
+  wordTarget: null,
+  wordIndex: 0,
+  lastWord: null,
+  soundOn: true
+};
+
+/* ---------------- BUILD KEYBOARD (display only, click disabled) ---------------- */
+function buildKeyboard(containerId){
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  kbRows.forEach(row=>{
+    const rowEl = document.createElement('div');
+    rowEl.className = 'kb-row ' + row.cls;
+    row.keys.forEach(k=>{
+      const keyEl = document.createElement('div');
+      keyEl.className = 'key' + (k.d ? ' dummy' : '');
+      keyEl.textContent = k.t;
+      if(!k.d) keyEl.dataset.letter = k.t;
+      if(k.wide) keyEl.style.flex = k.wide;
+      // Mouse click is intentionally disabled as an input method —
+      // clicking just gives a gentle reminder to use the real keyboard.
+      keyEl.addEventListener('click', ()=>{
+        keyEl.classList.add('nudge');
+        setTimeout(()=>keyEl.classList.remove('nudge'), 300);
+        showToast('⌨️ Use your real keyboard, not the mouse!');
+      });
+      rowEl.appendChild(keyEl);
+    });
+    container.appendChild(rowEl);
+  });
+}
+buildKeyboard('letterKeyboard');
+buildKeyboard('wordKeyboard');
+
+/* ---------------- NAVIGATION ---------------- */
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function goHome(){
+  state.mode = null;
+  clearTargetHighlight('letterKeyboard');
+  clearTargetHighlight('wordKeyboard');
+  showScreen('home-screen');
+}
+
+/* ---------------- SOUND ---------------- */
+let audioCtx = null;
+function ensureAudio(){
+  if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+}
+function beep(freq, duration, delay=0, type='sine', vol=0.15){
+  if(!state.soundOn) return;
+  ensureAudio();
+  const t0 = audioCtx.currentTime + delay;
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, t0);
+  gain.gain.setValueAtTime(vol, t0);
+  gain.gain.exponentialRampToValueAtTime(0.001, t0 + duration);
+  osc.connect(gain).connect(audioCtx.destination);
+  osc.start(t0);
+  osc.stop(t0 + duration);
+}
+function playCorrectSound(){ beep(523.25,0.14,0); beep(659.25,0.14,0.1); beep(783.99,0.2,0.2); }
+function playWrongSound(){ beep(220,0.18,0,'triangle',0.1); }
+function playStarSound(){ beep(880,0.12,0); beep(988,0.12,0.1); beep(1175,0.2,0.2); }
+document.getElementById('muteBtn').addEventListener('click', ()=>{
+  state.soundOn = !state.soundOn;
+  document.getElementById('muteBtn').textContent = state.soundOn ? '🔊' : '🔇';
+});
+
+/* ---------------- TOAST ---------------- */
+let toastTimer = null;
+function showToast(msg){
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>el.classList.remove('show'), 1300);
+}
+
+/* ---------------- CONFETTI ---------------- */
+function spawnConfetti(originX, originY){
+  for(let i=0;i<24;i++){
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = (originX + (Math.random()*160-80)) + 'px';
+    piece.style.top = (originY) + 'px';
+    piece.style.background = keyColors[Math.floor(Math.random()*keyColors.length)];
+    piece.style.transform = `rotate(${Math.random()*360}deg)`;
+    document.body.appendChild(piece);
+    const fallDist = 250 + Math.random()*200;
+    const drift = (Math.random()*200-100);
+    const duration = 800 + Math.random()*500;
+    piece.animate([
+      { transform: piece.style.transform + ' translate(0,0)', opacity:1 },
+      { transform: `rotate(${Math.random()*720}deg) translate(${drift}px, ${fallDist}px)`, opacity:0 }
+    ], { duration, easing:'cubic-bezier(.25,.46,.45,.94)' });
+    setTimeout(()=>piece.remove(), duration+50);
+  }
+}
+
+/* ---------------- STARS ---------------- */
+function addStar(){
+  state.stars++;
+  document.getElementById('starCount').textContent = state.stars;
+  playStarSound();
+}
+
+/* ---------------- LETTER HUNT GAME ---------------- */
+function startLetterGame(){
+  state.mode = 'letter';
+  state.letterStreak = 0;
+  document.getElementById('letterStreak').textContent = 0;
+  document.getElementById('letterProgress').style.width = '0%';
+  showScreen('letter-screen');
+  nextLetterTarget();
+}
+
+function nextLetterTarget(){
+  const letters = Object.keys(letterData);
+  let pick;
+  do{ pick = letters[Math.floor(Math.random()*letters.length)]; }
+  while(pick === state.lastLetter && letters.length > 1);
+  state.lastLetter = pick;
+  state.letterTarget = pick;
+
+  const [emoji, word] = letterData[pick];
+  document.getElementById('letterEmoji').textContent = emoji;
+  document.getElementById('letterTarget').textContent = pick;
+  document.getElementById('letterWordLabel').textContent = `${pick} is for ${word}`;
+  document.getElementById('letterHint').textContent = 'Find this letter on your keyboard! 👇';
+
+  clearTargetHighlight('letterKeyboard');
+  const keyEl = findKeyEl('letterKeyboard', pick);
+  if(keyEl) keyEl.classList.add('target-key');
+}
+
+function onLetterKeyPress(letter){
+  if(state.mode !== 'letter') return;
+  const keyEl = findKeyEl('letterKeyboard', letter);
+  if(!keyEl) return;
+  if(letter === state.letterTarget){
+    keyEl.classList.add('correct-flash');
+    setTimeout(()=>keyEl.classList.remove('correct-flash'), 300);
+    playCorrectSound();
+    const rect = keyEl.getBoundingClientRect();
+    spawnConfetti(rect.left+rect.width/2, rect.top);
+
+    state.letterStreak++;
+    document.getElementById('letterStreak').textContent = state.letterStreak;
+    const pct = (state.letterStreak % 5) * 20;
+    document.getElementById('letterProgress').style.width = pct + '%';
+    if(state.letterStreak % 5 === 0){
+      addStar();
+      showToast('🌟 Amazing! ' + state.letterStreak + ' in a row!');
+    } else {
+      const cheer = ['Great job! 🎉','Woohoo! 🎈','You got it! 🥳','Super! ⭐','Nice one! 🎪'];
+      showToast(cheer[Math.floor(Math.random()*cheer.length)]);
+    }
+    setTimeout(nextLetterTarget, 500);
+  } else {
+    keyEl.classList.add('wrong-flash');
+    setTimeout(()=>keyEl.classList.remove('wrong-flash'), 300);
+    playWrongSound();
+    const card = document.getElementById('letterCard');
+    card.classList.add('shake');
+    setTimeout(()=>card.classList.remove('shake'), 400);
+    document.getElementById('letterHint').textContent = `Not quite — look for the glowing key! 🔦`;
+  }
+}
+
+/* ---------------- WORD BUILDER GAME ---------------- */
+function startWordGame(){
+  state.mode = 'word';
+  state.wordStreak = 0;
+  document.getElementById('wordStreak').textContent = 0;
+  document.getElementById('wordProgress').style.width = '0%';
+  showScreen('word-screen');
+  nextWordTarget();
+}
+
+function nextWordTarget(){
+  let pick;
+  do{ pick = wordData[Math.floor(Math.random()*wordData.length)]; }
+  while(pick[0] === state.lastWord && wordData.length > 1);
+  state.lastWord = pick[0];
+  state.wordTarget = pick[0];
+  state.wordIndex = 0;
+
+  document.getElementById('wordEmoji').textContent = pick[1];
+
+  const blanksEl = document.getElementById('wordBlanks');
+  blanksEl.innerHTML = '';
+  [...pick[0]].forEach((ch, i)=>{
+    const b = document.createElement('div');
+    b.className = 'letter-blank' + (i===0 ? ' current' : '');
+    b.dataset.index = i;
+    blanksEl.appendChild(b);
+  });
+
+  document.getElementById('wordHint').textContent = 'Type each letter to spell the word! 👇';
+  clearTargetHighlight('wordKeyboard');
+  const keyEl = findKeyEl('wordKeyboard', pick[0][0]);
+  if(keyEl) keyEl.classList.add('target-key');
+}
+
+function onWordKeyPress(letter){
+  if(state.mode !== 'word') return;
+  const target = state.wordTarget;
+  const needed = target[state.wordIndex];
+  const keyEl = findKeyEl('wordKeyboard', letter);
+  if(!keyEl) return;
+
+  if(letter === needed){
+    keyEl.classList.add('correct-flash');
+    setTimeout(()=>keyEl.classList.remove('correct-flash'), 300);
+    playCorrectSound();
+
+    const blanks = document.querySelectorAll('#wordBlanks .letter-blank');
+    blanks[state.wordIndex].textContent = letter;
+    blanks[state.wordIndex].classList.remove('current');
+    blanks[state.wordIndex].classList.add('filled');
+
+    state.wordIndex++;
+
+    if(state.wordIndex >= target.length){
+      const rect = keyEl.getBoundingClientRect();
+      spawnConfetti(rect.left+rect.width/2, rect.top);
+      state.wordStreak++;
+      document.getElementById('wordStreak').textContent = state.wordStreak;
+      const pct = (state.wordStreak % 5) * 20;
+      document.getElementById('wordProgress').style.width = pct + '%';
+      if(state.wordStreak % 5 === 0){
+        addStar();
+        showToast('🏆 Word Wizard! ' + state.wordStreak + ' words!');
+      } else {
+        const cheer = ['You spelled it! 📝','Fantastic! 🎉','Word complete! 🥳','Brilliant! ⭐'];
+        showToast(cheer[Math.floor(Math.random()*cheer.length)]);
+      }
+      clearTargetHighlight('wordKeyboard');
+      setTimeout(nextWordTarget, 650);
+    } else {
+      blanks[state.wordIndex].classList.add('current');
+      clearTargetHighlight('wordKeyboard');
+      const nextKey = findKeyEl('wordKeyboard', target[state.wordIndex]);
+      if(nextKey) nextKey.classList.add('target-key');
+    }
+  } else {
+    keyEl.classList.add('wrong-flash');
+    setTimeout(()=>keyEl.classList.remove('wrong-flash'), 300);
+    playWrongSound();
+    const card = document.getElementById('wordCard');
+    card.classList.add('shake');
+    setTimeout(()=>card.classList.remove('shake'), 400);
+    document.getElementById('wordHint').textContent = 'Not this one — try the glowing key! 🔦';
+  }
+}
+
+/* ---------------- HELPERS ---------------- */
+function findKeyEl(containerId, letter){
+  return document.querySelector(`#${containerId} .key[data-letter="${letter}"]`);
+}
+function clearTargetHighlight(containerId){
+  document.querySelectorAll(`#${containerId} .key.target-key`).forEach(k=>k.classList.remove('target-key'));
+}
+
+/* ---------------- PHYSICAL KEYBOARD SUPPORT (only valid input) ---------------- */
+document.addEventListener('keydown', (e)=>{
+  const letter = e.key.toUpperCase();
+  if(letter.length !== 1 || letter < 'A' || letter > 'Z') return;
+  if(state.mode === 'letter') onLetterKeyPress(letter);
+  else if(state.mode === 'word') onWordKeyPress(letter);
+});
+
+/* unlock audio context on first key press (some browsers require a gesture) */
+document.addEventListener('keydown', ()=>{ ensureAudio(); }, {once:true});
+</script>
+</body>
+</html>

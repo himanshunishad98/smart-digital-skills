@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Icon Explorer — Learn Computer Icons!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-1:#241E4E;
+    --bg-2:#312a63;
+    --bg-card:#3a3277;
+    --yellow:#FFD93D;
+    --coral:#FF6B6B;
+    --sky:#4DC9FF;
+    --green:#6BCB77;
+    --purple:#B98BFF;
+    --white:#FFFFFF;
+    --ink:#1B1B3A;
+    --star:#FFD93D;
+    --shadow: 0 8px 0 rgba(0,0,0,0.18);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Nunito',sans-serif;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.06) 0, transparent 3%),
+      radial-gradient(circle at 80% 10%, rgba(255,255,255,0.08) 0, transparent 2%),
+      radial-gradient(circle at 60% 70%, rgba(255,255,255,0.05) 0, transparent 3%),
+      radial-gradient(circle at 30% 85%, rgba(255,255,255,0.07) 0, transparent 2%),
+      linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    color:var(--white);
+    min-height:100vh;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Baloo 2',cursive;}
+  button{font-family:'Nunito',sans-serif;cursor:pointer;border:none;outline:none;}
+  button:focus-visible, [tabindex]:focus-visible{outline:3px solid var(--white); outline-offset:3px;}
+  #app{max-width:900px;margin:0 auto;padding:16px 16px 60px;position:relative;}
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:10px; margin-bottom:18px; flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand h1{font-size:22px;margin:0;color:var(--yellow);text-shadow:0 2px 0 rgba(0,0,0,.25);}
+  .pill-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .pill{
+    background:rgba(255,255,255,0.12);
+    border-radius:999px;
+    padding:7px 14px;
+    display:flex;align-items:center;gap:6px;
+    font-weight:800;font-size:15px;
+    border:2px solid rgba(255,255,255,0.15);
+  }
+  .pill.coins{color:var(--yellow);}
+  .pill.stars{color:var(--star);}
+  .icon-btn{
+    background:rgba(255,255,255,0.12);
+    color:var(--white);
+    border-radius:14px;
+    width:42px;height:42px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;
+    border:2px solid rgba(255,255,255,0.15);
+  }
+  .icon-btn:hover{background:rgba(255,255,255,0.22);}
+
+  /* ---------- MASCOT ---------- */
+  .mascot-wrap{display:flex;flex-direction:column;align-items:center;margin:6px 0 18px;}
+  .mascot{width:110px;height:110px;transition:transform .25s ease;}
+  .mascot.bounce{animation:bounce .6s ease;}
+  .mascot.cheer{animation:cheerspin .7s ease;}
+  .mascot.sad{animation:wobble .5s ease;}
+  @keyframes bounce{0%{transform:translateY(0)}30%{transform:translateY(-16px) scale(1.05)}55%{transform:translateY(0)}75%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+  @keyframes cheerspin{0%{transform:rotate(0) scale(1)}40%{transform:rotate(-8deg) scale(1.15)}70%{transform:rotate(8deg) scale(1.15)}100%{transform:rotate(0) scale(1)}}
+  @keyframes wobble{0%{transform:rotate(0)}25%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}75%{transform:rotate(-3deg)}100%{transform:rotate(0)}}
+  .mascot-msg{
+    margin-top:10px; background:var(--white); color:var(--ink);
+    padding:10px 18px; border-radius:16px; font-weight:800; font-size:15px;
+    max-width:340px; text-align:center; box-shadow:var(--shadow);
+    position:relative;
+  }
+
+  /* ---------- SCREEN SWITCHING ---------- */
+  .screen{display:none;}
+  .screen.active{display:block; animation:fadein .35s ease;}
+  @keyframes fadein{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:translateY(0)}}
+
+  /* ---------- HOME / GALAXY MAP ---------- */
+  .map-title{text-align:center;font-size:26px;margin:4px 0 22px;color:var(--white);}
+  .worlds{display:grid;grid-template-columns:repeat(auto-fit, minmax(230px,1fr));gap:18px;}
+  .world-card{
+    background:var(--bg-card);
+    border-radius:22px;
+    padding:18px;
+    box-shadow:var(--shadow);
+    border:3px solid rgba(255,255,255,0.08);
+    position:relative;
+    transition:transform .15s ease;
+    text-align:left;
+  }
+  .world-card:not(.locked):hover{transform:translateY(-4px);}
+  .world-card.locked{opacity:.55;filter:grayscale(0.4);}
+  .world-emoji{font-size:38px;}
+  .world-card h3{margin:8px 0 2px;font-size:20px;}
+  .world-card p{margin:0 0 12px;font-size:14px;opacity:.85;font-weight:700;}
+  .progress-track{background:rgba(0,0,0,0.25);border-radius:999px;height:12px;overflow:hidden;margin-bottom:12px;}
+  .progress-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--sky));transition:width .4s ease;}
+  .go-btn{
+    width:100%;padding:11px;border-radius:14px;font-weight:800;font-size:15px;
+    background:var(--yellow);color:var(--ink);box-shadow:0 5px 0 #c9a418;
+  }
+  .go-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #c9a418;}
+  .lock-badge{position:absolute;top:14px;right:14px;font-size:22px;}
+  .home-actions{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap;}
+  .secondary-btn{
+    background:rgba(255,255,255,0.12);color:var(--white);padding:12px 20px;
+    border-radius:14px;font-weight:800;border:2px solid rgba(255,255,255,0.18);
+    display:flex;align-items:center;gap:8px;font-size:15px;
+  }
+  .secondary-btn:hover{background:rgba(255,255,255,0.22);}
+
+  /* ---------- QUIZ SCREEN ---------- */
+  .quiz-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:10px;flex-wrap:wrap;}
+  .back-btn{background:rgba(255,255,255,0.12);color:var(--white);padding:9px 14px;border-radius:12px;font-weight:800;font-size:14px;}
+  .streak{font-weight:900;color:var(--coral);font-size:15px;}
+  .quiz-progress{display:flex;gap:6px;margin:14px 0 8px;}
+  .dot{flex:1;height:8px;border-radius:999px;background:rgba(255,255,255,0.15);}
+  .dot.done{background:var(--green);}
+  .dot.current{background:var(--yellow);}
+  .quiz-card{
+    background:var(--bg-card);border-radius:26px;padding:30px 22px;text-align:center;
+    box-shadow:var(--shadow); border:3px solid rgba(255,255,255,0.08);
+  }
+  .quiz-question{font-size:18px;font-weight:800;margin:4px 0 18px;}
+  .icon-stage{
+    width:150px;height:150px;margin:0 auto 20px;background:rgba(255,255,255,0.08);
+    border-radius:26px;display:flex;align-items:center;justify-content:center;
+    border:3px dashed rgba(255,255,255,0.18);
+  }
+  .icon-stage svg{width:88px;height:88px;}
+  .choices{display:grid;gap:12px;}
+  .choice-btn{
+    background:rgba(255,255,255,0.1);color:var(--white);
+    padding:16px 18px;border-radius:16px;font-weight:800;font-size:16px;
+    border:3px solid rgba(255,255,255,0.12); text-align:left;
+    transition:transform .1s ease, background .15s ease;
+  }
+  .choice-btn:hover{background:rgba(255,255,255,0.18);}
+  .choice-btn.correct{background:var(--green);color:var(--ink);border-color:#4ea858;animation:pop .35s ease;}
+  .choice-btn.wrong{background:var(--coral);color:var(--ink);border-color:#d94f4f;animation:shake .4s ease;}
+  @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.05)}100%{transform:scale(1)}}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+  /* ---------- MODAL / CELEBRATION ---------- */
+  .overlay{
+    position:fixed;inset:0;background:rgba(15,12,40,0.75);
+    display:none;align-items:center;justify-content:center;z-index:50;padding:20px;
+  }
+  .overlay.active{display:flex;}
+  .modal{
+    background:var(--bg-card);border-radius:26px;padding:34px 28px;max-width:380px;text-align:center;
+    box-shadow:0 14px 0 rgba(0,0,0,0.25); border:3px solid rgba(255,255,255,0.12);
+  }
+  .modal h2{margin:8px 0 6px;font-size:26px;color:var(--yellow);}
+  .modal p{font-weight:700;opacity:.9;margin-bottom:20px;}
+  .badge-emoji{font-size:64px;}
+  .modal-btn{
+    background:var(--yellow);color:var(--ink);padding:13px 26px;border-radius:14px;
+    font-weight:900;font-size:16px;box-shadow:0 5px 0 #c9a418;
+  }
+  .modal-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #c9a418;}
+
+  /* ---------- BADGES SCREEN ---------- */
+  .badge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:10px;}
+  .badge-card{
+    background:var(--bg-card);border-radius:18px;padding:18px 10px;text-align:center;
+    border:3px solid rgba(255,255,255,0.08);
+  }
+  .badge-card.locked{opacity:.35;}
+  .badge-card .emoji{font-size:36px;}
+  .badge-card .name{font-weight:800;font-size:13px;margin-top:6px;}
+
+  /* ---------- MEMORY GAME ---------- */
+  .memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:520px;margin:0 auto;}
+  .mem-card{
+    aspect-ratio:1/1;border-radius:14px;background:rgba(255,255,255,0.1);
+    display:flex;align-items:center;justify-content:center;
+    border:3px solid rgba(255,255,255,0.12); position:relative; perspective:600px;
+  }
+  .mem-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .4s;}
+  .mem-card.flipped .mem-inner{transform:rotateY(180deg);}
+  .mem-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:11px;backface-visibility:hidden;}
+  .mem-front{background:linear-gradient(135deg,var(--sky),var(--purple));font-size:26px;font-weight:900;color:var(--white);}
+  .mem-back{background:var(--white);transform:rotateY(180deg);flex-direction:column;padding:6px;text-align:center;}
+  .mem-back svg{width:34px;height:34px;}
+  .mem-back span{font-size:10px;font-weight:800;color:var(--ink);margin-top:4px;line-height:1.1;}
+  .mem-card.matched .mem-front, .mem-card.matched .mem-back{opacity:.35;}
+
+  /* ---------- FOOTER / CONFETTI ---------- */
+  .confetti-piece{position:fixed;top:-10px;border-radius:2px;pointer-events:none;z-index:60;}
+  footer{text-align:center;opacity:.5;font-size:12px;margin-top:40px;font-weight:700;}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <div class="topbar">
+    <div class="brand">
+      <span style="font-size:30px;">🪐</span>
+      <h1>Icon Explorer</h1>
+    </div>
+    <div class="pill-row">
+      <div class="pill coins">🪙 <span id="coinCount">0</span></div>
+      <div class="pill stars">⭐ <span id="starCount">0</span></div>
+      <button class="icon-btn" id="badgeNavBtn" title="My Badges" aria-label="My Badges">🏅</button>
+      <button class="icon-btn" id="soundBtn" title="Toggle sound" aria-label="Toggle sound">🔊</button>
+    </div>
+  </div>
+
+  <div class="mascot-wrap">
+    <svg id="mascotSvg" class="mascot" viewBox="0 0 120 120" aria-hidden="true">
+      <ellipse cx="60" cy="108" rx="32" ry="6" fill="rgba(0,0,0,0.25)"/>
+      <rect x="30" y="34" width="60" height="54" rx="18" fill="#4DC9FF"/>
+      <rect x="30" y="34" width="60" height="54" rx="18" fill="url(#g1)"/>
+      <circle cx="60" cy="20" r="7" fill="#FFD93D"/>
+      <rect x="57" y="20" width="6" height="16" fill="#FFD93D"/>
+      <rect x="16" y="52" width="10" height="24" rx="5" fill="#B98BFF"/>
+      <rect x="94" y="52" width="10" height="24" rx="5" fill="#B98BFF"/>
+      <circle cx="46" cy="58" r="8" fill="white"/>
+      <circle cx="74" cy="58" r="8" fill="white"/>
+      <circle id="eyeL" cx="46" cy="58" r="4" fill="#1B1B3A"/>
+      <circle id="eyeR" cx="74" cy="58" r="4" fill="#1B1B3A"/>
+      <path id="mouth" d="M48 74 Q60 82 72 74" stroke="#1B1B3A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4DC9FF"/><stop offset="1" stop-color="#6BCB77"/></linearGradient></defs>
+    </svg>
+    <div class="mascot-msg" id="mascotMsg">Hi! I'm Pixel 👋 Let's learn computer icons together!</div>
+  </div>
+
+  <!-- HOME SCREEN -->
+  <div class="screen active" id="screen-home">
+    <h2 class="map-title">🌌 Choose a World to Explore</h2>
+    <div class="worlds" id="worldsGrid"></div>
+    <div class="home-actions">
+      <button class="secondary-btn" id="memoryBtn">🧠 Memory Match Game</button>
+      <button class="secondary-btn" id="resetBtn">🔄 Reset Progress</button>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div class="screen" id="screen-quiz">
+    <div class="quiz-head">
+      <button class="back-btn" id="quizBackBtn">← Back</button>
+      <div class="streak" id="streakLabel"></div>
+    </div>
+    <div class="quiz-progress" id="quizDots"></div>
+    <div class="quiz-card">
+      <div class="quiz-question">What does this icon do?</div>
+      <div class="icon-stage" id="iconStage"></div>
+      <div class="choices" id="choicesWrap"></div>
+    </div>
+  </div>
+
+  <!-- BADGES SCREEN -->
+  <div class="screen" id="screen-badges">
+    <div class="quiz-head">
+      <button class="back-btn" id="badgesBackBtn">← Back</button>
+      <div></div>
+    </div>
+    <h2 class="map-title">🏅 My Badges</h2>
+    <div class="badge-grid" id="badgeGrid"></div>
+  </div>
+
+  <!-- MEMORY GAME SCREEN -->
+  <div class="screen" id="screen-memory">
+    <div class="quiz-head">
+      <button class="back-btn" id="memoryBackBtn">← Back</button>
+      <div class="streak" id="memMovesLabel"></div>
+    </div>
+    <h2 class="map-title">🧠 Memory Match</h2>
+    <div class="memory-grid" id="memoryGrid"></div>
+  </div>
+
+  <footer>Made with 💛 to help kids learn computer icons</footer>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<script>
+/* ============================= ICON LIBRARY ============================= */
+/* Simple, original flat-style icons representing common desktop functions
+   (not reproductions of any specific OS's copyrighted artwork). */
+
+function svg(inner, vb){ return `<svg viewBox="${vb||'0 0 100 100'}" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`; }
+
+const ICONS = [
+  // ---------------- World 0: Home Base (system basics) ----------------
+  {
+  id: 'power',
+  world: 0,
+  name: 'Power Button',
+  desc: 'Turns the computer on or off',
+  svg: svg(`
+    <path
+      d="M 30 32 A 32 32 0 1 0 70 32"
+      fill="none"
+      stroke="#FF6B6B"
+      stroke-width="9"
+      stroke-linecap="butt"
+    />
+    <line
+      x1="50"
+      y1="18"
+      x2="50"
+      y2="46"
+      stroke="#FF6B6B"
+      stroke-width="9"
+      stroke-linecap="round"
+    />
+  `)
+},
+  { id:'settings', world:0, name:'Settings Gear', desc:'Changes how your computer looks and works',
+    svg: svg(`<g fill="#B98BFF">${Array.from({length:8}).map((_,i)=>`<rect x="46" y="6" width="8" height="20" rx="3" transform="rotate(${i*45} 50 50)"/>`).join('')}</g><circle cx="50" cy="50" r="20" fill="#3a3277"/><circle cx="50" cy="50" r="12" fill="#B98BFF"/>`) },
+  { id:'search', world:0, name:'Search / Magnifier', desc:'Helps you find files, apps, or words',
+    svg: svg(`<circle cx="42" cy="42" r="26" fill="none" stroke="#4DC9FF" stroke-width="9"/><line x1="61" y1="61" x2="86" y2="86" stroke="#4DC9FF" stroke-width="10" stroke-linecap="round"/>`) },
+  { id:'bell', world:0, name:'Notification Bell', desc:'Tells you when something new happens',
+    svg: svg(`<path d="M50 12 C36 12 30 24 30 38 C30 55 24 62 20 66 H80 C76 62 70 55 70 38 C70 24 64 12 50 12 Z" fill="#FFD93D"/><circle cx="50" cy="82" r="8" fill="#FFD93D"/>`) },
+  { id:'battery', world:0, name:'Battery', desc:'Shows how much power is left',
+    svg: svg(`<rect x="14" y="34" width="62" height="32" rx="7" fill="none" stroke="#6BCB77" stroke-width="7"/><rect x="78" y="44" width="8" height="12" rx="3" fill="#6BCB77"/><rect x="22" y="42" width="34" height="16" rx="3" fill="#6BCB77"/>`) },
+
+  // ---------------- World 1: File Forest (files & storage) ----------------
+  { id:'folder', world:1, name:'Folder', desc:'Holds and organizes your files',
+    svg: svg(`<path d="M12 30 h26 l8 10 h42 v40 a6 6 0 0 1 -6 6 H18 a6 6 0 0 1 -6 -6 Z" fill="#FFD93D"/><path d="M12 30 h26 l8 10 h-40 z" fill="#e6bd2f"/>`) },
+  { id:'trash', world:1, name:'Recycle Bin', desc:'Stores files you deleted',
+    svg: svg(`<rect x="26" y="34" width="48" height="46" rx="6" fill="#FF6B6B"/><rect x="18" y="24" width="64" height="10" rx="4" fill="#e05353"/><rect x="40" y="14" width="20" height="10" rx="4" fill="#e05353"/><line x1="38" y1="44" x2="38" y2="70" stroke="white" stroke-width="5" stroke-linecap="round"/><line x1="50" y1="44" x2="50" y2="70" stroke="white" stroke-width="5" stroke-linecap="round"/><line x1="62" y1="44" x2="62" y2="70" stroke="white" stroke-width="5" stroke-linecap="round"/>`) },
+  { id:'save', world:1, name:'Save Disk', desc:'Saves your work so you don\'t lose it',
+    svg: svg(`<path d="M18 14 h56 l12 12 v56 a4 4 0 0 1 -4 4 H18 a4 4 0 0 1 -4 -4 V18 a4 4 0 0 1 4 -4 Z" fill="#4DC9FF"/><rect x="30" y="18" width="30" height="18" fill="#e9f7ff"/><rect x="26" y="52" width="48" height="30" fill="#e9f7ff"/>`) },
+  { id:'document', world:1, name:'Document', desc:'A text file you can read or write',
+    svg: svg(`<path d="M24 10 h34 l18 18 v58 a4 4 0 0 1 -4 4 H24 a4 4 0 0 1 -4 -4 V14 a4 4 0 0 1 4 -4 Z" fill="#ffffff" stroke="#b9c2d6" stroke-width="3"/><path d="M58 10 v18 h18 Z" fill="#cfd8ea"/><line x1="32" y1="46" x2="68" y2="46" stroke="#8993ab" stroke-width="5" stroke-linecap="round"/><line x1="32" y1="58" x2="68" y2="58" stroke="#8993ab" stroke-width="5" stroke-linecap="round"/><line x1="32" y1="70" x2="54" y2="70" stroke="#8993ab" stroke-width="5" stroke-linecap="round"/>`) },
+  { id:'clipboard', world:1, name:'Copy / Clipboard', desc:'Copies something to paste later',
+    svg: svg(`<rect x="22" y="16" width="56" height="72" rx="8" fill="#6BCB77"/><rect x="38" y="8" width="24" height="14" rx="5" fill="#3a3277"/><rect x="30" y="34" width="40" height="8" rx="3" fill="white"/><rect x="30" y="48" width="40" height="8" rx="3" fill="white"/><rect x="30" y="62" width="24" height="8" rx="3" fill="white"/>`) },
+
+  // ---------------- World 2: Connect Cove (internet & comms) ----------------
+  { id:'wifi', world:2, name:'Wi-Fi Signal', desc:'Connects your computer to the internet',
+    svg: svg(`<path d="M20 42 a44 44 0 0 1 60 0" stroke="#4DC9FF" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M32 56 a26 26 0 0 1 36 0" stroke="#4DC9FF" stroke-width="8" fill="none" stroke-linecap="round"/><circle cx="50" cy="72" r="8" fill="#4DC9FF"/>`) },
+  { id:'browser', world:2, name:'Web Browser', desc:'Opens websites on the internet',
+    svg: svg(`<circle cx="50" cy="50" r="38" fill="#B98BFF"/><ellipse cx="50" cy="50" rx="16" ry="38" fill="none" stroke="#3a3277" stroke-width="5"/><line x1="12" y1="50" x2="88" y2="50" stroke="#3a3277" stroke-width="5"/><line x1="19" y1="30" x2="81" y2="30" stroke="#3a3277" stroke-width="4"/><line x1="19" y1="70" x2="81" y2="70" stroke="#3a3277" stroke-width="4"/>`) },
+  { id:'mail', world:2, name:'Mail Envelope', desc:'Sends and receives email messages',
+    svg: svg(`<rect x="12" y="26" width="76" height="52" rx="7" fill="#FF6B6B"/><path d="M12 30 L50 58 L88 30" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`) },
+  { id:'camera', world:2, name:'Video Camera', desc:'Turns on the camera for video calls',
+    svg: svg(`<rect x="12" y="30" width="52" height="40" rx="8" fill="#6BCB77"/><path d="M64 42 L88 30 V70 L64 58 Z" fill="#6BCB77"/><circle cx="38" cy="50" r="10" fill="#3a3277"/>`) },
+  { id:'volume', world:2, name:'Speaker / Volume', desc:'Controls how loud the sound is',
+    svg: svg(`<path d="M16 40 h14 l20 -18 v56 l-20 -18 h-14 Z" fill="#FFD93D"/><path d="M62 34 a22 22 0 0 1 0 32" stroke="#FFD93D" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M72 24 a38 38 0 0 1 0 52" stroke="#FFD93D" stroke-width="7" fill="none" stroke-linecap="round"/>`) },
+
+  // ---------------- World 3: Fun Factory (apps) ----------------
+  { id:'calculator', world:3, name:'Calculator', desc:'Helps you do math problems',
+    svg: svg(`<rect x="24" y="10" width="52" height="80" rx="8" fill="#4DC9FF"/><rect x="32" y="20" width="36" height="16" rx="3" fill="white"/>${[0,1,2,3].map(r=>[0,1,2].map(c=>`<rect x="${32+c*13}" y="${44+r*11}" width="9" height="8" rx="2" fill="white"/>`).join('')).join('')}`) },
+  { id:'paint', world:3, name:'Paint Palette', desc:'Opens a program for drawing and coloring',
+    svg: svg(`<path d="M50 10 a40 40 0 1 0 14 77 c4 -1 4 -8 -2 -9 c-6 -1 -8 -6 -4 -11 c4 -5 12 -3 18 -9 a40 40 0 0 0 -26 -48 Z" fill="#FF6B6B"/><circle cx="32" cy="42" r="7" fill="#FFD93D"/><circle cx="50" cy="30" r="7" fill="#6BCB77"/><circle cx="68" cy="42" r="7" fill="#4DC9FF"/><circle cx="34" cy="62" r="7" fill="#B98BFF"/>`) },
+  { id:'calendar', world:3, name:'Calendar', desc:'Shows the date and your schedule',
+    svg: svg(`<rect x="14" y="20" width="72" height="66" rx="8" fill="#ffffff" stroke="#b9c2d6" stroke-width="3"/><rect x="14" y="20" width="72" height="20" rx="8" fill="#FF6B6B"/><rect x="28" y="10" width="8" height="18" rx="3" fill="#FF6B6B"/><rect x="64" y="10" width="8" height="18" rx="3" fill="#FF6B6B"/>${[0,1,2].map(r=>[0,1,2,3].map(c=>`<rect x="${24+c*13}" y="${50+r*13}" width="8" height="8" rx="2" fill="#cfd8ea"/>`).join('')).join('')}`) },
+  { id:'clock', world:3, name:'Clock', desc:'Shows what time it is',
+    svg: svg(`<circle cx="50" cy="50" r="38" fill="#FFD93D"/><circle cx="50" cy="50" r="4" fill="#3a3277"/><line x1="50" y1="50" x2="50" y2="26" stroke="#3a3277" stroke-width="6" stroke-linecap="round"/><line x1="50" y1="50" x2="68" y2="58" stroke="#3a3277" stroke-width="6" stroke-linecap="round"/>`) },
+  { id:'lock', world:3, name:'Lock Screen', desc:'Keeps your computer private and safe',
+    svg: svg(`<rect x="24" y="46" width="52" height="42" rx="8" fill="#B98BFF"/><path d="M32 46 v-12 a18 18 0 0 1 36 0 v12" fill="none" stroke="#B98BFF" stroke-width="9"/><circle cx="50" cy="66" r="7" fill="#3a3277"/><rect x="47" y="66" width="6" height="14" fill="#3a3277"/>`) },
+];
+
+const WORLDS = [
+  { id:0, name:'Home Base',    emoji:'🏠', desc:'System basics', badge:'🛡️', badgeName:'Home Base Hero' },
+  { id:1, name:'File Forest',  emoji:'🌲', desc:'Files & storage', badge:'📦', badgeName:'File Forest Guide' },
+  { id:2, name:'Connect Cove', emoji:'🌊', desc:'Internet & chat', badge:'🌐', badgeName:'Connection Captain' },
+  { id:3, name:'Fun Factory',  emoji:'🎡', desc:'Apps & tools', badge:'🎉', badgeName:'App Ace' },
+];
+
+/* ============================= STATE ============================= */
+const STORAGE_KEY = 'iconExplorerProgress';
+let state = {
+  coins: 0,
+  stars: 0,
+  unlocked: [0],
+  worldDone: {0:false,1:false,2:false,3:false},
+  badges: [],
+  soundOn: true,
+};
+let hasCloudStorage = (typeof window.storage !== 'undefined');
+
+async function loadProgress(){
+  try{
+    if(hasCloudStorage){
+      const res = await window.storage.get(STORAGE_KEY, false);
+      if(res && res.value){ state = Object.assign(state, JSON.parse(res.value)); }
+    }
+  }catch(e){ /* no saved progress yet */ }
+  renderAll();
+}
+async function saveProgress(){
+  try{
+    if(hasCloudStorage){ await window.storage.set(STORAGE_KEY, JSON.stringify(state), false); }
+  }catch(e){ console.warn('save failed', e); }
+}
+
+/* ============================= SOUND (WebAudio synth, no files) ============================= */
+let actx;
+function ensureAudio(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } }
+function tone(freq, dur, type, delay, vol){
+  if(!state.soundOn || !actx) return;
+  const t0 = actx.currentTime + (delay||0);
+  const osc = actx.createOscillator();
+  const gain = actx.createGain();
+  osc.type = type||'sine'; osc.frequency.value = freq;
+  gain.gain.setValueAtTime(0, t0);
+  gain.gain.linearRampToValueAtTime(vol||0.15, t0+0.02);
+  gain.gain.exponentialRampToValueAtTime(0.001, t0+dur);
+  osc.connect(gain); gain.connect(actx.destination);
+  osc.start(t0); osc.stop(t0+dur+0.02);
+}
+function playClick(){ ensureAudio(); tone(520,0.08,'triangle'); }
+function playCorrect(){ ensureAudio(); tone(523,0.14,'square',0); tone(659,0.14,'square',0.1); tone(784,0.22,'square',0.2); }
+function playWrong(){ ensureAudio(); tone(180,0.22,'sawtooth',0,0.12); }
+function playCheer(){ ensureAudio(); [523,659,784,1046].forEach((f,i)=>tone(f,0.18,'square',i*0.09,0.14)); }
+
+/* ============================= MASCOT ============================= */
+const mascotSvg = document.getElementById('mascotSvg');
+const mascotMsg = document.getElementById('mascotMsg');
+function mascotSay(msg, mood){
+  mascotMsg.textContent = msg;
+  mascotSvg.classList.remove('bounce','cheer','sad');
+  void mascotSvg.offsetWidth;
+  if(mood) mascotSvg.classList.add(mood);
+  const mouth = document.getElementById('mouth');
+  if(mood==='sad'){ mouth.setAttribute('d','M48 78 Q60 70 72 78'); }
+  else { mouth.setAttribute('d','M48 74 Q60 82 72 74'); }
+}
+
+/* ============================= CONFETTI ============================= */
+function confettiBurst(originEl){
+  const colors = ['#FFD93D','#FF6B6B','#4DC9FF','#6BCB77','#B98BFF'];
+  const rect = originEl ? originEl.getBoundingClientRect() : {left:window.innerWidth/2, top:window.innerHeight/2, width:0};
+  for(let i=0;i<28;i++){
+    const p = document.createElement('div');
+    p.className='confetti-piece';
+    const size = 6+Math.random()*6;
+    p.style.width = size+'px'; p.style.height=(size*1.4)+'px';
+    p.style.background = colors[i%colors.length];
+    p.style.left = (rect.left+rect.width/2 + (Math.random()*160-80))+'px';
+    p.style.top = (rect.top + (Math.random()*20))+'px';
+    const rot = Math.random()*360;
+    const fall = 220+Math.random()*260;
+    const drift = (Math.random()*160-80);
+    p.style.transform = `rotate(${rot}deg)`;
+    p.style.transition = `transform ${1+Math.random()*0.6}s ease-in, top ${1+Math.random()*0.6}s ease-in, opacity ${1+Math.random()*0.6}s ease-in`;
+    document.body.appendChild(p);
+    requestAnimationFrame(()=>{
+      p.style.top = (rect.top+fall)+'px';
+      p.style.left = (rect.left+rect.width/2+drift)+'px';
+      p.style.transform = `rotate(${rot+220}deg)`;
+      p.style.opacity='0';
+    });
+    setTimeout(()=>p.remove(), 1800);
+  }
+}
+
+/* ============================= RENDER: TOP BAR ============================= */
+function renderTopbar(){
+  document.getElementById('coinCount').textContent = state.coins;
+  document.getElementById('starCount').textContent = state.stars;
+  document.getElementById('soundBtn').textContent = state.soundOn ? '🔊' : '🔇';
+}
+
+/* ============================= RENDER: HOME ============================= */
+function worldIcons(w){ return ICONS.filter(i=>i.world===w); }
+function worldProgressCount(w){
+  const key = 'wp_'+w;
+  return (state[key]||[]).length;
+}
+function renderHome(){
+  const grid = document.getElementById('worldsGrid');
+  grid.innerHTML = '';
+  WORLDS.forEach(w=>{
+    const locked = !state.unlocked.includes(w.id);
+    const icons = worldIcons(w.id);
+    const doneCount = (state['wp_'+w.id]||[]).length;
+    const pct = Math.round((doneCount/icons.length)*100);
+    const card = document.createElement('div');
+    card.className = 'world-card' + (locked?' locked':'');
+    card.innerHTML = `
+      ${locked?'<div class="lock-badge">🔒</div>':''}
+      <div class="world-emoji">${w.emoji}</div>
+      <h3>${w.name}</h3>
+      <p>${w.desc} · ${icons.length} icons</p>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+      <button class="go-btn" ${locked?'disabled':''} data-world="${w.id}">${locked?'Locked': (state.worldDone[w.id] ? 'Play Again ▶' : 'Start ▶')}</button>
+    `;
+    grid.appendChild(card);
+  });
+  grid.querySelectorAll('.go-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(btn.disabled) return;
+      playClick();
+      openWorld(parseInt(btn.dataset.world,10));
+    });
+  });
+}
+
+/* ============================= QUIZ LOGIC ============================= */
+let quiz = { world:null, order:[], index:0, streak:0 };
+
+function shuffled(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function openWorld(w){
+  quiz.world = w;
+  quiz.order = shuffled(worldIcons(w));
+  quiz.index = 0;
+  quiz.streak = 0;
+  showScreen('screen-quiz');
+  mascotSay(`Let's explore ${WORLDS[w].name}! ${WORLDS[w].emoji}`, 'bounce');
+  renderQuizDots();
+  renderQuizQuestion();
+}
+
+function renderQuizDots(){
+  const wrap = document.getElementById('quizDots');
+  wrap.innerHTML = '';
+  quiz.order.forEach((_,i)=>{
+    const d = document.createElement('div');
+    d.className = 'dot' + (i<quiz.index?' done':'') + (i===quiz.index?' current':'');
+    wrap.appendChild(d);
+  });
+}
+
+function renderQuizQuestion(){
+  document.getElementById('streakLabel').textContent = quiz.streak>0 ? `🔥 Streak: ${quiz.streak}` : '';
+  if(quiz.index >= quiz.order.length){
+    finishWorld();
+    return;
+  }
+  const icon = quiz.order[quiz.index];
+  document.getElementById('iconStage').innerHTML = icon.svg;
+
+  // build choices: correct + 2 distractors (prefer same world, else global)
+  const pool = ICONS.filter(i=>i.id!==icon.id);
+  const sameWorld = pool.filter(i=>i.world===icon.world);
+  const distractSource = sameWorld.length>=2 ? sameWorld : pool;
+  const distractors = shuffled(distractSource).slice(0,2);
+  const options = shuffled([icon, ...distractors]);
+
+  const wrap = document.getElementById('choicesWrap');
+  wrap.innerHTML = '';
+  options.forEach(opt=>{
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.textContent = opt.desc;
+    btn.addEventListener('click', ()=>handleAnswer(btn, opt.id===icon.id, icon));
+    wrap.appendChild(btn);
+  });
+  renderQuizDots();
+}
+
+function handleAnswer(btn, isCorrect, icon){
+  const allBtns = document.querySelectorAll('#choicesWrap .choice-btn');
+  allBtns.forEach(b=>b.disabled = true);
+
+  if(isCorrect){
+    btn.classList.add('correct');
+    playCorrect();
+    quiz.streak++;
+    state.coins += 10;
+    if(quiz.streak>0 && quiz.streak%3===0){ state.stars += 1; }
+    const key = 'wp_'+quiz.world;
+    if(!state[key]) state[key]=[];
+    if(!state[key].includes(icon.id)) state[key].push(icon.id);
+    saveProgress();
+    renderTopbar();
+    mascotSay(pickPraise(), 'cheer');
+    confettiBurst(btn);
+    setTimeout(()=>{ quiz.index++; renderQuizQuestion(); }, 850);
+  } else {
+    btn.classList.add('wrong');
+    playWrong();
+    quiz.streak = 0;
+    mascotSay(`Not quite — this icon means "${icon.desc}". Try again!`, 'sad');
+    setTimeout(()=>{
+      allBtns.forEach(b=>{ b.disabled=false; b.classList.remove('wrong'); });
+    }, 900);
+  }
+}
+
+function pickPraise(){
+  const p = ['Awesome! 🌟','You got it! 🎉','Great job! 🚀','Super smart! 🧠','Nailed it! ✨','Way to go! 🎈'];
+  return p[Math.floor(Math.random()*p.length)];
+}
+
+function finishWorld(){
+  const w = quiz.world;
+  const already = state.worldDone[w];
+  state.worldDone[w] = true;
+  const nextWorld = w+1;
+  let unlockedNew = false;
+  if(nextWorld < WORLDS.length && !state.unlocked.includes(nextWorld)){
+    state.unlocked.push(nextWorld);
+    unlockedNew = true;
+  }
+  if(!already && !state.badges.includes(w)){ state.badges.push(w); state.stars += 3; }
+  saveProgress();
+  renderTopbar();
+  playCheer();
+  mascotSay(`You finished ${WORLDS[w].name}! Amazing work! 🎊`, 'cheer');
+
+  const modal = document.getElementById('modalContent');
+  modal.innerHTML = `
+    <div class="badge-emoji">${WORLDS[w].badge}</div>
+    <h2>World Complete!</h2>
+    <p>You earned the "${WORLDS[w].badgeName}" badge${unlockedNew?` and unlocked <b>${WORLDS[nextWorld].name}</b>!`:'!'}</p>
+    <button class="modal-btn" id="modalContinueBtn">Continue</button>
+  `;
+  document.getElementById('overlay').classList.add('active');
+  confettiBurst(document.querySelector('.quiz-card'));
+  document.getElementById('modalContinueBtn').addEventListener('click', ()=>{
+    document.getElementById('overlay').classList.remove('active');
+    showScreen('screen-home');
+    renderHome();
+  });
+}
+
+/* ============================= BADGES SCREEN ============================= */
+function renderBadges(){
+  const grid = document.getElementById('badgeGrid');
+  grid.innerHTML = '';
+  WORLDS.forEach(w=>{
+    const earned = state.badges.includes(w.id);
+    const card = document.createElement('div');
+    card.className = 'badge-card' + (earned?'':' locked');
+    card.innerHTML = `<div class="emoji">${earned?w.badge:'❔'}</div><div class="name">${earned?w.badgeName:'???'}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ============================= MEMORY GAME ============================= */
+let mem = { cards:[], flipped:[], matched:0, moves:0, lock:false };
+function unlockedIcons(){
+  return ICONS.filter(i=>state.unlocked.includes(i.world));
+}
+function startMemoryGame(){
+  const pool = shuffled(unlockedIcons()).slice(0, 8); // up to 8 pairs = 16 cards
+  const deck = shuffled([...pool.map(i=>({...i,key:i.id+'-a'})), ...pool.map(i=>({...i,key:i.id+'-b'}))]);
+  mem = { cards:deck, flipped:[], matched:0, moves:0, lock:false };
+  renderMemoryGame();
+}
+function renderMemoryGame(){
+  document.getElementById('memMovesLabel').textContent = `Moves: ${mem.moves}`;
+  const grid = document.getElementById('memoryGrid');
+  grid.innerHTML = '';
+  mem.cards.forEach((c, idx)=>{
+    const isFlipped = mem.flipped.includes(idx) || c.matched;
+    const cardEl = document.createElement('div');
+    cardEl.className = 'mem-card' + (isFlipped?' flipped':'') + (c.matched?' matched':'');
+    cardEl.innerHTML = `
+      <div class="mem-inner">
+        <div class="mem-face mem-front">?</div>
+        <div class="mem-face mem-back">${c.svg}<span>${c.name}</span></div>
+      </div>`;
+    cardEl.addEventListener('click', ()=>flipMemCard(idx));
+    grid.appendChild(cardEl);
+  });
+}
+function flipMemCard(idx){
+  if(mem.lock) return;
+  const c = mem.cards[idx];
+  if(c.matched || mem.flipped.includes(idx)) return;
+  if(mem.flipped.length===2) return;
+  playClick();
+  mem.flipped.push(idx);
+  renderMemoryGame();
+  if(mem.flipped.length===2){
+    mem.moves++;
+    mem.lock = true;
+    const [i1,i2] = mem.flipped;
+    const c1 = mem.cards[i1], c2 = mem.cards[i2];
+    if(c1.id === c2.id){
+      setTimeout(()=>{
+        c1.matched = true; c2.matched = true;
+        mem.matched++;
+        mem.flipped = [];
+        mem.lock = false;
+        playCorrect();
+        renderMemoryGame();
+        if(mem.matched === mem.cards.length/2){
+          state.coins += 20; state.stars += 2; saveProgress(); renderTopbar();
+          mascotSay('You matched them all! Memory master! 🧠✨','cheer');
+          confettiBurst(document.getElementById('memoryGrid'));
+        }
+      }, 500);
+    } else {
+      setTimeout(()=>{
+        mem.flipped = [];
+        mem.lock = false;
+        renderMemoryGame();
+      }, 750);
+    }
+  }
+}
+
+/* ============================= SCREEN NAV ============================= */
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+document.getElementById('quizBackBtn').addEventListener('click', ()=>{ playClick(); showScreen('screen-home'); renderHome(); mascotSay('Back to base! Pick another world 🌌'); });
+document.getElementById('badgesBackBtn').addEventListener('click', ()=>{ playClick(); showScreen('screen-home'); renderHome(); });
+document.getElementById('memoryBackBtn').addEventListener('click', ()=>{ playClick(); showScreen('screen-home'); renderHome(); });
+document.getElementById('badgeNavBtn').addEventListener('click', ()=>{ playClick(); renderBadges(); showScreen('screen-badges'); });
+document.getElementById('memoryBtn').addEventListener('click', ()=>{ playClick(); startMemoryGame(); showScreen('screen-memory'); mascotSay('Flip the cards and find matching icons!'); });
+document.getElementById('soundBtn').addEventListener('click', ()=>{ state.soundOn = !state.soundOn; renderTopbar(); saveProgress(); if(state.soundOn){ ensureAudio(); playClick(); } });
+document.getElementById('resetBtn').addEventListener('click', ()=>{
+  if(confirm('Reset all progress? This clears your coins, stars, and badges.')){
+    state = { coins:0, stars:0, unlocked:[0], worldDone:{0:false,1:false,2:false,3:false}, badges:[], soundOn:state.soundOn };
+    saveProgress();
+    renderAll();
+    mascotSay('Fresh start! Let\'s explore again 🚀');
+  }
+});
+
+/* ============================= INIT ============================= */
+function renderAll(){
+  renderTopbar();
+  renderHome();
+}
+loadProgress();
+</script>
+</body>
+</html>

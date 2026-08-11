@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Byte Explorers — Computer Skills Passport Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root{
+    --bg: #0F1330;
+    --bg-2: #171B44;
+    --panel: #FFFFFF;
+    --panel-soft: #F4F5FB;
+    --ink: #191D3B;
+    --ink-soft: #5B6088;
+    --line: #E4E5F3;
+    --accent: #00C2A8;
+    --accent-ink: #05463D;
+    --yellow: #FFD43B;
+    --danger: #FF6B6B;
+    --good: #20C997;
+    --radius: 18px;
+    --shadow: 0 20px 45px -20px rgba(15,19,48,0.45);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:
+      radial-gradient(circle at 15% -10%, rgba(0,194,168,0.25), transparent 45%),
+      radial-gradient(circle at 100% 0%, rgba(255,212,59,0.15), transparent 40%),
+      linear-gradient(180deg,var(--bg) 0%, var(--bg-2) 100%);
+    color:var(--ink);
+    min-height:100vh;
+    padding:32px 16px 64px;
+  }
+  .wrap{max-width:920px;margin:0 auto;}
+  h1,h2,h3{font-family:'Baloo 2',sans-serif; margin:0;}
+  .brand{
+    display:flex;align-items:center;gap:12px;justify-content:center;
+    color:#fff; margin-bottom:26px;
+  }
+  .brand .mark{
+    width:44px;height:44px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),#00E0C0);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Baloo 2',sans-serif;font-weight:800;color:#05231F;font-size:20px;
+    box-shadow:0 8px 20px -6px rgba(0,194,168,0.7);
+  }
+  .brand-text .name{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:20px;letter-spacing:0.2px;}
+  .brand-text .tag{font-size:12px;color:#B7BBE8;letter-spacing:0.4px;text-transform:uppercase;}
+
+  .card{
+    background:var(--panel);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:36px;
+  }
+  @media (max-width:600px){ .card{padding:22px;} }
+
+  /* ---------- START SCREEN ---------- */
+  .start-hero{text-align:center;margin-bottom:8px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;
+    color:var(--accent-ink); background:#E4FBF6; padding:6px 14px;border-radius:999px;
+    margin-bottom:14px;
+  }
+  .start-hero h1{font-size:36px;line-height:1.1;color:var(--ink);}
+  .start-hero p{color:var(--ink-soft);font-size:15.5px;line-height:1.6;max-width:560px;margin:14px auto 0;}
+  .stat-row{display:flex;gap:12px;justify-content:center;margin:26px 0 8px;flex-wrap:wrap;}
+  .stat{
+    background:var(--panel-soft);border:1px solid var(--line);border-radius:14px;
+    padding:14px 20px;min-width:130px;
+  }
+  .stat b{display:block;font-family:'Baloo 2',sans-serif;font-size:22px;color:var(--ink);}
+  .stat span{font-size:11.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.4px;}
+
+  .module-strip{
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 0 30px;
+  }
+  .chip{
+    font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;color:#fff;
+    opacity:0.92;
+  }
+
+  .field-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;}
+  .field{flex:1;min-width:200px;text-align:left;}
+  .field label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.3px;}
+  .field input{
+    width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);
+    font-family:'Inter',sans-serif;font-size:14.5px;background:var(--panel-soft);color:var(--ink);
+  }
+  .field input:focus{outline:2px solid var(--accent);outline-offset:1px;background:#fff;}
+
+  .btn{
+    font-family:'Baloo 2',sans-serif;font-weight:700;font-size:16px;
+    border:none;border-radius:12px;padding:14px 26px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:8px;justify-content:center;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),#00A98F);color:#04241F;box-shadow:0 12px 24px -10px rgba(0,194,168,0.65);}
+  .btn-primary:hover{box-shadow:0 16px 30px -10px rgba(0,194,168,0.8);}
+  .btn-primary:disabled{opacity:0.45;cursor:not-allowed;box-shadow:none;}
+  .btn-ghost{background:var(--panel-soft);color:var(--ink);border:1.5px solid var(--line);}
+  .btn-ghost:hover{background:#EBECF8;}
+  .btn-wide{width:100%;margin-top:22px;}
+
+  /* ---------- QUIZ SCREEN ---------- */
+  .quiz-top{display:flex;justify-content:space-between;align-items:center;color:#fff;margin-bottom:14px;flex-wrap:wrap;gap:10px;}
+  .quiz-top .who{font-size:13px;color:#C4C8F2;}
+  .quiz-top .who b{color:#fff;}
+  .counter-pill{
+    background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);
+    color:#fff;font-size:12.5px;padding:6px 12px;border-radius:999px;font-weight:600;
+  }
+
+  .trail{
+    display:flex;gap:4px;margin-bottom:18px;
+  }
+  .trail .seg{flex:1;height:8px;border-radius:6px;background:rgba(255,255,255,0.12);overflow:hidden;position:relative;}
+  .trail .seg i{display:block;height:100%;width:0%;border-radius:6px;transition:width .25s ease;}
+
+  .module-badge{
+    display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;
+    padding:7px 14px;border-radius:999px;color:#fff;margin-bottom:18px;
+  }
+  .module-badge .dot{width:8px;height:8px;border-radius:50%;background:#fff;opacity:0.85;}
+
+  .q-count{font-size:12.5px;color:var(--ink-soft);font-weight:700;letter-spacing:0.3px;text-transform:uppercase;margin-bottom:6px;}
+  .q-text{font-family:'Baloo 2',sans-serif;font-size:22px;line-height:1.4;color:var(--ink);margin-bottom:22px;}
+
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .opt{
+    display:flex;align-items:center;gap:12px;
+    border:1.6px solid var(--line);border-radius:12px;padding:14px 16px;
+    cursor:pointer;font-size:15px;color:var(--ink);background:var(--panel-soft);
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .opt:hover{border-color:var(--accent);}
+  .opt .letter{
+    width:26px;height:26px;flex:0 0 26px;border-radius:8px;background:#fff;border:1.5px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:var(--ink-soft);
+  }
+  .opt.selected{border-color:var(--accent);background:#E4FBF6;}
+  .opt.selected .letter{background:var(--accent);border-color:var(--accent);color:#04241F;}
+
+  .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:10px;flex-wrap:wrap;}
+  .nav-row .side{display:flex;gap:10px;}
+
+  .trailmap-toggle{
+    background:none;border:none;color:var(--ink-soft);font-size:12.5px;font-weight:700;
+    cursor:pointer;text-decoration:underline;margin-top:22px;padding:0;
+  }
+  .trailmap{
+    margin-top:14px;padding:16px;background:var(--panel-soft);border-radius:14px;border:1px solid var(--line);
+    display:none;
+  }
+  .trailmap.open{display:block;}
+  .trailmap .row-label{font-size:11px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;margin:10px 0 6px;letter-spacing:0.3px;}
+  .trailmap .dots{display:flex;flex-wrap:wrap;gap:6px;}
+  .stamp{
+    width:24px;height:24px;border-radius:7px;border:1.5px solid var(--line);background:#fff;
+    font-size:10px;font-weight:700;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+  }
+  .stamp.answered{color:#fff;border-color:transparent;}
+  .stamp.current{outline:2.5px solid var(--ink);outline-offset:1.5px;}
+
+  /* ---------- RESULT SCREEN ---------- */
+  .result-head{text-align:center;margin-bottom:18px;}
+  .result-head .badge{font-size:44px;}
+  .result-head h2{font-size:28px;margin-top:8px;}
+  .score-big{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:52px;color:var(--accent-ink);margin:6px 0 0;}
+  .score-pct{color:var(--ink-soft);font-weight:600;}
+  .grade-pill{
+    display:inline-block;margin-top:10px;padding:6px 16px;border-radius:999px;font-weight:700;font-size:13px;color:#fff;
+  }
+  .metric-row{display:flex;gap:12px;margin:24px 0;flex-wrap:wrap;justify-content:center;}
+  .metric{background:var(--panel-soft);border:1px solid var(--line);border-radius:14px;padding:14px 22px;text-align:center;min-width:110px;}
+  .metric b{display:block;font-family:'Baloo 2',sans-serif;font-size:22px;}
+  .metric span{font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.3px;}
+
+  .module-bars{margin-top:10px;}
+  .mbar-row{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+  .mbar-row .label{width:150px;font-size:12.5px;font-weight:600;color:var(--ink);flex-shrink:0;}
+  .mbar-track{flex:1;height:10px;background:var(--line);border-radius:6px;overflow:hidden;}
+  .mbar-fill{height:100%;border-radius:6px;}
+  .mbar-row .frac{width:44px;text-align:right;font-size:11.5px;color:var(--ink-soft);font-weight:600;flex-shrink:0;}
+
+  .result-actions{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap;}
+
+  /* ---------- REVIEW ---------- */
+  .review-item{border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:12px;}
+  .review-item .rq{font-weight:700;font-size:14.5px;color:var(--ink);margin-bottom:8px;}
+  .review-item .ra{font-size:13.5px;margin:3px 0;}
+  .tag-ok{color:var(--good);font-weight:700;}
+  .tag-bad{color:var(--danger);font-weight:700;}
+  .review-mod{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;padding:3px 9px;border-radius:999px;color:#fff;display:inline-block;margin-bottom:8px;}
+
+  .footer-note{text-align:center;color:#8489C0;font-size:12px;margin-top:24px;}
+  .hidden{display:none !important;}
+  :focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <div class="mark">BE</div>
+    <div class="brand-text">
+      <div class="name">Byte Explorers</div>
+      <div class="tag">Computer Skills Passport</div>
+    </div>
+  </div>
+
+  <!-- START SCREEN -->
+  <div class="card" id="screen-start">
+    <div class="start-hero">
+      <span class="eyebrow">🧭 48-Class Foundation Course · Final Passport Check</span>
+      <h1>The Byte Explorers Challenge</h1>
+      <p>From your first click to your first Scratch project — this passport check covers everything across all 10 modules of the course: mouse, keyboard, desktop, internet, creativity, logical thinking, coding and digital citizenship.</p>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b>100</b><span>Questions</span></div>
+      <div class="stat"><b>10</b><span>Modules</span></div>
+      <div class="stat"><b>MCQ + T/F</b><span>Question types</span></div>
+      <div class="stat"><b>Instant</b><span>Scoring &amp; report</span></div>
+    </div>
+    <div class="module-strip" id="module-strip"></div>
+    <div class="field-row">
+      <div class="field">
+        <label for="in-name">Explorer Name</label>
+        <input id="in-name" type="text" placeholder="Type your name" autocomplete="off"/>
+      </div>
+      <div class="field">
+        <label for="in-class">Class / Grade</label>
+        <input id="in-class" type="text" placeholder="e.g. Grade 3" autocomplete="off"/>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-wide" id="btn-start">Start the Challenge →</button>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div class="hidden" id="screen-quiz">
+    <div class="quiz-top">
+      <div class="who">Explorer: <b id="q-who-name">—</b> · <b id="q-who-class">—</b></div>
+      <div class="counter-pill" id="q-answered-pill">0 / 100 answered</div>
+    </div>
+    <div class="trail" id="module-trail"></div>
+    <div class="card">
+      <span class="module-badge" id="module-badge"><span class="dot"></span><span id="module-badge-text">Module</span></span>
+      <div class="q-count" id="q-count">Question 1 of 100</div>
+      <div class="q-text" id="q-text">Question text</div>
+      <div class="options" id="q-options"></div>
+
+      <div class="nav-row">
+        <div class="side">
+          <button class="btn btn-ghost" id="btn-prev">← Previous</button>
+        </div>
+        <div class="side">
+          <button class="btn btn-ghost hidden" id="btn-next">Next →</button>
+          <button class="btn btn-primary hidden" id="btn-submit">Submit Passport ✓</button>
+        </div>
+      </div>
+
+      <button class="trailmap-toggle" id="btn-trailmap">Show trail map (jump to any question)</button>
+      <div class="trailmap" id="trailmap"></div>
+    </div>
+    <div class="footer-note">Answer honestly — you can revisit any question before you submit.</div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div class="hidden" id="screen-result">
+    <div class="card">
+      <div class="result-head">
+        <div class="badge" id="result-emoji">🏅</div>
+        <h2 id="result-title">Great work, Explorer!</h2>
+        <div class="score-big"><span id="score-num">0</span><span style="font-size:26px;color:var(--ink-soft);">/100</span></div>
+        <div class="score-pct" id="score-pct">0% score</div>
+        <div class="grade-pill" id="grade-pill">Grade —</div>
+      </div>
+      <div class="metric-row">
+        <div class="metric"><b id="m-correct" style="color:var(--good);">0</b><span>Correct</span></div>
+        <div class="metric"><b id="m-incorrect" style="color:var(--danger);">0</b><span>Incorrect</span></div>
+        <div class="metric"><b id="m-accuracy">0%</b><span>Accuracy</span></div>
+      </div>
+      <h3 style="font-size:15px;margin-bottom:14px;">Module-by-module mastery</h3>
+      <div class="module-bars" id="module-bars"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="btn-pdf">⬇ Download PDF Report</button>
+        <button class="btn btn-ghost" id="btn-review">🔍 Show Review</button>
+        <button class="btn btn-ghost" id="btn-retake">↻ Retake Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEW SCREEN -->
+  <div class="hidden" id="screen-review">
+    <div class="card">
+      <h2 style="margin-bottom:6px;">Answer Review</h2>
+      <p style="color:var(--ink-soft);font-size:13.5px;margin-top:0;">Every question, your answer, and the correct answer.</p>
+      <div id="review-list"></div>
+      <div class="result-actions">
+        <button class="btn btn-ghost" id="btn-back-result">← Back to Result</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">Byte Explorers Computer Skills Passport · Aligned to the 48-class course topic checklist</div>
+</div>
+
+<script>
+/* ============ MODULES ============ */
+const MODULES = [
+  {name:"Computer Explorer", color:"#FF6B6B"},
+  {name:"Mouse Mastery",      color:"#FF922B"},
+  {name:"Desktop Navigator",  color:"#F0B429"},
+  {name:"Keyboard Skills",    color:"#94D82D"},
+  {name:"Internet Explorer",  color:"#20C997"},
+  {name:"Digital Creator",    color:"#22B8CF"},
+  {name:"Digital Thinker",    color:"#4DABF7"},
+  {name:"Scratch Coding",     color:"#748FFC"},
+  {name:"Digital Citizen",    color:"#DA77F2"},
+  {name:"Capstone Project",   color:"#F783AC"}
+];
+function modColor(name){ return (MODULES.find(m=>m.name===name)||{}).color || "#666"; }
+
+/* ============ QUESTION BANK (100 unique) ============ */
+const QUESTIONS = [
+// ---- Computer Explorer (6) ----
+{m:"Computer Explorer", t:"What is a computer mainly used for?", o:["Cooking food","Storing and processing information","Cleaning the house","Growing plants"], a:1},
+{m:"Computer Explorer", t:"True or False: A computer can only be used to play games.", o:["True","False"], a:1},
+{m:"Computer Explorer", t:"Which part of the computer do you use to see pictures and words?", o:["Keyboard","Mouse","Monitor","Speaker"], a:2},
+{m:"Computer Explorer", t:"Which part lets you type letters and numbers?", o:["Monitor","Keyboard","Webcam","CPU"], a:1},
+{m:"Computer Explorer", t:"What should you do before touching the computer?", o:["Eat snacks near it","Wash and dry your hands","Pour water on it","Bang the keys"], a:1},
+{m:"Computer Explorer", t:"True or False: It is good manners to shout while using a shared computer lab.", o:["True","False"], a:1},
+
+// ---- Mouse Mastery (10) ----
+{m:"Mouse Mastery", t:"How should you hold the mouse?", o:["With your foot","Gently with your palm and fingers","Upside down","With both hands squeezing hard"], a:1},
+{m:"Mouse Mastery", t:"True or False: You should hold the mouse very tightly and press hard.", o:["True","False"], a:1},
+{m:"Mouse Mastery", t:"Which mouse button do you press to select an icon?", o:["Right button","Left button","Scroll wheel","Middle button"], a:1},
+{m:"Mouse Mastery", t:"The arrow that moves on the screen when you move the mouse is called the?", o:["Cursor / Pointer","Speaker","Taskbar","Folder"], a:0},
+{m:"Mouse Mastery", t:"What do you usually do to open an application icon?", o:["Single left click","Double left click","Right click","Scroll"], a:1},
+{m:"Mouse Mastery", t:"Right-clicking on the desktop usually shows a...", o:["Blank screen","Shortcut / context menu","New computer","Password box"], a:1},
+{m:"Mouse Mastery", t:"To move a file from one place to another with the mouse, you use:", o:["Scroll and release","Drag and drop","Type and enter","Right click only"], a:1},
+{m:"Mouse Mastery", t:"True or False: The scroll wheel on a mouse helps you move up and down a page.", o:["True","False"], a:0},
+{m:"Mouse Mastery", t:"Which mouse skill combines clicking, dragging and scrolling together?", o:["Typing","Using all mouse operations independently","Singing","Drawing only"], a:1},
+{m:"Mouse Mastery", t:"If you want to move a picture across the screen, which two actions do you combine?", o:["Click and hold, then move","Double click only","Scroll only","Right click twice"], a:0},
+
+// ---- Desktop Navigator (12) ----
+{m:"Desktop Navigator", t:"The main screen you see after the computer starts up is called the?", o:["Taskbar","Desktop","Folder","Browser"], a:1},
+{m:"Desktop Navigator", t:"Small pictures on the desktop that open programs are called?", o:["Icons","Pixels","Windows","Tabs"], a:0},
+{m:"Desktop Navigator", t:"Which of these is an example of an application (app)?", o:["A pencil","MS Paint","A chair","A paper notebook"], a:1},
+{m:"Desktop Navigator", t:"True or False: A calculator app and a web browser are both examples of applications.", o:["True","False"], a:0},
+{m:"Desktop Navigator", t:"What is the easiest way to open an application from the desktop?", o:["Double-click its icon","Unplug the computer","Shut down the computer","Close all windows"], a:0},
+{m:"Desktop Navigator", t:"Besides the desktop, where else can you often find and open applications?", o:["Inside the printer","Taskbar or Start menu","Under the desk","In the trash bin"], a:1},
+{m:"Desktop Navigator", t:"Which button makes a window fill the whole screen?", o:["Minimize","Maximize","Close","Restore only"], a:1},
+{m:"Desktop Navigator", t:"Which button completely shuts a window and removes it from the screen?", o:["Minimize","Maximize","Close","Restore"], a:2},
+{m:"Desktop Navigator", t:"Where do open applications usually appear so you can switch between them?", o:["Recycle Bin","Taskbar","Desktop wallpaper","Mouse pad"], a:1},
+{m:"Desktop Navigator", t:"True or False: You can only have one application open at a time on a computer.", o:["True","False"], a:1},
+{m:"Desktop Navigator", t:"If you have two apps open and want to switch from one to the other, you should:", o:["Restart the computer","Click the other app's icon on the taskbar","Unplug the mouse","Close both apps"], a:1},
+{m:"Desktop Navigator", t:"What should you do when you finish using an application?", o:["Leave it open forever","Close it properly","Throw the mouse","Turn off the monitor only"], a:1},
+
+// ---- Keyboard Skills (12) ----
+{m:"Keyboard Skills", t:"Which keys are used to type letters?", o:["Number keys only","Alphabet keys","Arrow keys","Function keys"], a:1},
+{m:"Keyboard Skills", t:"Which row of the keyboard is used to type numbers directly?", o:["Arrow keys","Top number row","Space bar row","Enter key row"], a:1},
+{m:"Keyboard Skills", t:"To type your name correctly, you must press the keys:", o:["All at once with your fist","One at a time, in order","Randomly","Only the Shift key"], a:1},
+{m:"Keyboard Skills", t:"True or False: Typing practice helps you become faster and more accurate over time.", o:["True","False"], a:0},
+{m:"Keyboard Skills", t:"Which key do you press to leave a gap between two words?", o:["Enter","Space bar","Backspace","Shift"], a:1},
+{m:"Keyboard Skills", t:"Which key deletes the letter just before the cursor?", o:["Enter","Space bar","Backspace","Caps Lock"], a:2},
+{m:"Keyboard Skills", t:"Which key do you hold to type a CAPITAL letter?", o:["Shift","Space bar","Backspace","Tab"], a:0},
+{m:"Keyboard Skills", t:'To type the symbol "@", you usually press:', o:["Backspace alone","Shift + the @ key","Enter alone","Caps Lock alone"], a:1},
+{m:"Keyboard Skills", t:"What is the main goal of regular typing practice?", o:["To break the keyboard","To improve speed and accuracy","To avoid using the mouse forever","To memorize the alphabet"], a:1},
+{m:"Keyboard Skills", t:"True or False: Looking at the keyboard while typing slowly is the only way to type.", o:["True","False"], a:1},
+{m:"Keyboard Skills", t:"Which of these shows you are ready for the Keyboard Challenge?", o:["You can type a short paragraph independently","You can only find the letter A","You refuse to use Enter","You never use Space bar"], a:0},
+{m:"Keyboard Skills", t:"Which keys work together to help you write neat sentences with capitals and punctuation?", o:["Mouse buttons only","Letters, Shift, Space, Enter and Backspace","Only arrow keys","Only number keys"], a:1},
+
+// ---- Internet Explorer (12) ----
+{m:"Internet Explorer", t:"What is the internet mainly used for?", o:["Connecting computers to share information","Cooking","Cleaning files automatically","Charging the battery"], a:0},
+{m:"Internet Explorer", t:"What do we call a program used to open and view websites?", o:["Browser","Printer","Speaker","Keyboard"], a:0},
+{m:"Internet Explorer", t:"Google Chrome is an example of a:", o:["Web browser","Painting tool","Keyboard","Mouse"], a:0},
+{m:"Internet Explorer", t:"True or False: You need a web browser to visit websites on the internet.", o:["True","False"], a:0},
+{m:"Internet Explorer", t:"Where do you type a website's address to visit it?", o:["Address bar","Taskbar","Recycle Bin","Desktop"], a:0},
+{m:"Internet Explorer", t:"The address bar can also be used as a:", o:["Search box","Trash bin","Volume control","Mouse pointer"], a:0},
+{m:"Internet Explorer", t:"To open a website, you can type its address and then press:", o:["Backspace","Enter","Shift","Caps Lock"], a:1},
+{m:"Internet Explorer", t:"Which of these is a correctly written website address?", o:["www hello com","www.example.com","www,example,com","www/example/com"], a:1},
+{m:"Internet Explorer", t:"Clicking a highlighted, underlined word or picture that takes you to another page is called a:", o:["Hyperlink","Password","Icon","Taskbar"], a:0},
+{m:"Internet Explorer", t:"Which button lets you go to the previous webpage you visited?", o:["Forward","Back","Home only","Refresh only"], a:1},
+{m:"Internet Explorer", t:"Which skill shows you can browse websites independently?", o:["Typing an address, using links, and going back and forward on your own","Only watching someone else browse","Turning off Wi-Fi","Deleting the browser"], a:0},
+{m:"Internet Explorer", t:"True or False: Scrolling helps you see more content on a long webpage.", o:["True","False"], a:0},
+
+// ---- Digital Creator (12) ----
+{m:"Digital Creator", t:"In a paint/drawing app, which tool do you use to draw freehand lines?", o:["Eraser","Brush / Pencil tool","Save button","Zoom tool"], a:1},
+{m:"Digital Creator", t:"Which tool removes part of your drawing by mistake?", o:["Fill tool","Text tool","Eraser tool","Shape tool"], a:2},
+{m:"Digital Creator", t:"Which tool would you use to fill a shape with a solid color?", o:["Fill / Bucket tool","Eraser","Text tool","Save tool"], a:0},
+{m:"Digital Creator", t:"True or False: Combining shapes, colors and lines can help you create digital artwork.", o:["True","False"], a:0},
+{m:"Digital Creator", t:"Which tool in a paint app lets you add words to your drawing?", o:["Text tool","Eraser tool","Zoom tool","Fill tool"], a:0},
+{m:"Digital Creator", t:"Before typing text on a drawing, you usually need to first:", o:["Turn off the computer","Select the Text tool and click where you want to type","Delete the drawing","Close the app"], a:1},
+{m:"Digital Creator", t:"What should you do so your work is not lost when you close the app?", o:["Save the file","Unplug the computer","Close it without saving","Turn off the monitor"], a:0},
+{m:"Digital Creator", t:"To continue working on a file you saved earlier, you should:", o:["Create it again from scratch","Open the saved file","Delete the folder","Restart the computer"], a:1},
+{m:"Digital Creator", t:"A folder is mainly used to:", o:["Delete files permanently","Organize and store related files together","Print documents","Connect to the internet"], a:1},
+{m:"Digital Creator", t:"To give a folder a new, meaningful name, you would:", o:["Format the computer","Rename the folder","Restart the app","Print the folder"], a:1},
+{m:"Digital Creator", t:"Completing a digital project usually includes:", o:["Creating, saving and organizing your work","Only opening the app once","Never saving your work","Deleting all your files"], a:0},
+{m:"Digital Creator", t:"True or False: A finished creative project should be saved so it can be shown to others later.", o:["True","False"], a:0},
+
+// ---- Digital Thinker (12) ----
+{m:"Digital Thinker", t:"Arranging steps in the correct logical order is called:", o:["Debugging","Sequencing","Browsing","Formatting"], a:1},
+{m:"Digital Thinker", t:"Which is the correct sequence for making a sandwich?", o:["Eat it, then make it","Get bread, add filling, put slices together","Add filling before getting bread out","The order does not matter"], a:1},
+{m:"Digital Thinker", t:"A set of step-by-step instructions to complete a task is called an:", o:["Icon","Algorithm","Browser","Folder"], a:1},
+{m:"Digital Thinker", t:"True or False: An algorithm can be written as simple, ordered steps that a computer or person can follow.", o:["True","False"], a:0},
+{m:"Digital Thinker", t:"Identifying a repeated part in a sequence, like red-blue-red-blue, is called finding a:", o:["Password","Pattern","Pointer","Pixel"], a:1},
+{m:"Digital Thinker", t:"What comes next in the pattern: circle, square, circle, square, circle, __?", o:["Circle","Square","Triangle","Star"], a:1},
+{m:"Digital Thinker", t:"Finding and fixing a mistake in a set of instructions is called:", o:["Debugging","Drawing","Scrolling","Saving"], a:0},
+{m:"Digital Thinker", t:"If a set of steps does not give the result you expect, what should you do first?", o:["Give up","Check the steps for mistakes","Delete the computer","Ignore it"], a:1},
+{m:"Digital Thinker", t:"Choosing the right application for a task, like Paint for drawing, is an example of:", o:["Debugging","Decision making","Typing","Scrolling"], a:1},
+{m:"Digital Thinker", t:"If you need to write a letter, which application would be the best choice?", o:["A paint / drawing app","A word processor / text app","A music player","A calculator only"], a:1},
+{m:"Digital Thinker", t:"Solving a computer-related problem using clear steps and reasoning uses your:", o:["Mouse skills only","Logical thinking skills","Typing speed only","Volume settings"], a:1},
+{m:"Digital Thinker", t:"True or False: Logical thinking skills like sequencing, patterns and debugging help you solve problems.", o:["True","False"], a:0},
+
+// ---- Scratch Coding (12) ----
+{m:"Scratch Coding", t:"In Scratch, the character you can program to move and act is called a:", o:["Folder","Sprite","Cursor","Taskbar"], a:1},
+{m:"Scratch Coding", t:"In Scratch, where do you drag blocks to build your program?", o:["The stage backdrop only","The scripts / coding area","The trash can","The address bar"], a:1},
+{m:"Scratch Coding", t:"Which category of Scratch blocks makes a sprite move on the stage?", o:["Sound blocks","Motion blocks","Looks blocks","Event blocks"], a:1},
+{m:"Scratch Coding", t:'A "move 10 steps" block will make the sprite:', o:["Change color","Move forward on the stage","Play a sound","Say a message"], a:1},
+{m:"Scratch Coding", t:'A block like "when green flag clicked" is an example of an:', o:["Event block","Loop block","Sound file","Folder"], a:0},
+{m:"Scratch Coding", t:"True or False: Event blocks can start a script when something happens, like a key press or a click.", o:["True","False"], a:0},
+{m:"Scratch Coding", t:"Which type of block lets you repeat an action multiple times without copying it again and again?", o:["Loop block","Save block","Text block","Address block"], a:0},
+{m:"Scratch Coding", t:'A "repeat 10" block will run the blocks inside it:', o:["Once","Ten times","Zero times","Forever without stopping"], a:1},
+{m:"Scratch Coding", t:"Which category of blocks lets a sprite play a sound?", o:["Motion blocks","Sound blocks","Data blocks","Operator blocks"], a:1},
+{m:"Scratch Coding", t:"Changing a sprite's costume quickly to make it look like it is moving is called:", o:["Debugging","Animation","Browsing","Typing"], a:1},
+{m:"Scratch Coding", t:"A Scratch mini project usually combines:", o:["Only one block type used once","Motion, events, loops and sounds together","Nothing, just an empty stage","Only text typing"], a:1},
+{m:"Scratch Coding", t:"True or False: You can test and fix (debug) your Scratch project by clicking the green flag and watching what happens.", o:["True","False"], a:0},
+
+// ---- Digital Citizen (6) ----
+{m:"Digital Citizen", t:"If a stranger online asks for your home address, you should:", o:["Give it to them right away","Not share it and tell a trusted adult","Share your school name too","Meet them alone"], a:1},
+{m:"Digital Citizen", t:"Which of these is a safe online behaviour?", o:["Sharing your password with friends","Keeping personal information private","Clicking every pop-up ad","Talking to strangers about where you live"], a:1},
+{m:"Digital Citizen", t:"A strong password should be:", o:['Your name only','Easy to guess like "1234"',"A mix of letters, numbers and symbols kept secret","Shared with everyone"], a:2},
+{m:"Digital Citizen", t:"True or False: AI (Artificial Intelligence) is technology that can help computers perform tasks that normally need human thinking.", o:["True","False"], a:0},
+{m:"Digital Citizen", t:"Which of these shows good digital manners?", o:["Being rude in online chats","Being polite and respectful online","Copying others' work without credit","Ignoring shared computer lab rules"], a:1},
+{m:"Digital Citizen", t:"If you are using a shared computer in a lab, you should:", o:["Leave it messy for the next person","Follow lab etiquette and leave it tidy","Change the settings without permission","Shout at classmates"], a:1},
+
+// ---- Capstone Project (6) ----
+{m:"Capstone Project", t:"The Capstone Project is designed to show that you can:", o:["Only use the mouse","Operate the computer independently and complete a final project","Only recognize icons","Only type your name"], a:1},
+{m:"Capstone Project", t:"Which combination of skills would best help you complete a final computer project?", o:["Mouse, keyboard, apps, internet and logical thinking together","Only knowing what a computer is","Only knowing mouse clicks","None of the skills learned"], a:0},
+{m:"Capstone Project", t:"Which computer part would you use to see yourself during a video call?", o:["Speaker","Webcam","Keyboard","Mouse"], a:1},
+{m:"Capstone Project", t:'True or False: The CPU is often called the "brain" of the computer because it processes information.', o:["True","False"], a:0},
+{m:"Capstone Project", t:"Which of these correctly matches a computer part to its use?", o:["Speaker – lets you hear sound","Mouse – lets you hear sound","Monitor – lets you type","Keyboard – lets you see pictures"], a:0},
+{m:"Capstone Project", t:"Which set of skills, learned across the whole course, helps you become a confident, independent computer user?", o:["Mouse skills only","Keyboard skills only","Mouse, keyboard, desktop, internet, creativity, logical thinking, coding and digital citizenship together","Just turning the computer on and off"], a:2}
+];
+
+const TOTAL = QUESTIONS.length; // 100
+let answers = new Array(TOTAL).fill(null);
+let current = 0;
+let studentName = "", studentClass = "";
+
+/* ============ INIT START SCREEN ============ */
+const stripEl = document.getElementById('module-strip');
+MODULES.forEach(mod=>{
+  const c = document.createElement('span');
+  c.className='chip'; c.style.background=mod.color; c.textContent=mod.name;
+  stripEl.appendChild(c);
+});
+
+document.getElementById('btn-start').addEventListener('click', ()=>{
+  studentName = document.getElementById('in-name').value.trim() || "Explorer";
+  studentClass = document.getElementById('in-class').value.trim() || "—";
+  document.getElementById('q-who-name').textContent = studentName;
+  document.getElementById('q-who-class').textContent = studentClass;
+  buildTrail();
+  buildTrailMap();
+  document.getElementById('screen-start').classList.add('hidden');
+  document.getElementById('screen-quiz').classList.remove('hidden');
+  renderQuestion();
+});
+
+/* ============ TRAIL (10 module segments at top) ============ */
+function moduleBounds(){
+  // returns [{name,color,start,end}] question index ranges per module
+  const bounds=[]; let idx=0;
+  MODULES.forEach(mod=>{
+    const start=idx;
+    while(idx<TOTAL && QUESTIONS[idx].m===mod.name) idx++;
+    bounds.push({name:mod.name,color:mod.color,start,end:idx-1});
+  });
+  return bounds;
+}
+const BOUNDS = moduleBounds();
+
+function buildTrail(){
+  const trail = document.getElementById('module-trail');
+  trail.innerHTML='';
+  BOUNDS.forEach(b=>{
+    const seg=document.createElement('div'); seg.className='seg';
+    const fill=document.createElement('i'); fill.style.background=b.color; fill.id='seg-fill-'+b.name.replace(/\s/g,'');
+    seg.appendChild(fill); trail.appendChild(seg);
+  });
+}
+function updateTrail(){
+  BOUNDS.forEach(b=>{
+    const answeredInMod = answers.slice(b.start,b.end+1).filter(x=>x!==null).length;
+    const pct = Math.round((answeredInMod/((b.end-b.start+1)))*100);
+    const el = document.getElementById('seg-fill-'+b.name.replace(/\s/g,''));
+    if(el) el.style.width = pct+'%';
+  });
+}
+
+/* ============ TRAIL MAP (100 stamps) ============ */
+function buildTrailMap(){
+  const map = document.getElementById('trailmap');
+  map.innerHTML='';
+  BOUNDS.forEach(b=>{
+    const label=document.createElement('div'); label.className='row-label'; label.textContent=b.name;
+    map.appendChild(label);
+    const row=document.createElement('div'); row.className='dots';
+    for(let i=b.start;i<=b.end;i++){
+      const s=document.createElement('div');
+      s.className='stamp'; s.id='stamp-'+i; s.textContent=(i+1);
+      s.style.borderColor=b.color;
+      s.addEventListener('click', ()=>{ current=i; renderQuestion(); });
+      row.appendChild(s);
+    }
+    map.appendChild(row);
+  });
+}
+function updateTrailMap(){
+  for(let i=0;i<TOTAL;i++){
+    const s=document.getElementById('stamp-'+i);
+    if(!s) continue;
+    s.classList.remove('current');
+    if(answers[i]!==null){ s.classList.add('answered'); s.style.background=modColor(QUESTIONS[i].m); }
+    else { s.classList.remove('answered'); s.style.background='#fff'; }
+    if(i===current) s.classList.add('current');
+  }
+}
+document.getElementById('btn-trailmap').addEventListener('click', (e)=>{
+  const el=document.getElementById('trailmap');
+  el.classList.toggle('open');
+  e.target.textContent = el.classList.contains('open') ? 'Hide trail map' : 'Show trail map (jump to any question)';
+});
+
+/* ============ RENDER QUESTION ============ */
+function renderQuestion(){
+  const q = QUESTIONS[current];
+  document.getElementById('module-badge').style.background = q.m ? modColor(q.m) : '#666';
+  document.getElementById('module-badge-text').textContent = q.m;
+  document.getElementById('q-count').textContent = `Question ${current+1} of ${TOTAL}`;
+  document.getElementById('q-text').textContent = q.t;
+
+  const optWrap = document.getElementById('q-options');
+  optWrap.innerHTML='';
+  const letters=['A','B','C','D'];
+  q.o.forEach((opt,i)=>{
+    const div=document.createElement('div');
+    div.className='opt'+(answers[current]===i ? ' selected':'');
+    div.innerHTML = `<span class="letter">${letters[i]}</span><span>${opt}</span>`;
+    div.addEventListener('click', ()=>{
+      answers[current]=i;
+      renderQuestion();
+      updateTrail();
+      updateTrailMap();
+      updateAnsweredPill();
+    });
+    optWrap.appendChild(div);
+  });
+
+  document.getElementById('btn-prev').disabled = current===0;
+  document.getElementById('btn-prev').style.opacity = current===0 ? 0.5 : 1;
+
+  const isLast = current===TOTAL-1;
+  document.getElementById('btn-next').classList.toggle('hidden', isLast);
+  document.getElementById('btn-submit').classList.toggle('hidden', !isLast);
+
+  updateAnsweredPill();
+  updateTrail();
+  updateTrailMap();
+}
+
+function updateAnsweredPill(){
+  const n = answers.filter(x=>x!==null).length;
+  document.getElementById('q-answered-pill').textContent = `${n} / ${TOTAL} answered`;
+}
+
+document.getElementById('btn-prev').addEventListener('click', ()=>{
+  if(current>0){ current--; renderQuestion(); }
+});
+document.getElementById('btn-next').addEventListener('click', ()=>{
+  if(current<TOTAL-1){ current++; renderQuestion(); }
+});
+document.getElementById('btn-submit').addEventListener('click', ()=>{
+  const unanswered = answers.filter(x=>x===null).length;
+  if(unanswered>0){
+    const goFirst = confirm(`You still have ${unanswered} unanswered question(s). Click OK to jump to the first one, or Cancel to submit anyway.`);
+    if(goFirst){ current = answers.findIndex(x=>x===null); renderQuestion(); return; }
+  }
+  showResult();
+});
+
+/* ============ RESULT ============ */
+function showResult(){
+  let correct=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]===q.a) correct++; });
+  const pct = Math.round((correct/TOTAL)*100);
+  const incorrect = TOTAL-correct;
+
+  document.getElementById('score-num').textContent = correct;
+  document.getElementById('score-pct').textContent = pct+'% score';
+  document.getElementById('m-correct').textContent = correct;
+  document.getElementById('m-incorrect').textContent = incorrect;
+  document.getElementById('m-accuracy').textContent = pct+'%';
+
+  let grade, color, emoji, title;
+  if(pct>=90){grade='Grade A+ · Master Explorer';color='#20C997';emoji='🏆';title='Outstanding, Explorer!';}
+  else if(pct>=75){grade='Grade A · Skilled Explorer';color='#00C2A8';emoji='🏅';title='Great work, Explorer!';}
+  else if(pct>=60){grade='Grade B · Confident Explorer';color='#4DABF7';emoji='👍';title='Nice progress, Explorer!';}
+  else if(pct>=40){grade='Grade C · Rising Explorer';color='#FFA94D';emoji='🌱';title='Good start, Explorer!';}
+  else{grade='Grade D · Keep Exploring';color='#FF6B6B';emoji='🧭';title='Keep practicing, Explorer!';}
+
+  document.getElementById('result-emoji').textContent = emoji;
+  document.getElementById('result-title').textContent = title;
+  const gp = document.getElementById('grade-pill');
+  gp.textContent = grade; gp.style.background = color;
+
+  const barsWrap = document.getElementById('module-bars');
+  barsWrap.innerHTML='';
+  BOUNDS.forEach(b=>{
+    let c=0; const totalM = b.end-b.start+1;
+    for(let i=b.start;i<=b.end;i++){ if(answers[i]===QUESTIONS[i].a) c++; }
+    const p = Math.round((c/totalM)*100);
+    const row=document.createElement('div'); row.className='mbar-row';
+    row.innerHTML = `<div class="label">${b.name}</div>
+      <div class="mbar-track"><div class="mbar-fill" style="width:${p}%;background:${b.color};"></div></div>
+      <div class="frac">${c}/${totalM}</div>`;
+    barsWrap.appendChild(row);
+  });
+
+  document.getElementById('screen-quiz').classList.add('hidden');
+  document.getElementById('screen-review').classList.add('hidden');
+  document.getElementById('screen-result').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.getElementById('btn-retake').addEventListener('click', ()=>{
+  answers = new Array(TOTAL).fill(null);
+  current = 0;
+  document.getElementById('screen-result').classList.add('hidden');
+  document.getElementById('screen-quiz').classList.remove('hidden');
+  renderQuestion();
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+/* ============ REVIEW ============ */
+document.getElementById('btn-review').addEventListener('click', ()=>{
+  const list = document.getElementById('review-list');
+  list.innerHTML='';
+  QUESTIONS.forEach((q,i)=>{
+    const yourIdx = answers[i];
+    const isCorrect = yourIdx===q.a;
+    const div=document.createElement('div'); div.className='review-item';
+    const yourText = yourIdx===null ? 'No answer' : q.o[yourIdx];
+    div.innerHTML = `
+      <span class="review-mod" style="background:${modColor(q.m)}">${q.m}</span>
+      <div class="rq">${i+1}. ${q.t}</div>
+      <div class="ra">Your answer: <span class="${isCorrect?'tag-ok':'tag-bad'}">${yourText}</span></div>
+      ${isCorrect ? '' : `<div class="ra">Correct answer: <span class="tag-ok">${q.o[q.a]}</span></div>`}
+    `;
+    list.appendChild(div);
+  });
+  document.getElementById('screen-result').classList.add('hidden');
+  document.getElementById('screen-review').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+document.getElementById('btn-back-result').addEventListener('click', ()=>{
+  document.getElementById('screen-review').classList.add('hidden');
+  document.getElementById('screen-result').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+/* ============ PDF REPORT ============ */
+document.getElementById('btn-pdf').addEventListener('click', ()=>{
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  let correct=0; QUESTIONS.forEach((q,i)=>{ if(answers[i]===q.a) correct++; });
+  const pct = Math.round((correct/TOTAL)*100);
+
+  doc.setFont('helvetica','bold'); doc.setFontSize(18);
+  doc.text('Byte Explorers - Computer Skills Passport', 15, 20);
+  doc.setFontSize(11); doc.setFont('helvetica','normal');
+  doc.text('Final Passport Check Report', 15, 27);
+  doc.line(15,31,195,31);
+
+  doc.setFontSize(11);
+  doc.text(`Explorer Name: ${studentName}`, 15, 40);
+  doc.text(`Class / Grade: ${studentClass}`, 15, 47);
+  doc.text(`Date: ${new Date().toLocaleDateString()}`, 15, 54);
+
+  doc.setFont('helvetica','bold'); doc.setFontSize(14);
+  doc.text(`Score: ${correct} / ${TOTAL}  (${pct}%)`, 15, 66);
+  doc.setFont('helvetica','normal'); doc.setFontSize(11);
+  doc.text(`Correct: ${correct}    Incorrect: ${TOTAL-correct}`, 15, 73);
+
+  doc.setFont('helvetica','bold'); doc.setFontSize(13);
+  doc.text('Module-by-module mastery', 15, 85);
+  doc.setFont('helvetica','normal'); doc.setFontSize(11);
+
+  let y=93;
+  BOUNDS.forEach(b=>{
+    let c=0; const totalM=b.end-b.start+1;
+    for(let i=b.start;i<=b.end;i++){ if(answers[i]===QUESTIONS[i].a) c++; }
+    doc.text(`${b.name}: ${c}/${totalM}`, 15, y);
+    y+=7;
+    if(y>270){ doc.addPage(); y=20; }
+  });
+
+  y+=6;
+  if(y>260){ doc.addPage(); y=20; }
+  doc.setFont('helvetica','bold'); doc.setFontSize(13);
+  doc.text('Grade', 15, y); y+=8;
+  doc.setFont('helvetica','normal'); doc.setFontSize(11);
+  let gradeText;
+  if(pct>=90) gradeText='A+ - Master Explorer';
+  else if(pct>=75) gradeText='A - Skilled Explorer';
+  else if(pct>=60) gradeText='B - Confident Explorer';
+  else if(pct>=40) gradeText='C - Rising Explorer';
+  else gradeText='D - Keep Exploring';
+  doc.text(gradeText, 15, y);
+
+  doc.save(`Byte_Explorers_Report_${studentName.replace(/\s+/g,'_')}.pdf`);
+});
+</script>
+</body>
+</html>

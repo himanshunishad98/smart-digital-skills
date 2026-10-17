@@ -27,27 +27,27 @@ const SITE_CONFIG = {
   WEBSITE: "https://skillnest.co.in",
 
   // Pricing
-  CURRENT_PRICE: "\u20b95499",
-  ORIGINAL_PRICE: "\u20b97499",
-  REGISTRATION_FEES: "\u20b9499",
+  CURRENT_PRICE: "\u20b915499",
+  ORIGINAL_PRICE: "\u20b917499",
+  REGISTRATION_FEES: "\u20b91499",
 
   COURSE_PRICES: {
-    'communication-confidence-lab':       '\u20b94,999',
-    'multilingual-communication-mastery': '\u20b96,999',
-    'critical-thinking-problem-solving':  '\u20b96,999',
-    'computational-thinking-coding-logic': '\u20b98,999',
-    'emotional-intelligence-empathy':     '\u20b95,999',
-    'parakh-presentation-skills':         '\u20b95,999',
-    'public-speaking-olympiad-prep':      '\u20b915,000 - \u20b920,000',
-    'ai-literacy-prompt-engineering':     '\u20b98,000 - \u20b912,000',
-    'design-thinking-problem-solving':    '\u20b912,000 - \u20b914,000',
-    'digital-literacy-online-presence':   '\u20b97,999',
-    'digital-content-citizenship':        '\u20b97,000 - \u20b99,000',
-    'financial-literacy-payments':        '\u20b96,999',
-    'financial-literacy-wealth-creation': '\u20b95,000 - \u20b97,000',
+    'communication-confidence-lab':       '\u20b97,999',
+    'multilingual-communication-mastery': '\u20b98,999',
+    'critical-thinking-problem-solving':  '\u20b98,999',
+    'computational-thinking-coding-logic': '\u20b910,999',
+    'emotional-intelligence-empathy':     '\u20b99,999',
+    'parakh-presentation-skills':         '\u20b99,999',
+    'public-speaking-olympiad-prep':      '\u20b925,000 - \u20b930,000',
+    'ai-literacy-prompt-engineering':     '\u20b918,000 - \u20b922,000',
+    'design-thinking-problem-solving':    '\u20b915,000 - \u20b919,000',
+    'digital-literacy-online-presence':   '\u20b99,999',
+    'digital-content-citizenship':        '\u20b99,000 - \u20b911,000',
+    'financial-literacy-payments':        '\u20b911,999',
+    'financial-literacy-wealth-creation': '\u20b99,000 - \u20b910,000',
     'ipr-patent-basics':                  '\u20b98,999',
-    'retail-customer-service':            '\u20b96,999',
-    'tourism-hospitality-communication':  '\u20b97,999'
+    'retail-customer-service':            '\u20b99,999',
+    'tourism-hospitality-communication':  '\u20b911,999'
   },
 
   // Social Media

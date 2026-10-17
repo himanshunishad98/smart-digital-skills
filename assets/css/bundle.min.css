@@ -27241,6 +27241,7 @@ body,html {
     background: var(--blue-900) !important;
     background-color: var(--blue-900) !important;
   }
+}
   /* Fix: preserve dark blue background on the After card */
   div.ba-card.ref-card-dark-blue-accent:hover,
   div.ba-card.ref-card-dark-blue-accent.fade-up.visible.fg-visible:hover {
@@ -27254,4 +27255,3 @@ body,html {
   div.ba-card.ref-card-dark-blue-accent:hover li span {
     color: var(--white) !important;
   }
-}

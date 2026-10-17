@@ -1128,10 +1128,8 @@ div.fade-up {
   text-decoration: none;
 }
 
-.desktop-nav .nav-link:hover,
-.desktop-nav .nav-item.dropdown:hover > .nav-link {
-  color: var(--blue-600);
-  background: var(--blue-50);
+.desktop-nav a:hover {
+  color: var(--blue-700) !important;
 }
 
 .desktop-nav .nav-link.nav-active {

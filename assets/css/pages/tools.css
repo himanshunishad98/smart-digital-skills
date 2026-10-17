@@ -313,12 +313,14 @@ ul, ol { list-style: none; }
 }
 .btn--white {
   background: #fff;
-  color: var(--color-accent);
-  border-color: #fff;
+  color: var(--blue-900);
+  border-color: var(--gray-300);
   font-weight: 600;
 }
+
 .btn--white:hover {
-  background: rgba(255,255,255,.92);
+  background: #f3f4f6;
+  color: var(--blue-900);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0,0,0,.2);
 }

@@ -1361,3 +1361,18 @@ body:has(.sticky-cta-strip.visible) .scroll-cta-popup {
     line-height: 1.25 !important;
   }
 }
+
+/* Fix: preserve dark blue background on the After card */
+div.ba-card.ref-card-dark-blue-accent:hover,
+div.ba-card.ref-card-dark-blue-accent.fade-up.visible.fg-visible:hover {
+  background: var(--blue-900) !important;
+  background-color: var(--blue-900) !important;
+  color: var(--white) !important;
+}
+
+div.ba-card.ref-card-dark-blue-accent:hover h3,
+div.ba-card.ref-card-dark-blue-accent:hover li,
+div.ba-card.ref-card-dark-blue-accent:hover li span {
+  color: var(--white) !important;
+}
+

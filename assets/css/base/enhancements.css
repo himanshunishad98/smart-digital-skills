@@ -178,7 +178,7 @@ div.fade-up.visible.fg-visible {
   margin-bottom: 40px !important; /* Enhanced section division spacing */
 }
 
-/* Premium hover effects for light cards utilizing fade-up */
+/* Shared hover effects: preserve each card's own background */
 div.why-card.fade-up.visible.fg-visible:hover,
 div.project-card.fade-up.visible.fg-visible:hover,
 div.ba-card.fade-up.visible.fg-visible:hover,
@@ -187,8 +187,17 @@ div.daily-card.fade-up.visible.fg-visible:hover,
 div.trust-card.fade-up.visible.fg-visible:hover,
 div.testi-card.fade-up.visible.fg-visible:hover {
   transform: translateY(-8px) scale(1.025) !important;
-  box-shadow: 0 24px 48px rgba(15,40,97,0.12), 0 0 0 1px rgba(37,99,235,0.2) !important;
+  box-shadow: 0 24px 48px rgba(15,40,97,0.12),
+              0 0 0 1px rgba(37,99,235,0.2) !important;
   border-color: var(--blue-400) !important;
+}
+
+/* Keep the white hover treatment on light cards only */
+div.why-card.fade-up.visible.fg-visible:hover,
+div.project-card.fade-up.visible.fg-visible:hover,
+div.daily-card.fade-up.visible.fg-visible:hover,
+div.trust-card.fade-up.visible.fg-visible:hover,
+div.testi-card.fade-up.visible.fg-visible:hover {
   background-color: var(--white) !important;
 }
 
